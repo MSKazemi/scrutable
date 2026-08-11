@@ -28,7 +28,8 @@ The framework can improve decision quality and expose failure risks; it cannot g
 5. Read the [machine operation and output contract](docs/08-machine-operation-and-outputs.md) when building automation or an interactive navigator.
 6. Read [the output, brainstorming, convergence, and implementation contract](docs/09-output-convergence-and-implementation.md) for the canonical result, cross-question correction algorithm, convergence rules, and initial stack. The stack choice is recorded in [ADR-0001](decisions/ADR-0001-engine-implementation-stack.md).
 7. Use the [structured graph foundation](docs/structured-foundation.md) for stable IDs, typed relationships, state history, schemas, and reusable domain packs.
-8. Record results using the [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), [risk register](templates/risk-register.md), and [review scorecard](templates/review-scorecard.md).
+8. Use the [governed self-improvement and adversarial review method](docs/10-self-improvement-and-adversarial-governance.md) when challenging an idea, finding the controlling bottleneck, evaluating a pivot, or improving the framework. Its governance decision is recorded in [ADR-0002](decisions/ADR-0002-governed-adversarial-self-improvement.md).
+9. Record results using the [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), [risk register](templates/risk-register.md), [review scorecard](templates/review-scorecard.md), [improvement cycle](templates/improvement-cycle.md), and [adversarial review](templates/adversarial-review.md).
 
 The accepted framework name and its limitations are recorded in [the naming decision](decisions/0001-product-questionbook-name.md).
 
@@ -40,7 +41,9 @@ The accepted framework name and its limitations are recorded in [the naming deci
 4. Record answers with evidence, assumptions, unknowns, decisions, owners, and review triggers.
 5. Propagate each important answer into requirements, decisions, risks, experiments, metrics, tests, approvals, or operational procedures.
 6. Evaluate lifecycle gates. Critical safety, security, privacy, legal, reliability, or data-loss gaps block progress even when other areas score well.
-7. Reopen affected questions when evidence, dependencies, users, scale, regulation, incidents, or strategy change.
+7. Run independent evidence-based attacks against consequential claims, preserve dissent, and test the controlling bottleneck before commitment.
+8. Reopen affected questions when evidence, dependencies, users, scale, regulation, incidents, or strategy change.
+9. Compare predicted and observed outcomes; use the error to improve the application, idea, project graph, or reusable framework through governed change.
 
 ## Outputs
 
@@ -55,6 +58,7 @@ projections. A completed review therefore produces a bundle rather than a single
 - requirements and acceptance criteria;
 - risks, blockers, mitigations, and owners;
 - experiments, research, and follow-up actions;
+- adversarial challenge packets, controlling-bottleneck analysis, and improvement-cycle records;
 - integration and verification plans;
 - success metrics, guardrails, operational controls, and support ownership;
 - a gate result: proceed, proceed with conditions, pause, or stop;
@@ -73,9 +77,9 @@ The initial foundation includes:
 - [framework vision and boundaries](docs/vision.md), [terminology](docs/terminology.md), and [domain model](docs/domain-model.md);
 - an explicit [question state machine](docs/question-state-machine.md), [priority model](docs/prioritization.md), and [coverage matrix](docs/coverage-model.md);
 - [output](docs/output-contract.md) and [assurance](docs/assurance-rules.md) contracts;
-- JSON Schemas for questions, instances, answers, relationships, and project profiles in [`schemas/`](schemas/);
-- 77 starter templates with typed dependencies and activations across 16 domains in [`catalog/`](catalog/);
-- reusable assurance templates and a worked project-specific example.
+- JSON Schemas for questions, instances, answers, relationships, project profiles, and governed improvement cycles in [`schemas/`](schemas/);
+- 97 starter templates with 312 typed dependencies and activations across 16 domains in [`catalog/`](catalog/);
+- reusable assurance and improvement templates plus a worked project-specific example.
 
 The graph is the machine-readable source of truth. Matrices, backlogs, reports, and
 documents are projections of it.
@@ -115,12 +119,8 @@ Today this repository is a documentation-first decision framework with a validat
 structured catalog. It does not yet contain an executable parser, API, database,
 graph engine, or autonomous runtime.
 
-The target machine will select applicable questions, maintain question state, link evidence and decisions in a graph, generate artifacts, evaluate gates, and reopen affected nodes when context changes. It reduces blind spots and makes uncertainty auditable; it cannot guarantee real-world success.
+The target machine will select applicable questions, maintain question state, link evidence and decisions in a graph, generate artifacts, evaluate gates, and reopen affected nodes when context changes. Its governed improvement loop will attack unsupported claims, find the controlling bottleneck, compare pivots with stopping, measure prediction error, and propose—but not autonomously publish—framework changes. It reduces blind spots and makes uncertainty auditable; it cannot guarantee real-world success.
 
 ## Status
 
-This is version `0.4`: the graph-ready documentation now has explicit output,
-brainstorming, convergence, and implementation contracts plus stable question IDs,
-machine-validatable schemas, reusable domain packs, assurance rules, output templates,
-and a worked example. The reference stack is proposed but not yet validated by an
-executable architecture spike. See the [changelog](CHANGELOG.md).
+This is version `0.5`: the graph-ready documentation now adds governed adversarial self-improvement, pivot lineage, attraction and distribution questions, stable question IDs, machine-validatable schemas, reusable domain packs, assurance and improvement templates, and a worked example. The reference stack is proposed but not yet validated by an executable architecture spike. See the [changelog](CHANGELOG.md).

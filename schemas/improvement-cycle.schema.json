@@ -1,0 +1,286 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MSKazemi/mohsen/blob/main/schemas/improvement-cycle.schema.json",
+  "title": "Product Questionbook improvement cycle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "cycle_id",
+    "level",
+    "subject_id",
+    "trigger",
+    "baseline_revision",
+    "objective",
+    "observations",
+    "critiques",
+    "bottleneck",
+    "candidates",
+    "experiments",
+    "decision",
+    "affected_node_ids",
+    "owner",
+    "created_at"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "cycle_id": { "type": "string", "minLength": 3 },
+    "level": {
+      "type": "string",
+      "enum": ["application", "idea", "project_graph", "repository"]
+    },
+    "subject_id": { "type": "string", "minLength": 2 },
+    "trigger": { "type": "string", "minLength": 3 },
+    "baseline_revision": { "type": "integer", "minimum": 0 },
+    "objective": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["statement", "time_horizon", "guardrails", "decision_deadline"],
+      "properties": {
+        "statement": { "type": "string", "minLength": 10 },
+        "time_horizon": { "type": "string", "minLength": 2 },
+        "guardrails": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "decision_deadline": { "type": "string", "format": "date-time" }
+      }
+    },
+    "observations": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/observation" }
+    },
+    "critiques": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/critique" }
+    },
+    "bottleneck": { "$ref": "#/$defs/bottleneck" },
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/candidate" }
+    },
+    "experiments": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/experiment" }
+    },
+    "decision": { "$ref": "#/$defs/decision" },
+    "affected_node_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 2 }
+    },
+    "catalog_change_proposals": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/catalogChange" }
+    },
+    "outcome_review": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/outcomeReview" }
+      ]
+    },
+    "owner": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "format": "date-time" }
+  },
+  "$defs": {
+    "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "stringIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 2 }
+    },
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "statement", "source_type", "evidence_ids", "confidence",
+        "observed_at"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 2 },
+        "statement": { "type": "string", "minLength": 5 },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "telemetry", "experiment", "research", "incident", "review",
+            "audit", "cost", "support", "external_change"
+          ]
+        },
+        "evidence_ids": { "$ref": "#/$defs/stringIds" },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "observed_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "critique": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "target_claim", "counterclaim", "failure_mode",
+        "causal_mechanism", "severity", "likelihood", "confidence",
+        "evidence_for", "evidence_against", "falsifier", "cheapest_test",
+        "decision_impact", "reviewer_role"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 2 },
+        "target_claim": { "type": "string", "minLength": 5 },
+        "counterclaim": { "type": "string", "minLength": 5 },
+        "failure_mode": { "type": "string", "minLength": 5 },
+        "causal_mechanism": { "type": "string", "minLength": 5 },
+        "severity": { "$ref": "#/$defs/score" },
+        "likelihood": { "$ref": "#/$defs/score" },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "evidence_for": { "$ref": "#/$defs/stringIds" },
+        "evidence_against": { "$ref": "#/$defs/stringIds" },
+        "falsifier": { "type": "string", "minLength": 5 },
+        "cheapest_test": { "type": "string", "minLength": 5 },
+        "decision_impact": { "type": "string", "minLength": 5 },
+        "reviewer_role": { "type": "string", "minLength": 2 }
+      }
+    },
+    "bottleneck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "statement", "scores", "dependent_node_ids"],
+      "properties": {
+        "id": { "type": "string", "minLength": 2 },
+        "statement": { "type": "string", "minLength": 5 },
+        "scores": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "impact", "centrality", "uncertainty", "evidence_weakness",
+            "irreversibility", "urgency", "validation_cost"
+          ],
+          "properties": {
+            "impact": { "$ref": "#/$defs/score" },
+            "centrality": { "$ref": "#/$defs/score" },
+            "uncertainty": { "$ref": "#/$defs/score" },
+            "evidence_weakness": { "$ref": "#/$defs/score" },
+            "irreversibility": { "$ref": "#/$defs/score" },
+            "urgency": { "$ref": "#/$defs/score" },
+            "validation_cost": { "$ref": "#/$defs/score" },
+            "computed_score": { "type": "number", "minimum": 0 }
+          }
+        },
+        "dependent_node_ids": { "$ref": "#/$defs/stringIds" }
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "action", "summary", "invariant_ids", "assumptions",
+        "predicted_outcomes"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 2 },
+        "action": {
+          "type": "string",
+          "enum": [
+            "continue", "implementation_change", "solution_pivot",
+            "customer_pivot", "problem_pivot", "domain_pivot", "split",
+            "pause", "stop"
+          ]
+        },
+        "summary": { "type": "string", "minLength": 5 },
+        "invariant_ids": { "$ref": "#/$defs/stringIds" },
+        "assumptions": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "predicted_outcomes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 3 }
+        }
+      }
+    },
+    "experiment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "hypothesis", "method", "success_threshold",
+        "failure_threshold", "status", "evidence_ids"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 2 },
+        "hypothesis": { "type": "string", "minLength": 5 },
+        "method": { "type": "string", "minLength": 5 },
+        "success_threshold": { "type": "string", "minLength": 3 },
+        "failure_threshold": { "type": "string", "minLength": 3 },
+        "status": {
+          "type": "string",
+          "enum": ["planned", "running", "completed", "cancelled"]
+        },
+        "result": { "type": ["string", "null"] },
+        "evidence_ids": { "$ref": "#/$defs/stringIds" }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action", "selected_candidate_id", "rationale", "confidence",
+        "kill_criteria", "approval_status", "decided_at"
+      ],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "continue", "implementation_change", "solution_pivot",
+            "customer_pivot", "problem_pivot", "domain_pivot", "split",
+            "pause", "stop"
+          ]
+        },
+        "selected_candidate_id": { "type": "string", "minLength": 2 },
+        "rationale": { "type": "string", "minLength": 5 },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "kill_criteria": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "approval_status": {
+          "type": "string",
+          "enum": ["proposed", "accepted", "rejected"]
+        },
+        "decided_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "catalogChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["proposal_id", "change_type", "rationale", "evidence_ids"],
+      "properties": {
+        "proposal_id": { "type": "string", "minLength": 2 },
+        "change_type": {
+          "type": "string",
+          "enum": ["add", "revise", "deprecate", "relationship", "policy"]
+        },
+        "affected_template_ids": { "$ref": "#/$defs/stringIds" },
+        "rationale": { "type": "string", "minLength": 5 },
+        "evidence_ids": { "$ref": "#/$defs/stringIds" }
+      }
+    },
+    "outcomeReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewed_at", "observed_outcomes", "prediction_error", "next_trigger"],
+      "properties": {
+        "reviewed_at": { "type": "string", "format": "date-time" },
+        "observed_outcomes": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "prediction_error": { "type": "string", "minLength": 3 },
+        "next_trigger": { "type": "string", "minLength": 3 }
+      }
+    }
+  }
+}

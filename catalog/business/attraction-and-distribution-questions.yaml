@@ -1,0 +1,180 @@
+schema_version: 1
+domain: business
+questions:
+  - id: business.attention-audience.001
+    version: 1
+    status: published
+    question: Whose qualified attention is necessary for success, why would they notice, and whose attention would be irrelevant or harmful?
+    purpose: Define attraction as audience-specific progress rather than undifferentiated visibility.
+    domain: business
+    lifecycle_stages: [discover, define, release, operate, evolve]
+    applies_when: [success depends on adoption, purchase, participation, influence, or integration]
+    answer_type: structured
+    criticality: critical
+    depends_on: [users.needs.001, product.value-proposition.001, core.success.001]
+    activates: [business.positioning.001, business.channels.001]
+    evidence_required: [audience segmentation, attention triggers, exclusion and harm analysis]
+    expected_outputs: [qualified-audience definition, attention guardrails]
+    answered_by_roles: [product owner, growth owner, user researcher, ethics owner]
+    revisit_when: [the audience, outcome, market, or harm profile changes]
+    tags: [attention, audience, attraction]
+
+  - id: business.positioning.001
+    version: 1
+    status: published
+    question: Which category, problem, promise, and proof make the subject understandable and distinct to the intended audience?
+    purpose: Prevent discovery effort from amplifying a message that users cannot understand or distinguish.
+    domain: business
+    lifecycle_stages: [discover, define, release, evolve]
+    applies_when: [people or systems must choose the subject among alternatives]
+    answer_type: structured
+    criticality: high
+    depends_on: [business.attention-audience.001, product.value-proposition.001]
+    activates: [business.channels.001]
+    evidence_required: [message comprehension test, alternative and category analysis, proof points]
+    expected_outputs: [positioning brief, tested message hierarchy]
+    answered_by_roles: [product marketing owner, product owner, target users]
+    revisit_when: [audience language, competitors, category, or value proposition changes]
+    tags: [positioning, message, differentiation]
+
+  - id: business.channels.001
+    version: 1
+    status: published
+    question: Through which owned, earned, paid, partner, community, sales, search, marketplace, and integration channels can the intended audience discover the subject?
+    purpose: Make distribution a designed system with evidence rather than a post-release hope.
+    domain: business
+    lifecycle_stages: [discover, define, design, release, operate, evolve]
+    applies_when: [success depends on an external audience discovering or adopting the subject]
+    answer_type: structured
+    criticality: critical
+    depends_on: [business.attention-audience.001, business.positioning.001, business.adoption.001]
+    activates: [business.funnel.001, business.machine-discovery.001, business.distribution-risk.001]
+    evidence_required: [channel map, audience-channel fit research, cost and control assumptions]
+    expected_outputs: [distribution strategy, channel experiment backlog]
+    answered_by_roles: [growth owner, sales owner, partnerships owner, product owner]
+    revisit_when: [channel performance, access, policy, audience, or economics changes]
+    tags: [channels, distribution, discovery]
+
+  - id: business.funnel.001
+    version: 1
+    status: published
+    question: What are the measured transitions from qualified reach to attention, activation, retained value, referral or expansion, and sustainable economics?
+    purpose: Expose where attraction leaks instead of presenting top-of-funnel volume as success.
+    domain: business
+    lifecycle_stages: [define, verify, release, operate, evolve]
+    applies_when: [success depends on a sequence of discovery and adoption behaviors]
+    answer_type: structured
+    criticality: critical
+    depends_on: [business.channels.001, core.success.001]
+    activates: [business.advertising.001, business.retention.001, business.attention-quality.001]
+    evidence_required: [segmented funnel metrics, denominators, cohorts, attribution, time windows]
+    expected_outputs: [funnel model, measurement plan, leak analysis]
+    answered_by_roles: [growth owner, analytics owner, product owner]
+    revisit_when: [a transition rate changes, instrumentation or attribution is questioned]
+    tags: [funnel, conversion, acquisition]
+
+  - id: business.advertising.001
+    version: 1
+    status: published
+    question: Does paid advertising create incremental qualified activation and retained value at an acceptable full acquisition cost?
+    purpose: Test advertising as a bounded causal experiment rather than buying vanity impressions.
+    domain: business
+    lifecycle_stages: [verify, release, operate, evolve]
+    applies_when: [paid promotion is proposed or operating]
+    answer_type: structured
+    criticality: high
+    depends_on: [business.funnel.001, business.economics.001]
+    activates: [core.learning-loop.001]
+    evidence_required: [incrementality design, spend cap, CAC, activation and cohort retention, stop threshold]
+    expected_outputs: [advertising experiment, acquisition-economics decision]
+    answered_by_roles: [growth owner, finance owner, analytics owner]
+    revisit_when: [cost, attribution, targeting, platform policy, or cohort quality changes]
+    tags: [advertising, cac, incrementality]
+
+  - id: business.retention.001
+    version: 1
+    status: published
+    question: Does acquired attention become repeated beneficial use or durable value for the intended segment over the required time horizon?
+    purpose: Distinguish lasting usefulness and adoption from curiosity, coercion, or one-time activation.
+    domain: business
+    lifecycle_stages: [verify, release, operate, evolve]
+    applies_when: [success requires repeated use, renewal, continued participation, or durable outcomes]
+    answer_type: structured
+    criticality: critical
+    depends_on: [business.funnel.001, business.adoption.001]
+    activates: [business.referral.001, business.attention-quality.001]
+    evidence_required: [segmented retention cohorts, beneficial-outcome measures, churn reasons]
+    expected_outputs: [retention analysis, product and channel corrections]
+    answered_by_roles: [product owner, analytics owner, user researcher]
+    revisit_when: [retention, outcome quality, or churn reasons change]
+    tags: [retention, cohorts, value]
+
+  - id: business.referral.001
+    version: 1
+    status: published
+    question: Why and through which trustworthy mechanism would users, organizations, platforms, or agents recommend, share, integrate, or expand the subject?
+    purpose: Evaluate earned growth without assuming virality or manipulating users.
+    domain: business
+    lifecycle_stages: [design, verify, release, operate, evolve]
+    applies_when: [referral, sharing, partnerships, or expansion contributes to growth]
+    answer_type: structured
+    criticality: high
+    depends_on: [business.retention.001, product.value-proposition.001]
+    evidence_required: [referral mechanism test, trust and incentive analysis, referred-cohort quality]
+    expected_outputs: [referral design, earned-growth evidence]
+    answered_by_roles: [growth owner, product owner, ethics owner]
+    revisit_when: [incentives, trust, referred-user quality, or platform rules change]
+    tags: [referral, sharing, earned-growth]
+
+  - id: business.machine-discovery.001
+    version: 1
+    status: published
+    question: Can relevant search engines, AI agents, package registries, marketplaces, platforms, and integration catalogs discover and correctly evaluate the subject?
+    purpose: Include machine-mediated visibility and integration in modern distribution.
+    domain: business
+    lifecycle_stages: [define, design, verify, release, operate, evolve]
+    applies_when: [software or machine intermediaries influence discovery, recommendation, procurement, or integration]
+    answer_type: structured
+    criticality: high
+    depends_on: [business.channels.001, users.actors.001]
+    evidence_required: [indexed presence, metadata and documentation checks, agent or marketplace evaluation tests]
+    expected_outputs: [machine-discovery plan, metadata and integration requirements]
+    answered_by_roles: [developer relations owner, SEO owner, integration owner, technical writer]
+    revisit_when: [indexing, marketplace, agent, registry, or platform behavior changes]
+    tags: [agents, search, marketplace, discoverability]
+
+  - id: business.attention-quality.001
+    version: 1
+    status: published
+    question: Is observed attention attributable to the intended segment and value proposition, or is it vanity, controversy, deception, addiction, or unrelated demand?
+    purpose: Prevent harmful or misleading attention from being counted as product success.
+    domain: business
+    lifecycle_stages: [verify, release, operate, evolve]
+    applies_when: [attention or traffic is used as a success signal]
+    answer_type: structured
+    criticality: critical
+    depends_on: [business.funnel.001, business.retention.001]
+    activates: [ethics.harms.001]
+    evidence_required: [segment attribution, downstream outcomes, complaint and harm signals, incentive review]
+    expected_outputs: [attention-quality assessment, metric guardrails]
+    answered_by_roles: [analytics owner, product owner, ethics owner, evidence auditor]
+    revisit_when: [traffic source, audience mix, incentives, reputation, or harms change]
+    tags: [vanity-metrics, attention, ethics]
+
+  - id: business.distribution-risk.001
+    version: 1
+    status: published
+    question: Which channel, platform, account, algorithm, policy, partner, or reputation dependency can abruptly remove access to the intended audience?
+    purpose: Treat distribution concentration and continuity as critical business dependencies.
+    domain: business
+    lifecycle_stages: [define, design, release, operate, evolve, retire]
+    applies_when: [discovery or acquisition depends on external channels or gatekeepers]
+    answer_type: structured
+    criticality: high
+    depends_on: [business.channels.001, business.continuity.001]
+    evidence_required: [channel concentration, terms and policy review, loss scenarios, recovery test]
+    expected_outputs: [distribution risk register, diversification and continuity plan]
+    answered_by_roles: [growth owner, business owner, legal owner, operations owner]
+    revisit_when: [channel concentration, platform terms, account health, or reputation changes]
+    tags: [platform-risk, concentration, continuity]
+

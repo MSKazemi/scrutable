@@ -2,6 +2,18 @@
 
 Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
+## 0.5 — 2026-08-11
+
+- Defined separate improvement loops for an application, an idea, a project-specific graph, and the reusable repository.
+- Added a bounded observe, attack, bottleneck, question, experiment, decide, propagate, and outcome-review algorithm.
+- Added independent adversarial roles, falsifiable challenge packets, cross-examination, evidence auditing, anti-sycophancy rules, and accountable decision ownership.
+- Added a controlling-bottleneck score using impact, graph centrality, uncertainty, evidence weakness, irreversibility, urgency, and validation cost.
+- Added pivot classes, preserved-invariant tests, domain-pivot lineage, and explicit comparison with continuing, splitting, pausing, and stopping.
+- Added attraction, positioning, channel, funnel, advertising incrementality, acquisition economics, retention, referral, machine-discovery, attention-quality, and distribution-continuity coverage.
+- Added 20 reusable questions and 73 relationships, bringing the structured catalog to 97 questions and 312 dependencies/activations.
+- Added an improvement-cycle JSON Schema, improvement-cycle and adversarial-review templates, and ADR-0002.
+- Protected published catalogs, schemas, blocker policies, security controls, and approval rules from autonomous self-modification.
+
 ## 0.4 — 2026-08-11
 
 - Defined the canonical output as a versioned decision and assurance package backed by a traceable knowledge graph.
