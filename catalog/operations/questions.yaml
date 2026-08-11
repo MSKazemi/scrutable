@@ -1,0 +1,85 @@
+schema_version: 1
+domain: operations
+questions:
+  - id: operations.observability.001
+    version: 1
+    status: published
+    question: Which signals reveal user impact, system health, data quality, security events, and progress toward outcomes?
+    purpose: Observe behavior through meaningful signals rather than infrastructure noise alone.
+    domain: operations
+    lifecycle_stages: [design, build, verify, release, operate, evolve]
+    applies_when: [the subject operates beyond a one-time offline action]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.success.001, reliability.availability.001]
+    activates: [operations.incident.001]
+    evidence_required: [signal-to-risk mapping, alert tests, dashboard review]
+    expected_outputs: [observability plan, service dashboard]
+    answered_by_roles: [operations owner, product owner, security owner]
+    revisit_when: [failure modes, objectives, or signals change]
+
+  - id: operations.release.001
+    version: 1
+    status: published
+    question: How will changes be built, reviewed, deployed, limited, observed, rolled back, and proven reproducible?
+    purpose: Control release risk and preserve the ability to recover from a bad change.
+    domain: operations
+    lifecycle_stages: [design, build, verify, release, operate, evolve]
+    applies_when: [the subject is deployed or distributed]
+    answer_type: structured
+    criticality: critical
+    depends_on: [architecture.evolution.001, core.failure.001]
+    activates: [quality.release-gate.001]
+    evidence_required: [deployment test, provenance record, rollback exercise]
+    expected_outputs: [release plan, deployment runbook]
+    answered_by_roles: [operations owner, engineering lead, security owner]
+    revisit_when: [delivery topology, risk, or tooling changes]
+
+  - id: operations.incident.001
+    version: 1
+    status: published
+    question: How will incidents be declared, triaged, mitigated, communicated, reviewed, and followed through to learning?
+    purpose: Create a shared response system that reduces impact and prevents recurrence.
+    domain: operations
+    lifecycle_stages: [release, operate, evolve]
+    applies_when: [the subject can cause service, data, safety, or security incidents]
+    answer_type: structured
+    criticality: critical
+    depends_on: [operations.observability.001, core.ownership.001]
+    evidence_required: [incident exercise, on-call and escalation test, review examples]
+    expected_outputs: [incident response plan, escalation matrix]
+    answered_by_roles: [operations owner, system owner, communications owner]
+    revisit_when: [an incident or exercise reveals a gap]
+
+  - id: operations.support.001
+    version: 1
+    status: published
+    question: Who supports users and operators, through which channels and service targets, with access to what diagnostic information?
+    purpose: Make support capacity, escalation, privacy, and feedback loops operational before release.
+    domain: operations
+    lifecycle_stages: [define, design, release, operate, evolve]
+    applies_when: [users or operators may need help]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.ownership.001, users.feedback.001]
+    evidence_required: [support workflow test, staffing and escalation review]
+    expected_outputs: [support plan, escalation path]
+    answered_by_roles: [support owner, product owner, operations owner]
+    revisit_when: [usage, channels, service targets, or staffing changes]
+
+  - id: operations.supply-chain.001
+    version: 1
+    status: published
+    question: How are build inputs, dependencies, artifacts, environments, and update channels inventoried, trusted, scanned, and recoverable?
+    purpose: Reduce compromise and continuity risk inherited through the software supply chain.
+    domain: operations
+    lifecycle_stages: [design, build, verify, release, operate]
+    applies_when: [the subject uses third-party or generated build inputs]
+    answer_type: structured
+    criticality: critical
+    depends_on: [architecture.dependencies.001]
+    evidence_required: [software bill of materials, provenance check, dependency and artifact scan]
+    expected_outputs: [supply-chain policy, dependency inventory]
+    answered_by_roles: [security owner, engineering lead, operations owner]
+    revisit_when: [build chain, dependency, or distribution channel changes]
+

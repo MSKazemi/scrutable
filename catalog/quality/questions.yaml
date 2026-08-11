@@ -1,0 +1,85 @@
+schema_version: 1
+domain: quality
+questions:
+  - id: quality.acceptance.001
+    version: 1
+    status: published
+    question: What observable criteria must be satisfied for each requirement, journey, and release decision?
+    purpose: Make completion and readiness testable before implementation begins.
+    domain: quality
+    lifecycle_stages: [define, design, build, verify, release]
+    applies_when: [requirements or releases exist]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.success.001, product.requirements.001]
+    activates: [quality.strategy.001]
+    evidence_required: [reviewed acceptance criteria, traceability review]
+    expected_outputs: [acceptance criteria, requirement traceability]
+    answered_by_roles: [product owner, quality owner, domain expert]
+    revisit_when: [requirements, risks, or success measures change]
+
+  - id: quality.strategy.001
+    version: 1
+    status: published
+    question: Which test levels and techniques will provide the required confidence for each important risk?
+    purpose: Allocate testing effort according to consequences and uncertainty.
+    domain: quality
+    lifecycle_stages: [design, build, verify, release, evolve]
+    applies_when: [the subject will be implemented or changed]
+    answer_type: structured
+    criticality: critical
+    depends_on: [quality.acceptance.001, core.failure.001]
+    activates: [quality.testability.001]
+    evidence_required: [risk-to-test mapping, test plan review]
+    expected_outputs: [test strategy, coverage model]
+    answered_by_roles: [quality owner, engineering lead, domain expert]
+    revisit_when: [risk, architecture, or defect patterns change]
+
+  - id: quality.testability.001
+    version: 1
+    status: published
+    question: What observability, control, isolation, fixtures, and environments are needed to test the subject reliably?
+    purpose: Design testability into the system instead of accepting slow or unreliable validation.
+    domain: quality
+    lifecycle_stages: [design, build, verify, evolve]
+    applies_when: [important behavior must be verified]
+    answer_type: structured
+    criticality: high
+    depends_on: [quality.strategy.001, architecture.decomposition.001]
+    evidence_required: [test architecture review, test reliability measurements]
+    expected_outputs: [testability requirements, environment plan]
+    answered_by_roles: [quality owner, architect, engineering team]
+    revisit_when: [tests become flaky, slow, unsafe, or incomplete]
+
+  - id: quality.validation.001
+    version: 1
+    status: published
+    question: Which assumptions require research, experiments, prototypes, simulation, or production measurement rather than ordinary tests?
+    purpose: Match the validation method to uncertainty that implementation tests cannot resolve.
+    domain: quality
+    lifecycle_stages: [discover, define, design, verify, operate, evolve]
+    applies_when: [important assumptions remain uncertain]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.assumptions.001, core.evidence.001]
+    evidence_required: [validation protocol, experiment or research results]
+    expected_outputs: [validation plan, experiment backlog]
+    answered_by_roles: [product owner, researcher, quality owner]
+    revisit_when: [an assumption changes or evidence becomes stale]
+
+  - id: quality.release-gate.001
+    version: 1
+    status: published
+    question: Which verified criteria, accepted risks, rollback capabilities, and approvals are required before release?
+    purpose: Turn release readiness into an explicit, auditable decision.
+    domain: quality
+    lifecycle_stages: [verify, release]
+    applies_when: [a release or material exposure increase is planned]
+    answer_type: structured
+    criticality: critical
+    depends_on: [quality.acceptance.001, core.ownership.001, operations.release.001]
+    evidence_required: [gate checklist, evidence links, signed risk acceptances]
+    expected_outputs: [launch-readiness report, release decision record]
+    answered_by_roles: [system owner, product owner, quality owner]
+    revisit_when: [release scope or critical evidence changes]
+

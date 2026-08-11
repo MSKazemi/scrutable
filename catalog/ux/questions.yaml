@@ -1,0 +1,69 @@
+schema_version: 1
+domain: ux
+questions:
+  - id: ux.journeys.001
+    version: 1
+    status: published
+    question: What end-to-end journeys must each actor complete, including error, recovery, and exit paths?
+    purpose: Design the full experience rather than only the ideal interface path.
+    domain: ux
+    lifecycle_stages: [define, design, build, verify]
+    applies_when: [the subject has human-facing interactions]
+    answer_type: structured
+    criticality: high
+    depends_on: [users.actors.001, users.needs.001]
+    activates: [quality.acceptance.001, ux.accessibility.001]
+    evidence_required: [journey research, prototype evaluation]
+    expected_outputs: [journey maps, interaction requirements]
+    answered_by_roles: [designer, product owner, user researcher]
+    revisit_when: [workflow or actor responsibilities change]
+
+  - id: ux.accessibility.001
+    version: 1
+    status: published
+    question: Which accessibility needs and standards apply, and how will conformance be tested with people and tools?
+    purpose: Make access a designed and verified quality rather than a late compliance check.
+    domain: ux
+    lifecycle_stages: [define, design, build, verify, operate]
+    applies_when: [humans interact with the subject]
+    answer_type: structured
+    criticality: critical
+    depends_on: [users.exclusion.001, ux.journeys.001]
+    evidence_required: [accessibility acceptance criteria, manual and automated test results]
+    expected_outputs: [accessibility plan, conformance report]
+    answered_by_roles: [accessibility owner, designer, quality owner]
+    revisit_when: [interface, standard, or target population changes]
+
+  - id: ux.comprehension.001
+    version: 1
+    status: published
+    question: Can intended users understand system status, consequences, choices, and errors before acting?
+    purpose: Reduce avoidable mistakes, dark patterns, and dependence on hidden system knowledge.
+    domain: ux
+    lifecycle_stages: [design, build, verify, evolve]
+    applies_when: [the subject presents information or choices to people]
+    answer_type: structured
+    criticality: high
+    depends_on: [ux.journeys.001]
+    evidence_required: [usability test, content review]
+    expected_outputs: [content design rules, usability findings]
+    answered_by_roles: [designer, content designer, user researcher]
+    revisit_when: [language, workflow, or decision consequences change]
+
+  - id: ux.control.001
+    version: 1
+    status: published
+    question: What control do users need to undo, correct, export, pause, or leave the experience?
+    purpose: Preserve agency and provide recovery from mistakes or changed intent.
+    domain: ux
+    lifecycle_stages: [design, build, verify, operate, retire]
+    applies_when: [user actions create persistent or consequential effects]
+    answer_type: structured
+    criticality: high
+    depends_on: [ux.journeys.001, core.failure.001]
+    activates: [data.deletion.001, retirement.user-exit.001]
+    evidence_required: [recovery path tests, user evaluation]
+    expected_outputs: [interaction requirements, recovery procedures]
+    answered_by_roles: [designer, product owner, data owner]
+    revisit_when: [actions become more consequential or less reversible]
+

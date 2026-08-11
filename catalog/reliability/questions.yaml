@@ -1,0 +1,69 @@
+schema_version: 1
+domain: reliability
+questions:
+  - id: reliability.failure-modes.001
+    version: 1
+    status: published
+    question: How can each component, dependency, operator action, and data flow fail, and how would failure propagate?
+    purpose: Reveal single points of failure and unsafe interactions before operation.
+    domain: reliability
+    lifecycle_stages: [design, build, verify, operate, evolve]
+    applies_when: [service continuity or correctness matters]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.failure.001, architecture.decomposition.001, architecture.dependencies.001]
+    activates: [reliability.recovery.001, reliability.resilience-test.001]
+    evidence_required: [failure-mode analysis, dependency behavior review]
+    expected_outputs: [failure model, risk register]
+    answered_by_roles: [reliability owner, architect, operations owner]
+    revisit_when: [topology, dependencies, or incident patterns change]
+
+  - id: reliability.availability.001
+    version: 1
+    status: published
+    question: Which user journeys need what level of availability, durability, and correctness, over which measurement windows?
+    purpose: Translate vague reliability expectations into measurable service objectives.
+    domain: reliability
+    lifecycle_stages: [define, design, verify, operate]
+    applies_when: [interruption or data loss would matter]
+    answer_type: structured
+    criticality: high
+    depends_on: [architecture.constraints.001, ux.journeys.001]
+    activates: [operations.observability.001]
+    evidence_required: [service-level indicators, historical or load-test baseline]
+    expected_outputs: [service-level objectives, error budget policy]
+    answered_by_roles: [product owner, reliability owner, operations owner]
+    revisit_when: [user dependence, cost, or service behavior changes]
+
+  - id: reliability.recovery.001
+    version: 1
+    status: published
+    question: What must be recovered, within what time and data-loss limits, and in which failure scenarios?
+    purpose: Align backup and recovery mechanisms with actual continuity needs.
+    domain: reliability
+    lifecycle_stages: [design, build, verify, operate, retire]
+    applies_when: [state or service must survive failure]
+    answer_type: structured
+    criticality: critical
+    depends_on: [reliability.failure-modes.001, data.lifecycle.001]
+    evidence_required: [restore test, failover exercise, recovery timing]
+    expected_outputs: [recovery plan, continuity runbook]
+    answered_by_roles: [operations owner, data owner, system owner]
+    revisit_when: [data volume, topology, or recovery objectives change]
+
+  - id: reliability.resilience-test.001
+    version: 1
+    status: published
+    question: Which realistic failures will be injected or simulated to verify graceful degradation and recovery?
+    purpose: Test resilience claims under controlled conditions instead of waiting for production failure.
+    domain: reliability
+    lifecycle_stages: [build, verify, release, operate]
+    applies_when: [the subject has important failure modes]
+    answer_type: structured
+    criticality: high
+    depends_on: [reliability.failure-modes.001, reliability.recovery.001]
+    evidence_required: [resilience test results, unresolved finding review]
+    expected_outputs: [resilience test plan, readiness report]
+    answered_by_roles: [reliability owner, quality owner, operations owner]
+    revisit_when: [a new failure mode or topology appears]
+

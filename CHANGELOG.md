@@ -10,6 +10,13 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 - Added explicit brainstorming divergence, challenge, promotion, and validation rules; candidate answers can never become accepted merely because they were generated.
 - Documented the process guarantees the engine may claim and the real-world success guarantees it must not claim.
 - Proposed a Python reference implementation stack and recorded its rationale, validation spike, consequences, and reversal triggers in ADR-0001.
+- Added 77 stable, reusable question templates across 16 domains with 239 declared dependencies and activations.
+- Added JSON Schemas for question templates, project-specific instances, answer revisions, typed relationships, and project profiles.
+- Added explicit domain, lifecycle, state-machine, prioritization, coverage, output, and assurance contracts.
+- Separated reusable templates from project answers, evidence, ownership, and state history.
+- Added project charter, assurance decision, risk register, and readiness report templates.
+- Added a worked sample application showing verified, asked, dormant, and not-applicable question states.
+- Defined an honest assurance promise: critical concerns require accepted evidence or explicit risk acceptance with an owner and review date.
 
 ## 0.3 — 2026-08-11
 

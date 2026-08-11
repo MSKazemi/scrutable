@@ -1,0 +1,114 @@
+schema_version: 1
+instances:
+  - id: qi-clinic-boundary
+    project_id: clinic-portal
+    subject_id: patient-booking-web
+    question_id: core.boundary.001
+    template_version: 1
+    state: verified
+    owner: Example Product Owner
+    priority:
+      impact: 5
+      uncertainty: 2
+      unlock_value: 5
+      urgency: 4
+      cost: 1
+      computed_score: 200
+    answer_ids: [answer-clinic-boundary-v1]
+    review_due_at: null
+    history:
+      - from: null
+        to: ready
+        at: "2026-08-11T12:00:00Z"
+        actor: inquiry-engine
+        reason: Core profile questions always apply.
+      - from: ready
+        to: answered
+        at: "2026-08-11T13:00:00Z"
+        actor: Example Product Owner
+        reason: Initial subject boundary recorded.
+        trigger_id: answer-clinic-boundary-v1
+      - from: answered
+        to: verified
+        at: "2026-08-11T15:00:00Z"
+        actor: Example Clinic Director
+        reason: Scope statement reviewed and accepted.
+        trigger_id: evidence-approved-scope
+
+  - id: qi-clinic-beneficiaries
+    project_id: clinic-portal
+    subject_id: patient-booking-web
+    question_id: core.beneficiaries.001
+    template_version: 1
+    state: asked
+    owner: Example User Researcher
+    priority:
+      impact: 5
+      uncertainty: 4
+      unlock_value: 5
+      urgency: 4
+      cost: 2
+      computed_score: 200
+    answer_ids: []
+    review_due_at: null
+    history:
+      - from: dormant
+        to: ready
+        at: "2026-08-11T15:00:01Z"
+        actor: inquiry-engine
+        reason: The boundary dependency was verified.
+        trigger_id: qi-clinic-boundary
+      - from: ready
+        to: asked
+        at: "2026-08-11T15:05:00Z"
+        actor: Example Product Owner
+        reason: Assigned for stakeholder research.
+
+  - id: qi-clinic-security-identity
+    project_id: clinic-portal
+    subject_id: patient-booking-web
+    question_id: security.identity.001
+    template_version: 1
+    state: dormant
+    owner: null
+    priority:
+      impact: 5
+      uncertainty: 5
+      unlock_value: 4
+      urgency: 2
+      cost: 3
+      computed_score: 66.67
+    answer_ids: []
+    review_due_at: null
+    history:
+      - from: null
+        to: dormant
+        at: "2026-08-11T12:00:00Z"
+        actor: inquiry-engine
+        reason: Actor and threat-model dependencies are not yet answered.
+
+  - id: qi-clinic-payments
+    project_id: clinic-portal
+    subject_id: patient-booking-web
+    question_id: business.economics.001
+    template_version: 1
+    state: not_applicable
+    owner: Example Product Owner
+    priority:
+      impact: 2
+      uncertainty: 1
+      unlock_value: 1
+      urgency: 1
+      cost: 1
+      computed_score: 2
+    answer_ids: []
+    not_applicable_reason: Payment economics are outside this assessment boundary; lifecycle operating cost remains covered by a separate instance.
+    review_due_at: null
+    history:
+      - from: dormant
+        to: not_applicable
+        at: "2026-08-11T13:30:00Z"
+        actor: Example Product Owner
+        reason: Payments are explicitly outside the approved subject boundary.
+        trigger_id: answer-clinic-boundary-v1
+

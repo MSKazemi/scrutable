@@ -1,0 +1,69 @@
+schema_version: 1
+domain: ethics
+questions:
+  - id: ethics.affected-parties.001
+    version: 1
+    status: published
+    question: Which people, communities, environments, and institutions may be affected even if they never choose to use the subject?
+    purpose: Extend assessment beyond customers and direct users.
+    domain: ethics
+    lifecycle_stages: [discover, define, design, evolve, retire]
+    applies_when: [the subject can affect people, society, or the environment]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.beneficiaries.001, core.boundary.001]
+    activates: [ethics.harms.001, ethics.distribution.001]
+    evidence_required: [affected-party research, domain expert review]
+    expected_outputs: [affected-party map, impact assessment]
+    answered_by_roles: [ethics owner, user researcher, domain expert]
+    revisit_when: [use, scale, geography, or affected populations change]
+
+  - id: ethics.harms.001
+    version: 1
+    status: published
+    question: What foreseeable harms, abuses, power imbalances, and chilling effects could arise from intended use, misuse, or failure?
+    purpose: Identify impacts that ordinary functional and security requirements may miss.
+    domain: ethics
+    lifecycle_stages: [discover, define, design, verify, operate, evolve]
+    applies_when: [the subject can influence people, opportunity, rights, or resources]
+    answer_type: structured
+    criticality: critical
+    depends_on: [ethics.affected-parties.001, core.failure.001]
+    activates: [ethics.distribution.001, ethics.contestability.001]
+    evidence_required: [harm and abuse analysis, affected-party review, mitigation tests]
+    expected_outputs: [impact assessment, harm mitigations]
+    answered_by_roles: [ethics owner, product owner, domain expert]
+    revisit_when: [usage, incentives, scale, or incident evidence changes]
+
+  - id: ethics.distribution.001
+    version: 1
+    status: published
+    question: How are benefits, errors, burdens, access, and risks distributed among different groups?
+    purpose: Detect aggregate success that conceals systematic disadvantage.
+    domain: ethics
+    lifecycle_stages: [define, design, verify, operate, evolve]
+    applies_when: [outcomes can differ across people or groups]
+    answer_type: structured
+    criticality: high
+    depends_on: [ethics.affected-parties.001, ethics.harms.001, users.exclusion.001]
+    evidence_required: [disaggregated evaluation, representativeness review]
+    expected_outputs: [distributional impact report, monitoring thresholds]
+    answered_by_roles: [ethics owner, data analyst, affected-party representative]
+    revisit_when: [population, model, policy, or observed outcomes change]
+
+  - id: ethics.contestability.001
+    version: 1
+    status: published
+    question: Can affected people understand, challenge, correct, and obtain human review of consequential outcomes?
+    purpose: Preserve agency and recourse when the subject shapes important decisions.
+    domain: ethics
+    lifecycle_stages: [design, build, verify, operate]
+    applies_when: [the subject produces consequential recommendations or decisions]
+    answer_type: structured
+    criticality: critical
+    depends_on: [ethics.harms.001, ux.control.001]
+    evidence_required: [appeal-path test, explanation evaluation, human-review procedure]
+    expected_outputs: [contestability requirements, appeal process]
+    answered_by_roles: [ethics owner, product owner, legal owner]
+    revisit_when: [decision consequence, automation, or policy changes]
+

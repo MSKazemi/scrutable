@@ -1,0 +1,87 @@
+schema_version: 1
+domain: business
+questions:
+  - id: business.viability.001
+    version: 1
+    status: published
+    question: What evidence shows that the intended value is desirable, feasible, viable, and supportable?
+    purpose: Examine success across user demand, delivery capability, economics, and operation.
+    domain: business
+    lifecycle_stages: [discover, define, verify, evolve]
+    applies_when: [the subject consumes sustained investment]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.outcome.001, core.assumptions.001]
+    activates: [business.economics.001, business.adoption.001]
+    evidence_required: [research synthesis, feasibility evidence, business assumptions]
+    expected_outputs: [business case, viability assessment]
+    answered_by_roles: [sponsor, product owner, engineering lead]
+    revisit_when: [strategy, evidence, costs, or demand changes]
+
+  - id: business.economics.001
+    version: 1
+    status: published
+    question: What does the subject cost to build, acquire users for, operate, support, change, and retire under realistic scenarios?
+    purpose: Expose total lifecycle cost and the variables that can invalidate the model.
+    domain: business
+    lifecycle_stages: [define, design, release, operate, evolve, retire]
+    applies_when: [the subject requires money or material resources]
+    answer_type: structured
+    criticality: high
+    depends_on: [business.viability.001, core.constraints.001]
+    activates: [performance.efficiency.001]
+    evidence_required: [cost model, sensitivity analysis, actual cost baseline when operating]
+    expected_outputs: [economic model, budget and thresholds]
+    answered_by_roles: [finance owner, sponsor, operations owner]
+    revisit_when: [pricing, scale, architecture, or staffing changes]
+
+  - id: business.adoption.001
+    version: 1
+    status: published
+    question: What must change in user behavior, workflow, incentives, trust, or migration for adoption to occur?
+    purpose: Treat adoption as a system change rather than an automatic result of release.
+    domain: business
+    lifecycle_stages: [discover, define, design, release, evolve]
+    applies_when: [success depends on people or organizations adopting the subject]
+    answer_type: structured
+    criticality: high
+    depends_on: [product.value-proposition.001, users.needs.001]
+    evidence_required: [adoption research, pilot or migration evidence]
+    expected_outputs: [adoption plan, change-management risks]
+    answered_by_roles: [product owner, change owner, user researcher]
+    revisit_when: [target behavior, incentives, or workflow changes]
+
+  - id: business.incentives.001
+    version: 1
+    status: published
+    question: Which incentives could cause customers, users, partners, or the team to misuse or game the system or its success metrics?
+    purpose: Anticipate behavior created by metrics, pricing, ranking, and power asymmetry.
+    domain: business
+    lifecycle_stages: [define, design, verify, operate, evolve]
+    applies_when: [actors receive rewards, penalties, rankings, or economic value]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.success.001, users.actors.001]
+    activates: [ethics.harms.001]
+    evidence_required: [incentive analysis, abuse scenarios, metric review]
+    expected_outputs: [incentive-risk assessment, control requirements]
+    answered_by_roles: [product owner, business owner, ethics owner]
+    revisit_when: [metrics, pricing, ranking, or actor incentives change]
+
+  - id: business.continuity.001
+    version: 1
+    status: published
+    question: What happens to users, obligations, data, and dependent organizations if funding, a supplier, or the operating organization disappears?
+    purpose: Include organizational failure and exit in continuity planning.
+    domain: business
+    lifecycle_stages: [define, operate, evolve, retire]
+    applies_when: [others depend on continued operation or access]
+    answer_type: structured
+    criticality: high
+    depends_on: [business.economics.001, architecture.dependencies.001]
+    activates: [retirement.transition.001]
+    evidence_required: [continuity scenarios, contractual and dependency review]
+    expected_outputs: [business continuity plan, exit triggers]
+    answered_by_roles: [sponsor, system owner, legal owner]
+    revisit_when: [funding, ownership, or critical suppliers change]
+

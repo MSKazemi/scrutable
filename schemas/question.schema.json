@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MSKazemi/mohsen/blob/main/schemas/question.schema.json",
+  "title": "Product Questionbook question template",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version",
+    "status",
+    "question",
+    "purpose",
+    "domain",
+    "lifecycle_stages",
+    "answer_type",
+    "criticality",
+    "evidence_required",
+    "expected_outputs"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+){2,}$"
+    },
+    "version": { "type": "integer", "minimum": 1 },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "reviewed", "published", "deprecated"]
+    },
+    "question": { "type": "string", "minLength": 10 },
+    "purpose": { "type": "string", "minLength": 10 },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "core", "product", "users", "ux", "architecture", "data",
+        "security", "reliability", "performance", "quality", "operations",
+        "business", "legal", "team", "ethics", "retirement"
+      ]
+    },
+    "lifecycle_stages": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "discover", "define", "design", "build", "verify", "release",
+          "operate", "evolve", "retire"
+        ]
+      }
+    },
+    "applies_when": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3 },
+      "default": ["always"]
+    },
+    "answer_type": {
+      "type": "string",
+      "enum": ["boolean", "text", "number", "enum", "list", "structured"]
+    },
+    "criticality": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "depends_on": {
+      "$ref": "#/$defs/questionIds"
+    },
+    "refines": {
+      "$ref": "#/$defs/questionIds"
+    },
+    "activates": {
+      "$ref": "#/$defs/questionIds"
+    },
+    "related_to": {
+      "$ref": "#/$defs/questionIds"
+    },
+    "evidence_required": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 2 }
+    },
+    "expected_outputs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 2 }
+    },
+    "answered_by_roles": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 2 }
+    },
+    "revisit_when": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3 }
+    },
+    "tags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z0-9-]+$" }
+    },
+    "deprecated_by": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+){2,}$"
+    }
+  },
+  "$defs": {
+    "questionIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+){2,}$"
+      }
+    }
+  }
+}
+

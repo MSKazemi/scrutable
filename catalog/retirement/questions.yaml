@@ -1,0 +1,68 @@
+schema_version: 1
+domain: retirement
+questions:
+  - id: retirement.ownership.001
+    version: 1
+    status: published
+    question: Who can decide to retire the subject, who executes the plan, and which signals trigger the decision?
+    purpose: Make retirement an owned lifecycle stage rather than an abandoned system.
+    domain: retirement
+    lifecycle_stages: [define, operate, evolve, retire]
+    applies_when: [the subject can outlive its initial project team]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.ownership.001, core.success.001]
+    activates: [retirement.transition.001, retirement.user-exit.001, retirement.data-disposition.001]
+    evidence_required: [accepted ownership and trigger review]
+    expected_outputs: [retirement ownership, exit triggers]
+    answered_by_roles: [system owner, sponsor, operations owner]
+    revisit_when: [ownership, economics, obligations, or service health changes]
+
+  - id: retirement.transition.001
+    version: 1
+    status: published
+    question: Which users, systems, contracts, and organizations depend on the subject, and how will each transition safely?
+    purpose: Prevent hidden dependencies from turning retirement into disruption or lock-in.
+    domain: retirement
+    lifecycle_stages: [operate, evolve, retire]
+    applies_when: [others depend on continued operation or interfaces]
+    answer_type: structured
+    criticality: critical
+    depends_on: [retirement.ownership.001, architecture.dependencies.001, business.continuity.001]
+    evidence_required: [dependency confirmation, migration rehearsal, communication review]
+    expected_outputs: [transition plan, dependency exit checklist]
+    answered_by_roles: [system owner, product owner, partner owners]
+    revisit_when: [a dependency or replacement option changes]
+
+  - id: retirement.user-exit.001
+    version: 1
+    status: published
+    question: How much notice, continued access, export, support, and alternative path do users need before shutdown?
+    purpose: Protect user agency and continuity when the service relationship ends.
+    domain: retirement
+    lifecycle_stages: [design, operate, evolve, retire]
+    applies_when: [users depend on access, history, or workflows]
+    answer_type: structured
+    criticality: high
+    depends_on: [retirement.ownership.001, ux.control.001, users.needs.001]
+    evidence_required: [user-impact review, export and migration test, communication plan]
+    expected_outputs: [user exit plan, shutdown communications]
+    answered_by_roles: [product owner, support owner, legal owner]
+    revisit_when: [user dependence, alternatives, or obligations change]
+
+  - id: retirement.data-disposition.001
+    version: 1
+    status: published
+    question: What happens to records, user data, logs, backups, models, source, credentials, and audit evidence after retirement?
+    purpose: Fulfil retention, deletion, continuity, security, and accountability obligations after shutdown.
+    domain: retirement
+    lifecycle_stages: [design, operate, retire]
+    applies_when: [the subject stores data, artifacts, or secrets]
+    answer_type: structured
+    criticality: critical
+    depends_on: [retirement.ownership.001, data.deletion.001, security.secrets.001]
+    evidence_required: [disposition inventory, deletion or transfer verification, credential revocation]
+    expected_outputs: [data disposition plan, retirement evidence package]
+    answered_by_roles: [data owner, security owner, legal owner, operations owner]
+    revisit_when: [retention obligations, storage locations, or recipients change]
+

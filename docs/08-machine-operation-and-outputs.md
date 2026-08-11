@@ -1,6 +1,6 @@
 # Machine operation and output contract
 
-**Status:** Architecture contract; engine implementation is not yet present  
+**Status:** Architecture overview; structured schemas are present, engine implementation is not yet present  
 **Applies to:** software products, services, platforms, frameworks, AI systems, integrations, and robot-connected systems
 
 ## What this repository is
@@ -33,63 +33,36 @@ Every run needs the following inputs. Missing values remain explicit unknowns.
 
 The term **subject** is deliberately broader than application. It may be a product, application, service, platform, framework, process, AI agent, integration, or robot-connected system.
 
-## Canonical question record
+## Canonical structured definitions
 
-A machine-ready question needs stable metadata in addition to its human-readable text. Markdown remains the source format; YAML front matter or fenced YAML may carry structured fields.
+Version 0.4 separates the human-readable question banks from the machine-readable
+catalog. The following files are authoritative for structured operation:
 
-~~~yaml
-schema_version: question/v0.1
-id: ARCH-001
-text: What is the simplest architecture that meets current evidence and constraints?
-aspect: architecture-and-maintainability
-importance_default: important
-applies_when:
-  any_subject_type: [application, service, platform, framework, ai-system]
-depends_on: [CTX-001, SCOPE-001]
-produces: [decision, requirement, risk, experiment]
-required_at: [architecture-review]
-blocker_if:
-  - critical_dependency_has_no_owner
-evidence_expected:
-  - architecture-record
-  - constraint-list
-review_triggers:
-  - major_scope_change
-  - critical_dependency_change
-~~~
+- [structured graph foundation](structured-foundation.md): representations and workflow;
+- [domain model](domain-model.md): entities, typed relationships, and invariants;
+- [question state machine](question-state-machine.md): instance and template lifecycles;
+- [prioritization](prioritization.md): ranking formula and mandatory overrides;
+- [output contract](output-contract.md): machine, human, and action outputs;
+- [assurance rules](assurance-rules.md): completion and readiness semantics;
+- [JSON Schemas](../schemas/): validation contracts;
+- [YAML catalog](../catalog/): stable reusable question templates.
 
-Stable IDs must not be derived only from line numbers because documents are edited over time.
+The numbered Markdown question banks remain the broad human-readable source material.
+A question is machine-operable after it has a stable catalog ID and validates against
+the question schema. Project answers, evidence, ownership, and state are stored in
+instances and answer revisions, not in the reusable template.
 
 ## Question state machine
 
-~~~mermaid
-stateDiagram-v2
-    [*] --> Unseen
-    Unseen --> Selected: applicable
-    Unseen --> NotApplicable: reason recorded
-    Selected --> Asked
-    Asked --> Answered
-    Answered --> NeedsEvidence: insufficient support
-    NeedsEvidence --> Answered: evidence added
-    Answered --> Blocked: critical gap
-    Answered --> Verified: checks pass
-    Verified --> Accepted: owner approves
-    Blocked --> Answered: gap resolved
-    Accepted --> Superseded: context changes
-    NotApplicable --> Selected: applicability changes
-    Superseded --> Selected: review reopened
-~~~
+The canonical state machine is defined in
+[question-state-machine.md](question-state-machine.md). Its instance states are
+`dormant`, `ready`, `asked`, `answered`, `clarification_required`, `blocked`,
+`verified`, `stale`, and `not_applicable`. Template publication separately follows
+`draft -> reviewed -> published -> deprecated`.
 
-Deferred may be used from Selected, Asked, or Answered, but it requires an owner, reason, due date or trigger, and a statement of what risk is accepted.
-
-State rules:
-
-- Unknown is valid; invented certainty is not.
-- NotApplicable requires a recorded reason.
-- NeedsEvidence is not equivalent to Accepted.
-- A critical blocker prevents a Proceed result even if aggregate scores are high.
-- Accepted requires an owner and verification rule; high-impact decisions also require an authorized human approver.
-- A changed dependency, policy, incident, metric, or assumption can reopen an accepted answer.
+Unknown information remains explicit. `not_applicable` requires a reason, a critical
+blocker prevents readiness, and verified answers can become stale after a dependency,
+policy, incident, metric, assumption, or review deadline changes.
 
 ## Knowledge graph
 
@@ -230,11 +203,12 @@ Structural completion does **not** guarantee commercial, technical, ethical, or 
 
 | Phase | Capability | Completion evidence |
 | --- | --- | --- |
-| 0 — current | Human-readable question banks and templates | Existing Markdown documents |
-| 1 | Stable question IDs and structured metadata | All question records validate |
+| 0 — complete | Human-readable question banks and templates | Existing Markdown documents |
+| 1 — current | Stable question IDs, schemas, structured metadata, and examples | Starter catalog and examples validate |
 | 2 | Parser, schema validator, and link checker | Repeatable tests in CI |
 | 3 | Dependency graph, state transitions, prioritizer, and gate evaluator | Deterministic scenario tests |
 | 4 | CLI/API plus human, agent, workflow, CI, and device adapters | Versioned contract tests |
 | 5 | Domain packs, evaluations, telemetry, and change-impact analysis | Quality and safety benchmarks |
 
-Until phases 1–3 exist, consumers should treat this repository as a rigorously structured decision framework, not as an executable autonomous machine.
+Until phases 2–3 exist, consumers should treat this repository as a rigorously structured decision framework with a validated starter catalog, not as an executable autonomous machine.
+

@@ -1,0 +1,87 @@
+schema_version: 1
+domain: architecture
+questions:
+  - id: architecture.context.001
+    version: 1
+    status: published
+    question: What surrounds the subject, and where are its users, systems, data flows, and trust boundaries?
+    purpose: Establish the system context before choosing components or technologies.
+    domain: architecture
+    lifecycle_stages: [define, design, evolve]
+    applies_when: [the subject interacts with people, data, or other systems]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.boundary.001, users.actors.001]
+    activates: [architecture.dependencies.001, security.threats.001, data.inventory.001]
+    evidence_required: [reviewed context diagram, interface inventory]
+    expected_outputs: [system context, integration inventory]
+    answered_by_roles: [architect, engineering lead, security owner]
+    revisit_when: [a boundary, actor, data flow, or integration changes]
+
+  - id: architecture.constraints.001
+    version: 1
+    status: published
+    question: Which quality attributes and constraints drive the architecture, and how are their tradeoffs ranked?
+    purpose: Ensure architecture decisions respond to explicit needs rather than fashion or habit.
+    domain: architecture
+    lifecycle_stages: [define, design, evolve]
+    applies_when: [the subject requires technical design]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.constraints.001, core.failure.001, product.requirements.001]
+    activates: [architecture.decomposition.001, performance.objectives.001, reliability.availability.001]
+    evidence_required: [quality attribute scenarios, tradeoff review]
+    expected_outputs: [architecture drivers, decision criteria]
+    answered_by_roles: [architect, product owner, operations owner]
+    revisit_when: [requirements, scale, or constraints change]
+
+  - id: architecture.decomposition.001
+    version: 1
+    status: published
+    question: How are responsibilities and data divided, and where must consistency or isolation be enforced?
+    purpose: Create understandable boundaries with explicit coupling and failure behavior.
+    domain: architecture
+    lifecycle_stages: [design, build, evolve]
+    applies_when: [the subject has multiple components or responsibilities]
+    answer_type: structured
+    criticality: high
+    depends_on: [architecture.context.001, architecture.constraints.001]
+    activates: [reliability.failure-modes.001, quality.testability.001]
+    evidence_required: [component model, architecture review, prototype where uncertain]
+    expected_outputs: [architecture description, decision records]
+    answered_by_roles: [architect, engineering team]
+    revisit_when: [coupling, ownership, or failure patterns become costly]
+
+  - id: architecture.dependencies.001
+    version: 1
+    status: published
+    question: Which external services, libraries, platforms, and teams can constrain or fail the subject?
+    purpose: Make inherited availability, security, cost, licensing, and continuity risks visible.
+    domain: architecture
+    lifecycle_stages: [design, build, release, operate, evolve]
+    applies_when: [the subject has external dependencies]
+    answer_type: structured
+    criticality: critical
+    depends_on: [architecture.context.001]
+    activates: [reliability.failure-modes.001, legal.licenses.001, operations.supply-chain.001]
+    evidence_required: [dependency inventory, service commitments, maintenance and license review]
+    expected_outputs: [dependency register, continuity plan]
+    answered_by_roles: [engineering lead, operations owner, legal owner]
+    revisit_when: [a dependency version, owner, terms, or health changes]
+
+  - id: architecture.evolution.001
+    version: 1
+    status: published
+    question: How can interfaces, data, and components evolve without breaking consumers or losing recoverability?
+    purpose: Include compatibility, migration, and rollback in the architecture.
+    domain: architecture
+    lifecycle_stages: [design, build, release, evolve, retire]
+    applies_when: [the subject has persistent data or consumers]
+    answer_type: structured
+    criticality: high
+    depends_on: [architecture.decomposition.001, architecture.dependencies.001]
+    evidence_required: [versioning strategy, migration and rollback test]
+    expected_outputs: [evolution strategy, compatibility policy]
+    answered_by_roles: [architect, engineering lead, operations owner]
+    revisit_when: [a breaking change or migration is planned]
+

@@ -1,0 +1,88 @@
+schema_version: 1
+domain: data
+questions:
+  - id: data.inventory.001
+    version: 1
+    status: published
+    question: What data enters, is derived, stored, shared, and leaves the subject, and where does each item originate?
+    purpose: Create an accountable inventory before designing storage, access, privacy, or deletion.
+    domain: data
+    lifecycle_stages: [define, design, build, operate, evolve, retire]
+    applies_when: [the subject processes data]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.boundary.001, architecture.context.001]
+    activates: [data.classification.001, data.lifecycle.001, security.authorization.001]
+    evidence_required: [data-flow review, source and destination inventory]
+    expected_outputs: [data inventory, data-flow diagram]
+    answered_by_roles: [data owner, architect, privacy owner]
+    revisit_when: [a data source, purpose, field, or recipient changes]
+
+  - id: data.classification.001
+    version: 1
+    status: published
+    question: How sensitive, regulated, valuable, and harmful if wrong is each data class?
+    purpose: Apply controls and quality thresholds in proportion to consequences.
+    domain: data
+    lifecycle_stages: [define, design, build, operate]
+    applies_when: [the subject processes data]
+    answer_type: structured
+    criticality: critical
+    depends_on: [data.inventory.001, core.failure.001]
+    activates: [security.authorization.001, legal.privacy-basis.001, data.quality.001]
+    evidence_required: [approved classification, regulatory and harm review]
+    expected_outputs: [data classification, control requirements]
+    answered_by_roles: [data owner, security owner, privacy owner]
+    revisit_when: [data use, sensitivity, or regulation changes]
+
+  - id: data.quality.001
+    version: 1
+    status: published
+    question: Which data-quality dimensions matter for each decision, and how will failures be detected and corrected?
+    purpose: Tie accuracy, completeness, freshness, and consistency to actual consequences.
+    domain: data
+    lifecycle_stages: [design, build, verify, operate, evolve]
+    applies_when: [outputs or decisions depend on data]
+    answer_type: structured
+    criticality: high
+    depends_on: [data.inventory.001, data.classification.001]
+    activates: [operations.observability.001, quality.acceptance.001]
+    evidence_required: [quality profile, validation tests, correction workflow]
+    expected_outputs: [data-quality specification, monitoring plan]
+    answered_by_roles: [data owner, quality owner, domain expert]
+    revisit_when: [source behavior or decision consequences change]
+
+  - id: data.lifecycle.001
+    version: 1
+    status: published
+    question: Why is each data class retained, for how long, in which locations, and under whose authority?
+    purpose: Prevent indefinite or unjustified retention and uncontrolled replication.
+    domain: data
+    lifecycle_stages: [define, design, operate, retire]
+    applies_when: [the subject stores or replicates data]
+    answer_type: structured
+    criticality: critical
+    depends_on: [data.inventory.001, data.classification.001]
+    activates: [data.deletion.001, legal.privacy-basis.001]
+    evidence_required: [retention justification, storage inventory, deletion schedule]
+    expected_outputs: [data lifecycle plan, retention schedule]
+    answered_by_roles: [data owner, privacy owner, legal owner]
+    revisit_when: [purpose, location, law, or contract changes]
+
+  - id: data.deletion.001
+    version: 1
+    status: published
+    question: How will data be corrected, exported, deleted, and proven absent across primary stores, replicas, logs, and backups?
+    purpose: Make user rights and lifecycle commitments operationally achievable.
+    domain: data
+    lifecycle_stages: [design, build, verify, operate, retire]
+    applies_when: [stored data can require correction, export, or deletion]
+    answer_type: structured
+    criticality: critical
+    depends_on: [data.lifecycle.001, ux.control.001]
+    activates: [retirement.data-disposition.001]
+    evidence_required: [end-to-end deletion test, restoration and backup policy]
+    expected_outputs: [data-rights procedure, deletion verification]
+    answered_by_roles: [data owner, operations owner, privacy owner]
+    revisit_when: [storage topology or legal obligations change]
+

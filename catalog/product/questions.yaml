@@ -1,0 +1,86 @@
+schema_version: 1
+domain: product
+questions:
+  - id: product.value-proposition.001
+    version: 1
+    status: published
+    question: Why would the intended user choose this outcome or experience over current alternatives?
+    purpose: Test whether the proposal creates meaningful differentiated value.
+    domain: product
+    lifecycle_stages: [discover, define]
+    applies_when: [the subject serves users or customers]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.outcome.001, users.needs.001]
+    evidence_required: [user interviews, alternative analysis]
+    expected_outputs: [value proposition, product brief]
+    answered_by_roles: [product owner, user researcher]
+    revisit_when: [alternatives or user priorities change]
+
+  - id: product.requirements.001
+    version: 1
+    status: published
+    question: Which outcomes and constraints are true requirements, and which proposed features are only possible solutions?
+    purpose: Preserve room for better solutions and expose unsupported requirements.
+    domain: product
+    lifecycle_stages: [define, design, build, evolve]
+    applies_when: [the subject will be designed or changed]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.outcome.001, core.constraints.001]
+    activates: [quality.acceptance.001, architecture.context.001]
+    evidence_required: [traceable requirement sources, stakeholder review]
+    expected_outputs: [product requirements, requirement traceability]
+    answered_by_roles: [product owner, domain expert]
+    revisit_when: [scope or evidence changes]
+
+  - id: product.scope.001
+    version: 1
+    status: published
+    question: What is the smallest coherent release that can test the most important assumptions safely?
+    purpose: Limit cost while ensuring the release produces useful evidence.
+    domain: product
+    lifecycle_stages: [define, design, release]
+    applies_when: [a release is planned]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.assumptions.001, core.failure.001]
+    evidence_required: [release hypothesis, risk review]
+    expected_outputs: [release scope, experiment plan]
+    answered_by_roles: [product owner, engineering lead]
+    revisit_when: [risk, deadline, or learning goals change]
+
+  - id: product.naming-purpose.001
+    version: 1
+    status: published
+    question: What should the product or framework name communicate, and to which audience?
+    purpose: Define naming criteria from positioning rather than personal preference.
+    domain: product
+    lifecycle_stages: [discover, define, release]
+    applies_when: [the subject needs a public or internal identity]
+    answer_type: structured
+    criticality: medium
+    depends_on: [core.outcome.001, core.beneficiaries.001, product.value-proposition.001]
+    activates: [product.naming-validation.001]
+    evidence_required: [positioning brief, audience language research]
+    expected_outputs: [naming brief, naming criteria]
+    answered_by_roles: [product owner, brand owner]
+    revisit_when: [positioning or audience changes]
+
+  - id: product.naming-validation.001
+    version: 1
+    status: published
+    question: Is the proposed name distinctive, pronounceable, culturally appropriate, legally available, and usable across required domains and platforms?
+    purpose: Prevent brand confusion, exclusion, legal conflict, and costly renaming.
+    domain: product
+    lifecycle_stages: [define, verify, release]
+    applies_when: [a candidate name exists]
+    answer_type: structured
+    criticality: high
+    depends_on: [product.naming-purpose.001]
+    activates: [legal.naming-rights.001]
+    evidence_required: [audience testing, language review, trademark search, domain and handle search]
+    expected_outputs: [name evaluation matrix, naming decision record]
+    answered_by_roles: [brand owner, legal owner, target users]
+    revisit_when: [target markets expand, a conflicting mark appears]
+

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MSKazemi/mohsen/blob/main/schemas/answer.schema.json",
+  "title": "Product Questionbook answer revision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id", "project_id", "subject_id", "question_instance_id", "revision",
+    "value", "confidence", "owner", "created_at", "evidence_ids"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 3 },
+    "project_id": { "type": "string", "minLength": 2 },
+    "subject_id": { "type": "string", "minLength": 2 },
+    "question_instance_id": { "type": "string", "minLength": 3 },
+    "revision": { "type": "integer", "minimum": 1 },
+    "value": {},
+    "summary": { "type": "string" },
+    "assumptions": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 3 }
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "owner": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "format": "date-time" },
+    "valid_until": { "type": ["string", "null"], "format": "date-time" },
+    "evidence_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "decision_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "supersedes": { "type": ["string", "null"] },
+    "review_status": {
+      "type": "string",
+      "enum": ["unreviewed", "accepted", "rejected", "needs_clarification"]
+    }
+  }
+}
+

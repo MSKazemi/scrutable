@@ -1,0 +1,68 @@
+schema_version: 1
+domain: team
+questions:
+  - id: team.accountability.001
+    version: 1
+    status: published
+    question: Who is accountable for each important outcome, decision, risk, control, artifact, and lifecycle stage?
+    purpose: Give every consequential item a person with authority and responsibility.
+    domain: team
+    lifecycle_stages: [define, design, release, operate, evolve, retire]
+    applies_when: [more than one person or role contributes]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.ownership.001]
+    activates: [team.authority.001]
+    evidence_required: [accepted responsibility map, escalation review]
+    expected_outputs: [responsibility map, governance plan]
+    answered_by_roles: [sponsor, project lead, system owner]
+    revisit_when: [people, roles, suppliers, or organization change]
+
+  - id: team.authority.001
+    version: 1
+    status: published
+    question: Which decisions require consultation, approval, independent review, or formal risk acceptance, and by whom?
+    purpose: Match decision authority and independence to consequence.
+    domain: team
+    lifecycle_stages: [define, design, verify, release, operate]
+    applies_when: [decisions affect multiple stakeholders or carry material risk]
+    answer_type: structured
+    criticality: high
+    depends_on: [team.accountability.001, core.failure.001]
+    evidence_required: [governance review, accepted decision rights]
+    expected_outputs: [decision-rights matrix, approval workflow]
+    answered_by_roles: [sponsor, governance owner, risk owner]
+    revisit_when: [risk level or organization changes]
+
+  - id: team.capability.001
+    version: 1
+    status: published
+    question: Which skills, capacity, tools, access, and domain knowledge are required, and where are the fragile gaps?
+    purpose: Reveal delivery and operational risk hidden behind plans and role titles.
+    domain: team
+    lifecycle_stages: [define, design, build, release, operate, evolve]
+    applies_when: [people must build, govern, support, or operate the subject]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.stage.001, architecture.constraints.001]
+    evidence_required: [capability assessment, staffing and succession plan]
+    expected_outputs: [capability matrix, staffing or training plan]
+    answered_by_roles: [project lead, engineering lead, operations owner]
+    revisit_when: [scope, technology, staffing, or ownership changes]
+
+  - id: team.communication.001
+    version: 1
+    status: published
+    question: How will decisions, assumptions, evidence, changes, and operational knowledge reach everyone who depends on them?
+    purpose: Prevent stale local knowledge and conflicting implementations.
+    domain: team
+    lifecycle_stages: [define, design, build, release, operate, evolve]
+    applies_when: [multiple people or teams depend on shared knowledge]
+    answer_type: structured
+    criticality: medium
+    depends_on: [team.accountability.001]
+    evidence_required: [communication paths, decision and runbook review]
+    expected_outputs: [communication plan, knowledge ownership]
+    answered_by_roles: [project lead, team leads]
+    revisit_when: [team topology or coordination needs change]
+

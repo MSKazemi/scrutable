@@ -1,0 +1,171 @@
+schema_version: 1
+domain: core
+questions:
+  - id: core.boundary.001
+    version: 1
+    status: published
+    question: What are we creating, and what is explicitly inside and outside its boundary?
+    purpose: Prevent answers from silently referring to different subjects or scopes.
+    domain: core
+    lifecycle_stages: [discover, define, evolve]
+    applies_when: [always]
+    answer_type: structured
+    criticality: critical
+    activates: [architecture.context.001, data.inventory.001, legal.obligations.001]
+    evidence_required: [approved scope statement]
+    expected_outputs: [project charter, system context]
+    answered_by_roles: [product owner, system owner]
+    revisit_when: [scope changes, a major integration is added]
+
+  - id: core.beneficiaries.001
+    version: 1
+    status: published
+    question: Who should benefit from the subject, and who else can be affected by it?
+    purpose: Reveal direct users, indirect stakeholders, excluded groups, and possible harms.
+    domain: core
+    lifecycle_stages: [discover, define, evolve]
+    applies_when: [always]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.boundary.001]
+    activates: [users.actors.001, users.needs.001, ethics.affected-parties.001]
+    evidence_required: [stakeholder research]
+    expected_outputs: [stakeholder map, user research plan]
+    answered_by_roles: [product owner, user researcher]
+    revisit_when: [target population changes, a new affected group is discovered]
+
+  - id: core.outcome.001
+    version: 1
+    status: published
+    question: What problem or desired outcome justifies creating this subject?
+    purpose: Anchor implementation decisions in an outcome rather than a requested feature.
+    domain: core
+    lifecycle_stages: [discover, define]
+    applies_when: [always]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.beneficiaries.001]
+    activates: [product.value-proposition.001, business.viability.001]
+    evidence_required: [problem research, baseline measurement]
+    expected_outputs: [problem statement, project charter]
+    answered_by_roles: [sponsor, product owner]
+    revisit_when: [research contradicts the problem, strategy changes]
+
+  - id: core.success.001
+    version: 1
+    status: published
+    question: How will success, failure, and unacceptable side effects be measured?
+    purpose: Make outcomes falsifiable and prevent vanity metrics from defining readiness.
+    domain: core
+    lifecycle_stages: [discover, define, verify, operate]
+    applies_when: [always]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.outcome.001]
+    activates: [quality.acceptance.001, operations.observability.001, business.economics.001]
+    evidence_required: [metric definitions, baseline data, measurement plan]
+    expected_outputs: [success scorecard, acceptance criteria]
+    answered_by_roles: [product owner, data analyst, sponsor]
+    revisit_when: [metrics can be gamed, outcomes change, new harms are found]
+
+  - id: core.stage.001
+    version: 1
+    status: published
+    question: What lifecycle stage is the subject in, and what commitment is being considered next?
+    purpose: Ask questions at the moment their answers can still change a decision.
+    domain: core
+    lifecycle_stages: [discover, define, design, build, verify, release, operate, evolve, retire]
+    applies_when: [always]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.boundary.001]
+    evidence_required: [current plan, release or investment decision]
+    expected_outputs: [assessment scope, readiness gate]
+    answered_by_roles: [project lead, system owner]
+    revisit_when: [a lifecycle gate is crossed]
+
+  - id: core.failure.001
+    version: 1
+    status: published
+    question: What can fail, who would be harmed, and how severe and reversible could the consequences be?
+    purpose: Set assurance depth in proportion to real-world impact and reversibility.
+    domain: core
+    lifecycle_stages: [discover, define, design, operate]
+    applies_when: [always]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.beneficiaries.001, core.boundary.001]
+    activates: [reliability.failure-modes.001, security.threats.001, ethics.harms.001]
+    evidence_required: [preliminary risk assessment]
+    expected_outputs: [risk register, assurance level]
+    answered_by_roles: [system owner, domain expert, risk owner]
+    revisit_when: [exposure grows, a severe incident occurs]
+
+  - id: core.constraints.001
+    version: 1
+    status: published
+    question: Which technical, financial, legal, time, organizational, and ethical constraints cannot be changed?
+    purpose: Distinguish genuine constraints from habits and make tradeoffs explicit.
+    domain: core
+    lifecycle_stages: [discover, define, design, evolve]
+    applies_when: [always]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.boundary.001]
+    activates: [architecture.constraints.001, business.economics.001, legal.obligations.001]
+    evidence_required: [constraint sources, approved exceptions]
+    expected_outputs: [constraint register, project charter]
+    answered_by_roles: [project lead, architect, sponsor, legal owner]
+    revisit_when: [a constraint source changes]
+
+  - id: core.assumptions.001
+    version: 1
+    status: published
+    question: What assumptions are we currently treating as true, and what happens if each is false?
+    purpose: Convert invisible beliefs into testable hypotheses and visible risk.
+    domain: core
+    lifecycle_stages: [discover, define, design, build, evolve]
+    applies_when: [always]
+    answer_type: list
+    criticality: critical
+    depends_on: [core.outcome.001, core.constraints.001]
+    activates: [quality.validation.001, business.viability.001]
+    evidence_required: [assumption tests, research or experiment results]
+    expected_outputs: [assumption register, experiment backlog]
+    answered_by_roles: [whole project team]
+    revisit_when: [new evidence appears, a dependency changes]
+
+  - id: core.evidence.001
+    version: 1
+    status: published
+    question: What evidence already exists, how reliable is it, and when will it become stale?
+    purpose: Reuse trustworthy knowledge without confusing old or weak evidence with fact.
+    domain: core
+    lifecycle_stages: [discover, define, verify, evolve]
+    applies_when: [always]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.assumptions.001]
+    activates: [quality.validation.001]
+    evidence_required: [evidence inventory, source quality review]
+    expected_outputs: [evidence index, research gaps]
+    answered_by_roles: [project lead, researcher, quality owner]
+    revisit_when: [evidence expires, source conditions change]
+
+  - id: core.ownership.001
+    version: 1
+    status: published
+    question: Who owns outcomes, decisions, risks, operation, and eventual retirement throughout the subject's lifetime?
+    purpose: Prevent critical concerns from remaining unresolved because accountability is unclear.
+    domain: core
+    lifecycle_stages: [define, design, release, operate, retire]
+    applies_when: [always]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.boundary.001, core.stage.001]
+    activates: [team.accountability.001, operations.support.001, retirement.ownership.001]
+    evidence_required: [accepted responsibility assignment]
+    expected_outputs: [ownership map, escalation path]
+    answered_by_roles: [sponsor, system owner]
+    revisit_when: [organization changes, ownership is transferred]
+
