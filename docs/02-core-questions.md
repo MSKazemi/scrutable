@@ -16,6 +16,7 @@ These are the minimum questions to answer before committing substantial time or 
 N1. What should the name help the intended audience understand, feel, remember, and expect?
 N2. Can intended users pronounce, spell, recall, search for, and distinguish the name?
 N3. What linguistic, cultural, legal, trademark, domain, package, app-store, and account-name risks must be cleared?
+N4. Do exact, unquoted, category, and problem searches show an older or stronger entity that will dominate branded search results?
 
 Continue with the detailed [naming and identity questions](07-naming-and-identity.md).
 
@@ -49,24 +50,27 @@ Continue with the detailed [naming and identity questions](07-naming-and-identit
 23. What system qualities are critical: security, privacy, safety, availability, latency, scale, accessibility, or maintainability?
 24. What data is required, who owns it, where does it come from, and how long should it exist?
 25. What architecture is the simplest one that satisfies known constraints?
-26. Which external systems and vendors can fail, change, become expensive, or disappear?
-27. How will the product be tested, observed, deployed, rolled back, recovered, and supported?
+26. Which people, organizations, software platforms, AI agents, robots, devices, and physical-world interfaces must interact with the product, and where are authority and responsibility boundaries?
+27. Which external systems and vendors can fail, change, become expensive, or disappear?
+28. How will the product be tested, observed, deployed, rolled back, recovered, and supported?
 
 ## Trust and responsibility
 
-28. What can attackers, insiders, careless users, or automated abuse do?
-29. What personal, confidential, regulated, or safety-critical information is involved?
-30. What laws, contracts, standards, licenses, and organizational policies apply?
-31. Which decisions require human judgment, appeal, explanation, or audit history?
-32. What is the worst credible failure, and how will we prevent, detect, contain, and learn from it?
+29. What can attackers, insiders, careless users, or automated abuse do?
+30. What personal, confidential, regulated, or safety-critical information is involved?
+31. What laws, contracts, standards, licenses, and organizational policies apply?
+32. Which decisions require human judgment, appeal, explanation, or audit history?
+33. What is the worst credible failure, and how will we prevent, detect, contain, and learn from it?
 
 ## Sustainability and lifecycle
 
-33. Who owns the product after launch, and what capacity do they have?
-34. What are the build, infrastructure, support, compliance, and change costs?
-35. How will the product evolve without breaking users or integrations?
-36. How can users export their data and leave?
-37. How will data, dependencies, and communication be handled if the product is retired?
+34. Who owns the product after launch, and what capacity do they have?
+35. What are the build, infrastructure, support, compliance, and change costs?
+36. Who funds the product until it is sustainable, what runway and conditions apply, and what happens if funding is delayed or withdrawn?
+37. What single bottleneck or dependency is most likely to prevent success, and what leading signal, owner, mitigation, and fallback exist?
+38. How will the product evolve without breaking users or integrations?
+39. How can users export their data and leave?
+40. How will data, dependencies, and communication be handled if the product is retired?
 
 ## Release gate
 
@@ -79,4 +83,6 @@ Before launch, can the team demonstrate—not merely claim—that:
 - service objectives and capacity are adequate;
 - monitoring, support, incident response, backup, recovery, and rollback are ready;
 - legal and operational approvals are complete;
+- a public name has passed search, collision, linguistic, technical, and proportionate legal checks;
+- critical funding, staffing, vendor, and adoption bottlenecks have owners and fallback plans;
 - success and guardrail metrics can be measured?
