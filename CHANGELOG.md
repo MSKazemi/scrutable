@@ -2,6 +2,19 @@
 
 Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
+## Unreleased
+
+- Added a prioritized coverage-gap and expansion backlog that separates strong
+  existing coverage, shallow or missing subject areas, prose-to-catalog parity, and
+  executable-runtime limitations.
+- Added explicit candidate questions for organizational change, workforce continuity,
+  external sensing, information integrity, geopolitical continuity, localization,
+  enterprise implementation, ecosystems, intellectual property, fraud and payments,
+  hardware production, crisis communication, and liability and insurance.
+- Defined promotion rules so a prose mention or backlog question is not presented as
+  supported until stable graph records, evidence, outputs, ownership, blocker policy,
+  and validation exist.
+
 ## 0.7 — 2026-08-12
 
 - Defined the recommended deployment model: this repository owns the reusable
