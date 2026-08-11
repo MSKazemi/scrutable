@@ -4,6 +4,14 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
+- Added a framework quality assurance audit that distinguishes a strong specification
+  from an executable and empirically validated assurance system.
+- Recorded the audit snapshot: 99 unique questions, 322 resolved references, no
+  dependency cycles, 96 high-or-critical labels, 88 natural-language applicability
+  rules, six partial schemas, no reported commit status checks, and one synthetic run.
+- Defined the specification-to-evidence bottleneck, assurance levels A0-A5, semantic
+  validation gaps, quality metrics, stop rules, release gates, and implementation order.
+
 - Added a prioritized coverage-gap and expansion backlog that separates strong
   existing coverage, shallow or missing subject areas, prose-to-catalog parity, and
   executable-runtime limitations.
