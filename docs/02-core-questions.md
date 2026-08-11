@@ -66,7 +66,9 @@ Continue with the detailed [naming and identity questions](07-naming-and-identit
 
 34. Who owns the product after launch, and what capacity do they have?
 35. What are the build, infrastructure, support, compliance, and change costs?
-36. Who funds the product until it is sustainable, what runway and conditions apply, and what happens if funding is delayed or withdrawn?
+36. What committed funding and staffing carry the product to the next evidence or
+    decision milestone, what runway and conditions apply, and what threshold forces
+    scope reduction, a pause, or a stop?
 37. What single bottleneck or dependency is most likely to prevent success, and what leading signal, owner, mitigation, and fallback exist?
 38. How will the product evolve without breaking users or integrations?
 39. How can users export their data and leave?
@@ -81,7 +83,11 @@ Before launch, can the team demonstrate—not merely claim—that:
 - access control and data handling are correct;
 - critical risks have owners and mitigations;
 - service objectives and capacity are adequate;
+- human, agent, robot or device, platform, and external-system authority, handoff,
+  failure, and safe-stop behavior are verified where applicable;
 - monitoring, support, incident response, backup, recovery, and rollback are ready;
+- committed funding and staffing are sufficient through the next decision milestone,
+  with downside triggers and a continuity plan;
 - legal and operational approvals are complete;
 - a public name has passed search, collision, linguistic, technical, and proportionate legal checks;
 - critical funding, staffing, vendor, and adoption bottlenecks have owners and fallback plans;
