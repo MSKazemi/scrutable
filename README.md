@@ -32,6 +32,7 @@ The framework can improve decision quality and expose failure risks; it cannot g
 9. Follow the [usage, project placement, visibility, and agent-integration protocol](docs/11-usage-deployment-and-agent-integration.md) to apply the framework to another repository or run it with Codex, ChatGPT, Claude Code, or another agent system.
 10. Record results using the [run manifest](templates/run-manifest.md), [agent run request](templates/agent-run-request.md), [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), [risk register](templates/risk-register.md), [review scorecard](templates/review-scorecard.md), [improvement cycle](templates/improvement-cycle.md), and [adversarial review](templates/adversarial-review.md).
 11. Review the [coverage gaps and expansion backlog](docs/12-coverage-gaps-and-expansion-backlog.md) before claiming comprehensive support or promoting new question domains.
+12. Read the [framework quality assurance audit](docs/13-quality-assurance-audit-and-roadmap.md) for the controlling bottleneck, measurable assurance levels, release gates, and validation roadmap.
 
 The accepted framework name and its limitations are recorded in [the naming decision](decisions/0001-product-questionbook-name.md).
 
