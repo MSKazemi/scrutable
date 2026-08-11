@@ -1,0 +1,92 @@
+schema_version: 1
+domain: core
+questions:
+  - id: core.challenge.001
+    version: 1
+    status: published
+    question: What is the strongest evidence-based case that a current high-impact claim, answer, or decision is wrong?
+    purpose: Counter confirmation bias and sycophancy with a causal, falsifiable challenge.
+    domain: core
+    lifecycle_stages: [discover, define, design, verify, release, operate, evolve]
+    applies_when: [a high-impact claim or commitment is being evaluated]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.assumptions.001, core.evidence.001]
+    activates: [core.bottleneck.001]
+    evidence_required: [challenge packets, supporting and opposing evidence, falsifiers]
+    expected_outputs: [adversarial review, missing-evidence backlog]
+    answered_by_roles: [independent critics, evidence auditor, decision owner]
+    revisit_when: [new evidence appears, a commitment becomes harder to reverse]
+    tags: [adversarial, anti-sycophancy, falsification]
+
+  - id: core.bottleneck.001
+    version: 1
+    status: published
+    question: Which unresolved uncertainty or constraint blocks the largest amount of downstream success across the graph?
+    purpose: Find the controlling bottleneck instead of optimizing visible but secondary concerns.
+    domain: core
+    lifecycle_stages: [discover, define, design, verify, release, operate, evolve]
+    applies_when: [multiple unresolved concerns compete for attention or resources]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.success.001, core.failure.001, core.assumptions.001, core.challenge.001]
+    activates: [core.kill-criteria.001, product.experiment.001]
+    evidence_required: [dependency graph, impact and uncertainty assessment, validation-cost estimate]
+    expected_outputs: [ranked bottleneck register, validation priority]
+    answered_by_roles: [decision owner, system critic, evidence auditor]
+    revisit_when: [a bottleneck is resolved, dependencies change, an incident exposes a new constraint]
+    tags: [bottleneck, critical-path, prioritization]
+
+  - id: core.kill-criteria.001
+    version: 1
+    status: published
+    question: Which observable thresholds require the team to continue, change, pivot, pause, or stop, and by what deadline?
+    purpose: Prevent sunk-cost escalation and post-hoc reinterpretation of failed predictions.
+    domain: core
+    lifecycle_stages: [discover, define, verify, release, operate, evolve]
+    applies_when: [resources or irreversible commitments are being made]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.success.001, core.failure.001, core.bottleneck.001]
+    activates: [product.pivot.001]
+    evidence_required: [baseline, thresholds, decision deadline, accountable approval]
+    expected_outputs: [kill and pivot criteria, decision gate]
+    answered_by_roles: [sponsor, product owner, risk owner]
+    revisit_when: [the objective, baseline, budget, or time horizon changes]
+    tags: [kill-criteria, pivot, sunk-cost]
+
+  - id: core.learning-loop.001
+    version: 1
+    status: published
+    question: What did the difference between predicted and observed outcomes reveal, and which graph nodes must be reopened?
+    purpose: Convert outcomes into corrections rather than hiding prediction error or rewriting history.
+    domain: core
+    lifecycle_stages: [verify, operate, evolve, retire]
+    applies_when: [a decision, experiment, release, incident, or review has an observable outcome]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.evidence.001, core.success.001, core.kill-criteria.001]
+    activates: [core.challenge.001, core.catalog-quality.001]
+    evidence_required: [original prediction, observed outcome, provenance, error analysis]
+    expected_outputs: [outcome review, dirty-node set, next improvement trigger]
+    answered_by_roles: [outcome owner, evidence auditor, project team]
+    revisit_when: [the measurement window closes, delayed effects appear]
+    tags: [learning, calibration, invalidation]
+
+  - id: core.catalog-quality.001
+    version: 1
+    status: published
+    question: Which reusable questions predicted failure or changed decisions, which wasted effort, and which material concerns were missed?
+    purpose: Improve the question catalog from cross-run outcomes without uncontrolled self-modification.
+    domain: core
+    lifecycle_stages: [operate, evolve]
+    applies_when: [run outcomes or incidents can be compared with prior question coverage]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.learning-loop.001, core.evidence.001]
+    evidence_required: [run outcome samples, question-usage metrics, missed-concern analysis]
+    expected_outputs: [catalog change proposal, compatibility and migration review]
+    answered_by_roles: [repository maintainer, evidence auditor, domain reviewers]
+    revisit_when: [additional runs complete, a severe omission or false blocker is found]
+    tags: [meta-learning, catalog, governance]
+

@@ -1,0 +1,31 @@
+schema_version: 1
+answers:
+  - id: answer-clinic-boundary-v1
+    project_id: clinic-portal
+    subject_id: patient-booking-web
+    question_instance_id: qi-clinic-boundary
+    revision: 1
+    value:
+      summary: A web portal for adult patients and clinic staff at one clinic.
+      in_scope:
+        - appointment search and request
+        - confirmation and cancellation
+        - clinic staff review
+      out_of_scope:
+        - diagnosis or clinical advice
+        - emergency care
+        - payments
+        - other clinics
+    summary: The first assessment is limited to booking workflows at one clinic.
+    assumptions:
+      - Patients who cannot use the web will retain a telephone booking path.
+      - No clinical notes will be entered into the portal.
+    confidence: high
+    owner: Example Product Owner
+    created_at: "2026-08-11T13:00:00Z"
+    valid_until: null
+    evidence_ids: [evidence-approved-scope]
+    decision_ids: [decision-pilot-boundary]
+    supersedes: null
+    review_status: accepted
+

@@ -1,0 +1,68 @@
+schema_version: 1
+domain: legal
+questions:
+  - id: legal.obligations.001
+    version: 1
+    status: published
+    question: Which laws, regulations, contracts, standards, policies, and jurisdictions apply to the subject and each actor?
+    purpose: Identify binding obligations and accountable interpreters before commitments are made.
+    domain: legal
+    lifecycle_stages: [discover, define, design, release, operate, evolve, retire]
+    applies_when: [always]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.boundary.001, users.actors.001, core.constraints.001]
+    activates: [legal.privacy-basis.001, legal.licenses.001, legal.naming-rights.001]
+    evidence_required: [qualified obligation review, jurisdiction and contract inventory]
+    expected_outputs: [obligation register, compliance plan]
+    answered_by_roles: [legal owner, compliance owner, system owner]
+    revisit_when: [jurisdiction, contract, use, or law changes]
+
+  - id: legal.privacy-basis.001
+    version: 1
+    status: published
+    question: For each personal-data purpose, what lawful basis, notice, choice, minimization, and rights process applies?
+    purpose: Tie personal-data processing to explicit purpose, authority, and user rights.
+    domain: legal
+    lifecycle_stages: [define, design, verify, release, operate, retire]
+    applies_when: [the subject processes personal data]
+    answer_type: structured
+    criticality: critical
+    depends_on: [legal.obligations.001, data.inventory.001, data.lifecycle.001]
+    evidence_required: [privacy assessment, notices, consent or alternative basis record, rights tests]
+    expected_outputs: [privacy plan, processing record]
+    answered_by_roles: [privacy owner, legal owner, data owner]
+    revisit_when: [purpose, data, recipient, jurisdiction, or law changes]
+
+  - id: legal.licenses.001
+    version: 1
+    status: published
+    question: Are software, content, data, models, fonts, and other inputs used and distributed under compatible rights and obligations?
+    purpose: Prevent infringement, incompatible distribution terms, and unavailable provenance.
+    domain: legal
+    lifecycle_stages: [design, build, verify, release, evolve]
+    applies_when: [the subject uses third-party or generated materials]
+    answer_type: structured
+    criticality: high
+    depends_on: [legal.obligations.001, architecture.dependencies.001]
+    evidence_required: [license inventory, provenance record, compatibility review]
+    expected_outputs: [license register, distribution obligations]
+    answered_by_roles: [legal owner, engineering lead]
+    revisit_when: [an input, version, use, or distribution model changes]
+
+  - id: legal.naming-rights.001
+    version: 1
+    status: published
+    question: Can the proposed name and identifiers be used and protected in every intended market without unacceptable conflict?
+    purpose: Verify naming rights before public investment and dependency on the identity.
+    domain: legal
+    lifecycle_stages: [define, verify, release, evolve]
+    applies_when: [a public or protected name is proposed]
+    answer_type: structured
+    criticality: high
+    depends_on: [product.naming-validation.001, legal.obligations.001]
+    evidence_required: [qualified trademark search, market and class analysis, domain ownership]
+    expected_outputs: [naming clearance, naming decision record]
+    answered_by_roles: [legal owner, brand owner]
+    revisit_when: [markets expand or a conflicting right appears]
+

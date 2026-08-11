@@ -1,0 +1,86 @@
+schema_version: 1
+domain: security
+questions:
+  - id: security.threats.001
+    version: 1
+    status: published
+    question: Who might intentionally or accidentally cause harm, what assets matter, and through which trust boundaries?
+    purpose: Establish realistic threat scenarios before selecting controls.
+    domain: security
+    lifecycle_stages: [define, design, build, verify, operate, evolve]
+    applies_when: [the subject has assets, actors, or trust boundaries]
+    answer_type: structured
+    criticality: critical
+    depends_on: [architecture.context.001, core.failure.001]
+    activates: [security.identity.001, security.authorization.001, security.incident.001]
+    evidence_required: [reviewed threat model, abuse cases]
+    expected_outputs: [threat model, security requirements]
+    answered_by_roles: [security owner, architect, domain expert]
+    revisit_when: [exposure, assets, actors, or attack techniques change]
+
+  - id: security.identity.001
+    version: 1
+    status: published
+    question: How will human and machine actors prove their identities at the required assurance level?
+    purpose: Define authentication in relation to actor risk and recovery needs.
+    domain: security
+    lifecycle_stages: [design, build, verify, operate]
+    applies_when: [the subject has authenticated actors]
+    answer_type: structured
+    criticality: critical
+    depends_on: [users.actors.001, security.threats.001]
+    activates: [security.authorization.001]
+    evidence_required: [authentication design review, authentication and recovery tests]
+    expected_outputs: [identity requirements, threat model]
+    answered_by_roles: [security owner, engineering lead]
+    revisit_when: [actor risk, identity provider, or recovery flow changes]
+
+  - id: security.authorization.001
+    version: 1
+    status: published
+    question: Which actor may perform each action on each resource, and where is that policy enforced and audited?
+    purpose: Prevent unintended authority, confused-deputy behavior, and untraceable access.
+    domain: security
+    lifecycle_stages: [design, build, verify, operate, evolve]
+    applies_when: [actors have different permissions or data access]
+    answer_type: structured
+    criticality: critical
+    depends_on: [users.actors.001, data.classification.001, security.identity.001]
+    evidence_required: [authorization model, negative permission tests, audit review]
+    expected_outputs: [access-control matrix, security tests]
+    answered_by_roles: [security owner, data owner, engineering lead]
+    revisit_when: [roles, resources, policies, or enforcement points change]
+
+  - id: security.secrets.001
+    version: 1
+    status: published
+    question: How are credentials, keys, tokens, and other secrets created, stored, accessed, rotated, revoked, and audited?
+    purpose: Prevent long-lived or exposed secrets from becoming silent system-wide vulnerabilities.
+    domain: security
+    lifecycle_stages: [design, build, verify, operate]
+    applies_when: [the subject uses secrets or cryptographic keys]
+    answer_type: structured
+    criticality: critical
+    depends_on: [architecture.context.001]
+    evidence_required: [secret inventory, configuration review, rotation and revocation test]
+    expected_outputs: [secret-management plan, operational runbook]
+    answered_by_roles: [security owner, operations owner]
+    revisit_when: [a secret is exposed, staff access changes, rotation expires]
+
+  - id: security.incident.001
+    version: 1
+    status: published
+    question: How will suspicious activity be detected, contained, investigated, communicated, and learned from?
+    purpose: Make security response executable under pressure and preserve evidence.
+    domain: security
+    lifecycle_stages: [design, release, operate, evolve]
+    applies_when: [the subject can experience a security incident]
+    answer_type: structured
+    criticality: critical
+    depends_on: [security.threats.001, core.ownership.001]
+    activates: [operations.incident.001]
+    evidence_required: [incident exercise, detection coverage, contact and escalation test]
+    expected_outputs: [security incident plan, detection requirements]
+    answered_by_roles: [security owner, operations owner, communications owner]
+    revisit_when: [an incident or exercise reveals a gap]
+

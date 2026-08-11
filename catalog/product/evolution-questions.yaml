@@ -1,0 +1,91 @@
+schema_version: 1
+domain: product
+questions:
+  - id: product.alternatives.001
+    version: 1
+    status: published
+    question: Which adjacent, non-adjacent, and do-nothing alternatives could achieve the intended outcome with less cost, risk, or delay?
+    purpose: Prevent the current idea and sunk cost from defining the entire solution space.
+    domain: product
+    lifecycle_stages: [discover, define, design, evolve]
+    applies_when: [a consequential product or system commitment is being considered]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.outcome.001, core.assumptions.001, core.bottleneck.001]
+    activates: [product.experiment.001, product.pivot-comparison.001]
+    evidence_required: [alternative map, comparable assumptions, transition-cost estimates]
+    expected_outputs: [candidate graph, option comparison]
+    answered_by_roles: [product strategist, technical lead, independent critic]
+    revisit_when: [a bottleneck invalidates the current path, new capabilities or markets appear]
+    tags: [alternatives, innovation, opportunity-cost]
+
+  - id: product.experiment.001
+    version: 1
+    status: published
+    question: What is the cheapest safe experiment that can falsify the highest-impact assumption and distinguish competing candidates?
+    purpose: Buy decision-relevant evidence before expensive or irreversible implementation.
+    domain: product
+    lifecycle_stages: [discover, define, design, verify, evolve]
+    applies_when: [a material assumption is uncertain and testable]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.assumptions.001, core.bottleneck.001, product.alternatives.001]
+    activates: [core.learning-loop.001]
+    evidence_required: [hypothesis, competing predictions, method, success and failure thresholds]
+    expected_outputs: [experiment plan, evidence record, decision update]
+    answered_by_roles: [product owner, researcher, engineering lead, evidence auditor]
+    revisit_when: [an experiment is inconclusive, a higher-impact assumption appears]
+    tags: [experiment, falsification, lean]
+
+  - id: product.pivot.001
+    version: 1
+    status: published
+    question: Which invariant problem, outcome, capability, or constraint is preserved by a proposed pivot, and exactly what changes?
+    purpose: Permit innovation while preventing uncontrolled drift and retrospective rewriting.
+    domain: product
+    lifecycle_stages: [discover, define, evolve]
+    applies_when: [continue criteria fail or a materially better candidate appears]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.kill-criteria.001, product.alternatives.001]
+    activates: [product.pivot-comparison.001, product.lineage.001]
+    evidence_required: [pivot classification, preserved invariants, changed assumptions, transition plan]
+    expected_outputs: [pivot proposal, affected-node set]
+    answered_by_roles: [sponsor, product owner, architect, domain expert]
+    revisit_when: [the proposed pivot changes problem, audience, outcome, or core capability]
+    tags: [pivot, invariants, drift-control]
+
+  - id: product.pivot-comparison.001
+    version: 1
+    status: published
+    question: Does the pivot outperform the current path and stopping under the same objective, evidence standard, pessimistic scenario, and resource constraint?
+    purpose: Reject novelty-driven pivots and comparisons distorted by sunk cost or asymmetric evidence.
+    domain: product
+    lifecycle_stages: [discover, define, verify, evolve]
+    applies_when: [a pivot candidate exists]
+    answer_type: structured
+    criticality: critical
+    depends_on: [product.pivot.001, product.alternatives.001, business.viability.001]
+    evidence_required: [comparable scorecard, pessimistic scenarios, opportunity and transition costs]
+    expected_outputs: [pivot decision record, proceed or stop gate]
+    answered_by_roles: [decision owner, finance owner, evidence auditor]
+    revisit_when: [candidate evidence, costs, or constraints change]
+    tags: [pivot, comparison, sunk-cost]
+
+  - id: product.lineage.001
+    version: 1
+    status: published
+    question: Has the proposed change altered enough of the problem, audience, outcome, and capability that it must become a new subject with explicit lineage?
+    purpose: Preserve provenance when a radical or domain pivot becomes a different application idea.
+    domain: product
+    lifecycle_stages: [discover, define, evolve]
+    applies_when: [a problem, customer, or domain pivot is proposed]
+    answer_type: structured
+    criticality: high
+    depends_on: [product.pivot.001, core.boundary.001]
+    evidence_required: [before-and-after subject boundaries, invariant analysis, lineage link]
+    expected_outputs: [new subject branch or justified revision, derivation record]
+    answered_by_roles: [product owner, domain expert, repository owner]
+    revisit_when: [another fundamental assumption changes]
+    tags: [lineage, domain-pivot, provenance]
+

@@ -1,0 +1,71 @@
+schema_version: 1
+domain: users
+questions:
+  - id: users.actors.001
+    version: 1
+    status: published
+    question: Which human and machine actors interact with the subject, and what authority does each need?
+    purpose: Establish actor boundaries for journeys, permissions, support, and abuse analysis.
+    domain: users
+    lifecycle_stages: [discover, define, design, evolve]
+    applies_when: [the subject has interactions or integrations]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.beneficiaries.001, core.boundary.001]
+    activates: [security.identity.001, ux.journeys.001]
+    evidence_required: [actor inventory, stakeholder review]
+    expected_outputs: [actor map, access model]
+    answered_by_roles: [product owner, architect, security owner]
+    revisit_when: [a new actor or integration is added]
+
+  - id: users.needs.001
+    version: 1
+    status: published
+    question: What jobs, needs, pain points, and contexts of use have been observed for each important user group?
+    purpose: Ground product choices in observed needs rather than internal assumptions.
+    domain: users
+    lifecycle_stages: [discover, define, design, evolve]
+    applies_when: [humans use or are affected by the subject]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.beneficiaries.001]
+    activates: [product.value-proposition.001, ux.journeys.001]
+    evidence_required: [user research, contextual observation]
+    expected_outputs: [user-needs summary, research repository]
+    answered_by_roles: [user researcher, product owner]
+    revisit_when: [user population or context changes]
+
+  - id: users.exclusion.001
+    version: 1
+    status: published
+    question: Who may be excluded, disadvantaged, or unable to use the subject under the proposed design?
+    purpose: Reveal access barriers and population gaps before they become embedded.
+    domain: users
+    lifecycle_stages: [discover, design, verify, operate]
+    applies_when: [humans use or are affected by the subject]
+    answer_type: structured
+    criticality: high
+    depends_on: [users.needs.001]
+    activates: [ux.accessibility.001, ethics.distribution.001]
+    evidence_required: [inclusive research, accessibility review]
+    expected_outputs: [exclusion assessment, mitigation backlog]
+    answered_by_roles: [user researcher, accessibility owner]
+    revisit_when: [new user groups or barriers are identified]
+
+  - id: users.feedback.001
+    version: 1
+    status: published
+    question: How can users report confusion, defects, harm, and unmet needs, and how will the team respond?
+    purpose: Create a learning and safety loop after release.
+    domain: users
+    lifecycle_stages: [design, release, operate, evolve]
+    applies_when: [the subject is released to users]
+    answer_type: structured
+    criticality: high
+    depends_on: [users.actors.001, core.ownership.001]
+    activates: [operations.support.001]
+    evidence_required: [feedback channel test, response workflow]
+    expected_outputs: [feedback plan, support workflow]
+    answered_by_roles: [product owner, support owner]
+    revisit_when: [response targets are missed, new feedback channels appear]
+

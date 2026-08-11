@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MSKazemi/mohsen/blob/main/schemas/relationship.schema.json",
+  "title": "Product Questionbook typed relationship",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "source_id", "type", "target_id"],
+  "properties": {
+    "id": { "type": "string", "minLength": 3 },
+    "source_id": { "type": "string", "minLength": 2 },
+    "type": {
+      "type": "string",
+      "enum": [
+        "depends_on", "refines", "activates", "contradicts", "related_to",
+        "validated_by", "mitigates_risk", "produces_artifact",
+        "answered_by_role", "revisit_when", "supports", "informs",
+        "requires", "owns", "supersedes"
+      ]
+    },
+    "target_id": { "type": "string", "minLength": 2 },
+    "condition": { "type": "string" },
+    "rationale": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "created_by": { "type": "string" },
+    "active": { "type": "boolean", "default": true }
+  }
+}
+

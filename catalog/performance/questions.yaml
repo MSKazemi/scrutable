@@ -1,0 +1,69 @@
+schema_version: 1
+domain: performance
+questions:
+  - id: performance.objectives.001
+    version: 1
+    status: published
+    question: Which user-visible and system-level performance measures matter, at what percentiles and under what conditions?
+    purpose: Replace vague speed expectations with testable objectives tied to user journeys.
+    domain: performance
+    lifecycle_stages: [define, design, verify, operate]
+    applies_when: [latency, throughput, responsiveness, or resource use matters]
+    answer_type: structured
+    criticality: high
+    depends_on: [architecture.constraints.001, ux.journeys.001]
+    activates: [performance.capacity.001, performance.bottlenecks.001]
+    evidence_required: [measurement definition, baseline or prototype results]
+    expected_outputs: [performance objectives, acceptance criteria]
+    answered_by_roles: [product owner, performance owner, architect]
+    revisit_when: [journeys, workloads, or expectations change]
+
+  - id: performance.capacity.001
+    version: 1
+    status: published
+    question: What workloads, growth, peaks, skew, and safety margins must the subject support?
+    purpose: Plan capacity from realistic demand distributions rather than a single average.
+    domain: performance
+    lifecycle_stages: [design, verify, release, operate, evolve]
+    applies_when: [demand can vary or grow]
+    answer_type: structured
+    criticality: high
+    depends_on: [performance.objectives.001, business.viability.001]
+    evidence_required: [workload model, demand forecast, capacity test]
+    expected_outputs: [capacity plan, scaling thresholds]
+    answered_by_roles: [performance owner, operations owner, product owner]
+    revisit_when: [demand distribution or growth changes]
+
+  - id: performance.bottlenecks.001
+    version: 1
+    status: published
+    question: Where are the likely bottlenecks and contention points, and how will they be observed before saturation?
+    purpose: Target measurement and design work at constraints that control system throughput or latency.
+    domain: performance
+    lifecycle_stages: [design, build, verify, operate]
+    applies_when: [the subject has shared or finite resources]
+    answer_type: structured
+    criticality: high
+    depends_on: [performance.objectives.001, architecture.decomposition.001]
+    activates: [operations.observability.001]
+    evidence_required: [profiling, load test, saturation signals]
+    expected_outputs: [bottleneck analysis, monitoring plan]
+    answered_by_roles: [performance owner, engineering team, operations owner]
+    revisit_when: [architecture or workload shape changes]
+
+  - id: performance.efficiency.001
+    version: 1
+    status: published
+    question: What cost, energy, and resource-efficiency limits apply per useful unit of work?
+    purpose: Balance performance with financial and environmental sustainability.
+    domain: performance
+    lifecycle_stages: [design, verify, operate, evolve]
+    applies_when: [the subject consumes metered or material resources]
+    answer_type: structured
+    criticality: medium
+    depends_on: [performance.capacity.001, business.economics.001]
+    evidence_required: [cost and resource profile, representative workload test]
+    expected_outputs: [efficiency budget, optimization backlog]
+    answered_by_roles: [engineering lead, finance owner, sustainability owner]
+    revisit_when: [pricing, workload, or efficiency targets change]
+

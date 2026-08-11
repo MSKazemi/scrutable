@@ -2,6 +2,18 @@
 
 Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
+## 0.5 — 2026-08-11
+
+- Defined separate improvement loops for an application, an idea, a project-specific graph, and the reusable repository.
+- Added a bounded observe, attack, bottleneck, question, experiment, decide, propagate, and outcome-review algorithm.
+- Added independent adversarial roles, falsifiable challenge packets, cross-examination, evidence auditing, anti-sycophancy rules, and accountable decision ownership.
+- Added a controlling-bottleneck score using impact, graph centrality, uncertainty, evidence weakness, irreversibility, urgency, and validation cost.
+- Added pivot classes, preserved-invariant tests, domain-pivot lineage, and explicit comparison with continuing, splitting, pausing, and stopping.
+- Added attraction, positioning, channel, funnel, advertising incrementality, acquisition economics, retention, referral, machine-discovery, attention-quality, and distribution-continuity coverage.
+- Added 20 reusable questions and 73 relationships, bringing the structured catalog to 97 questions and 312 dependencies/activations.
+- Added an improvement-cycle JSON Schema, improvement-cycle and adversarial-review templates, and ADR-0002.
+- Protected published catalogs, schemas, blocker policies, security controls, and approval rules from autonomous self-modification.
+
 ## 0.4 — 2026-08-11
 
 - Defined the canonical output as a versioned decision and assurance package backed by a traceable knowledge graph.
@@ -10,6 +22,13 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 - Added explicit brainstorming divergence, challenge, promotion, and validation rules; candidate answers can never become accepted merely because they were generated.
 - Documented the process guarantees the engine may claim and the real-world success guarantees it must not claim.
 - Proposed a Python reference implementation stack and recorded its rationale, validation spike, consequences, and reversal triggers in ADR-0001.
+- Added 77 stable, reusable question templates across 16 domains with 239 declared dependencies and activations.
+- Added JSON Schemas for question templates, project-specific instances, answer revisions, typed relationships, and project profiles.
+- Added explicit domain, lifecycle, state-machine, prioritization, coverage, output, and assurance contracts.
+- Separated reusable templates from project answers, evidence, ownership, and state history.
+- Added project charter, assurance decision, risk register, and readiness report templates.
+- Added a worked sample application showing verified, asked, dormant, and not-applicable question states.
+- Defined an honest assurance promise: critical concerns require accepted evidence or explicit risk acceptance with an owner and review date.
 
 ## 0.3 — 2026-08-11
 
