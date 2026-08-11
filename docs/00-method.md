@@ -38,6 +38,8 @@ Write down:
 - business model or organizational purpose;
 - domain, countries, platforms, and regulatory constraints;
 - team, budget, deadline, and existing systems;
+- humans, software agents, robots or devices, platforms, external systems, and physical environments involved;
+- committed and conditional funding, burn, runway, and financial decision dates;
 - decision that this review must enable.
 
 ## Step 2: select applicable aspects
@@ -90,7 +92,9 @@ Use the [scorecard](../templates/review-scorecard.md) at these gates:
 5. post-launch review;
 6. major change or retirement.
 
-Do not average away a fatal weakness. A critical security, safety, legal, or reliability gap is a release blocker even if other scores are high.
+Do not average away a fatal weakness. A critical security, safety, legal, reliability,
+financial-continuity, or physical-world integration gap is a release blocker even if
+other scores are high.
 
 ## Ground rules
 
@@ -99,4 +103,7 @@ Do not average away a fatal weakness. A critical security, safety, legal, or rel
 - Define measurable terms instead of using words such as fast, simple, scalable, secure, or intuitive without thresholds.
 - Capture disagreement and rejected alternatives in a [decision record](../templates/decision-record.md).
 - Track critical constraints and failure paths in a [bottleneck register](../templates/bottleneck-register.md).
-- Revisit answers when users, scale, regulation, dependencies, or strategy change.
+- Identify the current end-to-end bottleneck before optimizing individual components;
+  record the evidence and reassess what becomes constrained next.
+- Revisit answers when users, scale, regulation, dependencies, funding, participating
+  systems, or strategy change.
