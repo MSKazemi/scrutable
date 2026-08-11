@@ -13,6 +13,34 @@
 9. What assumptions drive the business case, and how sensitive is it to change?
 10. What funding and staffing are required to operate the product through its expected life?
 
+## Funding viability and financial failure
+
+F1. Which source—revenue, internal budget, grant, debt, or investment—funds each stage, and how dependable is it?
+F2. What cash runway, approved budget, payment timing, and funding milestones apply under base, optimistic, and adverse cases?
+F3. What conditions, control rights, reporting duties, or strategic constraints accompany the funding?
+F4. How concentrated are revenue and funding among customers, sponsors, investors, regions, or channels?
+F5. When do acquisition cost, gross margin, retention, payback, and lifetime value become sustainable, and what evidence supports the assumptions?
+F6. How sensitive is viability to price, demand, conversion, churn, salaries, infrastructure, support, compliance, currency, and financing cost?
+F7. Which cost cliffs—scale tiers, licenses, hardware, insurance, audits, localization, or regulation—are missing from the normal forecast?
+F8. What scope, staffing, service level, or market plan changes if funding or customer payment is delayed, reduced, or withdrawn?
+F9. Which financial thresholds trigger hiring restraint, scope reduction, a pivot, a sale, a pause, or an orderly shutdown?
+F10. Is money reserved for security incidents, legal obligations, refunds, data export, customer migration, and retirement?
+F11. Who owns the financial model, how often are actuals compared with forecasts, and which variances require a decision?
+F12. Is there a credible path to sustained operation before available funding ends?
+
+## Success bottlenecks and failure conditions
+
+B1. What outcome defines success, and what minimum result would still justify continued investment?
+B2. What single constraint currently limits success: evidence, adoption, distribution, skills, time, capital, technology, regulation, trust, operations, or something else?
+B3. Which dependency or decision lies on the critical path, and what is its latest safe resolution date?
+B4. Which uncertain assumption could invalidate the product even if execution is otherwise strong?
+B5. What leading signal will reveal each bottleneck before it becomes irreversible?
+B6. Who owns each bottleneck, and do they have the authority, budget, information, and time to address it?
+B7. What prevention, mitigation, workaround, fallback, and stop rule apply?
+B8. What is the cheapest and fastest credible test of the most dangerous constraint?
+B9. Which constraints are correlated and could fail together under the same event?
+B10. Is every critical bottleneck recorded, reviewed at a defined cadence, and linked to a decision or action?
+
 ## Legal, compliance, and governance
 
 11. In which jurisdictions and industries will the product operate?
