@@ -54,6 +54,29 @@
 41. Can users import and export in useful, documented, non-proprietary formats?
 42. What is the exit plan if a vendor raises prices, changes terms, degrades, or shuts down?
 
+## Human, agent, robot, platform, and world integration
+
+I1. Which humans, teams, organizations, AI agents, robots, devices, platforms, and physical environments participate in each end-to-end outcome?
+I2. What information, command, material, money, identity, or responsibility crosses each boundary?
+I3. Which work should be performed by a person, deterministic software, an AI agent, or a physical machine, and why?
+I4. Where must a person consent, confirm, supervise, override, appeal, or take control?
+I5. How are state, intent, uncertainty, progress, failure, and required action communicated across human and machine participants?
+I6. How is every human, service, agent, robot, and device identified, authenticated, authorized, scoped, and revoked?
+I7. What goals, instructions, tools, data, time, cost, rate, and autonomy limits constrain an AI agent?
+I8. How are agent actions, memory, provenance, delegated authority, and resulting changes audited and corrected?
+I9. How do multiple agents coordinate ownership, prevent duplicate work, resolve conflict, and stop loops or deadlocks?
+I10. How are prompt injection, untrusted agent messages, tool abuse, data leakage, and compromised external agents contained?
+I11. What assumptions about location, lighting, weather, people, terrain, connectivity, sensors, and actuators constrain a robot or device?
+I12. What physical hazards exist, and which fail-safe state, emergency stop, safety boundary, and manual override are required?
+I13. What happens during lost power or connectivity, stale commands, degraded sensors, actuator failure, or unsafe environmental change?
+I14. How are calibration, maintenance, inspection, firmware, inventory, fleet rollout, and hardware end-of-life controlled?
+I15. Which workflows require real-time latency, clock synchronization, geospatial accuracy, or deterministic ordering?
+I16. Which platform certification, policy, quota, permission, commercial term, release cycle, or interface limitation can block the product?
+I17. How do organizational processes, contracts, support teams, and accountability boundaries align with the technical integration?
+I18. Are automated and physical interactions usable and accessible to people with different abilities, languages, expertise, and levels of connectivity?
+I19. Which simulations, sandboxes, digital twins, contract tests, supervised pilots, or field trials validate behavior before full exposure?
+I20. Can the complete interaction be observed, safely degraded, handed to a person, disconnected, replaced, and reconstructed after failure?
+
 ## Performance and capacity
 
 43. Which user-visible operations need latency targets, and at which percentiles?
