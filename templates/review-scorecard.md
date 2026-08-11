@@ -39,6 +39,7 @@
 | Ethics and sustainability | | | | | |
 | Measurement and learning | | | | | |
 | Evolution and retirement | | | | | |
+| Naming and identity | | | | | |
 
 ## Blockers
 

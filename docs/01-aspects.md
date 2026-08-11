@@ -24,6 +24,7 @@ No product is perfect in every dimension. A strong product deliberately balances
 | 18 | Ethics and sustainability | Fairness, autonomy, social effects, environmental cost, and unintended consequences | impact assessment, evaluations |
 | 19 | Measurement and learning | Leading and lagging metrics, experiments, feedback, and decision rules | metric tree, experiment results |
 | 20 | Evolution and retirement | Compatibility, migration, deprecation, retention, export, and shutdown | lifecycle and exit plan |
+| 21 | Naming and identity | Product name, tagline, brand architecture, verbal identity, discoverability, and naming risk | naming brief, candidate scorecard, language and legal checks |
 
 ## Cross-cutting questions
 

@@ -10,6 +10,17 @@
 
 [For whom, what outcome, and how.]
 
+## Naming and identity
+
+- **Product name:**
+- **Name meaning and rationale:**
+- **Tagline:**
+- **Desired associations:**
+- **Naming audiences and languages:**
+- **Brand architecture:** Company / product / edition / feature
+- **Naming checks:** Pronunciation / spelling / search / language / legal / domain / package / app stores
+- **Naming decision record:**
+
 ## Problem and evidence
 
 - **Target users:**

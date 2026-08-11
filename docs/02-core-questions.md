@@ -11,6 +11,14 @@ These are the minimum questions to answer before committing substantial time or 
 5. What unique value will make users choose and continue using this product?
 6. Which outcome would justify the product's cost and risk?
 
+## Naming and identity
+
+N1. What should the name help the intended audience understand, feel, remember, and expect?
+N2. Can intended users pronounce, spell, recall, search for, and distinguish the name?
+N3. What linguistic, cultural, legal, trademark, domain, package, app-store, and account-name risks must be cleared?
+
+Continue with the detailed [naming and identity questions](07-naming-and-identity.md).
+
 ## People and context
 
 7. Who are the primary users, buyers, administrators, operators, and affected non-users?

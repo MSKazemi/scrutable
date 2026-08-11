@@ -1,6 +1,8 @@
-# Mohsen
+# Product Questionbook
 
-Mohsen is a reusable question system for designing, reviewing, and improving software products.
+> Questions for the whole software lifecycle.
+
+Product Questionbook is a reusable question system for designing, reviewing, and improving software products.
 
 The goal is not to create a product with the most features. The goal is to make important decisions explicit, expose unknowns early, and build a product that is useful, usable, secure, reliable, operable, and sustainable.
 
@@ -14,7 +16,8 @@ The goal is not to create a product with the most features. The goal is to make 
    - [Engineering, data, and integrations](docs/04-engineering-data-and-integrations.md)
    - [Trust, quality, and operations](docs/05-trust-quality-and-operations.md)
    - [Business, governance, and evolution](docs/06-business-governance-and-evolution.md)
-5. Record the result using the [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), and [review scorecard](templates/review-scorecard.md).
+   - [Naming and identity](docs/07-naming-and-identity.md)
+5. Record the result using the [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [naming brief](templates/naming-brief.md), and [review scorecard](templates/review-scorecard.md).
 
 ## What a good answer contains
 
@@ -43,4 +46,4 @@ A useful answer is specific and testable. It should include:
 
 ## Status
 
-This is version `0.1`: a broad foundation. Future versions should add domain-specific question packs, examples, automation, and evidence-based scoring guidance.
+This is version `0.2`: a broad foundation. Future versions should add domain-specific question packs, examples, automation, and evidence-based scoring guidance.
