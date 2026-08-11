@@ -2,6 +2,32 @@
 
 This framework is a decision aid, not a ceremony. Ask only the questions that can change a decision, reveal a risk, or define how success will be verified.
 
+## Repository propagation rule
+
+This repository is the durable source of truth. Chat messages, meeting notes, searches, and verbal agreements are inputs—not final records.
+
+Propagate an output into the repository when it changes or clarifies:
+
+- the framework's purpose, terminology, scope, or structure;
+- an important question, answer, assumption, or unknown;
+- a requirement, acceptance criterion, architecture choice, or integration contract;
+- a risk, bottleneck, failure condition, mitigation, or fallback;
+- naming, positioning, financial, legal, security, privacy, safety, or operational conclusions;
+- a metric, test, experiment, owner, review date, or decision rule.
+
+Put the distilled result in the narrowest appropriate Markdown file:
+
+| Output | Canonical location |
+| --- | --- |
+| Framework question or guidance | Relevant file in `docs/` |
+| Product-specific answer | A product brief created from `templates/product-brief.md` |
+| Trade-off or durable choice | A decision record created from `templates/decision-record.md` |
+| Naming research and approval | A naming brief created from `templates/naming-brief.md` |
+| Critical constraint or failure path | A register created from `templates/bottleneck-register.md` |
+| Release or lifecycle assessment | A scorecard created from `templates/review-scorecard.md` |
+
+Record the source, date, owner, evidence, uncertainty, and review trigger when they matter. Preserve useful rationale, but do not copy raw conversations when a concise conclusion is sufficient. Update navigation, version status, and the changelog when structure or framework behavior changes.
+
 ## Step 1: establish context
 
 Write down:
@@ -72,4 +98,5 @@ Do not average away a fatal weakness. A critical security, safety, legal, or rel
 - Ask “for whom?” and “under what conditions?” when language is broad.
 - Define measurable terms instead of using words such as fast, simple, scalable, secure, or intuitive without thresholds.
 - Capture disagreement and rejected alternatives in a [decision record](../templates/decision-record.md).
+- Track critical constraints and failure paths in a [bottleneck register](../templates/bottleneck-register.md).
 - Revisit answers when users, scale, regulation, dependencies, or strategy change.
