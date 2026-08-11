@@ -178,3 +178,38 @@ questions:
     revisit_when: [channel concentration, platform terms, account health, or reputation changes]
     tags: [platform-risk, concentration, continuity]
 
+  - id: business.earned-media.001
+    version: 1
+    status: published
+    question: What verified, timely, audience-relevant evidence would give journalists, analysts, researchers, communities, or public-interest publishers a reason to cover and trust the subject?
+    purpose: Treat news and earned visibility as a testable credibility channel rather than assuming that novelty automatically creates coverage.
+    domain: business
+    lifecycle_stages: [discover, define, verify, release, operate, evolve]
+    applies_when: [earned media, public coverage, analyst attention, or community amplification can materially affect success]
+    answer_type: structured
+    criticality: high
+    depends_on: [business.attention-audience.001, business.positioning.001, business.channels.001]
+    activates: [business.funnel.001, business.attention-quality.001]
+    evidence_required: [newsworthiness test, attributable proof points, source and outlet map, outreach experiment, coverage quality and downstream outcome data]
+    expected_outputs: [earned-media hypothesis, evidence pack, outreach experiment, coverage-quality report]
+    answered_by_roles: [communications owner, domain expert, product owner, evidence auditor]
+    revisit_when: [proof, timing, public interest, reputation, outlet behavior, or coverage outcomes change]
+    tags: [earned-media, news, public-interest, credibility]
+
+  - id: business.organizational-buying.001
+    version: 1
+    status: published
+    question: Can the human and machine gatekeepers inside a target organization discover, evaluate, approve, procure, integrate, and renew the subject?
+    purpose: Prevent broad visibility from being mistaken for organizational adoption when buying committees, procurement, security, legal, finance, or automated evaluation can block progress.
+    domain: business
+    lifecycle_stages: [discover, define, design, verify, release, operate, evolve]
+    applies_when: [companies, institutions, governments, or other organizations are buyers, adopters, partners, or gatekeepers]
+    answer_type: structured
+    criticality: critical
+    depends_on: [business.attention-audience.001, business.channels.001, business.adoption.001]
+    activates: [legal.obligations.001, security.threats.001]
+    evidence_required: [buying-committee map, procurement and approval criteria, evaluator journey test, sales-cycle and loss evidence]
+    expected_outputs: [organizational-discovery map, procurement readiness plan, approval bottleneck experiment]
+    answered_by_roles: [sales owner, product owner, security owner, legal owner, customer champion]
+    revisit_when: [target organization, buying process, procurement policy, evaluator, integration, or renewal conditions change]
+    tags: [companies, procurement, enterprise, gatekeepers]

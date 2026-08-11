@@ -29,7 +29,8 @@ The framework can improve decision quality and expose failure risks; it cannot g
 6. Read [the output, brainstorming, convergence, and implementation contract](docs/09-output-convergence-and-implementation.md) for the canonical result, cross-question correction algorithm, convergence rules, and initial stack. The stack choice is recorded in [ADR-0001](decisions/ADR-0001-engine-implementation-stack.md).
 7. Use the [structured graph foundation](docs/structured-foundation.md) for stable IDs, typed relationships, state history, schemas, and reusable domain packs.
 8. Use the [governed self-improvement and adversarial review method](docs/10-self-improvement-and-adversarial-governance.md) when challenging an idea, finding the controlling bottleneck, evaluating a pivot, or improving the framework. Its governance decision is recorded in [ADR-0002](decisions/ADR-0002-governed-adversarial-self-improvement.md).
-9. Record results using the [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), [risk register](templates/risk-register.md), [review scorecard](templates/review-scorecard.md), [improvement cycle](templates/improvement-cycle.md), and [adversarial review](templates/adversarial-review.md).
+9. Follow the [usage, project placement, visibility, and agent-integration protocol](docs/11-usage-deployment-and-agent-integration.md) to apply the framework to another repository or run it with Codex, ChatGPT, Claude Code, or another agent system.
+10. Record results using the [run manifest](templates/run-manifest.md), [agent run request](templates/agent-run-request.md), [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), [risk register](templates/risk-register.md), [review scorecard](templates/review-scorecard.md), [improvement cycle](templates/improvement-cycle.md), and [adversarial review](templates/adversarial-review.md).
 
 The accepted framework name and its limitations are recorded in [the naming decision](decisions/0001-product-questionbook-name.md).
 
@@ -78,7 +79,7 @@ The initial foundation includes:
 - an explicit [question state machine](docs/question-state-machine.md), [priority model](docs/prioritization.md), and [coverage matrix](docs/coverage-model.md);
 - [output](docs/output-contract.md) and [assurance](docs/assurance-rules.md) contracts;
 - JSON Schemas for questions, instances, answers, relationships, project profiles, and governed improvement cycles in [`schemas/`](schemas/);
-- 97 starter templates with 312 typed dependencies and activations across 16 domains in [`catalog/`](catalog/);
+- 99 starter templates with 322 typed dependencies and activations across 16 domains in [`catalog/`](catalog/);
 - reusable assurance and improvement templates plus a worked project-specific example.
 
 The graph is the machine-readable source of truth. Matrices, backlogs, reports, and
@@ -123,9 +124,10 @@ The target machine will select applicable questions, maintain question state, li
 
 ## Status
 
-This is version `0.6`: the graph-ready documentation includes governed adversarial
+This is version `0.7`: the graph-ready documentation includes governed adversarial
 self-improvement, pivot lineage, attraction and distribution questions, reconciled
 human/agent/robot integration and financial-continuity controls, stable question IDs,
 machine-validatable schemas, reusable domain packs, assurance and improvement
-templates, and a worked example. The reference stack is proposed but not yet
+templates, a vendor-neutral coding-agent protocol, explicit news and organizational
+buying questions, and a worked example. The reference stack is proposed but not yet
 validated by an executable architecture spike. See the [changelog](CHANGELOG.md).

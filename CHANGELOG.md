@@ -2,6 +2,28 @@
 
 Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
+## 0.7 — 2026-08-12
+
+- Defined the recommended deployment model: this repository owns the reusable
+  framework while each target project normally owns its pinned run artifacts.
+- Added a complete manual and agent-assisted quick-start, stable-versus-conditional
+  output contract, input envelope, and project-placement decision rules.
+- Added a vendor-neutral coding-agent architecture with deterministic validation,
+  generative, evidence, approval, and repository adapters.
+- Added root `AGENTS.md` and `CLAUDE.md` compatibility entrypoints without moving
+  canonical behavior out of the normative documentation.
+- Added run-manifest and agent-run-request templates with revision pins, integrity
+  checks, evidence rules, gate semantics, and permission boundaries.
+- Added an explicit qualified-attention loop covering people, companies, agents,
+  search, marketplaces, communities, analysts, journalists, advertising, retention,
+  referral, procurement, and distribution continuity.
+- Added `business.earned-media.001` and `business.organizational-buying.001`, bringing
+  the structured catalog to 99 questions and 322 dependencies/activations while
+  preserving every existing stable ID.
+- Reaffirmed that visibility and real-world success cannot be guaranteed; the
+  framework guarantees only declared rule execution, traceability, blocker handling,
+  and explicit residual uncertainty.
+
 ## 0.6 — 2026-08-11
 
 - Reconciled the integration and financial-continuity branch with the newer graph and
