@@ -6,6 +6,14 @@ Product Questionbook is a reusable question system for designing, reviewing, and
 
 The goal is not to create a product with the most features. The goal is to make important decisions explicit, expose unknowns early, and build a product that is useful, usable, secure, reliable, operable, and sustainable.
 
+## What this repository is
+
+- **Project:** this repository and all work used to develop Product Questionbook.
+- **Framework:** the question banks, methods, evidence rules, and templates in this repository.
+- **Application:** a future interactive implementation that can navigate the question graph, track answer state, and generate project artifacts.
+
+The framework can improve decision quality and expose failure risks; it cannot guarantee a perfect or successful product.
+
 ## Start here
 
 1. Read [the working method](docs/00-method.md).
@@ -17,8 +25,10 @@ The goal is not to create a product with the most features. The goal is to make 
    - [Trust, quality, and operations](docs/05-trust-quality-and-operations.md)
    - [Business, governance, and evolution](docs/06-business-governance-and-evolution.md)
    - [Naming and identity](docs/07-naming-and-identity.md)
-5. Record the result using the [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [naming brief](templates/naming-brief.md), and [review scorecard](templates/review-scorecard.md).
-6. If an LLM, agent, workflow engine, CI gate, API, or robot-connected system will consume the repository, read the [machine operation and output contract](docs/08-machine-operation-and-outputs.md).
+5. Read the [machine operation and output contract](docs/08-machine-operation-and-outputs.md) when building automation or an interactive navigator.
+6. Record the result using the [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), and [review scorecard](templates/review-scorecard.md).
+
+The accepted framework name and its limitations are recorded in [the naming decision](decisions/0001-product-questionbook-name.md).
 
 ## How it works
 
@@ -58,7 +68,11 @@ A useful answer is specific and testable. It should include:
 - an owner and review date;
 - a way to verify the result.
 
-Unknown is an acceptable answer. A vague statement presented as certainty is not.
+`Unknown` is an acceptable answer. A vague statement presented as certainty is not.
+
+## Repository is the source of truth
+
+Important conclusions from conversations, research, reviews, and experiments must be distilled into the appropriate Markdown file. A material result is not considered incorporated until its decision, evidence, owner, and implications are recorded here. See [the working method](docs/00-method.md#repository-propagation-rule).
 
 ## Suggested lifecycle
 
@@ -80,4 +94,4 @@ The target machine will select applicable questions, maintain question state, li
 
 ## Status
 
-This is version 0.2: a broad documentation foundation plus a defined machine architecture contract. Future versions should add stable question IDs and metadata, schemas and validation, the graph and state engine, adapters, domain-specific question packs, examples, automation, and evidence-based scoring guidance.
+This is version `0.3`: a broad, graph-ready foundation with explicit naming-search validation, human/agent/robot/platform integration questions, funding and bottleneck analysis, and repository propagation rules. See the [changelog](CHANGELOG.md).
