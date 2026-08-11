@@ -80,7 +80,27 @@ A good product name does not repair a weak product. It helps the right people re
 59. What is the cost and fallback plan if the name must change later?
 60. Is the naming evidence and final approval recorded?
 
-Repository, domain, package, and account availability are useful filters, but they are not trademark clearance or legal advice.
+## Search visibility and collision audit
+
+61. What appears on Google and Bing for the exact name in quotation marks in every important market and language?
+62. What appears when the name is searched without quotation marks?
+63. What appears for `name + product category`, `name + problem solved`, and the most likely remembered misspellings?
+64. Is an older company, discontinued product, historical figure, famous brand, project, or acronym already strongly associated with the name?
+65. Does an existing entity have enough links, history, coverage, users, or authority to dominate branded search results?
+66. Are the first result pages relevant, neutral, negative, unsafe, or likely to confuse the intended audience?
+67. Can the official website, repository, app listing, or profile realistically become a leading result for the exact name?
+68. Do search engines interpret the candidate as a misspelling or variant of a more established name?
+69. Are knowledge panels, maps, images, news, videos, app results, or shopping results dominated by another entity?
+70. Is the exact or confusingly similar name used on GitHub, GitLab, npm, PyPI, container registries, app stores, social networks, and relevant industry directories?
+71. Are useful domains and common misspellings available, or are they controlled by competitors, unrelated brands, domain sellers, or malicious actors?
+72. Is the name associated with spam, malware, scams, scandals, adult content, extremism, or political controversy?
+73. Can intended users distinguish and find the product when searching only from memory, without a supplied link?
+74. Is the name distinctive enough to build and own branded search results over time without relying on a large advertising budget?
+75. Has the team recorded each query, locale, date, leading result, link or screenshot, risk judgment, and final approval?
+
+A keyword in a brand name does not automatically improve ordinary search ranking. For branded discoverability, prefer a distinctive name whose result space is not already controlled by a stronger entity. Search results vary by date, country, language, personalization, and engine, so preserve dated evidence and repeat the audit immediately before public adoption.
+
+Repository, domain, package, account, and search-result availability are useful filters, but they are not trademark clearance or legal advice.
 
 ## Candidate generation questions
 
@@ -102,7 +122,7 @@ Use the [naming brief](../templates/naming-brief.md) before brainstorming.
 3. Generate many candidates within every territory without judging too early.
 4. Remove candidates with obvious relevance, language, usability, search, or collision problems.
 5. Score a small set using the agreed weighted criteria.
-6. Conduct linguistic, cultural, technical, domain, package, app-store, and preliminary trademark checks.
+6. Conduct linguistic, cultural, technical, domain, package, app-store, search-visibility, reputation, and preliminary trademark checks.
 7. Test finalists with the intended audience using open recall, pronunciation, spelling, association, and comprehension tasks—not only preference voting.
 8. Obtain appropriate legal review and record the final decision, evidence, risks, and fallback.
 9. Define canonical spelling, pronunciation, descriptor, tagline, and usage examples.
