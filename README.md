@@ -123,4 +123,9 @@ The target machine will select applicable questions, maintain question state, li
 
 ## Status
 
-This is version `0.5`: the graph-ready documentation now adds governed adversarial self-improvement, pivot lineage, attraction and distribution questions, stable question IDs, machine-validatable schemas, reusable domain packs, assurance and improvement templates, and a worked example. The reference stack is proposed but not yet validated by an executable architecture spike. See the [changelog](CHANGELOG.md).
+This is version `0.6`: the graph-ready documentation includes governed adversarial
+self-improvement, pivot lineage, attraction and distribution questions, reconciled
+human/agent/robot integration and financial-continuity controls, stable question IDs,
+machine-validatable schemas, reusable domain packs, assurance and improvement
+templates, and a worked example. The reference stack is proposed but not yet
+validated by an executable architecture spike. See the [changelog](CHANGELOG.md).

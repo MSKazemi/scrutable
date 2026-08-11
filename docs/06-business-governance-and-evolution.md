@@ -15,18 +15,19 @@
 
 ## Funding viability and financial failure
 
-F1. Which source—revenue, internal budget, grant, debt, or investment—funds each stage, and how dependable is it?
-F2. What cash runway, approved budget, payment timing, and funding milestones apply under base, optimistic, and adverse cases?
+F1. Which source—revenue, internal budget, grant, debt, or investment—is committed, conditional, forecast, or merely hoped for at each stage?
+F2. What cash, monthly gross and net burn, approved budget, payment timing, runway, and funding milestones apply under base, optimistic, adverse, and severe cases?
 F3. What conditions, control rights, reporting duties, or strategic constraints accompany the funding?
-F4. How concentrated are revenue and funding among customers, sponsors, investors, regions, or channels?
+F4. How concentrated are revenue and funding among customers, sponsors, investors, grants, parent organizations, regions, currencies, channels, or payment providers?
 F5. When do acquisition cost, gross margin, retention, payback, and lifetime value become sustainable, and what evidence supports the assumptions?
 F6. How sensitive is viability to price, demand, conversion, churn, salaries, infrastructure, support, compliance, currency, and financing cost?
-F7. Which cost cliffs—scale tiers, licenses, hardware, insurance, audits, localization, or regulation—are missing from the normal forecast?
-F8. What scope, staffing, service level, or market plan changes if funding or customer payment is delayed, reduced, or withdrawn?
-F9. Which financial thresholds trigger hiring restraint, scope reduction, a pivot, a sale, a pause, or an orderly shutdown?
-F10. Is money reserved for security incidents, legal obligations, refunds, data export, customer migration, and retirement?
-F11. Who owns the financial model, how often are actuals compared with forecasts, and which variances require a decision?
+F7. Which costs are fixed, variable, discretionary, contractual, or expensive to reverse, and which cost cliffs—scale tiers, licenses, hardware, insurance, audits, localization, or regulation—are missing from the normal forecast?
+F8. What minimum viable team and service level preserve critical knowledge, security, compliance, support, and safety if funding or customer payment is delayed, reduced, restricted, repriced, or withdrawn?
+F9. Which financial thresholds trigger hiring restraint, scope reduction, fundraising, sponsorship, a pivot, sale, merger, pause, retirement, or orderly shutdown?
+F10. Is money reserved for surviving obligations such as payroll or severance, tax, debt, contracts, security incidents, legal duties, refunds, data export, customer migration, support, intellectual property protection, and decommissioning?
+F11. Who owns the cash forecast and financial model, how often are actuals compared with a reforecast, and which variances require a decision?
 F12. Is there a credible path to sustained operation before available funding ends?
+F13. How much capacity or time is lost while waiting for budgets, procurement, finance approval, payment, reimbursement, or hiring authorization, and can reprioritization, pricing, collection terms, renegotiation, staged scope, or shared infrastructure relieve the bottleneck before adding capital?
 
 ## Success bottlenecks and failure conditions
 

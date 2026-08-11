@@ -2,6 +2,20 @@
 
 Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
+## 0.6 — 2026-08-11
+
+- Reconciled the integration and financial-continuity branch with the newer graph and
+  self-improvement foundation without reverting or duplicating either question model.
+- Expanded context capture and release blockers for human/agent/robot authority,
+  physical-world safe-stop behavior, committed funding, runway, and continuity.
+- Added sharper agent-delegation, fabricated-capability, robot operating-envelope,
+  sensor uncertainty, platform portability, financial concentration, cost
+  reversibility, minimum-team, surviving-obligation, and finance-delay questions.
+- Extended the product brief with an interaction-ecosystem map and explicit cash,
+  runway, milestone, downside-trigger, and shutdown-obligation fields.
+- Preserved existing human-readable question identifiers and all stable structured
+  graph identifiers while consolidating development back into `main`.
+
 ## 0.5 — 2026-08-11
 
 - Defined separate improvement loops for an application, an idea, a project-specific graph, and the reusable repository.
