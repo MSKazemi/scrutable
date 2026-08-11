@@ -2,6 +2,15 @@
 
 Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
+## 0.4 — 2026-08-11
+
+- Defined the canonical output as a versioned decision and assurance package backed by a traceable knowledge graph.
+- Distinguished framework questions, run-specific answers, brainstorming candidates, specifications, ADRs, verification evidence, and gate reports.
+- Added universal answer validation, reverse-dependency invalidation, dirty-node propagation, strongly connected component handling, fixed-point convergence, and bounded termination rules.
+- Added explicit brainstorming divergence, challenge, promotion, and validation rules; candidate answers can never become accepted merely because they were generated.
+- Documented the process guarantees the engine may claim and the real-world success guarantees it must not claim.
+- Proposed a Python reference implementation stack and recorded its rationale, validation spike, consequences, and reversal triggers in ADR-0001.
+
 ## 0.3 — 2026-08-11
 
 - Added the repository propagation rule so important conversation, research, and review outputs become durable Markdown records.
