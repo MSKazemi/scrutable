@@ -100,6 +100,17 @@
 - **Human, organization, AI-agent, robot, device, platform, and physical-world interactions:**
 - **Critical integrations and failure behavior:**
 
+## Interaction ecosystem
+
+| Participant | Type | Capability and authority | Interface or protocol | Handoff or override | Failure or safe state | Owner |
+| --- | --- | --- | --- | --- | --- | --- |
+| | Human / agent / robot or device / platform / organization / environmental system | | | | | |
+
+- **Physical-world constraints and hazards:**
+- **Shared semantics, units, time, and coordinate systems:**
+- **End-to-end accountability and traceability:**
+- **Simulation, compatibility, and real-world validation:**
+
 ## Architecture summary
 
 [Components, boundaries, main flows, major dependencies, and expensive-to-reverse decisions.]
@@ -134,6 +145,12 @@
 
 - **Value and revenue or savings:**
 - **Main costs and scale behavior:**
+- **Committed, conditional, and forecast funding:**
+- **Cash, monthly gross and net burn, and runway:**
+- **Next financial milestone and latest decision date:**
+- **Current financial bottleneck and evidence:**
+- **Downside thresholds and continuity actions:**
+- **Reserved shutdown obligations:**
 - **Compatibility policy:**
 - **Export and exit path:**
 - **Retirement trigger and plan:**
@@ -157,3 +174,4 @@
 | Security and privacy | | | | |
 | Operations | | | | |
 | Legal or compliance | | | | |
+
