@@ -18,7 +18,7 @@
 - **Desired associations:**
 - **Naming audiences and languages:**
 - **Brand architecture:** Company / product / edition / feature
-- **Naming checks:** Pronunciation / spelling / search / language / legal / domain / package / app stores
+- **Naming checks:** Pronunciation / spelling / exact and category search / older-brand collision / reputation / language / legal / domain / package / repositories / app stores
 - **Naming decision record:**
 
 ## Problem and evidence
@@ -97,6 +97,7 @@
 - **Sources of truth:**
 - **Retention and deletion:**
 - **Imports and exports:**
+- **Human, organization, AI-agent, robot, device, platform, and physical-world interactions:**
 - **Critical integrations and failure behavior:**
 
 ## Architecture summary
@@ -108,6 +109,17 @@
 | Risk | Impact | Likelihood | Prevention or mitigation | Detection | Owner | Status |
 | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | |
+
+## Bottlenecks and financial viability
+
+- **Current limiting constraint:**
+- **Most dangerous assumption:**
+- **Critical-path dependency and latest safe decision date:**
+- **Leading failure signal:**
+- **Mitigation, fallback, and stop rule:**
+- **Funding source and runway:**
+- **Adverse-case plan if funding, revenue, or payment is delayed:**
+- **Detailed register:** [Link to bottleneck register]
 
 ## Delivery and operation
 
