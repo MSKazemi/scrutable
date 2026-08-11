@@ -51,7 +51,8 @@ A blocker is a critical gap that cannot be neutralized by a high score elsewhere
 - [ ] No unresolved legal or contractual prohibition
 - [ ] No unresolved data-loss or recovery risk
 - [ ] No unresolved public-name collision, reputation, or search-visibility blocker
-- [ ] No unresolved funding, staffing, adoption, vendor, or critical-path gap that makes continued operation unsafe or impossible
+- [ ] No unresolved unsafe human-agent-robot-system authority, handoff, physical-action, or safe-stop behavior
+- [ ] No unresolved funding, staffing, adoption, vendor, or critical-path gap; committed resources cover the next decision milestone and downside triggers and a continuity plan are documented
 - [ ] Release, rollback, monitoring, incident response, and support are ready
 
 ## Decision
