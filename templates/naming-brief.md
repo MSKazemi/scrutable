@@ -70,17 +70,30 @@ Score each criterion from 1 to 5, then multiply it by the criterion weight. A hi
 
 ## Validation record
 
-| Check | Method and source | Result | Blocker? | Owner |
-| --- | --- | --- | --- | --- |
-| Audience comprehension and associations | | | | |
-| Unaided recall | | | | |
-| Pronunciation and spelling | | | | |
-| Native-language and cultural review | | | | |
-| Search and competitor collision | | | | |
-| Domains and confusing variants | | | | |
-| Repositories, packages, stores, and accounts | | | | |
-| Preliminary trademark search | | | | |
-| Legal review | | | | |
+| Check | Method and source | Date and locale | Result and evidence | Blocker? | Owner |
+| --- | --- | --- | --- | --- | --- |
+| Audience comprehension and associations | | | | | |
+| Unaided recall and find-from-memory test | | | | | |
+| Pronunciation and spelling | | | | | |
+| Native-language and cultural review | | | | | |
+| Exact quoted Google and Bing searches | | | | | |
+| Unquoted, category, problem, and misspelling searches | | | | | |
+| Older brands, discontinued products, people, and acronym collisions | | | | | |
+| Search-result authority and realistic ability to own branded results | | | | | |
+| Knowledge panels, maps, images, news, video, app, and shopping results | | | | | |
+| Spam, malware, scam, scandal, adult, extremist, or political associations | | | | | |
+| Domains and confusing or spoofing variants | | | | | |
+| GitHub, GitLab, npm, PyPI, container, app-store, social, and directory identifiers | | | | | |
+| Preliminary trademark and company-name search | | | | | |
+| Legal review | | | | | |
+
+## Search query log
+
+Repeat material queries for every required country, language, and search engine. Preserve links or screenshots when results influence the decision.
+
+| Candidate | Query | Engine or channel | Country/language | Date | Leading entities or results | Can we own it? | Evidence link |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | |
 
 ## Decision
 
@@ -93,4 +106,5 @@ Score each criterion from 1 to 5, then multiply it by the criterion weight. A hi
 - **Rationale and evidence:**
 - **Known risks:**
 - **Fallback name:**
+- **Availability recheck date:**
 - **Related decision record:**
