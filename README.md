@@ -26,7 +26,8 @@ The framework can improve decision quality and expose failure risks; it cannot g
    - [Business, governance, and evolution](docs/06-business-governance-and-evolution.md)
    - [Naming and identity](docs/07-naming-and-identity.md)
 5. Read the [machine operation and output contract](docs/08-machine-operation-and-outputs.md) when building automation or an interactive navigator.
-6. Record the result using the [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), and [review scorecard](templates/review-scorecard.md).
+6. Read [the output, brainstorming, convergence, and implementation contract](docs/09-output-convergence-and-implementation.md) for the canonical result, cross-question correction algorithm, convergence rules, and initial stack. The stack choice is recorded in [ADR-0001](decisions/ADR-0001-engine-implementation-stack.md).
+7. Record the result using the [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), and [review scorecard](templates/review-scorecard.md).
 
 The accepted framework name and its limitations are recorded in [the naming decision](decisions/0001-product-questionbook-name.md).
 
@@ -42,7 +43,7 @@ The accepted framework name and its limitations are recorded in [the naming deci
 
 ## Outputs
 
-A completed review produces a linked bundle rather than a single score:
+The canonical result is a **versioned decision and assurance package backed by a traceable knowledge graph**. The reusable question bank is framework input; answers are validated run state; specifications, ADRs, tests, and gate reports are linked projections. A completed review therefore produces a bundle rather than a single score:
 
 - a product or system brief;
 - a question and evidence ledger;
@@ -55,7 +56,7 @@ A completed review produces a linked bundle rather than a single score:
 - a gate result: proceed, proceed with conditions, pause, or stop;
 - an audit trace and change-impact report.
 
-See the [machine contract](docs/08-machine-operation-and-outputs.md) for the state machine, knowledge graph, structured Markdown format, output directory, integration boundaries, and completion rules.
+See the [machine contract](docs/08-machine-operation-and-outputs.md) for the state machine, knowledge graph, structured Markdown format, output directory, integration boundaries, and completion rules. See the [output and convergence contract](docs/09-output-convergence-and-implementation.md) for brainstorming, answer correction, cyclic dependencies, fixed-point rules, termination, and the proposed implementation stack.
 
 ## What a good answer contains
 
@@ -94,4 +95,4 @@ The target machine will select applicable questions, maintain question state, li
 
 ## Status
 
-This is version `0.3`: a broad, graph-ready foundation with explicit naming-search validation, human/agent/robot/platform integration questions, funding and bottleneck analysis, and repository propagation rules. See the [changelog](CHANGELOG.md).
+This is version `0.4`: a broad, graph-ready foundation with explicit output, brainstorming, convergence, correction, and implementation contracts. The reference stack is proposed but not yet validated by an executable architecture spike. See the [changelog](CHANGELOG.md).
