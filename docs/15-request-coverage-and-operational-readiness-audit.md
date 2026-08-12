@@ -208,11 +208,11 @@ test suite, or benchmark showing reliable end-to-end behavior.
 
 The live `main` tree was checked for the following properties:
 
-- 99 question records and 99 unique stable IDs;
-- 322 declared `depends_on` and `activates` references, with every target resolved;
-- six JSON files with valid JSON syntax;
+- 107 question records and 107 unique stable IDs;
+- 356 declared `depends_on` and `activates` references, with every target resolved;
+- eight JSON files with valid JSON syntax;
 - no missing required human or agent entrypoint;
-- 108 internal Markdown file links checked with no missing target;
+- 157 internal Markdown file links checked with no missing target;
 - no open pull request and both historical pull requests marked merged;
 - no reported commit status checks on the audited `main` commit.
 

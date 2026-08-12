@@ -16,7 +16,10 @@ truth.
 2. For a first framework run, use `QUICKSTART.md` and start with
    `catalog/core/project-profile.yaml`.
 3. Load only the activated domains and schemas; do not load every question bank by
-   default.
+   default. If regulation, safety criticality, or material sector-specific harm may
+   apply, evaluate `core.domain-pack.001` and read
+   `docs/17-domain-pack-governance.md`. Load only an in-scope, current, `published`
+   pack; a required but unavailable pack is a blocker.
 4. Before an assurance decision, read these normative files in order:
    - `docs/00-method.md`
    - `docs/08-machine-operation-and-outputs.md`
@@ -52,6 +55,9 @@ truth.
   declared relationship target.
 - Protect schemas, blocker rules, security controls, and approval policy from
   autonomous self-modification.
+- Do not let an agent publish or self-approve a domain pack. Apply the qualified
+  reviewer, authority, scenario, expiry, and reopening rules in
+  `docs/17-domain-pack-governance.md`.
 - Record material framework changes in `CHANGELOG.md` and the relevant decision or
   normative document.
 - Keep vendor adapter files thin. Canonical behavior belongs in `docs/`, `catalog/`,

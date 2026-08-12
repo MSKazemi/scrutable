@@ -16,6 +16,7 @@ The goal is not to create a product with the most features. The goal is to make 
 | Understand the complete framework | [Full documentation path](#start-here) |
 | Change the framework | [`CONTRIBUTING.md`](CONTRIBUTING.md) |
 | Trace prose questions to the graph | [`docs/16-prose-to-catalog-coverage.md`](docs/16-prose-to-catalog-coverage.md) |
+| Govern a specialized domain pack | [`docs/17-domain-pack-governance.md`](docs/17-domain-pack-governance.md) |
 | Verify coverage and current limits | [`docs/15-request-coverage-and-operational-readiness-audit.md`](docs/15-request-coverage-and-operational-readiness-audit.md) |
 
 ## What this repository is
@@ -44,10 +45,11 @@ The framework can improve decision quality and expose failure risks; it cannot g
 9. Follow the [usage, project placement, visibility, and agent-integration protocol](docs/11-usage-deployment-and-agent-integration.md) to apply the framework to another repository or run it with Codex, ChatGPT, Claude Code, or another agent system.
 10. Record results using the [run manifest](templates/run-manifest.md), [agent run request](templates/agent-run-request.md), [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), [risk register](templates/risk-register.md), [review scorecard](templates/review-scorecard.md), [improvement cycle](templates/improvement-cycle.md), and [adversarial review](templates/adversarial-review.md).
 11. Inspect the [prose-to-catalog coverage contract](docs/16-prose-to-catalog-coverage.md) to see how every numbered human-readable question is preserved and connected to the stable graph without claiming false one-to-one equivalence.
-12. Review the [coverage gaps and expansion backlog](docs/12-coverage-gaps-and-expansion-backlog.md) before claiming comprehensive support or promoting new question domains.
-13. Read the [framework quality assurance audit](docs/13-quality-assurance-audit-and-roadmap.md) for the controlling bottleneck, measurable assurance levels, release gates, and validation roadmap.
-14. Read the [human and AI usability contract](docs/14-human-and-ai-usability.md) for progressive disclosure, task-based entrypoints, context loading, failure behavior, and the prioritized usability roadmap.
-15. Read the [request coverage and operational-readiness audit](docs/15-request-coverage-and-operational-readiness-audit.md) for a direct status of branch integration, self-improvement, usage, inputs, outputs, visibility, algorithms, agent compatibility, and remaining implementation gaps.
+12. Use the [domain-pack governance contract](docs/17-domain-pack-governance.md) when regulation, safety criticality, or material sector-specific harm may require qualified coverage.
+13. Review the [coverage gaps and expansion backlog](docs/12-coverage-gaps-and-expansion-backlog.md) before claiming comprehensive support or promoting new question domains.
+14. Read the [framework quality assurance audit](docs/13-quality-assurance-audit-and-roadmap.md) for the controlling bottleneck, measurable assurance levels, release gates, and validation roadmap.
+15. Read the [human and AI usability contract](docs/14-human-and-ai-usability.md) for progressive disclosure, task-based entrypoints, context loading, failure behavior, and the prioritized usability roadmap.
+16. Read the [request coverage and operational-readiness audit](docs/15-request-coverage-and-operational-readiness-audit.md) for a direct status of branch integration, self-improvement, usage, inputs, outputs, visibility, algorithms, agent compatibility, and remaining implementation gaps.
 
 The accepted framework name and its limitations are recorded in [the naming decision](decisions/0001-product-questionbook-name.md). The primary-interface boundary is recorded in [ADR-0003: text-first, agent-native architecture](decisions/ADR-0003-text-first-agent-native-architecture.md).
 
@@ -97,7 +99,8 @@ The initial foundation includes:
 - [output](docs/output-contract.md) and [assurance](docs/assurance-rules.md) contracts;
 - JSON Schemas for questions, instances, answers, relationships, project profiles, and governed improvement cycles in [`schemas/`](schemas/);
 - a [prose-to-catalog coverage manifest](coverage/prose-to-catalog.yaml) with 396 stable source identities and a [coverage schema](schemas/prose-coverage.schema.json);
-- 99 starter templates with 322 typed dependencies and activations across 16 domains in [`catalog/`](catalog/);
+- 107 starter templates with 356 declared dependencies and activations across 16 universal concern domains in [`catalog/`](catalog/);
+- a [domain-pack governance contract](docs/17-domain-pack-governance.md), schema, draft manifest, and eight stable governance questions; no expert-reviewed pack is yet published;
 - reusable assurance and improvement templates plus a worked project-specific example.
 
 The versioned Markdown and YAML records are the source of truth. The graph is their
@@ -153,7 +156,7 @@ optional and require evidence of a real need. This boundary is defined in
 This is version `0.7`: the graph-ready documentation includes governed adversarial
 self-improvement, pivot lineage, attraction and distribution questions, reconciled
 human/agent/robot integration and financial-continuity controls, stable question IDs,
-machine-validatable schemas, reusable domain packs, assurance and improvement
+machine-validatable schemas, a governed domain-pack interface, assurance and improvement
 templates, a vendor-neutral coding-agent protocol, explicit news and organizational
 buying questions, and a worked example. The full reference-engine stack is deferred;
 the next justified automation is an optional conformance validator that preserves the

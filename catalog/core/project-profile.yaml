@@ -11,7 +11,7 @@ questions:
     applies_when: [always]
     answer_type: structured
     criticality: critical
-    activates: [architecture.context.001, data.inventory.001, legal.obligations.001]
+    activates: [architecture.context.001, data.inventory.001, legal.obligations.001, core.domain-pack.001]
     evidence_required: [approved scope statement]
     expected_outputs: [project charter, system context]
     answered_by_roles: [product owner, system owner]

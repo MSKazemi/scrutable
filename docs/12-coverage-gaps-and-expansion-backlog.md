@@ -42,7 +42,7 @@ requirements, expected outputs, accountable roles, revisit triggers, and validat
 |---|---|---|---|
 | P0 | Prose-to-catalog parity | Partial — manifested, exact review pending | All numbered questions are accounted, but compressed section mappings are not yet independently reviewed as exact and drift checks are manual |
 | P0 | Executable deterministic engine | Capability gap | Documented guarantees cannot be tested automatically and agent behavior remains dependent on manual discipline |
-| P0 | Regulated and safety-critical domain packs | Missing | Generic legal and safety questions are insufficient for healthcare, finance, children, public sector, aviation, automotive, industrial control, and similar contexts |
+| P0 | Regulated and safety-critical domain packs | Domain pack required — governance ready | The interface and eight governance nodes are published, but generic questions remain insufficient and no qualified specialized pack exists |
 | P1 | Organizational adoption and change management | Partial | A technically correct product can fail when workflows, incentives, authority, training, and transition capacity do not change |
 | P1 | Workforce and knowledge continuity | Partial | Key-person loss, turnover, overload, missing succession, or unsafe incentives can invalidate delivery and operation |
 | P1 | External sensing and horizon monitoring | Partial | Revisit triggers exist, but there is no complete method for detecting decision-changing changes early |
@@ -71,26 +71,22 @@ mention in prose as structured support.
 |---|---:|
 | Gap areas excluding item 2 | 15 |
 | Candidate questions in those areas | 108 |
-| Candidate questions promoted as dedicated published catalog records | 0 |
+| Candidate questions promoted as dedicated published catalog records | 8 |
 | Partially covered gap areas | 13 |
 | Missing or domain-pack-required gap areas | 2 |
 | P0 areas / candidate questions | 2 / 16 |
 | P1 areas / candidate questions | 7 / 56 |
 | P2 areas / candidate questions | 6 / 36 |
-| Existing reusable catalog | 99 questions / 322 declared relationships |
+| Existing reusable catalog | 107 questions / 356 `depends_on` and `activates` references |
 | Expert-reviewed regulated or safety-critical packs | 0 |
 | Prose-to-catalog coverage manifest | present: 396 numbered questions, 43 groups, 388 compressed, 8 guidance-only, 0 exact |
 
-“Zero promoted” does not mean that all 108 concerns are absent. It means none of these
-backlog candidates has completed the promotion contract as a dedicated stable record.
-Several are compressed into broader published questions. Such generic coverage
-justifies `partial`, not `covered`, until the mapping, failure modes, evidence,
-outputs, ownership, and activation rules are explicit.
+Eight of the 108 candidates are now dedicated stable records: the domain-pack governance set. This closes the pack-interface gap, not the expert-content gap. The other 100 candidates remain compressed, partial, missing, or conditional. Generic coverage justifies `partial`, not `covered`, until failure modes, evidence, outputs, ownership, activation, and review rules are explicit.
 
 | Item | Gap | Priority | Candidate questions | Current status | Nearest published structured coverage | What is still absent |
 |---:|---|---|---:|---|---|---|
 | 1 | Prose-to-catalog parity | P0 | 8 | Partial — manifested | The coverage manifest accounts for 396 numbered questions and preserves full source wording against 95 referenced stable IDs | All mappings are conservatively section-level and compressed; exact question-level semantic review, unnumbered gate coverage, candidate promotion, and deterministic drift validation remain |
-| 3 | Regulated and safety-critical domain packs | P0 | 8 | Missing / domain pack required | `legal.obligations.001`, `data.classification.001`, `security.threats.001`, `ethics.harms.001` | No qualified healthcare, fintech, children, government, aviation, automotive, industrial-control, or comparable pack; no pack authority, jurisdiction, expiry, tests, or approver model |
+| 3 | Regulated and safety-critical domain packs | P0 | 8 | Domain pack required — governance ready | `core.domain-pack.001` through `.008` now define activation, authority, expert review, domain deltas, provenance, blockers, scenario assurance, and affected-run reopening | No qualified healthcare, fintech, children, government, aviation, automotive, industrial-control, or comparable pack has completed this contract |
 | 4 | Organizational adoption and change management | P1 | 8 | Partial | `business.adoption.001`, `business.organizational-buying.001` | Resistance, authority shifts, training, proficiency, parallel run, productivity trough, labor obligations, fatigue, and rollback ownership are not a coherent structured set |
 | 5 | Workforce and knowledge continuity | P1 | 8 | Partial | `team.accountability.001`, `team.capability.001`, `team.communication.001` | Key-person dependency, succession, turnover, burnout, cross-training, access transfer, separation of duties under shortage, and leading indicators need explicit records |
 | 6 | External sensing and horizon monitoring | P1 | 8 | Partial | `core.learning-loop.001`, `architecture.dependencies.001`, `business.distribution-risk.001`, record-level `revisit_when` triggers | No governed source inventory, monitoring cadence, signal reliability, detection-delay budget, threshold-to-reopen rule, or missed-signal review |
@@ -162,6 +158,8 @@ partial to covered.
    decision-change rate, and time to justified decision?
 
 ### 3. Domain-pack governance
+
+**Current status:** the [governance contract](17-domain-pack-governance.md), manifest schema, draft template, and `core.domain-pack.001` through `.008` now implement these eight universal questions. Expert-reviewed published packs remain at zero; any run needing one must pause or stop until a qualified pack exists.
 
 1. Which subject attributes activate a regulated or safety-critical pack?
 2. Which authoritative laws, standards, clinical or engineering practices, and
@@ -416,8 +414,7 @@ A backlog area becomes supported only when:
 3. Add organizational adoption, workforce continuity, and external-sensing questions.
 4. Add information-integrity, geopolitical, localization, and enterprise-implementation
    questions as conditional structured modules.
-5. Define the domain-pack interface and pilot one high-value pack with qualified
-   expert review.
+5. Pilot one high-value pack through the now-defined domain-pack interface with qualified expert review; do not mark the gap covered until that exact pack and scope are published.
 6. Promote P2 modules only when target runs show applicability or a severe omission.
 
 This sequence closes the framework's most important blind spot first: the difference

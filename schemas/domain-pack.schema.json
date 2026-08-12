@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MSKazemi/mohsen/blob/main/schemas/domain-pack.schema.json",
+  "title": "Product Questionbook domain-pack manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "status",
+    "title",
+    "purpose",
+    "scope",
+    "activation",
+    "authoritative_sources",
+    "question_sets",
+    "blockers",
+    "expert_review",
+    "assurance",
+    "change_control"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": {
+      "type": "string",
+      "pattern": "^pack\\.[a-z0-9-]+(?:\\.[a-z0-9-]+)*$"
+    },
+    "version": { "type": "integer", "minimum": 1 },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "reviewed", "published", "suspended", "deprecated"]
+    },
+    "title": { "type": "string", "minLength": 5 },
+    "purpose": { "type": "string", "minLength": 20 },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject_attributes", "jurisdictions", "risk_classes", "included_uses", "excluded_uses"],
+      "properties": {
+        "subject_attributes": { "$ref": "#/$defs/nonEmptyStrings" },
+        "jurisdictions": { "$ref": "#/$defs/nonEmptyStrings" },
+        "risk_classes": { "$ref": "#/$defs/nonEmptyStrings" },
+        "included_uses": { "$ref": "#/$defs/nonEmptyStrings" },
+        "excluded_uses": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    },
+    "activation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["any_of", "all_of", "manual_review_when"],
+      "properties": {
+        "any_of": { "$ref": "#/$defs/nonEmptyStrings" },
+        "all_of": { "$ref": "#/$defs/nonEmptyStrings" },
+        "manual_review_when": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    },
+    "authoritative_sources": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/authoritySource" }
+    },
+    "question_sets": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "question_ids", "purpose"],
+        "properties": {
+          "path": { "type": "string", "pattern": "^packs/[a-z0-9./_-]+\\.ya?ml$" },
+          "question_ids": { "$ref": "#/$defs/questionIds" },
+          "purpose": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["question_id", "condition", "gate_result", "waiver"],
+        "properties": {
+          "question_id": { "$ref": "#/$defs/questionId" },
+          "condition": { "type": "string", "minLength": 10 },
+          "gate_result": { "type": "string", "enum": ["pause", "stop"] },
+          "waiver": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["permitted", "authority_roles", "evidence_required", "maximum_duration_days"],
+            "properties": {
+              "permitted": { "type": "boolean" },
+              "authority_roles": { "$ref": "#/$defs/nonEmptyStrings" },
+              "evidence_required": { "$ref": "#/$defs/nonEmptyStrings" },
+              "maximum_duration_days": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "expert_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required_roles", "approvals", "open_gaps"],
+      "properties": {
+        "required_roles": { "$ref": "#/$defs/nonEmptyStrings" },
+        "approvals": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/approval" }
+        },
+        "open_gaps": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    },
+    "assurance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["limitations", "positive_scenarios", "negative_scenarios", "incident_or_audit_evidence", "residual_risks"],
+      "properties": {
+        "limitations": { "$ref": "#/$defs/nonEmptyStrings" },
+        "positive_scenarios": { "$ref": "#/$defs/nonEmptyStrings" },
+        "negative_scenarios": { "$ref": "#/$defs/nonEmptyStrings" },
+        "incident_or_audit_evidence": { "$ref": "#/$defs/nonEmptyStrings" },
+        "residual_risks": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    },
+    "change_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner_role", "revalidate_when", "review_interval_days", "affected_runs_policy"],
+      "properties": {
+        "owner_role": { "type": "string", "minLength": 3 },
+        "revalidate_when": { "$ref": "#/$defs/nonEmptyStrings" },
+        "review_interval_days": { "type": "integer", "minimum": 1 },
+        "affected_runs_policy": {
+          "type": "string",
+          "enum": ["notify", "reopen", "reopen_if_material", "retire"]
+        },
+        "supersedes": {
+          "type": "string",
+          "pattern": "^pack\\.[a-z0-9-]+(?:\\.[a-z0-9-]+)*@v[1-9][0-9]*$"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "enum": ["reviewed", "published"] } }, "required": ["status"] },
+      "then": {
+        "properties": {
+          "authoritative_sources": { "type": "array", "minItems": 1 },
+          "question_sets": { "type": "array", "minItems": 1 },
+          "expert_review": {
+            "type": "object",
+            "properties": {
+              "approvals": { "type": "array", "minItems": 1 },
+              "open_gaps": { "type": "array", "maxItems": 0 }
+            }
+          },
+          "assurance": {
+            "type": "object",
+            "properties": {
+              "positive_scenarios": { "type": "array", "minItems": 1 },
+              "negative_scenarios": { "type": "array", "minItems": 1 },
+              "incident_or_audit_evidence": { "type": "array", "minItems": 1 }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonEmptyStrings": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 3 }
+    },
+    "questionId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+){2,}$"
+    },
+    "questionIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/questionId" }
+    },
+    "authoritySource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "publisher", "source_type", "uri", "jurisdictions", "version", "effective_at", "checked_at", "sections", "interpretation_owner_role"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
+        "title": { "type": "string", "minLength": 5 },
+        "publisher": { "type": "string", "minLength": 2 },
+        "source_type": {
+          "type": "string",
+          "enum": ["law", "regulation", "standard", "official-guidance", "professional-practice", "incident", "audit", "enforcement", "recall", "research"]
+        },
+        "uri": { "type": "string", "format": "uri" },
+        "jurisdictions": { "$ref": "#/$defs/nonEmptyStrings" },
+        "version": { "type": "string", "minLength": 1 },
+        "effective_at": { "type": "string", "format": "date" },
+        "checked_at": { "type": "string", "format": "date" },
+        "expires_at": { "type": "string", "format": "date" },
+        "sections": { "$ref": "#/$defs/nonEmptyStrings" },
+        "interpretation_owner_role": { "type": "string", "minLength": 3 }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewer", "role", "qualification_basis", "scope", "decision", "reviewed_at", "expires_at"],
+      "properties": {
+        "reviewer": { "type": "string", "minLength": 2 },
+        "role": { "type": "string", "minLength": 3 },
+        "qualification_basis": { "type": "string", "minLength": 10 },
+        "scope": { "type": "string", "minLength": 10 },
+        "decision": { "type": "string", "enum": ["approve", "approve_with_conditions", "reject"] },
+        "conditions": { "$ref": "#/$defs/nonEmptyStrings" },
+        "reviewed_at": { "type": "string", "format": "date" },
+        "expires_at": { "type": "string", "format": "date" }
+      }
+    }
+  }
+}

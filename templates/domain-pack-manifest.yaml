@@ -1,0 +1,59 @@
+schema_version: 1
+id: pack.example.safety-domain
+version: 1
+status: draft
+title: Draft safety-domain pack
+purpose: Replace this example with the qualified rules and evidence needed for one bounded domain.
+
+scope:
+  subject_attributes:
+    - regulated or safety-critical behavior may be present
+  jurisdictions:
+    - jurisdiction not yet selected
+  risk_classes:
+    - risk classification not yet selected
+  included_uses:
+    - bounded use not yet selected
+  excluded_uses:
+    - all uses outside the approved scope
+
+activation:
+  any_of:
+    - the project profile identifies a regulated domain
+    - failure can cause material physical, financial, civic, or developmental harm
+  all_of: []
+  manual_review_when:
+    - domain or jurisdiction cannot be classified confidently
+    - multiple authorities conflict
+
+authoritative_sources: []
+question_sets: []
+blockers: []
+
+expert_review:
+  required_roles:
+    - qualified domain expert
+    - accountable legal or compliance owner
+    - accountable safety or risk owner
+  approvals: []
+  open_gaps:
+    - authoritative sources have not been selected
+    - domain questions and blockers have not been reviewed
+    - positive and negative scenarios have not been tested
+
+assurance:
+  limitations:
+    - draft only; it must not be used as domain certification or professional advice
+  positive_scenarios: []
+  negative_scenarios: []
+  incident_or_audit_evidence: []
+  residual_risks:
+    - domain coverage is unknown until qualified review is complete
+
+change_control:
+  owner_role: domain pack maintainer
+  revalidate_when:
+    - an authority, standard, interpretation, incident pattern, or product scope changes
+    - an approval expires or a reviewer withdraws approval
+  review_interval_days: 90
+  affected_runs_policy: reopen_if_material

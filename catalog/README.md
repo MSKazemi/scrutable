@@ -46,3 +46,9 @@ compressed, unmodeled, or guidance-only. A compressed mapping preserves the pros
 detail; it does not authorize an agent to treat the stable node as semantically
 identical. See the
 [coverage contract](../docs/16-prose-to-catalog-coverage.md).
+
+## Domain-pack governance
+
+The eight questions in [`core/domain-pack-governance-questions.yaml`](core/domain-pack-governance-questions.yaml) activate and govern qualified specialized packs. A pack bundles questions that still use one of the 16 universal concern domains; it does not bypass this schema or invent an unreviewed assurance vocabulary. Pack manifests conform to [`../schemas/domain-pack.schema.json`](../schemas/domain-pack.schema.json), and the lifecycle and blocker rules are defined in the [domain-pack governance contract](../docs/17-domain-pack-governance.md).
+
+The repository currently has zero expert-reviewed published packs. Generic catalog coverage must not be presented as healthcare, financial, children's, government, automotive, aviation, industrial-control, or other professional certification.

@@ -33,9 +33,12 @@ independent review requires it. Record the chosen location in the run manifest.
 6. Open only the domains activated by those answers. Use
    [`docs/01-aspects.md`](docs/01-aspects.md) to classify each domain as critical,
    important, relevant, or not applicable.
-7. Record decisions, risks, experiments, requirements, and tests using the templates
+7. If regulation, safety criticality, or material sector-specific harm may apply,
+   evaluate [`core.domain-pack.001`](catalog/core/domain-pack-governance-questions.yaml).
+   A required but unavailable, unpublished, expired, or out-of-scope pack is a blocker.
+8. Record decisions, risks, experiments, requirements, and tests using the templates
    in [`templates/`](templates/).
-8. End with exactly one gate result: `proceed`, `proceed_with_conditions`, `pause`, or
+9. End with exactly one gate result: `proceed`, `proceed_with_conditions`, `pause`, or
    `stop`.
 
 Start small. A useful first run may contain unknowns and a `pause` result. Its purpose

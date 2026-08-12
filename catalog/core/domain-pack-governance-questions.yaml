@@ -1,0 +1,153 @@
+schema_version: 1
+domain: core
+questions:
+  - id: core.domain-pack.001
+    version: 1
+    status: published
+    question: Which subject attributes, uses, jurisdictions, or harm classes require a regulated or safety-critical domain pack?
+    purpose: Activate qualified domain coverage before generic questions are mistaken for sufficient assurance.
+    domain: core
+    lifecycle_stages: [discover, define, design, evolve]
+    applies_when: [the subject may be regulated, safety-critical, or capable of material sector-specific harm]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.boundary.001, core.beneficiaries.001, core.constraints.001]
+    activates: [core.domain-pack.002, core.domain-pack.003, core.domain-pack.004, core.domain-pack.005]
+    related_to: [legal.obligations.001, core.failure.001]
+    evidence_required: [approved subject classification, jurisdiction and use inventory, harm assessment]
+    expected_outputs: [domain-pack applicability decision, required pack register]
+    answered_by_roles: [product owner, legal owner, safety or risk owner]
+    revisit_when: [scope changes, jurisdiction changes, a new affected group or harm is identified]
+    tags: [domain-pack, applicability, regulated]
+
+  - id: core.domain-pack.002
+    version: 1
+    status: published
+    question: Which authoritative laws, standards, official guidance, and qualified practices govern the required pack?
+    purpose: Pin the authorities, versions, interpretations, and validity dates on which domain questions depend.
+    domain: core
+    lifecycle_stages: [discover, define, design, verify, operate, evolve]
+    applies_when: [core.domain-pack.001 identifies a required or possibly required pack]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.domain-pack.001, legal.obligations.001]
+    activates: [core.domain-pack.005, core.domain-pack.008]
+    related_to: [core.evidence.001]
+    evidence_required: [authoritative source register, version and effective-date verification, documented interpretation]
+    expected_outputs: [pack authority register, source validity schedule]
+    answered_by_roles: [qualified domain expert, legal or compliance owner]
+    revisit_when: [a source changes, an interpretation changes, a source expires, jurisdiction changes]
+    tags: [domain-pack, authority, provenance]
+
+  - id: core.domain-pack.003
+    version: 1
+    status: published
+    question: Who is qualified and accountable to review the pack, approve its scope, and accept any residual domain risk?
+    purpose: Prevent an agent or unqualified maintainer from self-certifying consequential domain coverage.
+    domain: core
+    lifecycle_stages: [define, design, verify, release, operate, evolve]
+    applies_when: [a domain pack is required or proposed]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.domain-pack.001, core.domain-pack.002, core.ownership.001]
+    activates: [core.domain-pack.006]
+    related_to: [team.capability.001, team.authority.001]
+    evidence_required: [reviewer identity, qualification basis, approval scope, signed and expiring review decision]
+    expected_outputs: [expert review record, approval matrix, residual-risk authority record]
+    answered_by_roles: [domain pack maintainer, qualified domain expert, accountable executive]
+    revisit_when: [reviewer changes, qualification or authority expires, approval scope changes]
+    tags: [domain-pack, expert-review, accountability]
+
+  - id: core.domain-pack.004
+    version: 1
+    status: published
+    question: Which domain hazards, failure modes, affected parties, and required evidence are absent from the universal catalog?
+    purpose: Define the irreducible expert content that justifies a specialized pack.
+    domain: core
+    lifecycle_stages: [discover, define, design, verify, evolve]
+    applies_when: [a domain pack is required or proposed]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.domain-pack.001, core.failure.001]
+    activates: [core.domain-pack.006, core.domain-pack.007]
+    refines: [core.failure.001, core.beneficiaries.001]
+    evidence_required: [domain hazard analysis, gap comparison, affected-party review, evidence plan]
+    expected_outputs: [domain coverage delta, hazard register, pack question proposal]
+    answered_by_roles: [qualified domain expert, safety or risk owner, affected-party representative]
+    revisit_when: [new hazard evidence appears, an incident occurs, universal catalog changes]
+    tags: [domain-pack, hazards, coverage-gap]
+
+  - id: core.domain-pack.005
+    version: 1
+    status: published
+    question: How will the pack record source jurisdiction, version, effective date, interpretation, conflicts, expiry, and provenance?
+    purpose: Make domain rules traceable and prevent stale or cross-jurisdiction guidance from silently controlling a run.
+    domain: core
+    lifecycle_stages: [define, design, build, verify, operate, evolve]
+    applies_when: [a domain pack uses external authorities or professional practices]
+    answer_type: structured
+    criticality: high
+    depends_on: [core.domain-pack.002, core.evidence.001]
+    activates: [core.domain-pack.008]
+    related_to: [operations.observability.001]
+    evidence_required: [completed domain-pack manifest, source provenance review, conflict-resolution record]
+    expected_outputs: [versioned authority metadata, source conflict register, expiry monitor specification]
+    answered_by_roles: [domain pack maintainer, qualified domain expert, compliance owner]
+    revisit_when: [source metadata changes, authorities conflict, provenance cannot be verified]
+    tags: [domain-pack, source-control, expiry]
+
+  - id: core.domain-pack.006
+    version: 1
+    status: published
+    question: Which pack questions are mandatory blockers, and under what evidence and authority can equivalence, waiver, or risk acceptance be allowed?
+    purpose: Define non-bypassable safety boundaries and constrain exceptional acceptance before a live gate decision.
+    domain: core
+    lifecycle_stages: [define, design, verify, release, operate, evolve]
+    applies_when: [a domain pack contains high-consequence requirements]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.domain-pack.003, core.domain-pack.004, quality.release-gate.001]
+    activates: [core.domain-pack.007]
+    related_to: [team.authority.001, legal.obligations.001]
+    evidence_required: [blocker table, waiver policy, equivalence criteria, risk-acceptance authority]
+    expected_outputs: [pack gate policy, waiver record template, equivalence decision rules]
+    answered_by_roles: [qualified domain expert, safety or risk owner, legal owner, release authority]
+    revisit_when: [a blocker fails, a waiver is requested, severity or authority changes]
+    tags: [domain-pack, blocker, waiver]
+
+  - id: core.domain-pack.007
+    version: 1
+    status: published
+    question: Which positive, negative, incident, audit, recall, enforcement, and adversarial scenarios demonstrate that the pack detects consequential failures?
+    purpose: Test the pack against representative successes and real or plausible failures instead of relying on document review alone.
+    domain: core
+    lifecycle_stages: [design, build, verify, release, operate, evolve]
+    applies_when: [domain questions and blocker rules have been drafted]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.domain-pack.004, core.domain-pack.006, quality.validation.001]
+    activates: [core.domain-pack.008]
+    related_to: [operations.incident.001, quality.strategy.001]
+    evidence_required: [scenario corpus, expected decisions, test results, expert review of misses and false blockers]
+    expected_outputs: [pack assurance report, scenario suite, remediation backlog]
+    answered_by_roles: [qualified domain expert, quality owner, safety or risk owner]
+    revisit_when: [an incident or enforcement action occurs, a scenario fails, false blockers become material]
+    tags: [domain-pack, validation, incidents]
+
+  - id: core.domain-pack.008
+    version: 1
+    status: published
+    question: Which prior and active runs must be notified, re-evaluated, reopened, paused, or retired when a pack or authority changes?
+    purpose: Propagate material domain changes into decisions that relied on an older pack instead of protecting only new runs.
+    domain: core
+    lifecycle_stages: [operate, evolve, retire]
+    applies_when: [a pack, authority, interpretation, approval, incident pattern, or scope changes]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.domain-pack.002, core.domain-pack.005, core.domain-pack.007]
+    related_to: [core.learning-loop.001, operations.incident.001, retirement.transition.001]
+    evidence_required: [affected-run query, materiality assessment, notification and reopening log]
+    expected_outputs: [affected-run register, reopening decisions, migration or retirement plan]
+    answered_by_roles: [domain pack maintainer, run owners, risk owner]
+    revisit_when: [another pack revision is published, an approval expires, affected-run scope changes]
+    tags: [domain-pack, propagation, reopening]

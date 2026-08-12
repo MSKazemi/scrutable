@@ -52,6 +52,8 @@ The selection engine then:
 4. ranks ready questions by impact, uncertainty, unlock value, urgency, and answer cost;
 5. re-evaluates the graph after every answer or material event.
 
+If the profile indicates regulation, safety criticality, or material sector-specific harm, evaluate [`core.domain-pack.001`](../catalog/core/domain-pack-governance-questions.yaml). A required but unavailable, unpublished, expired, suspended, or out-of-scope pack blocks a positive gate; generic questions cannot substitute for qualified domain coverage.
+
 ## Repository components
 
 - [`docs/domain-model.md`](domain-model.md) defines entities, relationships, and invariants.
@@ -60,6 +62,7 @@ The selection engine then:
 - [`docs/coverage-model.md`](coverage-model.md) defines lifecycle-by-domain coverage.
 - [`docs/output-contract.md`](output-contract.md) defines the assurance package.
 - [`docs/assurance-rules.md`](assurance-rules.md) defines honest completion criteria.
+- [`docs/17-domain-pack-governance.md`](17-domain-pack-governance.md) defines qualified specialized-pack activation, authority, review, blocker, expiry, and reopening rules.
 - [`schemas/`](../schemas/) contains machine-readable contracts.
 - [`catalog/`](../catalog/) contains reusable templates, never project answers.
 - [`examples/sample-application/`](../examples/sample-application/) demonstrates project-specific state.

@@ -39,3 +39,7 @@ question instead of reusing its ID for a different meaning.
 
 Template publication follows `draft -> reviewed -> published -> deprecated`.
 
+## Domain packs
+
+A specialized pack must follow the [domain-pack governance contract](docs/17-domain-pack-governance.md) and conform to [`schemas/domain-pack.schema.json`](schemas/domain-pack.schema.json). Repository maintainership or agent authorship is not domain qualification. Do not mark a pack `reviewed` or `published` without current authoritative sources, qualified scoped approvals, blocker and waiver rules, positive and negative scenarios, incident or audit evidence, limitations, expiry, and affected-run behavior.
+
