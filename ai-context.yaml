@@ -57,6 +57,9 @@ agent_load_order:
     - docs/09-output-convergence-and-implementation.md
     - docs/10-self-improvement-and-adversarial-governance.md
     - docs/11-usage-deployment-and-agent-integration.md
+  organizational_change:
+    - catalog/business/questions.yaml
+    - catalog/team/organizational-change-questions.yaml
   regulated_or_safety_critical:
     - docs/17-domain-pack-governance.md
     - catalog/core/domain-pack-governance-questions.yaml

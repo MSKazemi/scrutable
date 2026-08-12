@@ -99,8 +99,9 @@ The initial foundation includes:
 - [output](docs/output-contract.md) and [assurance](docs/assurance-rules.md) contracts;
 - JSON Schemas for questions, instances, answers, relationships, project profiles, and governed improvement cycles in [`schemas/`](schemas/);
 - a [prose-to-catalog coverage manifest](coverage/prose-to-catalog.yaml) with 396 stable source identities and a [coverage schema](schemas/prose-coverage.schema.json);
-- 107 starter templates with 356 declared dependencies and activations across 16 universal concern domains in [`catalog/`](catalog/);
+- 115 starter templates with 387 declared dependencies and activations across 16 universal concern domains in [`catalog/`](catalog/);
 - a [domain-pack governance contract](docs/17-domain-pack-governance.md), schema, draft manifest, and eight stable governance questions; no expert-reviewed pack is yet published;
+- an eight-question [organizational adoption and change module](catalog/team/organizational-change-questions.yaml) covering impact, resistance, enablement, transition, workforce obligations, measurement, safeguards, and post-launch ownership;
 - reusable assurance and improvement templates plus a worked project-specific example.
 
 The versioned Markdown and YAML records are the source of truth. The graph is their

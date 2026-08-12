@@ -52,3 +52,7 @@ identical. See the
 The eight questions in [`core/domain-pack-governance-questions.yaml`](core/domain-pack-governance-questions.yaml) activate and govern qualified specialized packs. A pack bundles questions that still use one of the 16 universal concern domains; it does not bypass this schema or invent an unreviewed assurance vocabulary. Pack manifests conform to [`../schemas/domain-pack.schema.json`](../schemas/domain-pack.schema.json), and the lifecycle and blocker rules are defined in the [domain-pack governance contract](../docs/17-domain-pack-governance.md).
 
 The repository currently has zero expert-reviewed published packs. Generic catalog coverage must not be presented as healthcare, financial, children's, government, automotive, aviation, industrial-control, or other professional certification.
+
+## Organizational change module
+
+When `business.adoption.001` identifies a material workflow or organizational transition, load [`team/organizational-change-questions.yaml`](team/organizational-change-questions.yaml). Its eight records distinguish change impact, stakeholder power, enablement, transition, workforce obligations, adoption evidence, pause or restoration safeguards, and post-launch ownership. Technical release alone cannot satisfy these questions.

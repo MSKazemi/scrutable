@@ -46,6 +46,7 @@ questions:
     answer_type: structured
     criticality: high
     depends_on: [product.value-proposition.001, users.needs.001]
+    activates: [team.change-impact.001]
     evidence_required: [adoption research, pilot or migration evidence]
     expected_outputs: [adoption plan, change-management risks]
     answered_by_roles: [product owner, change owner, user researcher]

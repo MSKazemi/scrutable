@@ -1,0 +1,153 @@
+schema_version: 1
+domain: team
+questions:
+  - id: team.change-impact.001
+    version: 1
+    status: published
+    question: Whose workflow, authority, incentives, workload, status, or professional identity must change for the intended outcome to occur?
+    purpose: Expose the human and organizational changes hidden behind a technical delivery plan.
+    domain: team
+    lifecycle_stages: [discover, define, design, release, evolve]
+    applies_when: [success changes how people or organizations work, decide, or are evaluated]
+    answer_type: structured
+    criticality: high
+    depends_on: [business.adoption.001, users.actors.001]
+    activates: [team.change-stakeholders.001, team.change-enablement.001, team.workforce-obligations.001]
+    related_to: [business.incentives.001]
+    evidence_required: [current and future workflow maps, role and decision-rights comparison, affected-person interviews]
+    expected_outputs: [change-impact assessment, affected-role register]
+    answered_by_roles: [change owner, product owner, affected team leaders]
+    revisit_when: [workflow, authority, incentive, workload, or target population changes]
+    tags: [organizational-change, workflow, authority]
+
+  - id: team.change-stakeholders.001
+    version: 1
+    status: published
+    question: Who benefits from the change, who bears its cost, and who can quietly resist, delay, redirect, or block it?
+    purpose: Model adoption power and uneven transition cost before resistance becomes an unexplained rollout failure.
+    domain: team
+    lifecycle_stages: [discover, define, design, release, evolve]
+    applies_when: [the change distributes benefits, costs, status, or control unevenly]
+    answer_type: structured
+    criticality: high
+    depends_on: [team.change-impact.001, core.beneficiaries.001]
+    activates: [team.change-safeguards.001]
+    related_to: [team.authority.001, ethics.distribution.001]
+    evidence_required: [stakeholder power analysis, affected-party research, resistance and dependency scenarios]
+    expected_outputs: [change stakeholder map, resistance and engagement plan]
+    answered_by_roles: [change owner, sponsor, affected-party representative]
+    revisit_when: [stakeholder power, cost allocation, sponsorship, or resistance changes]
+    tags: [organizational-change, stakeholders, resistance]
+
+  - id: team.change-enablement.001
+    version: 1
+    status: published
+    question: Which training, practice, certification, job aids, champions, and manager support are required before responsibility transfers?
+    purpose: Require demonstrated capability and support before people inherit a changed workflow or risk.
+    domain: team
+    lifecycle_stages: [define, design, build, verify, release, evolve]
+    applies_when: [people must learn or demonstrate new behavior, judgment, or operating skill]
+    answer_type: structured
+    criticality: high
+    depends_on: [team.change-impact.001, team.capability.001]
+    activates: [team.change-transition.001, team.change-measurement.001]
+    related_to: [quality.acceptance.001]
+    evidence_required: [role-based learning needs, observed practice results, proficiency criteria, manager and champion capacity]
+    expected_outputs: [enablement plan, proficiency evidence, responsibility-transfer gate]
+    answered_by_roles: [change owner, training owner, affected managers, domain expert]
+    revisit_when: [role, workflow, error pattern, staffing, or proficiency evidence changes]
+    tags: [organizational-change, training, proficiency]
+
+  - id: team.change-transition.001
+    version: 1
+    status: published
+    question: What migration, parallel-run, cutover, fallback, and productivity-trough plan protects users and operations during the workflow transition?
+    purpose: Treat organizational cutover as a recoverable operational change with explicit capacity and safety margins.
+    domain: team
+    lifecycle_stages: [design, build, verify, release, operate, evolve]
+    applies_when: [an existing workflow, responsibility, or operating model will be replaced or materially changed]
+    answer_type: structured
+    criticality: critical
+    depends_on: [team.change-enablement.001, operations.release.001]
+    activates: [team.change-measurement.001, team.change-safeguards.001]
+    related_to: [reliability.recovery.001, business.continuity.001]
+    evidence_required: [migration rehearsal, workload and capacity model, fallback exercise, parallel-run reconciliation]
+    expected_outputs: [organizational transition plan, cutover runbook, productivity-trough budget]
+    answered_by_roles: [change owner, operations owner, affected managers, system owner]
+    revisit_when: [cutover scope, staffing, workload, fallback feasibility, or operational risk changes]
+    tags: [organizational-change, migration, fallback]
+
+  - id: team.workforce-obligations.001
+    version: 1
+    status: published
+    question: Which labor, works-council, union, consultation, accessibility, or employee-monitoring obligations apply to the change?
+    purpose: Prevent organizational rollout from bypassing binding workforce rights, consultation, and monitoring constraints.
+    domain: team
+    lifecycle_stages: [discover, define, design, verify, release, evolve]
+    applies_when: [the change affects employment conditions, worker monitoring, role duties, access, evaluation, or collective rights]
+    answer_type: structured
+    criticality: critical
+    depends_on: [team.change-impact.001, legal.obligations.001]
+    activates: [team.change-safeguards.001]
+    related_to: [legal.privacy-basis.001, ethics.contestability.001]
+    evidence_required: [qualified labor and privacy review, consultation record, agreement and notice inventory]
+    expected_outputs: [workforce obligation register, consultation and compliance plan]
+    answered_by_roles: [legal owner, people owner, worker representative, privacy owner]
+    revisit_when: [jurisdiction, workforce, monitoring, role, contract, or collective agreement changes]
+    tags: [organizational-change, workforce-rights, consultation]
+
+  - id: team.change-measurement.001
+    version: 1
+    status: published
+    question: How will readiness, real adoption, workaround use, proficiency, productivity impact, and change fatigue be measured without coercive or misleading surveillance?
+    purpose: Distinguish nominal rollout from safe, capable, sustained use while protecting affected people.
+    domain: team
+    lifecycle_stages: [design, verify, release, operate, evolve]
+    applies_when: [an organizational change is piloted, released, or operated]
+    answer_type: structured
+    criticality: high
+    depends_on: [team.change-impact.001, core.success.001]
+    activates: [team.change-safeguards.001, team.change-ownership.001]
+    related_to: [operations.observability.001, legal.privacy-basis.001]
+    evidence_required: [baseline and target definitions, adoption and proficiency sampling, workaround observation, fatigue and privacy review]
+    expected_outputs: [change scorecard, adoption evidence plan, fatigue and workaround register]
+    answered_by_roles: [change owner, product owner, people analytics owner, privacy owner]
+    revisit_when: [measures are gamed, surveillance risk changes, fatigue rises, or outcome evidence diverges from usage]
+    tags: [organizational-change, adoption, measurement]
+
+  - id: team.change-safeguards.001
+    version: 1
+    status: published
+    question: Which readiness, harm, workload, proficiency, or adoption threshold pauses rollout, limits exposure, or restores the former workflow?
+    purpose: Turn organizational warning signs into explicit protective action rather than post-launch observation.
+    domain: team
+    lifecycle_stages: [design, verify, release, operate, evolve]
+    applies_when: [a workflow or responsibility transition can be staged, paused, limited, or reversed]
+    answer_type: structured
+    criticality: critical
+    depends_on: [team.change-stakeholders.001, team.change-transition.001, team.workforce-obligations.001, team.change-measurement.001]
+    activates: [operations.incident.001]
+    related_to: [quality.release-gate.001, core.kill-criteria.001]
+    evidence_required: [approved thresholds, live signal tests, fallback authority, restoration exercise]
+    expected_outputs: [organizational rollout gate, pause and restoration triggers, escalation runbook]
+    answered_by_roles: [change owner, release authority, operations owner, worker or affected-party representative]
+    revisit_when: [a threshold is crossed, signals fail, harm appears, or restoration becomes infeasible]
+    tags: [organizational-change, rollout-gate, rollback]
+
+  - id: team.change-ownership.001
+    version: 1
+    status: published
+    question: Who owns adoption, proficiency, workflow performance, support, and corrective action after launch rather than only software delivery?
+    purpose: Preserve accountable ownership until the changed operating model produces and sustains its intended outcome.
+    domain: team
+    lifecycle_stages: [define, release, operate, evolve, retire]
+    applies_when: [organizational adoption remains necessary after technical release]
+    answer_type: structured
+    criticality: high
+    depends_on: [team.accountability.001, team.change-measurement.001]
+    related_to: [operations.support.001, core.learning-loop.001]
+    evidence_required: [accepted post-launch responsibility map, service and adoption review cadence, funded corrective-action capacity]
+    expected_outputs: [adoption ownership map, post-launch governance and review plan]
+    answered_by_roles: [sponsor, change owner, operational business owner]
+    revisit_when: [ownership, funding, target outcome, support demand, or workflow performance changes]
+    tags: [organizational-change, ownership, post-launch]

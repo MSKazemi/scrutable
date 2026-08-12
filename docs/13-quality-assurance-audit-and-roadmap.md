@@ -48,16 +48,16 @@ The following facts were checked against `main` for this audit:
 
 | Check | Observed result | Interpretation |
 |---|---:|---|
-| Structured questions | 107 | Useful starter graph, not parity with all prose questions or any specialized pack |
-| Question IDs | 107 unique | No duplicate stable IDs found |
-| Declared references | 371 | 224 `depends_on`; 132 `activates`; 13 `related_to`; 2 `refines` |
+| Structured questions | 115 | Useful starter graph, not parity with all prose questions or any specialized pack |
+| Question IDs | 115 unique | No duplicate stable IDs found |
+| Declared references | 416 | 242 `depends_on`; 145 `activates`; 27 `related_to`; 2 `refines` |
 | Unresolved reference targets | 0 | Current dependency and activation targets resolve |
 | Self-references | 0 | No direct self-edge found |
 | `depends_on` cycles | 0 | Current dependency graph is acyclic |
 | Required question fields missing | 0 | All records contain the fields required by `question.schema.json` |
-| Publication status | 107 published | No draft or reviewed records remain in the universal catalog |
-| Criticality | 58 critical, 46 high, 3 medium, 0 low | Severity is heavily concentrated at the top |
-| Applicability | 11 always; 96 natural-language conditions | Most applicability cannot yet be evaluated deterministically |
+| Publication status | 115 published | No draft or reviewed records remain in the universal catalog |
+| Criticality | 61 critical, 51 high, 3 medium, 0 low | Severity is heavily concentrated at the top |
+| Applicability | 11 always; 104 natural-language conditions | Most applicability cannot yet be evaluated deterministically |
 | JSON Schemas | 8 | Prose coverage and domain-pack manifests are now modeled; several assurance entities and semantic rules remain unmodeled |
 | Commit status checks at snapshot | 0 reported | Validation is not a continuously required repository control |
 | Worked examples | 1 synthetic application | Insufficient for efficacy, calibration, or domain claims |
@@ -86,9 +86,9 @@ empirical evaluation loop, not a larger universal checklist or full application 
 | QA-01 | P0 | No executable validator, graph/state engine, gate runner, or required CI | The framework's strongest rules are advisory and can silently drift or be bypassed |
 | QA-02 | P0 | No empirical benchmark or completed multi-project outcome loop | There is no evidence yet that the method finds consequential omissions better, reduces rework, or calibrates confidence |
 | QA-03 | P0 | Assurance semantics exceed the eight existing schemas | Shape-valid records can still violate evidence, transition, blocker, approval, and risk-acceptance rules |
-| QA-04 | P0 | The 396-question prose inventory is conservatively mapped to the 107-node catalog, but exact review and drift enforcement remain incomplete | Compressed semantics or later edits may still become invisible to selection, coverage, propagation, and learning |
-| QA-05 | P1 | Criticality is inflated: 104 of 107 questions are high or critical | Prioritization loses discrimination and teams may experience alert fatigue or ritual compliance |
-| QA-06 | P1 | 96 applicability rules are natural-language conditions | Different humans or agents can instantiate different graphs from the same input |
+| QA-04 | P0 | The 396-question prose inventory is conservatively mapped to the 115-node catalog, but exact review and drift enforcement remain incomplete | Compressed semantics or later edits may still become invisible to selection, coverage, propagation, and learning |
+| QA-05 | P1 | Criticality is inflated: 112 of 115 questions are high or critical | Prioritization loses discrimination and teams may experience alert fatigue or ritual compliance |
+| QA-06 | P1 | 104 applicability rules are natural-language conditions | Different humans or agents can instantiate different graphs from the same input |
 | QA-07 | P1 | The catalog now uses four relationship types, but most promised assurance edges remain absent | The promised graph has little machine-readable refinement, contradiction, evidence, decision, risk, test, or artifact semantics |
 | QA-08 | P1 | Priority and bottleneck formulas are not one versioned policy | Different documents and records can rank the same concern differently |
 | QA-09 | P1 | All catalog questions are published, but publication review evidence is not modeled | A valid record does not prove independent review, domain competence, or migration safety |
@@ -194,7 +194,7 @@ backward compatibility. An unknown applicability result must not silently become
 
 ### QA-07 — The graph is currently a dependency graph, not the full assurance graph
 
-The catalog now declares 371 references across `depends_on`, `activates`, `related_to`, and `refines`. The broader model also describes contradictions, evidence, decisions, risks, requirements, tests, owners, artifacts, supersession, and review triggers. Those relationships must exist in project run data and be validated before the graph can support the promised traceability and change-impact analysis.
+The catalog now declares 416 references across `depends_on`, `activates`, `related_to`, and `refines`. The broader model also describes contradictions, evidence, decisions, risks, requirements, tests, owners, artifacts, supersession, and review triggers. Those relationships must exist in project run data and be validated before the graph can support the promised traceability and change-impact analysis.
 
 ### QA-08 — Ranking policy needs one versioned implementation
 
@@ -205,7 +205,7 @@ policy, and test fixtures. A stored `computed_score` must be recalculated, not t
 
 ### QA-09 — Publication needs evidence and authority
 
-All 107 universal catalog questions are marked `published`. The schema does not record reviewer identity,
+All 115 universal catalog questions are marked `published`. The schema does not record reviewer identity,
 review date, review method, domain qualification, approval, compatibility analysis, or
 supporting run evidence. Git history helps, but it is not a substitute for the
 publication decision contract described by the framework itself.
@@ -379,7 +379,7 @@ Pause expansion or release when:
 
 Product Questionbook already has a thoughtful architecture and a stronger assurance
 philosophy than a normal checklist. Its main risk is **false maturity**: detailed
-documents, schemas, and 107 published universal questions can look like operational proof even
+documents, schemas, and 115 published universal questions can look like operational proof even
 though enforcement and efficacy are still unverified.
 
 The correct next milestone is not “more comprehensive questions.” It is:

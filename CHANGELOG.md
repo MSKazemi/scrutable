@@ -4,6 +4,10 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
+- Added eight stable organizational-change questions covering affected workflows and authority, uneven benefit and resistance, training and proficiency, migration and fallback, workforce obligations, adoption and fatigue measurement, pause or restoration thresholds, and post-launch ownership.
+- Connected `business.adoption.001` to the new module and expanded the universal catalog to 115 unique published questions, 242 `depends_on`, 145 `activates`, 27 `related_to`, and two `refines` references; all targets resolve and dependencies remain acyclic.
+- Changed the adoption gap to “structured module published” while retaining an honest `partial` status until representative runs test rollback, missed concerns, evidence cost, and false blockers.
+
 - Added the domain-pack governance contract, JSON Schema, draft manifest, directory boundary, and eight stable `core.domain-pack.001`–`.008` questions covering activation, authorities, qualified approval, domain deltas, provenance, blockers and waivers, scenario assurance, and affected-run reopening.
 - Made required-but-unavailable, unpublished, expired, suspended, and out-of-scope packs explicit blockers; no expert-reviewed specialized pack is claimed, and the published-pack count remains zero pending qualified review.
 - Expanded the universal catalog to 107 unique published questions, 224 `depends_on`, 132 `activates`, 13 `related_to`, and two `refines` references, with all targets required to resolve.
