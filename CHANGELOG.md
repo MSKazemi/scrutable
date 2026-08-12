@@ -4,6 +4,10 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
+- Added eight stable external-sensing questions and a source-to-decision operating method covering change classes, sources from people, companies, authorities, agents, web and news, monitoring ownership, corroboration, thresholds, detection latency, missed-signal review, and blind spots.
+- Added a reusable external signal register and connected `core.assumptions.001` to the sensing module; the universal catalog now contains 131 unique published questions, 278 `depends_on`, 172 `activates`, 58 `related_to`, and two `refines` references.
+- Defined the honest guarantee: the framework can make the sensing process and its blind spots visible, but cannot guarantee complete knowledge, continuous monitoring, audience visibility, attention, or response.
+
 - Added eight stable workforce-continuity questions covering concentrated human dependencies, succession and demonstrated transfer, sustainable capacity, unsafe incentives, secure departure, separation of duties under shortage, capability sourcing, and leading indicators.
 - Connected `team.capability.001` to the new module and expanded the universal catalog to 123 unique published questions, 262 `depends_on`, 159 `activates`, 41 `related_to`, and two `refines` references; all targets resolve and dependencies remain acyclic.
 - Changed the workforce-continuity gap to “structured module published” while retaining an honest `partial` status until absence, departure, understaffing, supplier-exit, and recovery exercises produce evidence.

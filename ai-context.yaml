@@ -42,6 +42,7 @@ entrypoints:
   request_coverage_audit: docs/15-request-coverage-and-operational-readiness-audit.md
   prose_coverage: docs/16-prose-to-catalog-coverage.md
   domain_pack_governance: docs/17-domain-pack-governance.md
+  external_sensing: docs/18-external-sensing-and-attention.md
   contribution_guide: CONTRIBUTING.md
   worked_example: examples/sample-application/README.md
 
@@ -63,6 +64,10 @@ agent_load_order:
   workforce_continuity:
     - catalog/team/questions.yaml
     - catalog/team/workforce-continuity-questions.yaml
+  external_sensing:
+    - docs/18-external-sensing-and-attention.md
+    - catalog/operations/external-sensing-questions.yaml
+    - templates/external-signal-register.md
   regulated_or_safety_critical:
     - docs/17-domain-pack-governance.md
     - catalog/core/domain-pack-governance-questions.yaml
@@ -137,6 +142,7 @@ validation:
     - Resolve every declared relationship target to a published stable ID.
     - Account for every in-scope numbered prose question in coverage/prose-to-catalog.yaml and preserve compressed detail.
     - Treat a required but unavailable, unpublished, expired, suspended, or out-of-scope domain pack as a blocker.
+    - Never claim complete or continuous external visibility; record source boundaries, access failures, detection delay, and blind spots.
     - Check required evidence and ownership for consequential claims.
     - Apply blocker rules before returning a gate result.
   automated_validator_available: false

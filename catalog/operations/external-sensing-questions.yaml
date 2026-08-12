@@ -1,0 +1,154 @@
+schema_version: 1
+domain: operations
+questions:
+  - id: operations.sensing-change.001
+    version: 1
+    status: published
+    question: Which external changes could invalidate value, legality, safety, security, economics, distribution, staffing, or technical feasibility?
+    purpose: Define the outside events that can make accepted internal answers stale or unsafe.
+    domain: operations
+    lifecycle_stages: [discover, define, design, release, operate, evolve, retire]
+    applies_when: [external actors, authorities, markets, platforms, suppliers, communities, or conditions can change the outcome]
+    answer_type: structured
+    criticality: critical
+    depends_on: [core.assumptions.001, core.failure.001]
+    activates: [operations.sensing-sources.001, operations.sensing-blind-spots.001]
+    related_to: [legal.obligations.001, architecture.dependencies.001, business.distribution-risk.001]
+    evidence_required: [external-change scenarios, assumption-to-change mapping, affected-node review]
+    expected_outputs: [external change register, monitored-concern map]
+    answered_by_roles: [risk owner, product owner, operations owner, domain owners]
+    revisit_when: [scope, assumptions, dependencies, jurisdiction, market, or failure modes change]
+    tags: [external-sensing, horizon-monitoring, change]
+
+  - id: operations.sensing-sources.001
+    version: 1
+    status: published
+    question: Which authoritative sources, telemetry, suppliers, communities, customers, regulators, standards bodies, agents, web sources, and news signals reveal each material external change?
+    purpose: Build a source portfolio for each concern instead of treating general web or news search as complete coverage.
+    domain: operations
+    lifecycle_stages: [discover, define, design, release, operate, evolve]
+    applies_when: [a material external change has been identified]
+    answer_type: structured
+    criticality: high
+    depends_on: [operations.sensing-change.001, core.evidence.001]
+    activates: [operations.sensing-monitoring.001, operations.sensing-correlation.001]
+    related_to: [business.earned-media.001, users.feedback.001]
+    evidence_required: [source inventory, access and provenance check, source-to-concern mapping, coverage rationale]
+    expected_outputs: [external source register, collection plan, source coverage map]
+    answered_by_roles: [evidence owner, domain owner, research owner, operations owner]
+    revisit_when: [a source appears, disappears, changes access, loses reliability, or stops covering a concern]
+    tags: [external-sensing, sources, news]
+
+  - id: operations.sensing-monitoring.001
+    version: 1
+    status: published
+    question: Who monitors each source, at what cadence or event trigger, and how are provenance, reliability, independence, recency, and access failures assessed?
+    purpose: Turn an informal watch list into an owned and reviewable collection process.
+    domain: operations
+    lifecycle_stages: [design, verify, release, operate, evolve]
+    applies_when: [external sources are relied on to detect decision-changing events]
+    answer_type: structured
+    criticality: high
+    depends_on: [operations.sensing-sources.001, core.ownership.001]
+    activates: [operations.sensing-thresholds.001, operations.sensing-latency.001]
+    related_to: [operations.observability.001, team.continuity-dependencies.001]
+    evidence_required: [named monitoring owners, cadence and event rules, source checks, access-failure exercise]
+    expected_outputs: [monitoring schedule, source reliability ledger, collection failure alerts]
+    answered_by_roles: [monitoring owner, domain owner, evidence auditor]
+    revisit_when: [owner, cadence, source behavior, access, or reliability changes]
+    tags: [external-sensing, monitoring, provenance]
+
+  - id: operations.sensing-thresholds.001
+    version: 1
+    status: published
+    question: Which observed threshold creates an alert, reopens graph nodes, triggers a decision, limits exposure, or invokes a contingency?
+    purpose: Connect external evidence to explicit internal action instead of accumulating unread information.
+    domain: operations
+    lifecycle_stages: [define, design, verify, release, operate, evolve]
+    applies_when: [external signals can change an accepted answer, decision, risk, or operating plan]
+    answer_type: structured
+    criticality: critical
+    depends_on: [operations.sensing-monitoring.001, core.kill-criteria.001]
+    activates: [core.learning-loop.001, operations.incident.001]
+    related_to: [team.change-safeguards.001]
+    evidence_required: [signal-to-node map, approved thresholds, alert and reopening exercise, contingency authority]
+    expected_outputs: [external alert policy, dirty-node rules, contingency triggers]
+    answered_by_roles: [decision owner, risk owner, operations owner, domain owner]
+    revisit_when: [threshold performance, impact, response authority, or contingency changes]
+    tags: [external-sensing, thresholds, graph-reopening]
+
+  - id: operations.sensing-correlation.001
+    version: 1
+    status: published
+    question: How are weak signals distinguished from noise, manipulation, duplication, and correlated evidence without suppressing credible early warnings?
+    purpose: Require provenance-aware corroboration while preserving uncertainty and dissent.
+    domain: operations
+    lifecycle_stages: [design, verify, release, operate, evolve]
+    applies_when: [signals are incomplete, noisy, adversarial, repeated, or sourced through intermediaries]
+    answer_type: structured
+    criticality: high
+    depends_on: [operations.sensing-sources.001, core.evidence.001]
+    activates: [operations.sensing-thresholds.001]
+    related_to: [security.threats.001, data.quality.001, core.challenge.001]
+    evidence_required: [provenance and independence assessment, corroboration examples, manipulation scenarios, dissent record]
+    expected_outputs: [signal assessment rubric, corroboration bundle, disputed-signal queue]
+    answered_by_roles: [evidence auditor, domain expert, security owner, decision owner]
+    revisit_when: [manipulation patterns, source dependence, corroboration, or false-alert rates change]
+    tags: [external-sensing, weak-signals, corroboration]
+
+  - id: operations.sensing-latency.001
+    version: 1
+    status: published
+    question: What is the maximum tolerable delay from an external change occurring to detection, interpretation, decision, and protective action?
+    purpose: Budget the complete response latency against the speed and consequence of external change.
+    domain: operations
+    lifecycle_stages: [define, design, verify, release, operate, evolve]
+    applies_when: [late detection or response increases loss, illegality, harm, or irreversibility]
+    answer_type: structured
+    criticality: critical
+    depends_on: [operations.sensing-monitoring.001, core.failure.001]
+    activates: [operations.sensing-thresholds.001]
+    related_to: [reliability.recovery.001, operations.incident.001]
+    evidence_required: [change-to-action latency budget, source and decision timing tests, consequence-by-delay analysis]
+    expected_outputs: [detection and response objectives, escalation deadlines, latency risk register]
+    answered_by_roles: [risk owner, operations owner, decision authority, domain owner]
+    revisit_when: [change velocity, consequence, source cadence, decision path, or response capability changes]
+    tags: [external-sensing, detection-delay, response]
+
+  - id: operations.sensing-missed-signal.001
+    version: 1
+    status: published
+    question: Can a missed, late, or misinterpreted external signal be reconstructed and converted into source, threshold, ownership, and graph corrections?
+    purpose: Learn from detection failure without rewriting what was known or predicted at the time.
+    domain: operations
+    lifecycle_stages: [operate, evolve, retire]
+    applies_when: [an incident, surprise, late response, or outcome review reveals a possible sensing failure]
+    answer_type: structured
+    criticality: high
+    depends_on: [operations.sensing-thresholds.001, core.learning-loop.001]
+    activates: [operations.sensing-monitoring.001]
+    related_to: [operations.incident.001, core.catalog-quality.001]
+    evidence_required: [time-stamped signal and decision history, counterfactual detection analysis, source and threshold correction]
+    expected_outputs: [missed-signal review, sensing correction plan, reopened graph nodes]
+    answered_by_roles: [evidence auditor, incident owner, monitoring owner, decision owner]
+    revisit_when: [a related signal recurs, correction is tested, or delayed consequences appear]
+    tags: [external-sensing, missed-signal, learning]
+
+  - id: operations.sensing-blind-spots.001
+    version: 1
+    status: published
+    question: Which material dependencies and external changes have no observable, trustworthy, timely, or accessible early-warning signal?
+    purpose: Keep irreducible sensing uncertainty visible and require exposure reduction or contingency rather than false monitoring confidence.
+    domain: operations
+    lifecycle_stages: [discover, define, design, release, operate, evolve]
+    applies_when: [external change can affect the subject]
+    answer_type: structured
+    criticality: critical
+    depends_on: [operations.sensing-change.001, architecture.dependencies.001]
+    activates: [core.challenge.001]
+    related_to: [business.continuity.001, core.assumptions.001]
+    evidence_required: [source coverage gap analysis, detection feasibility review, no-warning scenarios]
+    expected_outputs: [sensing blind-spot register, exposure reduction plan, contingency and accepted-risk decisions]
+    answered_by_roles: [risk owner, architecture owner, domain owner, sponsor]
+    revisit_when: [a new source becomes available, access is lost, dependency changes, or a surprise occurs]
+    tags: [external-sensing, blind-spots, uncertainty]

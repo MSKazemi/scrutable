@@ -129,7 +129,7 @@ questions:
     answer_type: list
     criticality: critical
     depends_on: [core.outcome.001, core.constraints.001]
-    activates: [quality.validation.001, business.viability.001]
+    activates: [quality.validation.001, business.viability.001, operations.sensing-change.001]
     evidence_required: [assumption tests, research or experiment results]
     expected_outputs: [assumption register, experiment backlog]
     answered_by_roles: [whole project team]

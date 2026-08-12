@@ -60,3 +60,7 @@ When `business.adoption.001` identifies a material workflow or organizational tr
 ## Workforce continuity module
 
 When `team.capability.001` reveals material human dependencies, load [`team/workforce-continuity-questions.yaml`](team/workforce-continuity-questions.yaml). Its eight records separate key-person concentration, transfer and rehearsal, sustainable capacity, unsafe incentives, secure departure, emergency separation of duties, supplier dependence, and leading indicators. A named backup or a document alone is not continuity evidence; transfer and recovery must be demonstrated.
+
+## External sensing module
+
+When `core.assumptions.001` depends on changing outside conditions, load [`operations/external-sensing-questions.yaml`](operations/external-sensing-questions.yaml) and the [external sensing method](../docs/18-external-sensing-and-attention.md). The eight records connect change classes, source portfolios, monitoring ownership, correlation, thresholds, response latency, missed-signal learning, and blind spots. They guarantee visible process accounting, not complete world knowledge or audience attention.

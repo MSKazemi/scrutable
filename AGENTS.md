@@ -40,6 +40,10 @@ truth.
   and decisions. `Unknown` is valid; fabricated evidence is not.
 - Every consequential claim needs evidence, confidence, an owner, a falsifier or
   verification method, and a review trigger.
+- When accepted decisions depend on external state, use
+  `docs/18-external-sensing-and-attention.md` and preserve source, query, time-window,
+  retrieval, reliability, latency, and blind-spot records. Do not claim guaranteed or
+  continuous visibility unless a separately authorized recurring process proves it.
 - Keep candidate brainstorming separate from accepted answers.
 - Expose critical blockers and the controlling bottleneck before recommending work.
 - Propagate accepted changes into affected requirements, decisions, risks,

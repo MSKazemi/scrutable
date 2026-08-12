@@ -45,7 +45,7 @@ requirements, expected outputs, accountable roles, revisit triggers, and validat
 | P0 | Regulated and safety-critical domain packs | Domain pack required — governance ready | The interface and eight governance nodes are published, but generic questions remain insufficient and no qualified specialized pack exists |
 | P1 | Organizational adoption and change management | Partial — structured module published | Eight stable questions now cover the change system; representative run and calibration evidence remain absent |
 | P1 | Workforce and knowledge continuity | Partial — structured module published | Eight stable questions now cover workforce continuity; representative absence, departure, and understaffing evidence remain absent |
-| P1 | External sensing and horizon monitoring | Partial | Revisit triggers exist, but there is no complete method for detecting decision-changing changes early |
+| P1 | External sensing and horizon monitoring | Partial — structured method published | Eight stable questions, an operating method, and a register now connect external sources to graph reopening; live source and scenario evidence remain absent |
 | P1 | Information integrity and content governance | Partial | Provenance is mentioned, but misinformation, coordinated manipulation, moderation, authenticity, and correction are not treated as a coherent concern |
 | P1 | Geopolitical and regional continuity | Missing | Sanctions, export controls, conflict, internet restrictions, currency controls, and regional dependencies can stop an otherwise viable product |
 | P1 | Internationalization and localization operations | Partial | Locale formatting is covered, but translation governance, right-to-left behavior, local operations, and market-specific support are shallow |
@@ -71,17 +71,17 @@ mention in prose as structured support.
 |---|---:|
 | Gap areas excluding item 2 | 15 |
 | Candidate questions in those areas | 108 |
-| Candidate questions promoted as dedicated published catalog records | 24 |
+| Candidate questions promoted as dedicated published catalog records | 32 |
 | Partially covered gap areas | 13 |
 | Missing or domain-pack-required gap areas | 2 |
 | P0 areas / candidate questions | 2 / 16 |
 | P1 areas / candidate questions | 7 / 56 |
 | P2 areas / candidate questions | 6 / 36 |
-| Existing reusable catalog | 123 questions / 421 `depends_on` and `activates` references |
+| Existing reusable catalog | 131 questions / 450 `depends_on` and `activates` references |
 | Expert-reviewed regulated or safety-critical packs | 0 |
 | Prose-to-catalog coverage manifest | present: 396 numbered questions, 43 groups, 388 compressed, 8 guidance-only, 0 exact |
 
-Twenty-four of the 108 candidates are now dedicated stable records: the domain-pack governance, organizational-change, and workforce-continuity sets. The first still needs qualified pack content, and the two operational sets still need representative run and calibration evidence. The other 84 candidates remain compressed, partial, missing, or conditional.
+Thirty-two of the 108 candidates are now dedicated stable records: domain-pack governance, organizational change, workforce continuity, and external sensing. The pack set still needs qualified content, and the three operational sets still need representative run and calibration evidence. The other 76 candidates remain compressed, partial, missing, or conditional.
 
 | Item | Gap | Priority | Candidate questions | Current status | Nearest published structured coverage | What is still absent |
 |---:|---|---|---:|---|---|---|
@@ -89,7 +89,7 @@ Twenty-four of the 108 candidates are now dedicated stable records: the domain-p
 | 3 | Regulated and safety-critical domain packs | P0 | 8 | Domain pack required — governance ready | `core.domain-pack.001` through `.008` now define activation, authority, expert review, domain deltas, provenance, blockers, scenario assurance, and affected-run reopening | No qualified healthcare, fintech, children, government, aviation, automotive, industrial-control, or comparable pack has completed this contract |
 | 4 | Organizational adoption and change management | P1 | 8 | Partial — structured module published | `team.change-impact.001` through `.change-ownership.001`, activated by `business.adoption.001` | Content and graph fields are now coherent; a representative end-to-end adoption run, negative rollback case, false-blocker review, and outcome calibration remain absent |
 | 5 | Workforce and knowledge continuity | P1 | 8 | Partial — structured module published | `team.continuity-dependencies.001` through `.continuity-signals.001`, activated by `team.capability.001` | Content and graph fields are coherent; absence, departure, understaffing, supplier-exit, false-blocker, and recovery exercises remain unobserved |
-| 6 | External sensing and horizon monitoring | P1 | 8 | Partial | `core.learning-loop.001`, `architecture.dependencies.001`, `business.distribution-risk.001`, record-level `revisit_when` triggers | No governed source inventory, monitoring cadence, signal reliability, detection-delay budget, threshold-to-reopen rule, or missed-signal review |
+| 6 | External sensing and horizon monitoring | P1 | 8 | Partial — structured method published | `operations.sensing-change.001` through `.sensing-blind-spots.001`, [operating method](18-external-sensing-and-attention.md), and signal-register template | No live source portfolio, scheduled collection evidence, access-failure exercise, threshold calibration, latency measurement, or missed-signal case |
 | 7 | Information integrity and content governance | P1 | 8 | Partial | `data.quality.001`, `security.threats.001`, `ethics.harms.001`, `ethics.contestability.001` | Misinformation, deepfakes, provenance/authenticity, coordinated manipulation, moderation, reviewer safety, correction, appeal, and downstream propagation lack a coherent structured method |
 | 8 | Geopolitical and regional continuity | P1 | 8 | Missing | Generic `legal.obligations.001`, `architecture.dependencies.001`, and `business.continuity.001` can detect some exposure | No dedicated sanctions, export-control, conflict, internet-shutdown, currency-control, regional concentration, staff-protection, or legal fallback questions |
 | 9 | Internationalization and localization operations | P1 | 8 | Partial | `ux.accessibility.001`, `ux.comprehension.001`, `legal.obligations.001`, `product.naming-validation.001` | Translation governance, right-to-left behavior, locale mechanics, local payments/taxes/contracts, multilingual support and incident response, parity metrics, and market exit are shallow or absent |
@@ -211,6 +211,8 @@ partial to covered.
 8. What leading indicators show team capacity or knowledge continuity is failing?
 
 ### 6. External sensing and horizon monitoring
+
+**Current status:** `operations.sensing-change.001` through `operations.sensing-blind-spots.001`, the [external sensing method](18-external-sensing-and-attention.md), and the signal-register template now implement the source-to-decision loop. It remains `partial` until a real run demonstrates collection, source failure, weak-signal handling, threshold-to-reopen propagation, detection latency, and missed-signal learning.
 
 1. Which external changes could invalidate value, legality, safety, security,
    economics, distribution, or technical feasibility?
@@ -411,7 +413,7 @@ A backlog area becomes supported only when:
 
 1. Build the prose-to-catalog coverage manifest and make parity drift testable.
 2. Implement and test the deterministic parser, graph/state engine, and gate runner.
-3. Validate the organizational-adoption and workforce-continuity modules on representative runs; next add external-sensing questions.
+3. Validate the organizational-adoption, workforce-continuity, and external-sensing modules on representative runs.
 4. Add information-integrity, geopolitical, localization, and enterprise-implementation
    questions as conditional structured modules.
 5. Pilot one high-value pack through the now-defined domain-pack interface with qualified expert review; do not mark the gap covered until that exact pack and scope are published.
