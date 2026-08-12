@@ -4,6 +4,10 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
+- Added eight stable geopolitical and regional continuity questions covering correlated exposure, sanctions and export obligations, disruption, lawful relocation, people protection, asset access, early decision thresholds, and fallback-created legal, ethical, security, labor, environmental, and human-rights risks.
+- Added the people-first regional continuity method and register, and connected `business.continuity.001` to the module; the universal catalog now contains 147 unique published questions, 323 `depends_on`, 205 `activates`, 98 `related_to`, and two `refines` references. All 628 targets resolve and the dependency graph remains acyclic.
+- Reduced missing or domain-pack-required backlog areas from two to one while retaining an honest partial status until current qualified legal review and representative disruption, relocation, people-protection, asset-access, and fallback exercises provide evidence.
+
 - Added eight stable information-integrity and content-governance questions covering contextual content harm, provenance without truth conflation, multilingual policy, coordinated manipulation and proportionality, review and appeal, reviewer safety and assurance, transparency, and downstream correction to systems and agents.
 - Added the contextual content-governance method and content-integrity register, and connected `ethics.harms.001` to the module; the universal catalog now contains 139 unique published questions, 301 `depends_on`, 188 `activates`, 77 `related_to`, and two `refines` references. All 568 targets resolve and the dependency graph remains acyclic.
 - Kept the gap status honestly partial until representative multilingual, deepfake and coordination, privacy-proportionality, appeal, reviewer-safety, transparency, and downstream propagation cases provide evidence.

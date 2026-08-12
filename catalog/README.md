@@ -99,3 +99,7 @@ visible process accounting, not complete world knowledge or audience attention.
 ## Information-integrity module
 
 When `ethics.harms.001` identifies harm from created, imported, transformed, ranked, recommended, stored, or distributed content, load [`ethics/information-integrity-questions.yaml`](ethics/information-integrity-questions.yaml) and the [content-governance method](../docs/20-information-integrity-and-content-governance.md). Its eight records separate content and context risk, provenance, policy, coordinated manipulation, review and appeal, assurance and reviewer safety, transparency, and downstream correction. Provenance is never treated as proof of truth.
+
+## Geopolitical continuity module
+
+When `business.continuity.001` identifies regional, cross-border, currency, network, supplier, staff, customer, asset, or legal-entity concentration, load [`operations/geopolitical-continuity-questions.yaml`](operations/geopolitical-continuity-questions.yaml) and the [regional continuity method](../docs/21-geopolitical-and-regional-continuity.md). The eight records separate exposure, changing obligations, disruption, lawful relocation, people protection, asset access, early triggers, and fallback-created harm. Generic records do not replace qualified sanctions, trade, privacy, labor, safety, or local legal review.

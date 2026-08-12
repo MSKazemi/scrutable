@@ -48,7 +48,7 @@ requirements, expected outputs, accountable roles, revisit triggers, and validat
 | P1 | Workforce and knowledge continuity | Partial — structured module published | Eight stable questions now cover workforce continuity; representative absence, departure, and understaffing evidence remain absent |
 | P1 | External sensing and horizon monitoring | Partial — structured module published | Eight stable questions and a source-to-decision method now cover sensing; representative monitoring and missed-signal evidence remain absent |
 | P1 | Information integrity and content governance | Partial — structured method published | Eight stable questions, a contextual operating method, and a register now cover integrity decisions; representative multilingual, manipulation, appeal, reviewer-safety, and propagation evidence remain absent |
-| P1 | Geopolitical and regional continuity | Missing | Sanctions, export controls, conflict, internet restrictions, currency controls, and regional dependencies can stop an otherwise viable product |
+| P1 | Geopolitical and regional continuity | Partial — structured method published | Eight stable questions, a people-first operating method, and a register now cover exposure and fallback decisions; live qualified legal review and disruption exercises remain absent |
 | P1 | Internationalization and localization operations | Partial | Locale formatting is covered, but translation governance, right-to-left behavior, local operations, and market-specific support are shallow |
 | P1 | Enterprise implementation and customer success | Partial | Procurement is covered, but implementation ownership, time-to-value, rollout, value realization, and renewal risk need deeper treatment |
 | P2 | Ecosystem, marketplace, and network governance | Partial | Multi-sided products can fail through cold-start, liquidity, rule, trust, dispute, or disintermediation failures |
@@ -72,21 +72,22 @@ mention in prose as structured support.
 |---|---:|
 | Gap areas excluding item 2 | 15 |
 | Candidate questions in those areas | 108 |
-| Candidate questions promoted as dedicated published catalog records | 40 |
-| Partially covered gap areas | 13 |
-| Missing or domain-pack-required gap areas | 2 |
+| Candidate questions promoted as dedicated published catalog records | 48 |
+| Partially covered gap areas | 14 |
+| Missing or domain-pack-required gap areas | 1 |
 | P0 areas / candidate questions | 2 / 16 |
 | P1 areas / candidate questions | 7 / 56 |
 | P2 areas / candidate questions | 6 / 36 |
-| Existing reusable catalog | 139 questions / 489 `depends_on` and `activates` references |
+| Existing reusable catalog | 147 questions / 528 `depends_on` and `activates` references |
 | Expert-reviewed regulated or safety-critical packs | 0 |
 | Prose-to-catalog coverage manifest | present: 396 numbered questions, 43 groups, 388 compressed, 8 guidance-only, 0 exact |
 
-Forty of the 108 candidates are now dedicated stable records: the domain-pack
-governance, organizational-change, workforce-continuity, external-sensing, and
-information-integrity sets. The first still needs qualified pack content, and the four
-operational sets still need representative run and calibration evidence. The other 68
-candidates remain compressed, partial, missing, or conditional.
+Forty-eight of the 108 candidates are now dedicated stable records: the domain-pack
+governance, organizational-change, workforce-continuity, external-sensing,
+information-integrity, and geopolitical-continuity sets. The first still needs
+qualified pack content, and the five operational sets still need representative run
+and calibration evidence. The other 60 candidates remain compressed, partial, or
+conditional.
 
 | Item | Gap | Priority | Candidate questions | Current status | Nearest published structured coverage | What is still absent |
 |---:|---|---|---:|---|---|---|
@@ -96,7 +97,7 @@ candidates remain compressed, partial, missing, or conditional.
 | 5 | Workforce and knowledge continuity | P1 | 8 | Partial — structured module published | `team.continuity-dependencies.001` through `.continuity-signals.001`, activated by `team.capability.001` | Content and graph fields are coherent; absence, departure, understaffing, supplier-exit, false-blocker, and recovery exercises remain unobserved |
 | 6 | External sensing and horizon monitoring | P1 | 8 | Partial — structured module published | `operations.sensing-change.001` through `.sensing-blind-spots.001`, activated by `core.assumptions.001` | Content, method, register, and graph fields are coherent; representative monitoring, access-failure, false-alert, missed-signal, latency, and outcome evidence remain absent |
 | 7 | Information integrity and content governance | P1 | 8 | Partial — structured method published | `ethics.integrity-content.001` through `.integrity-propagation.001`, activated by `ethics.harms.001`, plus the [content-governance method](20-information-integrity-and-content-governance.md) and register | Content and graph fields are coherent; representative multilingual policy, deepfake and coordination, privacy-proportionality, appeal, reviewer-safety, transparency, and downstream correction cases remain unobserved |
-| 8 | Geopolitical and regional continuity | P1 | 8 | Missing | Generic `legal.obligations.001`, `architecture.dependencies.001`, and `business.continuity.001` can detect some exposure | No dedicated sanctions, export-control, conflict, internet-shutdown, currency-control, regional concentration, staff-protection, or legal fallback questions |
+| 8 | Geopolitical and regional continuity | P1 | 8 | Partial — structured method published | `operations.regional-exposure.001` through `.regional-fallback-risks.001`, activated by `business.continuity.001`, plus the [regional continuity method](21-geopolitical-and-regional-continuity.md) and register | Content and graph fields are coherent; current qualified legal interpretations, people-protection exercises, correlated disruption cases, relocation tests, false-alert review, and fallback impact evidence remain absent |
 | 9 | Internationalization and localization operations | P1 | 8 | Partial | `ux.accessibility.001`, `ux.comprehension.001`, `legal.obligations.001`, `product.naming-validation.001` | Translation governance, right-to-left behavior, locale mechanics, local payments/taxes/contracts, multilingual support and incident response, parity metrics, and market exit are shallow or absent |
 | 10 | Enterprise implementation and customer success | P1 | 8 | Partial | `business.organizational-buying.001`, `business.adoption.001`, `business.retention.001`, `operations.support.001` | Provider/customer dependency ownership, implementation milestones, time-to-value, stalled-rollout signals, value realization, shelfware, customer-success recovery, and renewal control need deeper records |
 | 11 | Ecosystem, marketplace, and network governance | P2 | 6 | Partial | `business.channels.001`, `business.machine-discovery.001`, `business.incentives.001` | Multi-sided cold start, liquidity, ranking/access rules, participant disputes and appeals, collusion, adverse selection, disintermediation, network power, and reputation portability are not modeled together |
@@ -114,9 +115,7 @@ candidates remain compressed, partial, missing, or conditional.
 - **Highest safety priority:** item 3. Generic questions should activate a qualified
   pack or block a domain-qualified claim; the universal framework must not impersonate
   clinical, legal, financial, aviation, automotive, or industrial-control expertise.
-- **Highest unmodeled continuity priority:** item 8. Geopolitical failure can make
-  suppliers, staff, funds, data, networks, contracts, or markets inaccessible with
-  little warning.
+- **Highest newly structured continuity validation priority:** item 8. The regional method now covers concentration and fallback decisions, but it still needs qualified current legal review and representative disruption, people-protection, relocation, and exit exercises.
 - **Promotion order after those P0/P1 concerns:** promote a conditional P2 pack only
   when the subject activates it. A payment product should not wait behind a generic
   global P2 label; fraud and financial-crime coverage becomes P0 for that run.
@@ -273,6 +272,8 @@ corroboration, thresholds, latency, missed signals, and blind spots.
    downstream systems and agents?
 
 ### 8. Geopolitical and regional continuity
+
+**Current status:** `operations.regional-exposure.001` through `operations.regional-fallback-risks.001` now implement these eight questions, `business.continuity.001` activates the module, and the [regional continuity method](21-geopolitical-and-regional-continuity.md) plus register define the operating loop. It remains `partial` until current qualified legal reviews and representative conflict, shutdown, banking, currency, people-protection, asset-access, relocation, false-alert, and fallback-risk cases provide evidence.
 
 1. Which countries, regions, currencies, networks, cloud regions, suppliers, staff,
    and customers create concentrated exposure?
@@ -444,7 +445,7 @@ A backlog area becomes supported only when:
    gate-policy checks without making a CLI or service mandatory.
 3. Validate the organizational-adoption, workforce-continuity, and external-sensing
    modules on representative runs.
-4. Validate the information-integrity module on representative runs; next add geopolitical, localization, and enterprise-implementation questions as conditional structured modules.
+4. Validate the information-integrity and geopolitical-continuity modules on representative runs; next add localization and enterprise-implementation questions as conditional structured modules.
 5. Pilot one high-value pack through the now-defined domain-pack interface with
    qualified expert review; do not mark the gap covered until that exact pack and
    scope are published.

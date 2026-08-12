@@ -80,7 +80,7 @@ questions:
     answer_type: structured
     criticality: high
     depends_on: [business.economics.001, architecture.dependencies.001]
-    activates: [retirement.transition.001]
+    activates: [retirement.transition.001, operations.regional-exposure.001]
     evidence_required: [continuity scenarios, contractual and dependency review]
     expected_outputs: [business continuity plan, exit triggers]
     answered_by_roles: [sponsor, system owner, legal owner]

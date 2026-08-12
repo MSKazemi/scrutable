@@ -1,0 +1,154 @@
+schema_version: 1
+domain: operations
+questions:
+  - id: operations.regional-exposure.001
+    version: 1
+    status: published
+    question: Which countries, regions, currencies, networks, cloud regions, suppliers, staff, customers, and operating entities create concentrated exposure?
+    purpose: Make correlated geographic and jurisdictional dependencies visible before one regional event disables multiple fallback paths.
+    domain: operations
+    lifecycle_stages: [discover, define, design, release, operate, evolve, retire]
+    applies_when: [people, data, funds, infrastructure, suppliers, customers, or legal entities span or depend on particular regions]
+    answer_type: structured
+    criticality: critical
+    depends_on: [business.continuity.001, architecture.dependencies.001, data.inventory.001]
+    activates: [operations.regional-obligations.001, operations.regional-disruption.001, operations.regional-assets.001]
+    related_to: [team.continuity-dependencies.001, business.distribution-risk.001]
+    evidence_required: [country and region dependency inventory, beneficial ownership and entity map, currency network supplier staff and customer concentration analysis]
+    expected_outputs: [regional exposure map, concentration register, correlated-failure scenarios]
+    answered_by_roles: [business continuity owner, legal owner, operations owner, finance owner]
+    revisit_when: [region, entity, supplier, staff, customer, network, currency, or concentration changes]
+    tags: [geopolitical-continuity, regional-exposure, concentration]
+
+  - id: operations.regional-obligations.001
+    version: 1
+    status: published
+    question: Which sanctions, export controls, import rules, ownership restrictions, data localization, government-access duties, or related jurisdictional obligations apply?
+    purpose: Prevent a continuity action or ordinary operation from becoming unlawful because a changing jurisdictional restriction was missed.
+    domain: operations
+    lifecycle_stages: [discover, define, design, verify, release, operate, evolve, retire]
+    applies_when: [cross-border actors, data, technology, hardware, funds, services, ownership, or controlled parties are involved]
+    answer_type: structured
+    criticality: critical
+    depends_on: [operations.regional-exposure.001, legal.obligations.001]
+    activates: [operations.regional-relocation.001, operations.regional-assets.001, operations.regional-triggers.001]
+    related_to: [core.domain-pack.001, operations.sensing-sources.001]
+    evidence_required: [qualified jurisdiction-specific review, screened party and ownership evidence, controlled item and data-flow classification, dated authority register]
+    expected_outputs: [regional obligation register, restricted-party and controlled-flow controls, legal review schedule]
+    answered_by_roles: [qualified legal owner, trade compliance owner, privacy owner, finance owner]
+    revisit_when: [law, designation, ownership, item classification, data flow, government request, jurisdiction, or official interpretation changes]
+    tags: [geopolitical-continuity, sanctions, export-controls]
+
+  - id: operations.regional-disruption.001
+    version: 1
+    status: published
+    question: What happens during conflict, civil disruption, internet shutdown, border closure, banking restriction, currency control, expropriation, or abrupt regulatory action?
+    purpose: Test correlated regional failures that ordinary supplier or infrastructure continuity scenarios may omit.
+    domain: operations
+    lifecycle_stages: [define, design, verify, release, operate, evolve]
+    applies_when: [a regional event can affect people, operations, access, payments, data, assets, or customers]
+    answer_type: structured
+    criticality: critical
+    depends_on: [operations.regional-exposure.001, core.failure.001]
+    activates: [operations.regional-relocation.001, operations.regional-people.001, operations.regional-triggers.001]
+    related_to: [reliability.failure-modes.001, business.continuity.001]
+    evidence_required: [regional disruption scenarios, dependency cascade analysis, tabletop exercise, duration and recovery assumptions]
+    expected_outputs: [geopolitical disruption plan, regional scenario set, critical-service priorities]
+    answered_by_roles: [business continuity owner, operations owner, security owner, people safety owner]
+    revisit_when: [threat conditions, dependencies, conflict, infrastructure, banking, border, or regulatory conditions change]
+    tags: [geopolitical-continuity, disruption, conflict]
+
+  - id: operations.regional-relocation.001
+    version: 1
+    status: published
+    question: Can essential operations move legally, safely, securely, and reversibly to another region, supplier, network, payment path, or operating entity?
+    purpose: Verify that geographic diversification is an executable and lawful capability rather than a diagram containing correlated or prohibited alternatives.
+    domain: operations
+    lifecycle_stages: [design, build, verify, release, operate, evolve, retire]
+    applies_when: [continuity may require changing region, supplier, infrastructure, payments, or legal entity]
+    answer_type: structured
+    criticality: critical
+    depends_on: [operations.regional-obligations.001, operations.regional-disruption.001, architecture.evolution.001]
+    activates: [operations.regional-fallback-risks.001]
+    related_to: [data.lifecycle.001, reliability.recovery.001, operations.release.001]
+    evidence_required: [jurisdiction and contract clearance, data and system migration test, alternate payment and supplier exercise, capacity and reversibility evidence]
+    expected_outputs: [regional relocation plan, approved alternatives, migration and reversal runbook]
+    answered_by_roles: [operations owner, qualified legal owner, architecture owner, finance owner]
+    revisit_when: [destination, law, contract, data location, capacity, supplier, payment path, or reversibility changes]
+    tags: [geopolitical-continuity, relocation, diversification]
+
+  - id: operations.regional-people.001
+    version: 1
+    status: published
+    question: How will affected staff, users, contractors, partners, and vulnerable dependants be protected, supported, and communicated with during regional disruption?
+    purpose: Put human safety, agency, privacy, and continuity ahead of asset preservation or forced availability.
+    domain: operations
+    lifecycle_stages: [define, design, verify, release, operate, evolve]
+    applies_when: [regional disruption can threaten people, livelihoods, access, communication, movement, or essential service]
+    answer_type: structured
+    criticality: critical
+    depends_on: [operations.regional-disruption.001, ethics.harms.001, team.continuity-capacity.001]
+    activates: [operations.regional-fallback-risks.001]
+    related_to: [team.communication.001, operations.incident.001]
+    evidence_required: [people safety and communication plan, local expert and affected-person review, contact-channel failure test, workload and coercion assessment]
+    expected_outputs: [people protection plan, regional communication matrix, support and escalation routes]
+    answered_by_roles: [people safety owner, local leadership, communications owner, affected-party representative]
+    revisit_when: [threat, location, population, channel access, movement, employment, or support capability changes]
+    tags: [geopolitical-continuity, people-safety, communication]
+
+  - id: operations.regional-assets.001
+    version: 1
+    status: published
+    question: Which contracts, data, licenses, hardware, credentials, records, intellectual property, or funds could become inaccessible, frozen, seized, corrupted, or legally unusable?
+    purpose: Identify essential assets whose legal or practical availability can fail independently of technical uptime.
+    domain: operations
+    lifecycle_stages: [define, design, verify, release, operate, evolve, retire]
+    applies_when: [essential assets are held, controlled, hosted, licensed, financed, or enforced through regional institutions]
+    answer_type: structured
+    criticality: critical
+    depends_on: [operations.regional-exposure.001, operations.regional-obligations.001]
+    activates: [operations.regional-relocation.001, operations.regional-triggers.001]
+    related_to: [data.lifecycle.001, security.secrets.001, legal.licenses.001, business.economics.001]
+    evidence_required: [asset and custody inventory, access and freeze scenarios, ownership and license review, recovery and legal-use test]
+    expected_outputs: [regional asset availability register, custody diversification plan, inaccessible-asset contingencies]
+    answered_by_roles: [asset owner, finance owner, legal owner, data owner, operations owner]
+    revisit_when: [custodian, bank, license, ownership, hosting, credential, region, or enforceability changes]
+    tags: [geopolitical-continuity, assets, access]
+
+  - id: operations.regional-triggers.001
+    version: 1
+    status: published
+    question: Which early signals and decision thresholds trigger diversification, exposure reduction, suspension, people-protection action, relocation, or exit?
+    purpose: Act before a regional change closes lawful and safe options while preventing rumor or bias from triggering disproportionate action.
+    domain: operations
+    lifecycle_stages: [define, design, verify, release, operate, evolve, retire]
+    applies_when: [regional exposure requires monitored decisions or staged contingencies]
+    answer_type: structured
+    criticality: critical
+    depends_on: [operations.regional-obligations.001, operations.regional-disruption.001, operations.regional-assets.001, operations.sensing-thresholds.001]
+    activates: [operations.regional-people.001, operations.regional-relocation.001]
+    related_to: [operations.sensing-correlation.001, core.kill-criteria.001]
+    evidence_required: [authoritative and corroborated source map, approved thresholds, decision lead-time analysis, staged action and false-alert exercise]
+    expected_outputs: [regional trigger matrix, staged continuity decisions, suspension relocation and exit criteria]
+    answered_by_roles: [risk owner, qualified legal owner, people safety owner, executive decision authority]
+    revisit_when: [signal reliability, threat, lead time, authority, contingency feasibility, or false-alert consequence changes]
+    tags: [geopolitical-continuity, early-warning, exit]
+
+  - id: operations.regional-fallback-risks.001
+    version: 1
+    status: published
+    question: Which new legal, ethical, security, privacy, labor, environmental, or human-rights risks are created by each regional fallback?
+    purpose: Prevent continuity from transferring harm or prohibited activity to a less visible region, supplier, workforce, or authority.
+    domain: operations
+    lifecycle_stages: [design, verify, release, operate, evolve, retire]
+    applies_when: [a regional fallback, relocation, diversification, suspension, or exit is proposed]
+    answer_type: structured
+    criticality: critical
+    depends_on: [operations.regional-relocation.001, operations.regional-people.001, ethics.harms.001]
+    activates: [core.challenge.001]
+    related_to: [legal.obligations.001, security.threats.001, ethics.distribution.001, team.workforce-obligations.001]
+    evidence_required: [fallback impact and rights assessment, destination due diligence, affected-party review, security privacy and labor control tests]
+    expected_outputs: [fallback risk comparison, prohibited fallback criteria, residual-risk and approval record]
+    answered_by_roles: [risk owner, qualified legal owner, ethics owner, security owner, affected-party representative]
+    revisit_when: [fallback destination, supplier, workforce, authority, control, impact, or alternative changes]
+    tags: [geopolitical-continuity, fallback-risk, human-rights]

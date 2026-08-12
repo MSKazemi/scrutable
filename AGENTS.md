@@ -50,6 +50,10 @@ truth.
   consequential content, use `docs/20-information-integrity-and-content-governance.md`.
   Do not equate provenance with truth or automate irreversible content decisions
   without the required context, review, appeal, correction, and propagation path.
+- When regional concentration or cross-border restrictions may affect continuity, use
+  `docs/21-geopolitical-and-regional-continuity.md`. Require current qualified legal
+  interpretation, put people's safety and agency before uptime, and never move people,
+  data, hardware, credentials, funds, or operations without separate authorization.
 - Keep candidate brainstorming separate from accepted answers.
 - Expose critical blockers and the controlling bottleneck before recommending work.
 - Propagate accepted changes into affected requirements, decisions, risks,
