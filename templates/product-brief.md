@@ -1,3 +1,13 @@
+---
+artifact: product-brief
+run_id: "<run-id>"
+project_id: "<project-id>"
+subject_id: "<subject-id>"
+questionbook_ref: "<git-commit-sha>"
+graph_revision: 0
+generated_at: "<ISO-8601 timestamp>"
+---
+
 # Product brief: [Product name]
 
 **Owner:** [Name]
@@ -174,4 +184,3 @@
 | Security and privacy | | | | |
 | Operations | | | | |
 | Legal or compliance | | | | |
-

@@ -12,7 +12,7 @@ protocol level**. They are not all implemented or empirically validated.
 
 The precise status is:
 
-- the two pull requests are merged and their intended content is consolidated on
+- pull requests 1, 2, and 3 are merged and their intended content is consolidated on
   `main`;
 - the reusable framework, structured catalog, schemas, templates, quick start, and
   agent instructions exist;
@@ -32,13 +32,14 @@ uncertainty; it does not create the evidence.
 
 ## Branch-integration result
 
-[Pull request 1](https://github.com/MSKazemi/mohsen/pull/1) and
-[pull request 2](https://github.com/MSKazemi/mohsen/pull/2) are closed as merged, and
+[Pull request 1](https://github.com/MSKazemi/mohsen/pull/1),
+[pull request 2](https://github.com/MSKazemi/mohsen/pull/2), and
+[pull request 3](https://github.com/MSKazemi/mohsen/pull/3) are closed as merged, and
 there are no open pull requests. Their content has already been reconciled into the
-current framework. Reapplying either old branch tree would be unsafe because it would
+current framework. Reapplying any old branch tree would be unsafe because it would
 restore older versions of files that have since evolved on `main`.
 
-GitHub can still show the two source branch names as `diverged` after a squash merge.
+GitHub can still show the three source branch names as `diverged` after squash merges.
 That is an ancestry effect: the squash commit has a new identity. It is not evidence
 that the intended content is missing. Branch-reference deletion is repository hygiene,
 not another content merge. Delete the obsolete references only after confirming no
@@ -48,7 +49,7 @@ open pull request or automation depends on them.
 
 | Requested concern | Status on `main` | Canonical evidence | Honest limitation |
 |---|---|---|---|
-| Integrate every branch without losing consistency | Content integrated | Merged PRs, changelog 0.6, current canonical files | Two obsolete branch names can remain until their refs are deleted |
+| Integrate every branch without losing consistency | Content integrated | Merged PRs 1–3, changelog, current canonical files | Three obsolete branch names remain until their refs are deleted |
 | Explain self-improvement | Specified | [Self-improvement and adversarial governance](10-self-improvement-and-adversarial-governance.md) | The loop is not an autonomous runtime |
 | Explain how to use the repository | Specified and quick-started | [Quick start](../QUICKSTART.md) and [usage protocol](11-usage-deployment-and-agent-integration.md) | Today a human or agent executes the protocol manually |
 | Decide where project outputs belong | Specified | Target repository `runs/<run-id>/` by default | A separate assurance repository may be required by access or regulation |
@@ -208,12 +209,14 @@ test suite, or benchmark showing reliable end-to-end behavior.
 
 The live `main` tree was checked for the following properties:
 
+- baseline commit `b2c5bd2` contained 92 files: 55 Markdown, 29 YAML, and 8 JSON;
 - 131 question records and 131 unique stable IDs;
-- 450 declared `depends_on` and `activates` references, with every target resolved;
-- eight JSON files with valid JSON syntax;
+- 510 declared references across four relationship types, with every target resolved;
+- eight JSON files with valid JSON syntax and all 29 YAML files parseable;
+- 396 numbered prose questions reconciled through 43 coverage groups;
 - no missing required human or agent entrypoint;
 - 172 internal Markdown file links checked with no missing target;
-- no open pull request and both historical pull requests marked merged;
+- no open pull request and all three historical pull requests marked merged;
 - no reported commit status checks on the audited `main` commit.
 
 This is a structural snapshot, not a claim of semantic correctness, agent reliability,
@@ -234,7 +237,9 @@ assurance path. The next work should be:
    measured failures justify; keep CLI/API optional;
 7. run independent real-project pilots and measure misses, false blockers, calibration,
    evidence cost, decision change, and later outcomes;
-8. delete obsolete merged branch references after verifying no dependency remains.
+8. delete `agent/expand-integration-financial-continuity`,
+   `agent/inquirygraph-foundation`, and
+   `agent/text-first-agent-native-architecture` after verifying no dependency remains.
 
 Until those gates pass, the accurate claim is: Product Questionbook provides a
 documented, structured, evidence-oriented text protocol for manual and agent-assisted

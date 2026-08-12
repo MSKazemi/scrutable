@@ -1,7 +1,9 @@
 ---
 artifact: risk-register
+run_id: "<run-id>"
 project_id: "<project-id>"
 subject_id: "<subject-id>"
+questionbook_ref: "<git-commit-sha>"
 graph_revision: 0
 generated_at: "<ISO-8601 timestamp>"
 ---
@@ -33,4 +35,3 @@ review date, and reopen trigger.
 | Risk ID | Resolution | Evidence | Closed by | Date | Successor |
 |---|---|---|---|---|---|
 | <ID> | <resolution> | <evidence IDs> | <owner> | <date> | <risk ID or none> |
-

@@ -1,8 +1,10 @@
 ---
 artifact: decision-record
+run_id: "<run-id>"
 decision_id: "<decision-id>"
 project_id: "<project-id>"
 subject_id: "<subject-id>"
+questionbook_ref: "<git-commit-sha>"
 status: proposed
 graph_revision: 0
 generated_at: "<ISO-8601 timestamp>"

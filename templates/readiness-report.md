@@ -1,7 +1,9 @@
 ---
 artifact: readiness-report
+run_id: "<run-id>"
 project_id: "<project-id>"
 subject_id: "<subject-id>"
+questionbook_ref: "<git-commit-sha>"
 gate: "<gate name>"
 graph_revision: 0
 generated_at: "<ISO-8601 timestamp>"
@@ -15,7 +17,7 @@ generated_at: "<ISO-8601 timestamp>"
 
 **Qualified scope:** <for which release, population, environment, geography, and time>
 
-**Recommendation:** <proceed, proceed with conditions, pause, or stop>
+**Recommendation:** <proceed, proceed_with_conditions, pause, or stop>
 
 <Short evidence-based explanation.>
 
@@ -52,8 +54,7 @@ generated_at: "<ISO-8601 timestamp>"
 ## Decision
 
 - **Decision owner:** <name or role>
-- **Decision:** <proceed/proceed with conditions/pause/stop>
+- **Decision:** <proceed/proceed_with_conditions/pause/stop>
 - **Recorded at:** <timestamp>
 - **Decision record:** <ID>
 - **Required reassessment event:** <event or date>
-

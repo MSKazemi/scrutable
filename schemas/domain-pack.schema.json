@@ -154,7 +154,20 @@
           "expert_review": {
             "type": "object",
             "properties": {
-              "approvals": { "type": "array", "minItems": 1 },
+              "approvals": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "allOf": [
+                    { "$ref": "#/$defs/approval" },
+                    {
+                      "properties": {
+                        "decision": { "enum": ["approve", "approve_with_conditions"] }
+                      }
+                    }
+                  ]
+                }
+              },
               "open_gaps": { "type": "array", "maxItems": 0 }
             }
           },
@@ -211,7 +224,7 @@
     "approval": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["reviewer", "role", "qualification_basis", "scope", "decision", "reviewed_at", "expires_at"],
+      "required": ["reviewer", "role", "qualification_basis", "scope", "decision", "conditions", "reviewed_at", "expires_at"],
       "properties": {
         "reviewer": { "type": "string", "minLength": 2 },
         "role": { "type": "string", "minLength": 3 },
@@ -221,7 +234,18 @@
         "conditions": { "$ref": "#/$defs/nonEmptyStrings" },
         "reviewed_at": { "type": "string", "format": "date" },
         "expires_at": { "type": "string", "format": "date" }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "decision": { "const": "approve_with_conditions" } },
+            "required": ["decision"]
+          },
+          "then": {
+            "properties": { "conditions": { "type": "array", "minItems": 1 } }
+          }
+        }
+      ]
     }
   }
 }

@@ -13,8 +13,10 @@ truth.
 ## Context loading
 
 1. Read `ai-context.yaml` to classify the task and find canonical sources.
-2. For a first framework run, use `QUICKSTART.md` and start with
-   `catalog/core/project-profile.yaml`.
+2. For a first framework run, use `QUICKSTART.md` and start with the ten question
+   templates in `catalog/core/project-profile.yaml`. Do not confuse that catalog
+   module with a run-specific project profile, which conforms to
+   `schemas/project-profile.schema.json`.
 3. Load only the activated domains and schemas; do not load every question bank by
    default. If regulation, safety criticality, or material sector-specific harm may
    apply, evaluate `core.domain-pack.001` and read
@@ -48,6 +50,8 @@ truth.
 - Expose critical blockers and the controlling bottleneck before recommending work.
 - Propagate accepted changes into affected requirements, decisions, risks,
   experiments, metrics, tests, approvals, and artifacts.
+- Use the canonical run layout in `docs/09-output-convergence-and-implementation.md`;
+  do not invent a second filename or gate vocabulary.
 - Return only `proceed`, `proceed_with_conditions`, `pause`, or `stop` as a gate result.
 - Never deploy, contact people, spend money, or command hardware without separate
   explicit authorization and an appropriate adapter.
@@ -57,6 +61,9 @@ truth.
 - Preserve published stable question IDs; deprecate rather than repurpose them.
 - Validate YAML records against `schemas/question.schema.json` and resolve every
   declared relationship target.
+- When a numbered question bank or catalog mapping changes, update
+  `coverage/prose-to-catalog.yaml` and preserve its source text, counts, and target
+  resolution.
 - Protect schemas, blocker rules, security controls, and approval policy from
   autonomous self-modification.
 - Do not let an agent publish or self-approve a domain pack. Apply the qualified
@@ -66,4 +73,3 @@ truth.
   normative document.
 - Keep vendor adapter files thin. Canonical behavior belongs in `docs/`, `catalog/`,
   `schemas/`, and `templates/`.
-

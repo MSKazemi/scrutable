@@ -1,7 +1,9 @@
 ---
 artifact: project-charter
+run_id: "<run-id>"
 project_id: "<project-id>"
 subject_id: "<subject-id>"
+questionbook_ref: "<git-commit-sha>"
 graph_revision: 0
 generated_at: "<ISO-8601 timestamp>"
 ---
@@ -10,7 +12,8 @@ generated_at: "<ISO-8601 timestamp>"
 
 ## Subject and boundary
 
-**Subject:** <application, service, feature, process, organization, or subsystem>
+**Subject:** <application, service, feature, product, platform, framework, AI agent,
+integration, robot-connected system, process, organization, or subsystem>
 
 **In scope:**
 
@@ -74,4 +77,3 @@ generated_at: "<ISO-8601 timestamp>"
 | Question instance | Why it matters | State | Next action | Owner |
 |---|---|---|---|---|
 | <ID> | <impact> | <state> | <action> | <owner> |
-

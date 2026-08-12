@@ -21,10 +21,16 @@ independent review requires it. Record the chosen location in the run manifest.
 
 ## Ten-minute human path
 
-1. Create the run directory in the target project.
-2. Copy [`templates/run-manifest.md`](templates/run-manifest.md) and record the target
-   revision plus the Product Questionbook revision used for the run.
-3. Copy [`templates/product-brief.md`](templates/product-brief.md).
+1. Create the run directory in the target project. Use the canonical filenames in
+   [`docs/09-output-convergence-and-implementation.md`](docs/09-output-convergence-and-implementation.md#output-package-layout)
+   rather than inventing a second layout.
+2. Copy [`templates/run-manifest.md`](templates/run-manifest.md) to
+   `00-manifest.md` and record the target revision plus the Product Questionbook
+   revision used for the run.
+3. Copy [`templates/project-charter.md`](templates/project-charter.md) to
+   `01-context-and-success.md`. Use
+   [`templates/product-brief.md`](templates/product-brief.md) for
+   `05-system-brief.md` when the fuller projection is needed.
 4. Answer the ten project-profile questions in
    [`catalog/core/project-profile.yaml`](catalog/core/project-profile.yaml). `Unknown`
    is valid; unsupported certainty is not.
@@ -35,11 +41,16 @@ independent review requires it. Record the chosen location in the run manifest.
    important, relevant, or not applicable.
 7. If regulation, safety criticality, or material sector-specific harm may apply,
    evaluate [`core.domain-pack.001`](catalog/core/domain-pack-governance-questions.yaml).
-   A required but unavailable, unpublished, expired, or out-of-scope pack is a blocker.
-8. Record decisions, risks, experiments, requirements, and tests using the templates
-   in [`templates/`](templates/).
-9. End with exactly one gate result: `proceed`, `proceed_with_conditions`, `pause`, or
-   `stop`.
+   A required but unavailable, unpublished, expired, suspended, or out-of-scope pack
+   is a blocker.
+8. Record the selected instances, answer revisions, and evidence in
+   `03-question-answer-ledger.md`, following the worked YAML records in
+   [`examples/sample-application/`](examples/sample-application/). Record decisions,
+   risks, experiments, requirements, and tests using the templates in
+   [`templates/`](templates/).
+9. Copy [`templates/readiness-report.md`](templates/readiness-report.md) to
+   `09-gate-and-assurance-report.md` and end with exactly one machine value:
+   `proceed`, `proceed_with_conditions`, `pause`, or `stop`.
 
 Start small. A useful first run may contain unknowns and a `pause` result. Its purpose
 is to reveal what must be learned or decided next, not to create the appearance of

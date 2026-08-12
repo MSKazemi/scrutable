@@ -15,9 +15,10 @@ for every product, jurisdiction, industry, or risk class.
 
 The first structural inventory is now explicit. The [prose-to-catalog manifest](../coverage/prose-to-catalog.yaml) accounts for all 396 numbered questions in the seven main human-readable banks: 388 are conservatively mapped through 43 section-level many-to-many compression groups and eight naming-brainstorm prompts are guidance-only. It claims zero exact mappings until independent semantic review. This removes hidden inventory but does not prove exact parity: compressed questions must remain visible during runs, and unnumbered gate bullets plus backlog candidates remain outside the current manifest scope.
 
-The second largest omission is operational: the repository defines the target engine
-but does not contain an executable parser, graph evaluator, gate runner, CLI, API, or
-automated assurance workflow.
+The second largest omission is operational: the repository defines deterministic
+validation and assurance behavior but does not contain a callable conformance and
+semantic validator or an automated assurance workflow. A CLI, API, database, or
+service is optional and is not required for normal framework use.
 
 ## Meaning of coverage
 
@@ -41,11 +42,11 @@ requirements, expected outputs, accountable roles, revisit triggers, and validat
 | Priority | Gap | Current status | Why it matters |
 |---|---|---|---|
 | P0 | Prose-to-catalog parity | Partial — manifested, exact review pending | All numbered questions are accounted, but compressed section mappings are not yet independently reviewed as exact and drift checks are manual |
-| P0 | Executable deterministic engine | Capability gap | Documented guarantees cannot be tested automatically and agent behavior remains dependent on manual discipline |
+| P0 | Deterministic conformance and semantic validator | Capability gap | Documented guarantees cannot be tested automatically and agent behavior remains dependent on manual discipline |
 | P0 | Regulated and safety-critical domain packs | Domain pack required — governance ready | The interface and eight governance nodes are published, but generic questions remain insufficient and no qualified specialized pack exists |
 | P1 | Organizational adoption and change management | Partial — structured module published | Eight stable questions now cover the change system; representative run and calibration evidence remain absent |
 | P1 | Workforce and knowledge continuity | Partial — structured module published | Eight stable questions now cover workforce continuity; representative absence, departure, and understaffing evidence remain absent |
-| P1 | External sensing and horizon monitoring | Partial — structured method published | Eight stable questions, an operating method, and a register now connect external sources to graph reopening; live source and scenario evidence remain absent |
+| P1 | External sensing and horizon monitoring | Partial — structured module published | Eight stable questions and a source-to-decision method now cover sensing; representative monitoring and missed-signal evidence remain absent |
 | P1 | Information integrity and content governance | Partial | Provenance is mentioned, but misinformation, coordinated manipulation, moderation, authenticity, and correction are not treated as a coherent concern |
 | P1 | Geopolitical and regional continuity | Missing | Sanctions, export controls, conflict, internet restrictions, currency controls, and regional dependencies can stop an otherwise viable product |
 | P1 | Internationalization and localization operations | Partial | Locale formatting is covered, but translation governance, right-to-left behavior, local operations, and market-specific support are shallow |
@@ -61,9 +62,9 @@ P2 does not mean unimportant. It means highly consequential when applicable but 
 universal. A payment platform, marketplace, medical device, or public-facing safety
 system should promote several of these concerns to P0 for that run.
 
-## Quantified status excluding the executable-engine gap
+## Quantified status excluding the validator capability gap
 
-This snapshot deliberately excludes item 2, the executable deterministic engine. It
+This snapshot deliberately excludes item 2, the deterministic validator. It
 measures the other backlog items against the live 0.7 catalog rather than treating a
 mention in prose as structured support.
 
@@ -81,15 +82,19 @@ mention in prose as structured support.
 | Expert-reviewed regulated or safety-critical packs | 0 |
 | Prose-to-catalog coverage manifest | present: 396 numbered questions, 43 groups, 388 compressed, 8 guidance-only, 0 exact |
 
-Thirty-two of the 108 candidates are now dedicated stable records: domain-pack governance, organizational change, workforce continuity, and external sensing. The pack set still needs qualified content, and the three operational sets still need representative run and calibration evidence. The other 76 candidates remain compressed, partial, missing, or conditional.
+Thirty-two of the 108 candidates are now dedicated stable records: the domain-pack
+governance, organizational-change, workforce-continuity, and external-sensing sets.
+The first still needs qualified pack content, and the three operational sets still
+need representative run and calibration evidence. The other 76 candidates remain
+compressed, partial, missing, or conditional.
 
 | Item | Gap | Priority | Candidate questions | Current status | Nearest published structured coverage | What is still absent |
 |---:|---|---|---:|---|---|---|
 | 1 | Prose-to-catalog parity | P0 | 8 | Partial — manifested | The coverage manifest accounts for 396 numbered questions and preserves full source wording against 95 referenced stable IDs | All mappings are conservatively section-level and compressed; exact question-level semantic review, unnumbered gate coverage, candidate promotion, and deterministic drift validation remain |
 | 3 | Regulated and safety-critical domain packs | P0 | 8 | Domain pack required — governance ready | `core.domain-pack.001` through `.008` now define activation, authority, expert review, domain deltas, provenance, blockers, scenario assurance, and affected-run reopening | No qualified healthcare, fintech, children, government, aviation, automotive, industrial-control, or comparable pack has completed this contract |
-| 4 | Organizational adoption and change management | P1 | 8 | Partial — structured module published | `team.change-impact.001` through `.change-ownership.001`, activated by `business.adoption.001` | Content and graph fields are now coherent; a representative end-to-end adoption run, negative rollback case, false-blocker review, and outcome calibration remain absent |
+| 4 | Organizational adoption and change management | P1 | 8 | Partial — structured module published | `team.change-impact.001` through `.change-ownership.001`, activated by `business.adoption.001` | Content and graph fields are coherent; a representative end-to-end adoption run, negative rollback case, false-blocker review, and outcome calibration remain absent |
 | 5 | Workforce and knowledge continuity | P1 | 8 | Partial — structured module published | `team.continuity-dependencies.001` through `.continuity-signals.001`, activated by `team.capability.001` | Content and graph fields are coherent; absence, departure, understaffing, supplier-exit, false-blocker, and recovery exercises remain unobserved |
-| 6 | External sensing and horizon monitoring | P1 | 8 | Partial — structured method published | `operations.sensing-change.001` through `.sensing-blind-spots.001`, [operating method](18-external-sensing-and-attention.md), and signal-register template | No live source portfolio, scheduled collection evidence, access-failure exercise, threshold calibration, latency measurement, or missed-signal case |
+| 6 | External sensing and horizon monitoring | P1 | 8 | Partial — structured module published | `operations.sensing-change.001` through `.sensing-blind-spots.001`, activated by `core.assumptions.001` | Content, method, register, and graph fields are coherent; representative monitoring, access-failure, false-alert, missed-signal, latency, and outcome evidence remain absent |
 | 7 | Information integrity and content governance | P1 | 8 | Partial | `data.quality.001`, `security.threats.001`, `ethics.harms.001`, `ethics.contestability.001` | Misinformation, deepfakes, provenance/authenticity, coordinated manipulation, moderation, reviewer safety, correction, appeal, and downstream propagation lack a coherent structured method |
 | 8 | Geopolitical and regional continuity | P1 | 8 | Missing | Generic `legal.obligations.001`, `architecture.dependencies.001`, and `business.continuity.001` can detect some exposure | No dedicated sanctions, export-control, conflict, internet-shutdown, currency-control, regional concentration, staff-protection, or legal fallback questions |
 | 9 | Internationalization and localization operations | P1 | 8 | Partial | `ux.accessibility.001`, `ux.comprehension.001`, `legal.obligations.001`, `product.naming-validation.001` | Translation governance, right-to-left behavior, locale mechanics, local payments/taxes/contracts, multilingual support and incident response, parity metrics, and market exit are shallow or absent |
@@ -103,8 +108,12 @@ Thirty-two of the 108 candidates are now dedicated stable records: domain-pack g
 
 ### Interpretation
 
-- **Highest structural priority:** item 1. The parity manifest now exposes the inventory; independent exact-semantic review and enforceable drift detection remain.
-- **Highest safety priority:** item 3. Generic questions now activate the pack governance path and a missing required pack blocks a positive gate; qualified pack content is still external work.
+- **Highest structural assurance priority:** item 2. The manifest now exposes the
+  inventory, but schema, semantic, link, and drift rules are not continuously
+  enforced by a deterministic validator.
+- **Highest safety priority:** item 3. Generic questions should activate a qualified
+  pack or block a domain-qualified claim; the universal framework must not impersonate
+  clinical, legal, financial, aviation, automotive, or industrial-control expertise.
 - **Highest unmodeled continuity priority:** item 8. Geopolitical failure can make
   suppliers, staff, funds, data, networks, contracts, or markets inaccessible with
   little warning.
@@ -136,12 +145,14 @@ partial to covered.
    “unanswered,” “unsupported by evidence,” and “accepted risk”?
 8. Which source is authoritative when prose and catalog meaning diverge?
 
-### 2. Executable deterministic engine
+### 2. Deterministic conformance and semantic validator
 
-1. What installed command accepts a project profile and pinned Questionbook revision?
-2. Does the parser validate every catalog, instance, answer, relationship, and run
+1. What callable validator accepts a repository or run snapshot pinned to a
+   Questionbook revision, whether invoked by CI, an agent, a library, or an optional
+   thin command wrapper?
+2. Does it parse and validate every catalog, instance, answer, relationship, and run
    record against its schema?
-3. Does the engine deterministically evaluate applicability, dependencies,
+3. Does it deterministically evaluate applicability, dependencies,
    activations, contradictions, stale evidence, reverse-dependency invalidation, and
    strongly connected components?
 4. Can the same frozen input produce the same graph, gate result, and output package?
@@ -154,8 +165,6 @@ partial to covered.
    decision-change rate, and time to justified decision?
 
 ### 3. Domain-pack governance
-
-**Current status:** the [governance contract](17-domain-pack-governance.md), manifest schema, draft template, and `core.domain-pack.001` through `.008` now implement these eight universal questions. Expert-reviewed published packs remain at zero; any run needing one must pause or stop until a qualified pack exists.
 
 1. Which subject attributes activate a regulated or safety-critical pack?
 2. Which authoritative laws, standards, clinical or engineering practices, and
@@ -171,11 +180,19 @@ partial to covered.
    actions, and expert review?
 8. How are existing runs reopened when a pack or its authority changes?
 
+**Current status:** the [governance contract](17-domain-pack-governance.md), manifest
+schema, draft template, and `core.domain-pack.001` through `.008` now implement these
+eight universal questions. Expert-reviewed published packs remain at zero; any run
+needing one must pause or stop until a qualified pack exists.
+
 ## P1 questions
 
 ### 4. Organizational adoption and change management
 
-**Current status:** `team.change-impact.001` through `team.change-ownership.001` now implement these eight questions and `business.adoption.001` activates the module. It remains `partial` until representative positive and negative runs test selection, rollback behavior, evidence cost, missed concerns, and false blockers.
+**Current status:** `team.change-impact.001` through `team.change-ownership.001` now
+implement these eight questions and `business.adoption.001` activates the module. It
+remains `partial` until representative runs test rollback, missed concerns, evidence
+cost, false blockers, and outcome calibration.
 
 1. Whose workflow, authority, incentives, workload, status, or professional identity
    must change for the product to succeed?
@@ -194,7 +211,11 @@ partial to covered.
 
 ### 5. Workforce and knowledge continuity
 
-**Current status:** `team.continuity-dependencies.001` through `team.continuity-signals.001` now implement these eight questions and `team.capability.001` activates the module. It remains `partial` until exercises demonstrate transfer, secure departure, minimum operation, separation of duties, supplier exit, and useful leading indicators.
+**Current status:** `team.continuity-dependencies.001` through
+`team.continuity-signals.001` now implement these eight questions and
+`team.capability.001` activates the module. It remains `partial` until exercises
+demonstrate transfer, secure departure, minimum operation, separation of duties,
+supplier exit, and useful leading indicators.
 
 1. Which outcomes, systems, approvals, and relationships depend on one person or a
    fragile group?
@@ -212,7 +233,12 @@ partial to covered.
 
 ### 6. External sensing and horizon monitoring
 
-**Current status:** `operations.sensing-change.001` through `operations.sensing-blind-spots.001`, the [external sensing method](18-external-sensing-and-attention.md), and the signal-register template now implement the source-to-decision loop. It remains `partial` until a real run demonstrates collection, source failure, weak-signal handling, threshold-to-reopen propagation, detection latency, and missed-signal learning.
+**Current status:** `operations.sensing-change.001` through
+`operations.sensing-blind-spots.001` now implement these eight questions,
+`core.assumptions.001` activates the module, and
+[the sensing contract](18-external-sensing-and-attention.md) defines the operating
+loop. It remains `partial` until representative runs exercise source loss,
+corroboration, thresholds, latency, missed signals, and blind spots.
 
 1. Which external changes could invalidate value, legality, safety, security,
    economics, distribution, or technical feasibility?
@@ -412,11 +438,15 @@ A backlog area becomes supported only when:
 ## Recommended sequence
 
 1. Build the prose-to-catalog coverage manifest and make parity drift testable.
-2. Implement and test the deterministic parser, graph/state engine, and gate runner.
-3. Validate the organizational-adoption, workforce-continuity, and external-sensing modules on representative runs.
+2. Implement and test the read-only conformance validator, state-policy checks, and
+   gate-policy checks without making a CLI or service mandatory.
+3. Validate the organizational-adoption, workforce-continuity, and external-sensing
+   modules on representative runs.
 4. Add information-integrity, geopolitical, localization, and enterprise-implementation
    questions as conditional structured modules.
-5. Pilot one high-value pack through the now-defined domain-pack interface with qualified expert review; do not mark the gap covered until that exact pack and scope are published.
+5. Pilot one high-value pack through the now-defined domain-pack interface with
+   qualified expert review; do not mark the gap covered until that exact pack and
+   scope are published.
 6. Promote P2 modules only when target runs show applicability or a severe omission.
 
 This sequence closes the framework's most important blind spot first: the difference

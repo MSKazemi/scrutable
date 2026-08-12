@@ -1,3 +1,14 @@
+---
+artifact: review-scorecard
+run_id: "<run-id>"
+project_id: "<project-id>"
+subject_id: "<subject-id>"
+review_id: "<review-id>"
+questionbook_ref: "<git-commit-sha>"
+graph_revision: 0
+generated_at: "<ISO-8601 timestamp>"
+---
+
 # Product review scorecard: [Product name]
 
 **Review gate:** Problem / Scope / Architecture / Release / Post-launch / Retirement

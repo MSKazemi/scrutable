@@ -1,3 +1,14 @@
+---
+artifact: bottleneck-register
+run_id: "<run-id>"
+project_id: "<project-id>"
+subject_id: "<subject-id>"
+register_id: "<register-id>"
+questionbook_ref: "<git-commit-sha>"
+graph_revision: 0
+generated_at: "<ISO-8601 timestamp>"
+---
+
 # Bottleneck register: [Product name]
 
 **Owner:** [Name]

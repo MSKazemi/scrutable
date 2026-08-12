@@ -1,7 +1,9 @@
 # Output contract
 
 Product Questionbook produces an **assurance package**, not only a questionnaire or a set of
-documents. Outputs must be reproducible from a versioned graph snapshot.
+documents. Outputs must be reproducible from canonical run records pinned to a target
+and Questionbook revision; a graph snapshot is a derived logical projection of those
+records.
 
 ## Machine-readable outputs
 
@@ -45,8 +47,8 @@ documents. Outputs must be reproducible from a versioned graph snapshot.
 3. Unresolved, blocked, stale, and accepted-risk items remain visible.
 4. Missing information is rendered as missing, never silently invented.
 5. Conflicting answers are shown with their reconciliation status.
-6. A generated document is a view; edits must be captured back into structured records.
+6. A generated document is a view; edits must be captured back into the canonical
+   Markdown or YAML records from which the logical graph is derived.
 7. Regeneration is deterministic for the same graph revision and template version.
 
 Templates in [`templates`](../templates) define the first human-readable views.
-

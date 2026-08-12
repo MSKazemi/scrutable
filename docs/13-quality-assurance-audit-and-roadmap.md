@@ -1,6 +1,6 @@
 # Framework quality assurance audit and roadmap
 
-**Audit snapshot:** 2026-08-12, `main` after commit `efcebc9`  
+**Audit snapshot:** 2026-08-12, `main` baseline commit `b2c5bd2`  
 **Scope:** the Product Questionbook repository as a reusable question and assurance
 framework; this is not an assessment of a product reviewed with the framework  
 **Verdict:** promising and unusually explicit specification; not yet a proven or
@@ -58,7 +58,7 @@ The following facts were checked against `main` for this audit:
 | Publication status | 131 published | No draft or reviewed records remain in the universal catalog |
 | Criticality | 69 critical, 59 high, 3 medium, 0 low | Severity is heavily concentrated at the top |
 | Applicability | 11 always; 120 natural-language conditions | Most applicability cannot yet be evaluated deterministically |
-| JSON Schemas | 8 | Prose coverage and domain-pack manifests are now modeled; several assurance entities and semantic rules remain unmodeled |
+| JSON Schemas | 8 | Prose coverage and domain-pack manifests are modeled; several assurance entities and semantic rules remain unmodeled |
 | Commit status checks at snapshot | 0 reported | Validation is not a continuously required repository control |
 | Worked examples | 1 synthetic application | Insufficient for efficacy, calibration, or domain claims |
 
@@ -83,14 +83,14 @@ empirical evaluation loop, not a larger universal checklist or full application 
 
 | ID | Priority | Finding | Consequence |
 |---|---|---|---|
-| QA-01 | P0 | No executable validator, graph/state engine, gate runner, or required CI | The framework's strongest rules are advisory and can silently drift or be bypassed |
+| QA-01 | P0 | No deterministic conformance and semantic validator or required CI | The framework's strongest rules are advisory and can silently drift or be bypassed |
 | QA-02 | P0 | No empirical benchmark or completed multi-project outcome loop | There is no evidence yet that the method finds consequential omissions better, reduces rework, or calibrates confidence |
 | QA-03 | P0 | Assurance semantics exceed the eight existing schemas | Shape-valid records can still violate evidence, transition, blocker, approval, and risk-acceptance rules |
 | QA-04 | P0 | The 396-question prose inventory is conservatively mapped to the 131-node catalog, but exact review and drift enforcement remain incomplete | Compressed semantics or later edits may still become invisible to selection, coverage, propagation, and learning |
 | QA-05 | P1 | Criticality is inflated: 128 of 131 questions are high or critical | Prioritization loses discrimination and teams may experience alert fatigue or ritual compliance |
 | QA-06 | P1 | 120 applicability rules are natural-language conditions | Different humans or agents can instantiate different graphs from the same input |
 | QA-07 | P1 | The catalog now uses four relationship types, but most promised assurance edges remain absent | The promised graph has little machine-readable refinement, contradiction, evidence, decision, risk, test, or artifact semantics |
-| QA-08 | P1 | Priority and bottleneck formulas are not one versioned policy | Different documents and records can rank the same concern differently |
+| QA-08 | P1 | Next-question and bottleneck scores are distinct, but neither has a complete versioned executable policy | Implementations can still normalize inputs or handle missing values differently |
 | QA-09 | P1 | All catalog questions are published, but publication review evidence is not modeled | A valid record does not prove independent review, domain competence, or migration safety |
 | QA-10 | P1 | One small synthetic example is the only worked run | Contradiction, staleness, accepted risk, cycles, adverse evidence, and gate failure are not demonstrated end to end |
 | QA-11 | P2 | Repository adoption controls are immature | A private repository with no license, required status checks, or documented public compatibility policy limits independent scrutiny and reuse if public adoption is intended |
@@ -110,9 +110,9 @@ are design intentions rather than demonstrated behavior.
 
 Required correction:
 
-1. Implement one deterministic command that validates the repository and a run.
-2. Run it in CI for every change to protected framework assets.
-3. Make the check required before merge.
+1. Implement one deterministic validator that can validate the repository and a run.
+2. Make it callable by CI and agents; keep a command-line wrapper optional.
+3. Run it for every change to protected framework assets and require it before merge.
 4. Publish a machine-readable validation report tied to the commit SHA.
 
 ### QA-02 — The framework has no efficacy evidence
@@ -138,8 +138,9 @@ Required correction:
 
 ### QA-03 — Schema validity is weaker than assurance validity
 
-The eight schemas cover question templates, instances, answers, relationships, project
-profiles, improvement cycles, prose coverage, and domain-pack manifests. The output and domain contracts also rely on
+The eight schemas cover question templates, instances, answers, relationships,
+project profiles, improvement cycles, prose coverage, and domain-pack manifests. The
+output and domain contracts also rely on
 evidence, decisions, requirements, risks, actions, metrics, tests, artifacts, gates,
 policies, approvals, exceptions, and audit events. Those entities do not yet have a
 complete shared contract.
@@ -154,8 +155,8 @@ Important semantic gaps include:
 - an answer can have an empty evidence list, and `review_status` is optional;
 - computed priority is not checked against the declared formula;
 - critical risk acceptance authority and gate policy are prose, not executable data;
-- the project-profile subject enum omits some subject types named by the normative
-  documents, including a framework, AI agent, integration, or robot-connected system.
+- cross-record subject, run, graph, and questionbook revision coherence is not
+  enforced by JSON Schema alone.
 
 Required correction: add missing entity schemas and implement cross-record semantic
 validation outside JSON Schema.
@@ -171,7 +172,7 @@ This is the first P0 item in the
 
 ### QA-05 — Criticality cannot prioritize when almost everything is critical
 
-With 51 critical and 45 high questions, the catalog labels 97% of its nodes at the top
+With 69 critical and 59 high questions, the catalog labels 98% of its nodes at the top
 two severity levels. Criticality should describe consequence under explicit
 conditions, not general importance. Otherwise gate queues become large, teams invent
 exceptions, and true fatal concerns are obscured.
@@ -194,14 +195,20 @@ backward compatibility. An unknown applicability result must not silently become
 
 ### QA-07 — The graph is currently a dependency graph, not the full assurance graph
 
-The catalog now declares 510 references across `depends_on`, `activates`, `related_to`, and `refines`. The broader model also describes contradictions, evidence, decisions, risks, requirements, tests, owners, artifacts, supersession, and review triggers. Those relationships must exist in project run data and be validated before the graph can support the promised traceability and change-impact analysis.
+The catalog now declares 510 references across `depends_on`, `activates`,
+`related_to`, and `refines`. The broader model also describes contradictions,
+evidence, decisions, risks, requirements, tests, owners, artifacts, supersession, and
+review triggers. Those relationships must exist in project run data and be validated
+before the graph can support the promised traceability and change-impact analysis.
 
 ### QA-08 — Ranking policy needs one versioned implementation
 
-The repository contains related but different models for next-question priority and
-controlling-bottleneck priority. This is acceptable only if each has a distinct name,
-input schema, formula version, normalization rule, missing-value policy, override
-policy, and test fixtures. A stored `computed_score` must be recalculated, not trusted.
+The repository intentionally contains different models for next-question priority and
+controlling-bottleneck priority. `docs/prioritization.md` defines the current
+`next-question-v1` baseline; the bottleneck score ranks a different decision object.
+Each still needs a distinct machine-readable input schema, formula version,
+normalization rule, missing-value policy, override policy, and test fixtures. A stored
+`computed_score` must be recalculated, not trusted.
 
 ### QA-09 — Publication needs evidence and authority
 

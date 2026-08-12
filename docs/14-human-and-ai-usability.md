@@ -123,17 +123,17 @@ Until automated checks exist, review releases against these questions:
   trigger?
 - Does every gate report use an allowed value and surface critical blockers?
 
-## Prioritized next improvements
+## Current and next improvements
 
-| Priority | Improvement | Why it matters | Completion evidence |
-| --- | --- | --- | --- |
-| P0 | Quick start, README routing, AI manifest | Removes the entry and discovery bottleneck | A novice and agent can identify the correct path without reading all docs |
-| P1 | Read-only conformance validator in CI | Converts documented rules into repeatable checks without replacing the text interface | Pull requests fail on invalid records, duplicate IDs, or broken relationships |
-| P1 | Complete end-to-end example output bundle | Shows what “done” looks like | Example includes manifest, ledger, ADR, risks, tests, and gate report |
-| P1 | Repository description, topics, license decision, and branch hygiene | Improves discovery and contribution clarity | Settings and legal status are explicit |
-| P3 | Optional thin CLI wrapper | May reduce local invocation errors if users request it | The wrapper calls the same validator and framework use never depends on it |
-| P2 | Generated documentation index and link checker | Prevents navigation decay | CI verifies links and publishes the index |
-| P3 | Interactive navigator | Helps nontechnical users traverse activated questions | Usability testing shows lower completion time and fewer missed blockers |
+| Priority | Status | Improvement | Why it matters | Completion evidence |
+| --- | --- | --- | --- | --- |
+| P0 | Complete | Quick start, README routing, AI manifest | Removes the entry and discovery bottleneck | A novice and agent can identify the correct path without reading all docs |
+| P1 | Planned | Read-only conformance validator in CI | Converts documented rules into repeatable checks without replacing the text interface | Pull requests fail on invalid records, duplicate IDs, or broken relationships |
+| P1 | Planned | Complete end-to-end example output bundle | Shows what “done” looks like | Example includes manifest, ledger, ADR, risks, tests, and gate report |
+| P1 | Planned | Repository description, topics, license decision, and branch hygiene | Improves discovery and contribution clarity | Settings and legal status are explicit |
+| P3 | Optional | Optional thin CLI wrapper | May reduce local invocation errors if users request it | The wrapper calls the same validator and framework use never depends on it |
+| P2 | Planned | Generated documentation index and link checker | Prevents navigation decay | CI verifies links and publishes the index |
+| P3 | Optional | Interactive navigator | Helps nontechnical users traverse activated questions | Usability testing shows lower completion time and fewer missed blockers |
 
 The P1 validator is the next controlling engineering improvement. It is a conformance
 checker, not a replacement application: more prose will not make the repository

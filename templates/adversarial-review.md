@@ -1,8 +1,11 @@
 ---
 artifact: adversarial-review
+run_id: "<run-id>"
+project_id: "<project-id>"
 review_id: "<review-id>"
 subject_id: "<subject-id>"
 decision_id: "<decision-id>"
+questionbook_ref: "<git-commit-sha>"
 graph_revision: 0
 generated_at: "<ISO-8601 timestamp>"
 ---
@@ -80,4 +83,3 @@ why it outranks more visible concerns.>
 - **Accepted risks and authority:** <IDs/owner>
 - **Required experiment or evidence:** <IDs>
 - **Review trigger:** <event/date>
-

@@ -121,22 +121,30 @@ For example, a programming-language decision may depend on deployment targets, t
 An answer record must separate what is known from what is proposed.
 
 ~~~yaml
-schema_version: answer/v0.1
-id: ANSWER-ARCH-001-v3
-question_id: ARCH-001
-status: proposed
-value: Use Python for the reference engine.
-claim_type: decision
-evidence_ids: [EVID-TEAM-002, EVID-PROTOTYPE-004]
-assumption_ids: [ASSUME-DEPLOY-001]
+id: answer-validator-packaging-v3
+project_id: questionbook-validator
+subject_id: conformance-validator
+question_instance_id: qi-validator-packaging
+revision: 3
+value: Use a pinned Python environment for the validator spike.
+summary: The choice is provisional until representative repository fixtures pass.
+assumptions:
+  - The validator can run offline in CI and agent environments.
 confidence: medium
 owner: architecture-owner
-verification_ids: [TEST-PARSER-001, TEST-GRAPH-003]
-depends_on: [DEPLOY-001, TEAM-001, PERF-001]
-contradicts: []
-review_triggers: [deployment_target_changed, latency_budget_changed]
-updated_at: 2026-08-11T20:00:00Z
+created_at: 2026-08-11T20:00:00Z
+valid_until: null
+evidence_ids: [evidence-team-capability, evidence-parser-spike]
+decision_ids: [decision-validator-packaging]
+supersedes: answer-validator-packaging-v2
+review_status: unreviewed
 ~~~
+
+This object conforms to [`answer.schema.json`](../schemas/answer.schema.json).
+Dependencies, contradictions, verification links, and review triggers are represented
+by the question instance, typed relationship records, and linked decisions until
+those additional entities receive complete schemas. The absence of those schemas is
+reported as an assurance limitation, not hidden inside an invalid example.
 
 The engine evaluates an answer against a policy-specific acceptance predicate:
 
@@ -180,7 +188,7 @@ else:
     return pause or stop with unresolved nodes and reasons
 ~~~
 
-A starting priority rule is:
+A richer candidate policy for a future validator is:
 
 ~~~text
 priority =
@@ -193,7 +201,13 @@ priority =
   / estimated_resolution_cost
 ~~~
 
-The exact scales belong to a versioned policy. Critical policy rules always override numerical ranking.
+The currently authorable baseline is `next-question-v1` in
+[prioritization.md](prioritization.md), which is also used by the sample records. The
+richer expression above must receive a separate policy ID, normalization rules,
+missing-value behavior, and fixtures before use. The bottleneck score in
+[the self-improvement contract](10-self-improvement-and-adversarial-governance.md)
+answers a different question and must not be substituted for next-question priority.
+Critical policy rules always override numerical ranking.
 
 ## Cycles, fixed points, and termination
 
@@ -285,4 +299,3 @@ The first validator milestone is complete only when it can:
 10. pass fixture-based scenarios and property tests for termination, idempotency, traceability, and change propagation.
 
 Only after that milestone should autonomous brainstorming or LLM-assisted candidate generation be allowed to modify a run—and even then, candidates require the same validation and approval path as human proposals.
-

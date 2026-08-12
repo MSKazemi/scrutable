@@ -41,10 +41,10 @@ The framework can improve decision quality and expose failure risks; it cannot g
    - [Naming and identity](docs/07-naming-and-identity.md)
 5. Read the [machine operation and output contract](docs/08-machine-operation-and-outputs.md) when building automation or an interactive navigator.
 6. Read [the output, brainstorming, convergence, and implementation contract](docs/09-output-convergence-and-implementation.md) for the canonical result, cross-question correction algorithm, convergence rules, and automation boundary. The text-first decision is recorded in [ADR-0003](decisions/ADR-0003-text-first-agent-native-architecture.md); the earlier full-engine stack proposal is deferred in [ADR-0001](decisions/ADR-0001-engine-implementation-stack.md).
-7. Use the [structured graph foundation](docs/structured-foundation.md) for stable IDs, typed relationships, state history, schemas, and reusable domain packs.
+7. Use the [structured graph foundation](docs/structured-foundation.md) for stable IDs, typed relationships, state history, schemas, and the governed domain-pack interface.
 8. Use the [governed self-improvement and adversarial review method](docs/10-self-improvement-and-adversarial-governance.md) when challenging an idea, finding the controlling bottleneck, evaluating a pivot, or improving the framework. Its governance decision is recorded in [ADR-0002](decisions/ADR-0002-governed-adversarial-self-improvement.md).
 9. Follow the [usage, project placement, visibility, and agent-integration protocol](docs/11-usage-deployment-and-agent-integration.md) to apply the framework to another repository or run it with Codex, ChatGPT, Claude Code, or another agent system.
-10. Record results using the [run manifest](templates/run-manifest.md), [agent run request](templates/agent-run-request.md), [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), [risk register](templates/risk-register.md), [review scorecard](templates/review-scorecard.md), [improvement cycle](templates/improvement-cycle.md), [adversarial review](templates/adversarial-review.md), and [external signal register](templates/external-signal-register.md).
+10. Record results using the [run manifest](templates/run-manifest.md), [agent run request](templates/agent-run-request.md), [project charter](templates/project-charter.md), [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [assurance decision record](templates/assurance-decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), [risk register](templates/risk-register.md), [review scorecard](templates/review-scorecard.md), [readiness report](templates/readiness-report.md), [improvement cycle](templates/improvement-cycle.md), [adversarial review](templates/adversarial-review.md), and [external signal register](templates/external-signal-register.md).
 11. Inspect the [prose-to-catalog coverage contract](docs/16-prose-to-catalog-coverage.md) to see how every numbered human-readable question is preserved and connected to the stable graph without claiming false one-to-one equivalence.
 12. Use the [domain-pack governance contract](docs/17-domain-pack-governance.md) when regulation, safety criticality, or material sector-specific harm may require qualified coverage.
 13. Use the [external sensing and attention contract](docs/18-external-sensing-and-attention.md) to collect decision-changing signals from authorities, people, companies, agents, the web, and news while keeping blind spots explicit.
@@ -52,6 +52,7 @@ The framework can improve decision quality and expose failure risks; it cannot g
 15. Read the [framework quality assurance audit](docs/13-quality-assurance-audit-and-roadmap.md) for the controlling bottleneck, measurable assurance levels, release gates, and validation roadmap.
 16. Read the [human and AI usability contract](docs/14-human-and-ai-usability.md) for progressive disclosure, task-based entrypoints, context loading, failure behavior, and the prioritized usability roadmap.
 17. Read the [request coverage and operational-readiness audit](docs/15-request-coverage-and-operational-readiness-audit.md) for a direct status of branch integration, self-improvement, usage, inputs, outputs, visibility, algorithms, agent compatibility, and remaining implementation gaps.
+18. Read the [whole-repository integration audit](docs/19-whole-repository-integration-audit.md) for the pinned file-by-file review, deterministic cross-file checks, corrections, and remaining integration risks.
 
 The accepted framework name and its limitations are recorded in [the naming decision](decisions/0001-product-questionbook-name.md). The primary-interface boundary is recorded in [ADR-0003: text-first, agent-native architecture](decisions/ADR-0003-text-first-agent-native-architecture.md).
 
@@ -99,13 +100,28 @@ The initial foundation includes:
 - [framework vision and boundaries](docs/vision.md), [terminology](docs/terminology.md), and [domain model](docs/domain-model.md);
 - an explicit [question state machine](docs/question-state-machine.md), [priority model](docs/prioritization.md), and [coverage matrix](docs/coverage-model.md);
 - [output](docs/output-contract.md) and [assurance](docs/assurance-rules.md) contracts;
-- JSON Schemas for questions, instances, answers, relationships, project profiles, and governed improvement cycles in [`schemas/`](schemas/);
+- JSON Schemas for questions, instances, answers, relationships, project profiles,
+  governed improvement cycles, prose coverage, and domain-pack manifests in
+  [`schemas/`](schemas/);
 - a [prose-to-catalog coverage manifest](coverage/prose-to-catalog.yaml) with 396 stable source identities and a [coverage schema](schemas/prose-coverage.schema.json);
-- 131 starter templates with 450 declared dependencies and activations across 16 universal concern domains in [`catalog/`](catalog/);
-- a [domain-pack governance contract](docs/17-domain-pack-governance.md), schema, draft manifest, and eight stable governance questions; no expert-reviewed pack is yet published;
-- an eight-question [organizational adoption and change module](catalog/team/organizational-change-questions.yaml) covering impact, resistance, enablement, transition, workforce obligations, measurement, safeguards, and post-launch ownership;
-- an eight-question [workforce and knowledge continuity module](catalog/team/workforce-continuity-questions.yaml) covering key-person dependencies, succession, capacity, incentives, secure departure, separation of duties, sourcing, and leading indicators;
-- an eight-question [external sensing module](catalog/operations/external-sensing-questions.yaml), a source-to-decision [operating method](docs/18-external-sensing-and-attention.md), and a reusable signal register;
+- 131 starter templates with 450 declared dependencies and activations across 16
+  universal concern domains in [`catalog/`](catalog/);
+- a [domain-pack governance contract](docs/17-domain-pack-governance.md), schema,
+  draft manifest, and eight stable governance questions; no expert-reviewed pack is
+  yet published;
+- an eight-question
+  [organizational adoption and change module](catalog/team/organizational-change-questions.yaml)
+  covering impact, resistance, enablement, transition, workforce obligations,
+  measurement, safeguards, and post-launch ownership;
+- an eight-question
+  [workforce and knowledge continuity module](catalog/team/workforce-continuity-questions.yaml)
+  covering key-person dependencies, succession, capacity, incentives, secure
+  departure, separation of duties, sourcing, and leading indicators;
+- an eight-question
+  [external sensing module](catalog/operations/external-sensing-questions.yaml), a
+  source-to-decision
+  [operating method](docs/18-external-sensing-and-attention.md), and a reusable signal
+  register;
 - reusable assurance and improvement templates plus a worked project-specific example.
 
 The versioned Markdown and YAML records are the source of truth. The graph is their

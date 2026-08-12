@@ -1,7 +1,9 @@
 # Domain model
 
-The graph is the canonical model. Files, tables, matrices, backlogs, and reports are
-views derived from its nodes and typed edges.
+Versioned Markdown and YAML records are canonical state. The graph is the logical
+relationship model derived from those records. A `graph.json` file, database,
+table, matrix, backlog, or report is a reproducible projection or view and must not
+become a silent second source of truth.
 
 ```mermaid
 erDiagram
@@ -31,7 +33,7 @@ erDiagram
 
 ## Relationship types
 
-Question templates may declare:
+The logical graph may use the following relationship types:
 
 - `depends_on`: another answer is needed before this question is ready;
 - `refines`: this question makes another answer more precise;
@@ -46,6 +48,12 @@ Question templates may declare:
 
 Relationship records conform to [`schemas/relationship.schema.json`](../schemas/relationship.schema.json).
 
+The current catalog embeds only question-to-question `depends_on`, `refines`,
+`activates`, and `related_to` lists directly in question templates. Evidence
+expectations, output expectations, answerer roles, and revisit triggers are authored
+as semantic fields on those templates. Other edge types belong in run-specific typed
+relationship records until a richer authoring contract is published.
+
 ## Invariants
 
 1. A question instance references exactly one template and one subject.
@@ -55,4 +63,3 @@ Relationship records conform to [`schemas/relationship.schema.json`](../schemas/
 5. Important decisions link to at least one answer and one accountable owner.
 6. `not_applicable` requires a recorded reason and the rule or decision that supports it.
 7. Accepted critical risks include an owner, rationale, review date, and acceptance authority.
-

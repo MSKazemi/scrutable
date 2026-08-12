@@ -35,8 +35,9 @@ The term **subject** is deliberately broader than application. It may be a produ
 
 ## Canonical structured definitions
 
-Version 0.4 separates the human-readable question banks from the machine-readable
-catalog. The following files are authoritative for structured operation:
+The structured foundation introduced in version 0.4 separates the human-readable
+question banks from the machine-readable catalog and remains the current 0.7 model.
+The following files are authoritative for structured operation:
 
 - [structured graph foundation](structured-foundation.md): representations and workflow;
 - [domain model](domain-model.md): entities, typed relationships, and invariants;
@@ -96,13 +97,20 @@ Recommended edge types are depends_on, applies_to, answered_by, supported_by, co
 8. **Publish artifacts.** Write Markdown outputs with structured metadata and a trace from each conclusion to its questions and evidence.
 9. **Monitor and reopen.** Re-evaluate affected nodes when context, evidence, dependencies, incidents, policies, or metrics change.
 
-A useful next-question priority model is:
+A versioned baseline next-question formula is defined in
+[prioritization.md](prioritization.md) and is the formula used by the worked example.
+Policy-specific future implementations may add factors such as gate urgency,
+potential harm, irreversibility, or dependency centrality, but they must give the
+variant a distinct version and must not silently reinterpret a stored score.
+
+The richer conceptual form is:
 
 ~~~text
 priority = gate_urgency × potential_harm × uncertainty × irreversibility × dependency_centrality
 ~~~
 
-This is a ranking aid, not a substitute for policy or human judgment.
+This is a policy-design aid, not the current stored-score contract or a substitute for
+blocker policy and accountable judgment.
 
 ## Output catalog
 
@@ -137,7 +145,7 @@ schema_version: questionbook-run/v0.1
 run_id: RUN-2026-0001
 subject_id: SUBJECT-001
 subject_type: application
-stage: architecture
+stage: design
 status: in_review
 owner: owner-id
 questionbook_ref: git-commit-sha
@@ -146,11 +154,11 @@ blockers:
   - RISK-004
 coverage:
   applicable: 84
-  accepted: 51
-  needs_evidence: 12
+  verified: 51
+  accepted_risk: 3
   blocked: 1
-  deferred: 7
-  unanswered: 13
+  stale: 2
+  unanswered: 27
 updated_at: 2026-08-11T20:00:00Z
 ---
 ~~~
@@ -159,17 +167,19 @@ Recommended run directory:
 
 ~~~text
 runs/<run-id>/
-  00-context.md
-  01-coverage.md
-  02-question-ledger.md
-  03-system-brief.md
+  00-manifest.md
+  01-context-and-success.md
+  02-applicability-and-coverage.md
+  03-question-answer-ledger.md
+  04-brainstorm-candidates.md
+  05-system-brief.md
+  06-specification.md
   decisions/
-  04-requirements.md
-  05-risks-and-blockers.md
-  06-actions-and-experiments.md
-  07-verification-and-operations.md
-  08-gate-report.md
-  09-audit-trace.md
+  07-risks-experiments-and-actions.md
+  08-verification-and-evidence.md
+  09-gate-and-assurance-report.md
+  10-audit-and-change-impact.md
+  graph.json
 ~~~
 
 Every generated artifact should record the Questionbook Git commit used, schema version, run ID, subject ID, timestamps, owner, and linked source node IDs.
@@ -191,13 +201,18 @@ If measured multi-user or integration requirements justify it, a future service 
 
 A run is structurally complete when:
 
-- every required applicable question is in a terminal state;
+- every required applicable question is `verified`, justified as
+  `not_applicable`, or linked to a formally accepted risk that the gate policy permits;
 - no critical blocker remains unresolved;
 - every accepted high-impact decision has the required evidence, owner, verification, and approval;
 - required artifacts have passed schema and link validation;
 - the gate result and remaining conditions are explicit.
 
 Structural completion does **not** guarantee commercial, technical, ethical, or operational success. The machine can guarantee only properties it can verify, such as schema validity, traceability, stated coverage, rule execution, and explicit unresolved uncertainty. Real success still depends on the quality of evidence, decisions, execution, changing conditions, and human accountability.
+
+Risk acceptance does not convert a question to `verified`. The question and residual
+exposure remain visible, and coverage reports count accepted risk separately from
+verified evidence.
 
 ## Implementation roadmap
 
@@ -213,4 +228,3 @@ Structural completion does **not** guarantee commercial, technical, ethical, or 
 Phases 2–3 strengthen assurance but do not replace the text interface. Consumers may
 use the framework manually or with an agent today; they must not describe it as an
 automatically enforced assurance system until the relevant validators exist.
-

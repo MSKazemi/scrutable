@@ -1,12 +1,17 @@
 ---
 artifact: improvement-cycle
 schema_version: 1
+run_id: "<run-id>"
+project_id: "<project-id>"
 cycle_id: "<cycle-id>"
 level: "<application/idea/project_graph/repository>"
 subject_id: "<subject-id>"
+questionbook_ref: "<git-commit-sha>"
 baseline_revision: 0
+graph_revision: 0
 owner: "<accountable owner>"
 created_at: "<ISO-8601 timestamp>"
+generated_at: "<ISO-8601 timestamp>"
 ---
 
 # Improvement cycle: <decision and subject>
@@ -90,4 +95,3 @@ Complete only when run evidence suggests a reusable framework change.
 
 - **Did the bottleneck move?** <answer>
 - **Next trigger:** <event/date>
-

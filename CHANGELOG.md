@@ -4,21 +4,64 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
-- Added eight stable external-sensing questions and a source-to-decision operating method covering change classes, sources from people, companies, authorities, agents, web and news, monitoring ownership, corroboration, thresholds, detection latency, missed-signal review, and blind spots.
-- Added a reusable external signal register and connected `core.assumptions.001` to the sensing module; the universal catalog now contains 131 unique published questions, 278 `depends_on`, 172 `activates`, 58 `related_to`, and two `refines` references.
-- Defined the honest guarantee: the framework can make the sensing process and its blind spots visible, but cannot guarantee complete knowledge, continuous monitoring, audience visibility, attention, or response.
+- Completed a line-by-line semantic and deterministic integration audit of all 92
+  files in baseline commit `b2c5bd2`; recorded the method, per-file disposition,
+  corrections, validation results, branch state, and residual risks in
+  `docs/19-whole-repository-integration-audit.md`.
+- Reconciled the canonical run layout, answer example, lifecycle and coverage
+  vocabularies, scoring-policy names, accepted-risk semantics, subject types,
+  generated-artifact metadata, domain-pack approval semantics, schema counts, link
+  counts, and merged-branch history.
+- Preserved the text-first boundary: the next automation is a callable read-only
+  conformance and semantic validator; a CLI, API, database, or service remains
+  optional.
 
-- Added eight stable workforce-continuity questions covering concentrated human dependencies, succession and demonstrated transfer, sustainable capacity, unsafe incentives, secure departure, separation of duties under shortage, capability sourcing, and leading indicators.
-- Connected `team.capability.001` to the new module and expanded the universal catalog to 123 unique published questions, 262 `depends_on`, 159 `activates`, 41 `related_to`, and two `refines` references; all targets resolve and dependencies remain acyclic.
-- Changed the workforce-continuity gap to “structured module published” while retaining an honest `partial` status until absence, departure, understaffing, supplier-exit, and recovery exercises produce evidence.
+- Added eight stable external-sensing questions and a source-to-decision operating
+  method covering change classes, sources from people, companies, authorities, agents,
+  web and news, monitoring ownership, corroboration, thresholds, detection latency,
+  missed-signal review, and blind spots.
+- Added a reusable external signal register and connected `core.assumptions.001` to
+  the sensing module; the universal catalog now contains 131 unique published
+  questions, 278 `depends_on`, 172 `activates`, 58 `related_to`, and two `refines`
+  references.
+- Defined the honest guarantee: the framework can make the sensing process and its
+  blind spots visible, but cannot guarantee complete knowledge, continuous
+  monitoring, audience visibility, attention, or response.
 
-- Added eight stable organizational-change questions covering affected workflows and authority, uneven benefit and resistance, training and proficiency, migration and fallback, workforce obligations, adoption and fatigue measurement, pause or restoration thresholds, and post-launch ownership.
-- Connected `business.adoption.001` to the new module and expanded the universal catalog to 115 unique published questions, 242 `depends_on`, 145 `activates`, 27 `related_to`, and two `refines` references; all targets resolve and dependencies remain acyclic.
-- Changed the adoption gap to “structured module published” while retaining an honest `partial` status until representative runs test rollback, missed concerns, evidence cost, and false blockers.
+- Added eight stable workforce-continuity questions covering concentrated human
+  dependencies, succession and demonstrated transfer, sustainable capacity, unsafe
+  incentives, secure departure, separation of duties under shortage, capability
+  sourcing, and leading indicators.
+- Connected `team.capability.001` to the new module and expanded the universal catalog
+  to 123 unique published questions, 262 `depends_on`, 159 `activates`, 41
+  `related_to`, and two `refines` references; all targets resolve and dependencies
+  remain acyclic.
+- Changed the workforce-continuity gap to “structured module published” while
+  retaining an honest `partial` status until absence, departure, understaffing,
+  supplier-exit, and recovery exercises produce evidence.
 
-- Added the domain-pack governance contract, JSON Schema, draft manifest, directory boundary, and eight stable `core.domain-pack.001`–`.008` questions covering activation, authorities, qualified approval, domain deltas, provenance, blockers and waivers, scenario assurance, and affected-run reopening.
-- Made required-but-unavailable, unpublished, expired, suspended, and out-of-scope packs explicit blockers; no expert-reviewed specialized pack is claimed, and the published-pack count remains zero pending qualified review.
-- Expanded the universal catalog to 107 unique published questions, 224 `depends_on`, 132 `activates`, 13 `related_to`, and two `refines` references, with all targets required to resolve.
+- Added eight stable organizational-change questions covering affected workflows and
+  authority, uneven benefit and resistance, training and proficiency, migration and
+  fallback, workforce obligations, adoption and fatigue measurement, pause or
+  restoration thresholds, and post-launch ownership.
+- Connected `business.adoption.001` to the new module and expanded the universal
+  catalog to 115 unique published questions, 242 `depends_on`, 145 `activates`, 27
+  `related_to`, and two `refines` references; all targets resolve and dependencies
+  remain acyclic.
+- Changed the adoption gap to “structured module published” while retaining an honest
+  `partial` status until representative runs test rollback, missed concerns, evidence
+  cost, and false blockers.
+
+- Added the domain-pack governance contract, JSON Schema, draft manifest, directory
+  boundary, and eight stable `core.domain-pack.001`–`.008` questions covering
+  activation, authorities, qualified approval, domain deltas, provenance, blockers
+  and waivers, scenario assurance, and affected-run reopening.
+- Made required-but-unavailable, unpublished, expired, suspended, and out-of-scope
+  packs explicit blockers; no expert-reviewed specialized pack is claimed, and the
+  published-pack count remains zero pending qualified review.
+- Expanded the universal catalog to 107 unique published questions, 224
+  `depends_on`, 132 `activates`, 13 `related_to`, and two `refines` references, with
+  all targets required to resolve.
 
 - Added a machine-readable prose-to-catalog coverage manifest and schema accounting for all 396 numbered questions in the seven main human-readable banks: 388 conservatively compressed through 43 section mappings, eight guidance-only naming prompts, zero exact mappings claimed, and complete preserved source wording.
 - Updated catalog, AI context, backlog, quality audit, and navigation so compressed coverage cannot be mistaken for exact semantic parity; unnumbered gates, backlog candidates, independent semantic review, and automated drift enforcement remain explicit work.
@@ -27,10 +70,17 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 - Deferred the proposed full CLI/API/database engine stack until measured multi-user or integration needs justify it; a CLI may remain a thin convenience wrapper over validation logic.
 - Aligned the machine, convergence, usage, usability, quality, readiness, quick-start, and agent contracts with the text-first boundary.
 
-- Added a quantified status snapshot for all 15 coverage gaps outside the executable-engine item: 108 candidate questions, 13 partially covered areas, two missing or domain-pack-required areas, zero dedicated promotions, and the nearest existing stable catalog IDs for every gap.
+- Added a quantified status snapshot for all 15 coverage gaps outside the validator
+  capability item: 108 candidate questions, 13 partially covered areas, two
+  missing or domain-pack-required areas, eight domain-governance promotions, and the
+  nearest existing stable catalog IDs for every gap.
 
 - Added a request-coverage and operational-readiness audit that maps branch integration, self-improvement, usage, placement, inputs, outputs, visibility, algorithms, and coding-agent compatibility to their canonical sources and honest limitations.
-- Independently rechecked the live `main` structure: 99 unique question IDs, 322 resolved declared relationships, six syntactically valid JSON files, 108 resolving internal Markdown file links, all required human and agent entrypoints present, both historical pull requests merged, and no open pull request.
+- Independently rechecked the live `main` baseline structure: 92 files, 131 unique
+  question IDs, 510 resolved declared relationships, eight syntactically valid JSON
+  files, 29 parseable YAML files, all resolving internal Markdown links, all
+  required human and agent entrypoints present, three historical pull requests merged,
+  and no open pull request.
 - Reaffirmed that the current framework is A0 overall with manually observed parts of A1; executable semantic enforcement, required CI, end-to-end agent evaluation, and real-project efficacy evidence remain future work.
 
 - Added a root quick start that gives humans and AI agents a minimum useful path
@@ -46,9 +96,10 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 - Added a framework quality assurance audit that distinguishes a strong specification
   from an executable and empirically validated assurance system.
-- Recorded the audit snapshot: 99 unique questions, 322 resolved references, no
-  dependency cycles, 96 high-or-critical labels, 88 natural-language applicability
-  rules, six partial schemas, no reported commit status checks, and one synthetic run.
+- Recorded the audit snapshot: 131 unique questions, 510 resolved references, no
+  dependency cycles, 128 high-or-critical labels, 120 natural-language applicability
+  rules, eight partial schemas, no reported commit status checks, and one synthetic
+  run.
 - Defined the specification-to-evidence bottleneck, assurance levels A0-A5, semantic
   validation gaps, quality metrics, stop rules, release gates, and implementation order.
 

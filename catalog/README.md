@@ -31,6 +31,11 @@ The natural-language `applies_when` rules are intentionally readable in this fir
 version. A future executable rule language must version its syntax and preserve the
 human explanation.
 
+The similarly named `catalog/core/project-profile.yaml` is a catalog module containing
+the ten starting question templates. It is not a run-specific project profile and is
+not validated as one object by `schemas/project-profile.schema.json`; each item in its
+`questions` array validates against `schemas/question.schema.json`.
+
 ## ID policy
 
 Use `domain.topic.NNN`. Published IDs are permanent. Correct wording with a version
@@ -49,18 +54,44 @@ identical. See the
 
 ## Domain-pack governance
 
-The eight questions in [`core/domain-pack-governance-questions.yaml`](core/domain-pack-governance-questions.yaml) activate and govern qualified specialized packs. A pack bundles questions that still use one of the 16 universal concern domains; it does not bypass this schema or invent an unreviewed assurance vocabulary. Pack manifests conform to [`../schemas/domain-pack.schema.json`](../schemas/domain-pack.schema.json), and the lifecycle and blocker rules are defined in the [domain-pack governance contract](../docs/17-domain-pack-governance.md).
+The eight questions in
+[`core/domain-pack-governance-questions.yaml`](core/domain-pack-governance-questions.yaml)
+activate and govern qualified specialized packs. A pack bundles questions that still
+use one of the 16 universal concern domains; it does not bypass this schema or invent
+an unreviewed assurance vocabulary. Pack manifests conform to
+[`../schemas/domain-pack.schema.json`](../schemas/domain-pack.schema.json), and the
+lifecycle and blocker rules are defined in the
+[domain-pack governance contract](../docs/17-domain-pack-governance.md).
 
-The repository currently has zero expert-reviewed published packs. Generic catalog coverage must not be presented as healthcare, financial, children's, government, automotive, aviation, industrial-control, or other professional certification.
+The repository currently has zero expert-reviewed published packs. Generic catalog
+coverage must not be presented as healthcare, financial, children's, government,
+automotive, aviation, industrial-control, or other professional certification.
 
 ## Organizational change module
 
-When `business.adoption.001` identifies a material workflow or organizational transition, load [`team/organizational-change-questions.yaml`](team/organizational-change-questions.yaml). Its eight records distinguish change impact, stakeholder power, enablement, transition, workforce obligations, adoption evidence, pause or restoration safeguards, and post-launch ownership. Technical release alone cannot satisfy these questions.
+When `business.adoption.001` identifies a material workflow or organizational
+transition, load
+[`team/organizational-change-questions.yaml`](team/organizational-change-questions.yaml).
+Its eight records distinguish change impact, stakeholder power, enablement,
+transition, workforce obligations, adoption evidence, pause or restoration
+safeguards, and post-launch ownership. Technical release alone cannot satisfy these
+questions.
 
 ## Workforce continuity module
 
-When `team.capability.001` reveals material human dependencies, load [`team/workforce-continuity-questions.yaml`](team/workforce-continuity-questions.yaml). Its eight records separate key-person concentration, transfer and rehearsal, sustainable capacity, unsafe incentives, secure departure, emergency separation of duties, supplier dependence, and leading indicators. A named backup or a document alone is not continuity evidence; transfer and recovery must be demonstrated.
+When `team.capability.001` reveals material human dependencies, load
+[`team/workforce-continuity-questions.yaml`](team/workforce-continuity-questions.yaml).
+Its eight records separate key-person concentration, transfer and rehearsal,
+sustainable capacity, unsafe incentives, secure departure, emergency separation of
+duties, supplier dependence, and leading indicators. A named backup or a document
+alone is not continuity evidence; transfer and recovery must be demonstrated.
 
 ## External sensing module
 
-When `core.assumptions.001` depends on changing outside conditions, load [`operations/external-sensing-questions.yaml`](operations/external-sensing-questions.yaml) and the [external sensing method](../docs/18-external-sensing-and-attention.md). The eight records connect change classes, source portfolios, monitoring ownership, correlation, thresholds, response latency, missed-signal learning, and blind spots. They guarantee visible process accounting, not complete world knowledge or audience attention.
+When `core.assumptions.001` depends on changing outside conditions, load
+[`operations/external-sensing-questions.yaml`](operations/external-sensing-questions.yaml)
+and the
+[external sensing method](../docs/18-external-sensing-and-attention.md). The eight
+records connect change classes, source portfolios, monitoring ownership, correlation,
+thresholds, response latency, missed-signal learning, and blind spots. They guarantee
+visible process accounting, not complete world knowledge or audience attention.
