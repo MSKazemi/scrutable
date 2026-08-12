@@ -14,6 +14,7 @@ truth:
     - schemas/
     - templates/
     - decisions/
+    - coverage/
   machine_source_of_truth: catalog/
   run_specific_answers_belong_in_framework_repo: false
   executable_runtime_available: false
@@ -37,6 +38,7 @@ entrypoints:
   convergence_contract: docs/09-output-convergence-and-implementation.md
   usage_protocol: docs/11-usage-deployment-and-agent-integration.md
   request_coverage_audit: docs/15-request-coverage-and-operational-readiness-audit.md
+  prose_coverage: docs/16-prose-to-catalog-coverage.md
   contribution_guide: CONTRIBUTING.md
   worked_example: examples/sample-application/README.md
 
@@ -56,6 +58,8 @@ agent_load_order:
     - CONTRIBUTING.md
     - docs/structured-foundation.md
     - schemas/question.schema.json
+    - schemas/prose-coverage.schema.json
+    - coverage/prose-to-catalog.yaml
     - CHANGELOG.md
 
 run_contract:
@@ -117,6 +121,7 @@ validation:
   current:
     - Validate YAML records against the matching schema in schemas/.
     - Resolve every declared relationship target to a published stable ID.
+    - Account for every in-scope numbered prose question in coverage/prose-to-catalog.yaml and preserve compressed detail.
     - Check required evidence and ownership for consequential claims.
     - Apply blocker rules before returning a gate result.
   automated_validator_available: false

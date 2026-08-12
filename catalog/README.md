@@ -36,3 +36,13 @@ human explanation.
 Use `domain.topic.NNN`. Published IDs are permanent. Correct wording with a version
 increment; deprecate and link a successor when the meaning changes.
 
+
+## Human-readable question coverage
+
+The catalog is deliberately smaller than the detailed Markdown question banks. The
+[`../coverage/prose-to-catalog.yaml`](../coverage/prose-to-catalog.yaml) manifest
+accounts for every numbered source question and marks its relationship as exact,
+compressed, unmodeled, or guidance-only. A compressed mapping preserves the prose
+detail; it does not authorize an agent to treat the stable node as semantically
+identical. See the
+[coverage contract](../docs/16-prose-to-catalog-coverage.md).

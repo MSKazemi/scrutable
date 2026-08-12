@@ -162,10 +162,9 @@ validation outside JSON Schema.
 
 ### QA-04 — The canonical source of truth is incomplete
 
-The graph is declared canonical, yet many detailed questions remain only in Markdown.
-The repository needs a coverage manifest mapping each human-readable question to one
-or more stable catalog IDs, or marking it explicitly as explanatory guidance. A change
-to either layer should fail validation when the mapping becomes stale.
+The first [coverage manifest](../coverage/prose-to-catalog.yaml) now accounts for all 396 numbered questions in the seven main banks and preserves their source text. It deliberately reports 388 compressed section mappings, eight guidance-only prompts, and zero exact mappings. This fixes the hidden-inventory problem, but not exact semantic parity.
+
+The remaining correction is to independently review question-level equivalence, account for consequential unnumbered gate bullets and promoted backlog questions, and make source/catalog drift fail validation. Until then, compressed prose must remain visible during a run.
 
 This is the first P0 item in the
 [coverage-gap backlog](12-coverage-gaps-and-expansion-backlog.md#1-prose-to-catalog-parity).
@@ -267,8 +266,7 @@ The next implementation should produce these durable deliverables:
 
 1. **Quality-claim contract** — exact allowed and forbidden claims, scope, revision,
    policy, residual uncertainty, and expiry.
-2. **Coverage manifest** — every prose question mapped to stable catalog IDs or marked
-   guidance-only.
+2. **Coverage manifest** — the conservative first manifest accounts for every numbered bank question; exact question-level review, additional source scopes, and automated drift enforcement remain.
 3. **Deterministic conformance validator** — schema, link, ID, reference, state,
    applicability, evidence, risk, gate, score, and reproducibility checks. It must be
    callable by CI or agents; a CLI is an optional convenience adapter.
@@ -339,7 +337,7 @@ true:
 ## Recommended implementation order
 
 1. Freeze the assurance claim and version the policy vocabulary.
-2. Build the prose-to-catalog coverage manifest.
+2. Refine the prose-to-catalog manifest to reviewed question-level mappings and enforce source/catalog drift checks.
 3. Implement a read-only-by-default repository validator and make it required in CI; keep any CLI wrapper optional.
 4. Add missing assurance schemas and semantic state/gate validation.
 5. Add golden, negative, property, determinism, and migration tests.

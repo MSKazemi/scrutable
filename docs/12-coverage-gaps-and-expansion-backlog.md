@@ -13,13 +13,7 @@ bottlenecks, naming, attraction and distribution, adversarial review, and govern
 self-improvement. It does not—and should not claim to—contain every question required
 for every product, jurisdiction, industry, or risk class.
 
-The largest current omission is structural rather than topical. The detailed Markdown
-banks contain hundreds of questions, while the canonical graph contains 99 stable
-templates across 16 domains. Many important prose questions therefore cannot yet be
-selected, prioritized, propagated, or measured by a future engine. For example, the
-20 human/agent/robot/world integration questions, 13 financial-continuity questions,
-10 bottleneck questions, and most of the naming bank do not have a complete
-one-to-one or declared many-to-one mapping to stable catalog records.
+The first structural inventory is now explicit. The [prose-to-catalog manifest](../coverage/prose-to-catalog.yaml) accounts for all 396 numbered questions in the seven main human-readable banks: 388 are conservatively mapped through 43 section-level many-to-many compression groups and eight naming-brainstorm prompts are guidance-only. It claims zero exact mappings until independent semantic review. This removes hidden inventory but does not prove exact parity: compressed questions must remain visible during runs, and unnumbered gate bullets plus backlog candidates remain outside the current manifest scope.
 
 The second largest omission is operational: the repository defines the target engine
 but does not contain an executable parser, graph evaluator, gate runner, CLI, API, or
@@ -46,7 +40,7 @@ requirements, expected outputs, accountable roles, revisit triggers, and validat
 
 | Priority | Gap | Current status | Why it matters |
 |---|---|---|---|
-| P0 | Prose-to-catalog parity | Partial | Important questions can be read manually but cannot reliably participate in graph selection, propagation, coverage, or learning |
+| P0 | Prose-to-catalog parity | Partial — manifested, exact review pending | All numbered questions are accounted, but compressed section mappings are not yet independently reviewed as exact and drift checks are manual |
 | P0 | Executable deterministic engine | Capability gap | Documented guarantees cannot be tested automatically and agent behavior remains dependent on manual discipline |
 | P0 | Regulated and safety-critical domain packs | Missing | Generic legal and safety questions are insufficient for healthcare, finance, children, public sector, aviation, automotive, industrial control, and similar contexts |
 | P1 | Organizational adoption and change management | Partial | A technically correct product can fail when workflows, incentives, authority, training, and transition capacity do not change |
@@ -85,7 +79,7 @@ mention in prose as structured support.
 | P2 areas / candidate questions | 6 / 36 |
 | Existing reusable catalog | 99 questions / 322 declared relationships |
 | Expert-reviewed regulated or safety-critical packs | 0 |
-| Prose-to-catalog coverage manifest | absent |
+| Prose-to-catalog coverage manifest | present: 396 numbered questions, 43 groups, 388 compressed, 8 guidance-only, 0 exact |
 
 “Zero promoted” does not mean that all 108 concerns are absent. It means none of these
 backlog candidates has completed the promotion contract as a dedicated stable record.
@@ -95,7 +89,7 @@ outputs, ownership, and activation rules are explicit.
 
 | Item | Gap | Priority | Candidate questions | Current status | Nearest published structured coverage | What is still absent |
 |---:|---|---|---:|---|---|---|
-| 1 | Prose-to-catalog parity | P0 | 8 | Partial | 99 catalog records across 16 domains | No manifest maps the hundreds of Markdown questions to stable IDs; at least integration `I1-I20`, finance `F1-F13`, bottleneck `B1-B10`, and most naming questions lack a declared complete mapping |
+| 1 | Prose-to-catalog parity | P0 | 8 | Partial — manifested | The coverage manifest accounts for 396 numbered questions and preserves full source wording against 95 referenced stable IDs | All mappings are conservatively section-level and compressed; exact question-level semantic review, unnumbered gate coverage, candidate promotion, and deterministic drift validation remain |
 | 3 | Regulated and safety-critical domain packs | P0 | 8 | Missing / domain pack required | `legal.obligations.001`, `data.classification.001`, `security.threats.001`, `ethics.harms.001` | No qualified healthcare, fintech, children, government, aviation, automotive, industrial-control, or comparable pack; no pack authority, jurisdiction, expiry, tests, or approver model |
 | 4 | Organizational adoption and change management | P1 | 8 | Partial | `business.adoption.001`, `business.organizational-buying.001` | Resistance, authority shifts, training, proficiency, parallel run, productivity trough, labor obligations, fatigue, and rollback ownership are not a coherent structured set |
 | 5 | Workforce and knowledge continuity | P1 | 8 | Partial | `team.accountability.001`, `team.capability.001`, `team.communication.001` | Key-person dependency, succession, turnover, burnout, cross-training, access transfer, separation of duties under shortage, and leading indicators need explicit records |

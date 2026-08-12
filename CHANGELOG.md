@@ -4,6 +4,9 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
+- Added a machine-readable prose-to-catalog coverage manifest and schema accounting for all 396 numbered questions in the seven main human-readable banks: 388 conservatively compressed through 43 section mappings, eight guidance-only naming prompts, zero exact mappings claimed, and complete preserved source wording.
+- Updated catalog, AI context, backlog, quality audit, and navigation so compressed coverage cannot be mistaken for exact semantic parity; unnumbered gates, backlog candidates, independent semantic review, and automated drift enforcement remain explicit work.
+
 - Accepted a text-first, agent-native architecture: versioned Markdown and YAML remain the normal human and agent interface, while a deterministic validator is optional support rather than the product.
 - Deferred the proposed full CLI/API/database engine stack until measured multi-user or integration needs justify it; a CLI may remain a thin convenience wrapper over validation logic.
 - Aligned the machine, convergence, usage, usability, quality, readiness, quick-start, and agent contracts with the text-first boundary.

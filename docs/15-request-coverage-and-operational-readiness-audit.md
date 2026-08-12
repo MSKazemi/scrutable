@@ -226,7 +226,7 @@ It is the absence of a deterministic, required, and empirically tested conforman
 assurance path. The next work should be:
 
 1. implement the repository validator and run it as a required CI check;
-2. create a prose-to-catalog coverage manifest;
+2. refine the conservative prose-to-catalog manifest to independently reviewed question-level mappings and enforce drift checks;
 3. complete the schemas and cross-record semantic validation;
 4. add positive, negative, property, determinism, migration, and permission tests;
 5. provide a complete end-to-end run, including a failing gate and outcome review;
