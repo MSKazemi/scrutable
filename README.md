@@ -6,6 +6,16 @@ Product Questionbook is a reusable question system for designing, reviewing, and
 
 The goal is not to create a product with the most features. The goal is to make important decisions explicit, expose unknowns early, and build a product that is useful, usable, secure, reliable, operable, and sustainable.
 
+## Choose your path
+
+| Goal | Start here |
+| --- | --- |
+| Apply it to an idea or project | [`QUICKSTART.md`](QUICKSTART.md) |
+| Use it with an AI agent | [`ai-context.yaml`](ai-context.yaml), then [`AGENTS.md`](AGENTS.md) |
+| See a worked structure | [`examples/sample-application/`](examples/sample-application/) |
+| Understand the complete framework | [Full documentation path](#start-here) |
+| Change the framework | [`CONTRIBUTING.md`](CONTRIBUTING.md) |
+
 ## What this repository is
 
 - **Project:** this repository and all work used to develop Product Questionbook.
@@ -33,6 +43,7 @@ The framework can improve decision quality and expose failure risks; it cannot g
 10. Record results using the [run manifest](templates/run-manifest.md), [agent run request](templates/agent-run-request.md), [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), [risk register](templates/risk-register.md), [review scorecard](templates/review-scorecard.md), [improvement cycle](templates/improvement-cycle.md), and [adversarial review](templates/adversarial-review.md).
 11. Review the [coverage gaps and expansion backlog](docs/12-coverage-gaps-and-expansion-backlog.md) before claiming comprehensive support or promoting new question domains.
 12. Read the [framework quality assurance audit](docs/13-quality-assurance-audit-and-roadmap.md) for the controlling bottleneck, measurable assurance levels, release gates, and validation roadmap.
+13. Read the [human and AI usability contract](docs/14-human-and-ai-usability.md) for progressive disclosure, task-based entrypoints, context loading, failure behavior, and the prioritized usability roadmap.
 
 The accepted framework name and its limitations are recorded in [the naming decision](decisions/0001-product-questionbook-name.md).
 

@@ -4,6 +4,17 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
+- Added a root quick start that gives humans and AI agents a minimum useful path
+  from an unclear idea to a pinned decision and assurance package.
+- Added `ai-context.yaml` as a compact machine-readable discovery manifest for
+  canonical sources, context loading, outputs, gate values, truth rules, and
+  permission boundaries.
+- Added a human and AI usability contract with task-oriented entrypoints,
+  progressive disclosure, predictable failure behavior, usability checks, and a
+  prioritized automation roadmap.
+- Updated README and agent navigation without changing question semantics or
+  claiming that an executable engine or success guarantee exists.
+
 - Added a framework quality assurance audit that distinguishes a strong specification
   from an executable and empirically validated assurance system.
 - Recorded the audit snapshot: 99 unique questions, 322 resolved references, no

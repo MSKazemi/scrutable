@@ -1,0 +1,112 @@
+schema_version: "1.0"
+project:
+  name: Product Questionbook
+  repository: MSKazemi/mohsen
+  default_branch: main
+  framework_version: "0.7"
+  purpose: Evidence-backed product and system decision assurance
+  status: documentation_first
+
+truth:
+  canonical_sources:
+    - docs/
+    - catalog/
+    - schemas/
+    - templates/
+    - decisions/
+  machine_source_of_truth: catalog/
+  run_specific_answers_belong_in_framework_repo: false
+  executable_runtime_available: false
+  success_guarantee: false
+
+entrypoints:
+  human_quickstart: QUICKSTART.md
+  agent_instructions: AGENTS.md
+  method: docs/00-method.md
+  machine_contract: docs/08-machine-operation-and-outputs.md
+  convergence_contract: docs/09-output-convergence-and-implementation.md
+  usage_protocol: docs/11-usage-deployment-and-agent-integration.md
+  contribution_guide: CONTRIBUTING.md
+  worked_example: examples/sample-application/README.md
+
+agent_load_order:
+  minimum:
+    - ai-context.yaml
+    - AGENTS.md
+    - docs/00-method.md
+    - catalog/core/project-profile.yaml
+    - schemas/project-profile.schema.json
+  assurance_run:
+    - docs/08-machine-operation-and-outputs.md
+    - docs/09-output-convergence-and-implementation.md
+    - docs/10-self-improvement-and-adversarial-governance.md
+    - docs/11-usage-deployment-and-agent-integration.md
+  framework_change:
+    - CONTRIBUTING.md
+    - docs/structured-foundation.md
+    - schemas/question.schema.json
+    - CHANGELOG.md
+
+run_contract:
+  default_location: runs/<run-id>/
+  default_owner: target_project
+  pin_required:
+    - target_revision
+    - questionbook_ref
+  start_catalog: catalog/core/project-profile.yaml
+  allowed_gate_results:
+    - proceed
+    - proceed_with_conditions
+    - pause
+    - stop
+  required_claim_fields:
+    - evidence
+    - confidence
+    - owner
+    - verification_method
+    - review_trigger
+
+outputs:
+  canonical: versioned_decision_and_assurance_package
+  minimum:
+    - run_manifest
+    - product_or_system_brief
+    - question_and_evidence_ledger
+    - decisions
+    - risks_and_blockers
+    - next_experiments_or_actions
+    - gate_report
+  full_contract: docs/08-machine-operation-and-outputs.md
+
+rules:
+  - Unknown is a valid answer; fabricated evidence is not.
+  - Separate facts, observations, inferences, assumptions, predictions, preferences, and decisions.
+  - Keep brainstorming candidates separate from accepted answers.
+  - Revalidate reverse dependencies when a consequential answer changes.
+  - Preserve published stable question IDs; deprecate rather than repurpose them.
+  - Critical blockers cannot be averaged away by unrelated positive scores.
+  - Do not claim that this framework guarantees real-world or market success.
+
+permission_boundaries:
+  require_separate_explicit_authorization:
+    - deployment
+    - contacting_people
+    - spending_money
+    - destructive_actions
+    - hardware_or_robot_control
+  autonomous_framework_publication: forbidden
+
+formats:
+  human_documents: markdown
+  structured_records: yaml
+  validation_schemas: json_schema
+  text_encoding: utf-8
+
+validation:
+  current:
+    - Validate YAML records against the matching schema in schemas/.
+    - Resolve every declared relationship target to a published stable ID.
+    - Check required evidence and ownership for consequential claims.
+    - Apply blocker rules before returning a gate result.
+  automated_validator_available: false
+  planned_reference_stack: decisions/ADR-0001-engine-implementation-stack.md

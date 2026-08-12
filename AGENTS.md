@@ -6,15 +6,21 @@ Use this repository as a reusable decision and assurance framework. Do not prese
 as an implemented autonomous engine. The current catalog, schemas, policies, and
 templates may be applied manually or with agent assistance.
 
-## Before substantive work
+## Context loading
 
-Read these files in order:
-
-1. `docs/00-method.md`
-2. `docs/08-machine-operation-and-outputs.md`
-3. `docs/09-output-convergence-and-implementation.md`
-4. `docs/10-self-improvement-and-adversarial-governance.md`
-5. `docs/11-usage-deployment-and-agent-integration.md`
+1. Read `ai-context.yaml` to classify the task and find canonical sources.
+2. For a first framework run, use `QUICKSTART.md` and start with
+   `catalog/core/project-profile.yaml`.
+3. Load only the activated domains and schemas; do not load every question bank by
+   default.
+4. Before an assurance decision, read these normative files in order:
+   - `docs/00-method.md`
+   - `docs/08-machine-operation-and-outputs.md`
+   - `docs/09-output-convergence-and-implementation.md`
+   - `docs/10-self-improvement-and-adversarial-governance.md`
+   - `docs/11-usage-deployment-and-agent-integration.md`
+5. Before changing the reusable framework, also read `CONTRIBUTING.md`, the affected
+   schemas, and the relevant normative document.
 
 ## Run protocol
 
