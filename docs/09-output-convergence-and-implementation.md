@@ -1,6 +1,6 @@
 # Output, brainstorming, convergence, and implementation contract
 
-**Status:** Normative design for the future engine; executable implementation is not yet present  
+**Status:** Normative text protocol, convergence rules, and optional automation boundary  
 **Applies to:** every question and every subject type, not only technology-selection questions
 
 ## Direct answer: what is the output?
@@ -22,7 +22,7 @@ It is not only a question list, answer list, specification, or set of architectu
 | Gate and assurance report | Whether the evidence satisfies the declared policy and what remains unresolved | Final decision-facing projection |
 | Audit and change-impact trace | Why every conclusion exists and what must reopen after a change | Required canonical output |
 
-The graph is the normalized source of run state. Markdown artifacts are human-readable projections. JSON and database views may be generated, but they must preserve the same stable IDs, versions, and relationships.
+The versioned Markdown and YAML records are canonical run state. The graph is the normalized logical relationship model derived from those records. A reproducible JSON projection may support machines; database views are optional and must never replace or diverge from the canonical text.
 
 ## Why a bundle is the best output
 
@@ -239,34 +239,39 @@ runs/<run-id>/
 
 Markdown is canonical for human review. YAML front matter carries schema and identity fields. `graph.json` is a deterministic projection for machines; it must be regenerable from canonical records or checked against them by CI.
 
-## Proposed implementation stack
+## Implementation boundary
 
-The reference implementation should begin as a modular Python application because the dominant work is typed document validation, graph algorithms, policy evaluation, testing, API integration, and optional language-model orchestration—not hard real-time control.
+Product Questionbook is **text-first, not text-only**. Markdown and YAML remain the
+normal interface for people and agents. Deterministic code is justified only where it
+prevents silent structural or policy errors that a language model should not be trusted
+to judge consistently.
 
-| Layer | Initial choice | Purpose |
-| --- | --- | --- |
-| Language | Python 3.13+ | One typed implementation for parser, graph, CLI, API, and evaluations |
-| Environment and packaging | `uv`, `pyproject.toml` | Reproducible dependency and project management |
-| Markdown/YAML | `markdown-it-py`, `ruamel.yaml` | Parse Markdown and preserve structured YAML during round trips |
-| Models and schemas | Pydantic 2, generated JSON Schema | Typed validation and shared API/artifact contracts |
-| Graph reference engine | NetworkX `MultiDiGraph` | Typed directed relationships, traversal, centrality, SCCs, and impact analysis |
-| CLI | Typer | Local commands such as `validate`, `run`, `next`, `gate`, and `export` |
-| API | FastAPI | Versioned HTTP contract and OpenAPI documentation |
-| Persistence | SQLite locally; PostgreSQL for a service | Transactions, versioned records, audit events, and relational graph tables |
-| Database access | SQLAlchemy 2 and Alembic | Persistence mapping and controlled schema migrations |
-| Templates | Jinja2 | Deterministic Markdown projections |
-| Tests | pytest, Hypothesis | Scenario, invariant, state-machine, and property-based tests |
-| Quality | Ruff and mypy | Formatting, linting, and static type checks |
+The first automation should be a small conformance validator, not a full application:
 
-Do not require a graph database in the first implementation. Begin with an explicit node table and edge table plus NetworkX for in-memory algorithms. Revisit a dedicated graph store only when measured query volume, traversal depth, multi-user concurrency, or operational evidence justifies it.
+| Concern | Initial approach |
+| --- | --- |
+| Canonical state | Versioned Markdown and YAML in the target repository |
+| Structural checks | Schemas, stable IDs, references, links, cycles, and declared counts |
+| Semantic checks | Legal state transitions, required evidence fields, blockers, approvals, and permitted gate values |
+| Invocation | CI or library call; an optional thin CLI may wrap the same validator |
+| Output | Read-only Markdown and JSON validation reports tied to revisions |
+| Persistence | None required; generated projections must be reproducible from canonical files |
+| Agent role | Read and write the text protocol, propose judgment, and call validation when available |
+| Human role | Own consequential decisions, evidence acceptance, exceptions, and risk acceptance |
 
-Language-model support must be an optional adapter. Deterministic schema validation, state transitions, dependency propagation, blocker rules, and gate evaluation must work without an LLM. Robots and devices require a separate safety-certified or otherwise appropriately assured control boundary; this engine never emits direct real-time actuation.
+A CLI is a convenience adapter, not a required user experience. An API, database,
+interactive navigator, or durable graph service should be added only when measured
+multi-user, access-control, scale, or integration requirements cannot be met by the
+text protocol plus validator. Language-model support remains an adapter; deterministic
+checks must not depend on an LLM.
 
-Package choices and minimum versions must be locked only when implementation begins, then reviewed by compatibility, security, maintenance, license, and reproducibility checks. See the implementation ADR for the rationale and reversal triggers.
+See [ADR-0003](../decisions/ADR-0003-text-first-agent-native-architecture.md) for the
+accepted boundary. The larger Python service proposal in
+[ADR-0001](../decisions/ADR-0001-engine-implementation-stack.md) is deferred.
 
-## First executable milestone
+## First automated conformance milestone
 
-The first implementation is complete only when it can:
+The first validator milestone is complete only when it can:
 
 1. parse stable question and answer records;
 2. validate them against versioned schemas;
@@ -275,8 +280,9 @@ The first implementation is complete only when it can:
 5. calculate the next-question frontier deterministically;
 6. propagate a changed answer and list every affected node and artifact;
 7. evaluate a gate without averaging away blockers;
-8. export the complete package and reproduce it from the same inputs;
-9. pass fixture-based scenarios and property tests for termination, idempotency, traceability, and change propagation.
+8. emit Markdown and JSON reports without rewriting canonical input by default;
+9. reproduce the same report from the same pinned inputs;
+10. pass fixture-based scenarios and property tests for termination, idempotency, traceability, and change propagation.
 
 Only after that milestone should autonomous brainstorming or LLM-assisted candidate generation be allowed to modify a run—and even then, candidates require the same validation and approval path as human proposals.
 

@@ -23,9 +23,10 @@ subject, or when an accountable owner deliberately chooses a combined repository
 
 This repository can be used manually or agent-assisted today. A person or coding
 agent can read the catalog, apply the state and evidence rules, and write the output
-package. The repository does not yet provide a working `questionbook` CLI, API,
-database, graph evaluator, or autonomous application. Commands described as future
-interfaces are design targets, not installed features.
+package. This direct file workflow is the intended primary interface, not a temporary
+workaround. The repository does not provide a working `questionbook` CLI, API,
+database, graph evaluator, or autonomous application, and none is required for normal
+human or agent use. Future commands are optional adapters, not promised prerequisites.
 
 ## Recommended workspace
 
@@ -203,7 +204,9 @@ The structured questions are:
 
 The framework is vendor-neutral. A compatible agent needs repository read/write
 access, a way to cite or attach evidence, stable Markdown/YAML/JSON handling, and an
-approval boundary. The deterministic rules must remain outside the language model:
+approval boundary. The deterministic rules must remain outside the language model.
+That boundary does not require a separate application: a small library, script, or CI
+validator can enforce them while the agent continues to read and write canonical text:
 
 | Layer | Responsibility |
 |---|---|
@@ -229,13 +232,16 @@ An agent must never:
 - deploy, contact people, spend money, or command hardware without a separately
   authorized adapter and approval.
 
-## Readiness for an executable agent system
+## Agent compatibility and optional automation
 
-The documentation and data contracts are agent-friendly; the runtime is not yet
-implemented. Before claiming operational integration with Codex, ChatGPT, Claude Code,
-or another agent platform, the repository still needs the phase 2-4 implementation:
-parser and validators, deterministic graph/state engine, scenario and property tests,
-CLI/API, permission-aware adapters, and evaluation fixtures. Until then, agents can
-execute the manual protocol and generate reviewable artifacts, but they cannot rely on
-an installed autonomous Questionbook service.
+The text protocol is already usable with Codex, ChatGPT, Claude Code, and other agents
+that can read and write repository files. This is protocol compatibility, not proof
+that every agent will follow the rules correctly.
+
+The next assurance improvement is a deterministic, read-only-by-default validator with
+scenario and property tests. It should be callable by CI and agents and should emit
+reviewable reports. A thin CLI may make local invocation easier, but it is optional.
+An API, database, autonomous service, or interactive navigator should be built only
+after measured requirements justify the extra state, security, migration, and
+operational cost.
 
