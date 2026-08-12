@@ -8,7 +8,7 @@ That is useful only when the relationship is explicit. The
 question in the seven main question-bank documents and connects it to published
 catalog records or marks it as guidance.
 
-The manifest solves the previous accounting gap. It does not claim that 147 reusable
+The manifest solves the previous accounting gap. It does not claim that 199 reusable
 templates are semantically identical to hundreds of detailed questions.
 
 ## Current snapshot
@@ -22,7 +22,7 @@ templates are semantically identical to hundreds of detailed questions.
 | Compressed mappings | 388 |
 | Unmodeled questions inside the declared source scope | 0 |
 | Guidance-only prompts | 8 |
-| Published catalog questions referenced | 95 distinct IDs out of 147 available |
+| Published catalog questions referenced | 95 distinct IDs out of 199 available |
 
 The conservative `exact: 0` result is deliberate. This first manifest records
 section-level many-to-many compression and preserves the full source wording. An
@@ -32,6 +32,12 @@ must not infer exact equivalence merely because two questions share keywords.
 `unmodeled: 0` applies only to the existing numbered question banks. It does not mean
 that every possible concern is modeled. Candidate questions and missing domains remain
 in the [coverage backlog](12-coverage-gaps-and-expansion-backlog.md).
+
+Catalog records promoted from that backlog, including the conditional international,
+enterprise, marketplace, intellectual-property, financial-crime, hardware, crisis, and
+liability modules, originate outside the seven-bank source scope. They increase the
+available catalog count without changing the number of numbered prose questions this
+manifest accounts for.
 
 ## Coverage states
 

@@ -1,0 +1,110 @@
+schema_version: 1
+domain: legal
+questions:
+- id: legal.ip-ownership.001
+  version: 1
+  status: published
+  question: Who owns inventions, code, data, content, models, prompts, designs, and improvements created by employees, contractors, partners, users, and agents?
+  purpose: Establish the ownership and authority chain for material assets before use, disclosure, investment, licensing, enforcement, or exit.
+  domain: legal
+  lifecycle_stages: [discover, define, design, build, release, operate, evolve, retire]
+  applies_when: ['the subject creates, commissions, receives, modifies, trains on, distributes, licenses, or depends on intellectual assets']
+  answer_type: structured
+  criticality: critical
+  depends_on: [core.ownership.001, legal.obligations.001, users.actors.001]
+  activates: [legal.ip-rights-chain.001, legal.freedom-to-operate.001, legal.ip-protection-strategy.001]
+  related_to: [legal.licenses.001, data.inventory.001]
+  evidence_required: [asset and contributor inventory, employment contractor partner user and agent terms, qualified ownership and jurisdiction review]
+  expected_outputs: [intellectual property ownership map, assignment and authority gap register, ownership remediation plan]
+  answered_by_roles: [qualified intellectual property counsel, legal owner, engineering owner, data and content owners]
+  revisit_when: ['a contributor, jurisdiction, asset type, generation method, collaboration, ownership, or use changes']
+  tags: [intellectual-property, ownership, assignments]
+- id: legal.ip-rights-chain.001
+  version: 1
+  status: published
+  question: Are assignments, contributor terms, open-source obligations, and third-party rights complete and compatible?
+  purpose: Verify a usable chain of title and compatible obligations instead of relying on possession of files or informal contributor expectations.
+  domain: legal
+  lifecycle_stages: [define, design, build, verify, release, operate, evolve, retire]
+  applies_when: [material assets include employee contractor partner user open-source third-party or generated contributions]
+  answer_type: structured
+  criticality: critical
+  depends_on: [legal.ip-ownership.001, legal.licenses.001, operations.supply-chain.001]
+  activates: [legal.freedom-to-operate.001, legal.trade-secret-controls.001]
+  related_to: [security.authorization.001]
+  evidence_required: [signed assignment and contributor records, license and provenance inventory, compatibility and distribution review]
+  expected_outputs: [rights-chain register, license and assignment remediation actions, approved use and distribution conditions]
+  answered_by_roles: [qualified intellectual property counsel, legal owner, open-source owner, repository maintainer]
+  revisit_when: ['a contributor, dependency, license, distribution method, acquisition, or ownership claim changes']
+  tags: [chain-of-title, open-source, third-party-rights]
+- id: legal.freedom-to-operate.001
+  version: 1
+  status: published
+  question: Does freedom-to-operate evidence identify material patent, copyright, database, trade-secret, or publicity-right risk?
+  purpose: Evaluate whether intended making, use, sale, training, deployment, or distribution creates material third-party rights exposure.
+  domain: legal
+  lifecycle_stages: [discover, define, design, verify, release, operate, evolve]
+  applies_when: ['the subject enters a field, market, jurisdiction, feature, dataset, model use, or distribution path with plausible third-party rights']
+  answer_type: structured
+  criticality: critical
+  depends_on: [legal.ip-rights-chain.001, legal.obligations.001, product.alternatives.001]
+  activates: [legal.ip-protection-strategy.001, legal.liability-map.001]
+  related_to: [core.domain-pack.001, core.challenge.001]
+  evidence_required: [qualified scoped freedom-to-operate analysis, claim feature jurisdiction and use mapping, design-around license and challenge alternatives]
+  expected_outputs: [freedom-to-operate assessment, rights risk and decision register, design-around licensing or stop actions]
+  answered_by_roles: [qualified intellectual property counsel, product owner, engineering owner, risk owner]
+  revisit_when: ['scope, jurisdiction, feature, use, competitor claim, legal decision, disclosure, or distribution changes']
+  tags: [freedom-to-operate, patents, rights-risk]
+- id: legal.ip-protection-strategy.001
+  version: 1
+  status: published
+  question: Which knowledge should be patented, published defensively, kept secret, or shared?
+  purpose: Choose protection and disclosure deliberately using value, timing, cost, enforceability, collaboration, and public-interest consequences.
+  domain: legal
+  lifecycle_stages: [discover, define, design, build, release, evolve]
+  applies_when: ['material knowledge may be protectable, discloseable, licensable, shareable, or vulnerable to loss']
+  answer_type: structured
+  criticality: high
+  depends_on: [legal.ip-ownership.001, legal.freedom-to-operate.001, business.viability.001]
+  activates: [legal.trade-secret-controls.001, legal.ip-defensibility.001]
+  related_to: [business.economics.001, ethics.affected-parties.001]
+  evidence_required: [asset value and disclosure timeline, patent publication secrecy and sharing alternatives, cost enforceability and affected-party review]
+  expected_outputs: [intellectual property protection strategy, filing disclosure and secrecy decisions, cost and review schedule]
+  answered_by_roles: [qualified intellectual property counsel, technology owner, business owner, ethics owner]
+  revisit_when: ['value, novelty, disclosure deadline, collaboration, cost, enforceability, strategy, or public-interest impact changes']
+  tags: [ip-strategy, patents, defensive-publication]
+- id: legal.trade-secret-controls.001
+  version: 1
+  status: published
+  question: Can confidentiality and trade-secret controls survive collaboration, support, telemetry, and model use?
+  purpose: Test whether claimed secrecy is supported by practical access, disclosure, retention, vendor, logging, and model-handling controls.
+  domain: legal
+  lifecycle_stages: [design, build, verify, release, operate, evolve, retire]
+  applies_when: [the organization relies on confidentiality or trade-secret protection for material knowledge]
+  answer_type: structured
+  criticality: critical
+  depends_on: [legal.ip-rights-chain.001, legal.ip-protection-strategy.001, security.authorization.001, security.secrets.001]
+  activates: [legal.ip-defensibility.001]
+  related_to: [data.lifecycle.001, operations.supply-chain.001]
+  evidence_required: [secret and disclosure inventory, access logging retention and revocation tests, vendor collaboration support telemetry and model-use controls]
+  expected_outputs: [trade-secret control plan, authorized disclosure matrix, secret-loss response and review plan]
+  answered_by_roles: [legal owner, security owner, data owner, people owner, supplier owner]
+  revisit_when: ['access, collaboration, vendor, support, telemetry, model, retention, departure, or disclosure changes']
+  tags: [trade-secrets, confidentiality, access-controls]
+- id: legal.ip-defensibility.001
+  version: 1
+  status: published
+  question: Is claimed defensibility supported by evidence rather than merely by complexity or first-mover language?
+  purpose: Separate durable, enforceable, renewable advantage from unsupported claims that may misdirect investment and strategy.
+  domain: legal
+  lifecycle_stages: [discover, define, verify, operate, evolve]
+  applies_when: ['intellectual property, proprietary knowledge, data, integration, or accumulated assets are claimed as a material advantage']
+  answer_type: structured
+  criticality: high
+  depends_on: [legal.ip-protection-strategy.001, legal.trade-secret-controls.001, business.viability.001]
+  related_to: [business.economics.001, core.challenge.001, product.alternatives.001]
+  evidence_required: [specific imitation barriers and expiry conditions, competitor alternative and design-around analysis, enforcement cost and observed durability evidence]
+  expected_outputs: [defensibility assessment, advantage assumptions and falsifiers, investment and protection decision]
+  answered_by_roles: [business owner, qualified intellectual property counsel, product strategist, evidence auditor]
+  revisit_when: ['competitor behavior, disclosure, legal protection, enforcement cost, technology, market structure, or observed advantage changes']
+  tags: [defensibility, competitive-advantage, evidence]

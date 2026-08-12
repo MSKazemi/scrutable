@@ -12,7 +12,7 @@ questions:
     answer_type: structured
     criticality: critical
     depends_on: [core.boundary.001, users.actors.001, core.constraints.001]
-    activates: [legal.privacy-basis.001, legal.licenses.001, legal.naming-rights.001]
+    activates: [legal.privacy-basis.001, legal.licenses.001, legal.naming-rights.001, legal.ip-ownership.001, legal.liability-map.001]
     evidence_required: [qualified obligation review, jurisdiction and contract inventory]
     expected_outputs: [obligation register, compliance plan]
     answered_by_roles: [legal owner, compliance owner, system owner]
@@ -65,4 +65,3 @@ questions:
     expected_outputs: [naming clearance, naming decision record]
     answered_by_roles: [legal owner, brand owner]
     revisit_when: [markets expand or a conflicting right appears]
-

@@ -1,0 +1,109 @@
+schema_version: 1
+domain: security
+questions:
+- id: security.financial-abuse.001
+  version: 1
+  status: published
+  question: Which money, credit, refund, promotion, identity, account, or marketplace flows can be abused, and what is the maximum credible loss?
+  purpose: Map financial abuse paths, affected parties, correlated losses, and exposure limits before selecting controls or accepting transaction volume.
+  domain: security
+  lifecycle_stages: [discover, define, design, verify, release, operate, evolve, retire]
+  applies_when: ['the subject moves, stores, represents, allocates, refunds, discounts, or influences money credit value or financially valuable access']
+  answer_type: structured
+  criticality: critical
+  depends_on: [security.threats.001, business.incentives.001, architecture.context.001]
+  activates: [security.financial-obligations.001, security.financial-controls.001, security.financial-loss-allocation.001]
+  related_to: [business.marketplace-abuse.001, core.failure.001]
+  evidence_required: [end-to-end money and value-flow map, abuse cases and attacker economics, maximum credible loss and affected-party scenarios]
+  expected_outputs: [financial abuse threat model, loss exposure register, control and investigation requirements]
+  answered_by_roles: [financial crime owner, security owner, payments owner, finance owner, risk owner]
+  revisit_when: ['a value flow, payment method, promotion, identity path, market, participant, loss pattern, or attacker technique changes']
+  tags: [financial-crime, fraud, loss-exposure]
+- id: security.financial-obligations.001
+  version: 1
+  status: published
+  question: Which KYC, AML, sanctions-screening, reporting, tax, licensing, safeguarding, and recordkeeping duties apply?
+  purpose: Connect each financial activity and party to current qualified obligations without treating generic screening or model memory as legal clearance.
+  domain: security
+  lifecycle_stages: [discover, define, design, verify, release, operate, evolve, retire]
+  applies_when: ['financial activity or value flow can create identity verification, anti-money-laundering, sanctions, reporting, licensing, safeguarding, tax, or records duties']
+  answer_type: structured
+  criticality: critical
+  depends_on: [security.financial-abuse.001, legal.obligations.001, security.identity.001]
+  activates: [security.financial-controls.001, security.financial-friction.001]
+  related_to: [operations.regional-obligations.001, core.domain-pack.001]
+  evidence_required: [qualified jurisdiction and activity-specific review, party ownership product and flow classification, dated authority licensing reporting and retention register]
+  expected_outputs: [financial crime obligation register, regulated activity and jurisdiction map, compliance ownership and review plan]
+  answered_by_roles: [qualified financial crime counsel, compliance owner, sanctions owner, tax owner, payments owner]
+  revisit_when: ['law, jurisdiction, product, flow, party, ownership, license, authority interpretation, or reporting rule changes']
+  tags: [kyc, aml, sanctions]
+- id: security.financial-controls.001
+  version: 1
+  status: published
+  question: How will account takeover, synthetic identity, stolen instruments, chargebacks, refund abuse, collusion, and laundering be prevented and investigated?
+  purpose: Define layered prevention, detection, case handling, evidence preservation, recovery, and learning for material financial abuse scenarios.
+  domain: security
+  lifecycle_stages: [design, build, verify, release, operate, evolve]
+  applies_when: [identified financial abuse scenarios require preventive detective investigative or recovery controls]
+  answer_type: structured
+  criticality: critical
+  depends_on: [security.financial-abuse.001, security.financial-obligations.001, security.identity.001, security.authorization.001]
+  activates: [security.financial-friction.001, security.financial-assurance.001]
+  related_to: [security.incident.001, operations.observability.001]
+  evidence_required: [control-to-abuse mapping, positive negative adversarial and investigation tests, case loss recovery and control-evasion results]
+  expected_outputs: [financial crime control architecture, investigation and evidence procedure, detection coverage and residual risk register]
+  answered_by_roles: [financial crime owner, security owner, fraud operations owner, investigation owner, data owner]
+  revisit_when: ['abuse patterns, identity, payment rail, control performance, evasion, investigation capacity, or losses change']
+  tags: [fraud-controls, investigations, account-takeover]
+- id: security.financial-friction.001
+  version: 1
+  status: published
+  question: What transaction limits, holds, reserves, step-up checks, and manual reviews are proportionate?
+  purpose: Balance loss prevention and legal duties against access, delay, liquidity, fairness, customer harm, operational capacity, and appeal rights.
+  domain: security
+  lifecycle_stages: [define, design, verify, release, operate, evolve]
+  applies_when: ['financial risk controls can delay, block, reserve, investigate, or otherwise burden legitimate activity']
+  answer_type: structured
+  criticality: high
+  depends_on: [security.financial-obligations.001, security.financial-controls.001, core.failure.001]
+  activates: [security.financial-assurance.001]
+  related_to: [ethics.distribution.001, ethics.contestability.001, business.economics.001]
+  evidence_required: [risk-tier and threshold rationale, loss customer-harm liquidity and workload simulation, manual review capacity and override tests]
+  expected_outputs: [proportionate transaction-control policy, limit hold reserve and review thresholds, customer safeguard and escalation rules]
+  answered_by_roles: [financial crime owner, risk owner, payments owner, customer operations owner, ethics owner]
+  revisit_when: ['loss, customer harm, liquidity, workload, regulation, thresholds, product, or participant mix changes']
+  tags: [transaction-controls, manual-review, proportionality]
+- id: security.financial-assurance.001
+  version: 1
+  status: published
+  question: How are false positives, appeals, bias, customer harm, and reviewer workload measured?
+  purpose: Test whether financial crime controls remain effective, contestable, equitable, and operationally sustainable rather than optimizing only blocked loss.
+  domain: security
+  lifecycle_stages: [verify, release, operate, evolve]
+  applies_when: [automated or human financial crime controls can deny delay flag investigate or burden legitimate people or organizations]
+  answer_type: structured
+  criticality: critical
+  depends_on: [security.financial-controls.001, security.financial-friction.001, ethics.contestability.001]
+  related_to: [ethics.distribution.001, team.continuity-capacity.001, users.feedback.001]
+  evidence_required: [false-positive and false-negative estimates with denominators, appeal correction and restoration outcomes, disaggregated harm bias and reviewer workload analysis]
+  expected_outputs: [financial crime assurance scorecard, appeal and correction process, control calibration and reviewer safety plan]
+  answered_by_roles: [financial crime assurance owner, analytics owner, appeal owner, ethics owner, review operations owner]
+  revisit_when: ['error rates, appeals, bias, harm, reviewer workload, model, rule, or threshold changes']
+  tags: [false-positives, appeals, fraud-assurance]
+- id: security.financial-loss-allocation.001
+  version: 1
+  status: published
+  question: Who bears each loss contractually and economically, and is capital reserved for it?
+  purpose: Make direct, indirect, correlated, customer, partner, processor, and operational loss allocation survivable and consistent with contracts and controls.
+  domain: security
+  lifecycle_stages: [define, design, verify, release, operate, evolve, retire]
+  applies_when: ['financial abuse, error, chargeback, refund, safeguarding, credit, processor, or regulatory loss can occur']
+  answer_type: structured
+  criticality: critical
+  depends_on: [security.financial-abuse.001, security.financial-obligations.001, business.economics.001]
+  related_to: [legal.liability-map.001, legal.insurance-coverage.001, business.continuity.001]
+  evidence_required: [contractual loss and recourse map, loss distribution stress test, reserve capital insurance and processor settlement evidence]
+  expected_outputs: [financial loss allocation matrix, reserve and survivability plan, residual loss acceptance record]
+  answered_by_roles: [finance owner, risk owner, legal owner, payments owner, executive risk authority]
+  revisit_when: ['contracts, processors, loss patterns, reserves, capital, insurance, regulation, or business model changes']
+  tags: [loss-allocation, reserves, financial-continuity]

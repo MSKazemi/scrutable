@@ -46,6 +46,10 @@ entrypoints:
   repository_integration_audit: docs/19-whole-repository-integration-audit.md
   information_integrity: docs/20-information-integrity-and-content-governance.md
   geopolitical_continuity: docs/21-geopolitical-and-regional-continuity.md
+  internationalization_localization: docs/22-internationalization-and-localization-operations.md
+  enterprise_implementation: docs/23-enterprise-implementation-and-customer-success.md
+  conditional_expansion: docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md
+  expansion_integration_audit: docs/25-expansion-module-integration-audit.md
   contribution_guide: CONTRIBUTING.md
   worked_example: examples/sample-application/README.md
 
@@ -81,6 +85,38 @@ agent_load_order:
     - catalog/business/questions.yaml
     - catalog/operations/geopolitical-continuity-questions.yaml
     - templates/regional-continuity-register.md
+  internationalization_localization:
+    - docs/22-internationalization-and-localization-operations.md
+    - catalog/operations/internationalization-localization-questions.yaml
+    - templates/localization-readiness-register.md
+  enterprise_implementation:
+    - docs/23-enterprise-implementation-and-customer-success.md
+    - catalog/business/enterprise-implementation-questions.yaml
+    - templates/enterprise-implementation-register.md
+  marketplace_network:
+    - docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md
+    - catalog/business/marketplace-network-questions.yaml
+    - templates/conditional-risk-register.md
+  intellectual_property:
+    - docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md
+    - catalog/legal/intellectual-property-questions.yaml
+    - templates/conditional-risk-register.md
+  financial_crime:
+    - docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md
+    - catalog/security/financial-crime-questions.yaml
+    - templates/conditional-risk-register.md
+  hardware_manufacturing_recall:
+    - docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md
+    - catalog/operations/hardware-manufacturing-recall-questions.yaml
+    - templates/conditional-risk-register.md
+  crisis_communication:
+    - docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md
+    - catalog/operations/crisis-communication-questions.yaml
+    - templates/conditional-risk-register.md
+  liability_insurance:
+    - docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md
+    - catalog/legal/liability-insurance-questions.yaml
+    - templates/conditional-risk-register.md
   regulated_or_safety_critical:
     - docs/17-domain-pack-governance.md
     - catalog/core/domain-pack-governance-questions.yaml

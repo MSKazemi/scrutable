@@ -1,0 +1,111 @@
+schema_version: 1
+domain: legal
+questions:
+- id: legal.liability-map.001
+  version: 1
+  status: published
+  question: Which party is liable for each foreseeable loss across customers, users, suppliers, agents, operators, and affected non-users?
+  purpose: Map legal and economic responsibility across the whole system instead of assuming that a contract transfers every real-world loss.
+  domain: legal
+  lifecycle_stages: [discover, define, design, verify, release, operate, evolve, retire]
+  applies_when: ['the subject can cause material loss, harm, service failure, infringement, regulatory exposure, or third-party claims']
+  answer_type: structured
+  criticality: critical
+  depends_on: [legal.obligations.001, core.failure.001, users.actors.001]
+  activates: [legal.liability-contract.001, legal.insurance-coverage.001, legal.residual-liability.001]
+  related_to: [security.financial-loss-allocation.001, ethics.affected-parties.001]
+  evidence_required: [foreseeable loss and claimant scenarios, party role control duty and jurisdiction map, qualified liability and recourse review]
+  expected_outputs: [liability allocation map, claim and recourse scenarios, liability gap and mitigation register]
+  answered_by_roles: [qualified legal owner, risk owner, system owner, insurance owner]
+  revisit_when: ['actors, control, use, jurisdiction, contract, incident, claimant theory, or loss severity changes']
+  tags: [liability, loss-allocation, third-party-harm]
+- id: legal.liability-contract.001
+  version: 1
+  status: published
+  question: Do warranties, limitations, indemnities, service commitments, and insurance align with real system behavior and bargaining power?
+  purpose: Test whether contractual allocation is internally consistent, operationally achievable, enforceable, and ethically defensible for the actual system.
+  domain: legal
+  lifecycle_stages: [define, design, verify, release, operate, evolve, retire]
+  applies_when: ['contracts allocate performance, warranty, indemnity, service, defense, or loss obligations']
+  answer_type: structured
+  criticality: critical
+  depends_on: [legal.liability-map.001, business.organizational-buying.001, core.constraints.001]
+  activates: [legal.insurance-coverage.001, legal.residual-liability.001]
+  related_to: [quality.acceptance.001, reliability.availability.001]
+  evidence_required: [contract obligation and actual behavior comparison, warranty service level indemnity and limitation review, bargaining power and affected-party impact assessment]
+  expected_outputs: [contract liability matrix, operational obligation requirements, contract correction and approval actions]
+  answered_by_roles: [qualified commercial counsel, legal owner, product owner, operations owner, risk owner]
+  revisit_when: ['product behavior, service level, warranty, customer segment, bargaining power, contract form, or law changes']
+  tags: [indemnity, liability-caps, warranties]
+- id: legal.insurance-coverage.001
+  version: 1
+  status: published
+  question: Which policies, limits, exclusions, deductibles, territories, notification duties, and security or safety conditions apply?
+  purpose: Translate insurance documents and insurer conditions into operating controls, evidence duties, uncovered scenarios, and decision limits.
+  domain: legal
+  lifecycle_stages: [define, design, verify, release, operate, evolve, retire]
+  applies_when: [insurance is relied on to finance or transfer material loss]
+  answer_type: structured
+  criticality: critical
+  depends_on: [legal.liability-map.001, legal.liability-contract.001, business.economics.001]
+  activates: [legal.insurance-correlation.001, legal.claim-evidence.001]
+  related_to: [security.financial-loss-allocation.001, operations.incident.001]
+  evidence_required: [current policy binders endorsements and schedules, qualified coverage and exclusion analysis, control notification territory and limit mapping]
+  expected_outputs: [insurance coverage matrix, policy condition and notification controls, coverage gap and renewal plan]
+  answered_by_roles: [insurance owner, qualified coverage counsel, risk owner, finance owner, security or safety owner]
+  revisit_when: ['policy, endorsement, insurer, limit, exclusion, deductible, territory, operation, control, or renewal changes']
+  tags: [insurance, coverage, exclusions]
+- id: legal.insurance-correlation.001
+  version: 1
+  status: published
+  question: Could one correlated event exceed coverage or make coverage unavailable?
+  purpose: Stress-test aggregate, systemic, common-cause, exclusion, aggregation, exhaustion, and insurer-solvency failure rather than evaluating one claim at a time.
+  domain: legal
+  lifecycle_stages: [define, design, verify, operate, evolve]
+  applies_when: ['one incident or common cause can generate multiple claims, losses, entities, territories, policy years, or coverage disputes']
+  answer_type: structured
+  criticality: critical
+  depends_on: [legal.insurance-coverage.001, reliability.failure-modes.001, business.continuity.001]
+  activates: [legal.residual-liability.001]
+  related_to: [operations.regional-exposure.001, core.failure.001]
+  evidence_required: [correlated loss and claims scenarios, policy aggregation exhaustion exclusion and insurer stress analysis, capital liquidity and recovery alternatives]
+  expected_outputs: [correlated insurance stress test, aggregate coverage and exhaustion thresholds, uncovered continuity actions]
+  answered_by_roles: [insurance owner, risk owner, finance owner, qualified coverage counsel]
+  revisit_when: ['exposure concentration, policy wording, limits, insurer, entity structure, jurisdiction, incident pattern, or capital changes']
+  tags: [insurance, correlated-loss, coverage-exhaustion]
+- id: legal.claim-evidence.001
+  version: 1
+  status: published
+  question: What evidence must be preserved to defend a claim or recover under a policy?
+  purpose: Make notice, chronology, causation, control, loss, remediation, privilege, custody, and cooperation evidence available before it is overwritten or fragmented.
+  domain: legal
+  lifecycle_stages: [design, verify, release, operate, evolve, retire]
+  applies_when: ['an incident, dispute, demand, investigation, or loss may require defense, recovery, notification, or insurer cooperation']
+  answer_type: structured
+  criticality: critical
+  depends_on: [legal.insurance-coverage.001, operations.incident.001, data.lifecycle.001, team.accountability.001]
+  activates: [legal.residual-liability.001]
+  related_to: [security.incident.001, operations.recall-traceability.001]
+  evidence_required: [claim and policy evidence requirements, legal hold chain-of-custody and retention test, notice cooperation privilege and access workflow]
+  expected_outputs: [claim evidence preservation plan, legal hold and notification procedure, claim readiness exercise results]
+  answered_by_roles: [legal owner, insurance owner, incident commander, data owner, evidence custodian]
+  revisit_when: ['policy, claim type, data source, retention, incident process, custodian, legal hold, or cooperation duty changes']
+  tags: [claim-evidence, legal-hold, insurance-recovery]
+- id: legal.residual-liability.001
+  version: 1
+  status: published
+  question: What residual loss remains, who accepts it, and can the organization survive it?
+  purpose: Expose uninsured, untransferable, disputed, capped, excluded, delayed, reputational, and non-financial harm that remains after contracts and insurance.
+  domain: legal
+  lifecycle_stages: [define, verify, release, operate, evolve, retire]
+  applies_when: ['material liability remains possible after controls, contracts, counterparties, reserves, and insurance are considered']
+  answer_type: structured
+  criticality: critical
+  depends_on: [legal.liability-map.001, legal.liability-contract.001, legal.insurance-correlation.001, legal.claim-evidence.001, business.economics.001]
+  activates: [core.challenge.001]
+  related_to: [team.authority.001, core.kill-criteria.001, business.continuity.001]
+  evidence_required: [net residual loss scenarios, capital liquidity and operational survivability analysis, authorized non-waivable and risk-acceptance review]
+  expected_outputs: [residual liability register, survivability and funding plan, risk acceptance pause or stop decision]
+  answered_by_roles: [executive risk authority, board or delegated authority, legal owner, finance owner, affected-party representative]
+  revisit_when: ['loss exposure, controls, contract, policy, capital, liquidity, incident evidence, or risk authority changes']
+  tags: [residual-liability, risk-acceptance, survivability]

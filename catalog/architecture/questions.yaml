@@ -12,7 +12,7 @@ questions:
     answer_type: structured
     criticality: critical
     depends_on: [core.boundary.001, users.actors.001]
-    activates: [architecture.dependencies.001, security.threats.001, data.inventory.001]
+    activates: [architecture.dependencies.001, security.threats.001, data.inventory.001, operations.manufacturing-dependencies.001]
     evidence_required: [reviewed context diagram, interface inventory]
     expected_outputs: [system context, integration inventory]
     answered_by_roles: [architect, engineering lead, security owner]
@@ -84,4 +84,3 @@ questions:
     expected_outputs: [evolution strategy, compatibility policy]
     answered_by_roles: [architect, engineering lead, operations owner]
     revisit_when: [a breaking change or migration is planned]
-

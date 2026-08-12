@@ -41,7 +41,6 @@ not validated as one object by `schemas/project-profile.schema.json`; each item 
 Use `domain.topic.NNN`. Published IDs are permanent. Correct wording with a version
 increment; deprecate and link a successor when the meaning changes.
 
-
 ## Human-readable question coverage
 
 The catalog is deliberately smaller than the detailed Markdown question banks. The
@@ -51,6 +50,11 @@ compressed, unmodeled, or guidance-only. A compressed mapping preserves the pros
 detail; it does not authorize an agent to treat the stable node as semantically
 identical. See the
 [coverage contract](../docs/16-prose-to-catalog-coverage.md).
+
+The expansion-backlog candidates promoted in the modules below are outside the
+seven-bank numbered-source scope of that manifest. Their stable IDs and status are
+tracked in the [expansion backlog](../docs/12-coverage-gaps-and-expansion-backlog.md)
+and [integration audit](../docs/25-expansion-module-integration-audit.md).
 
 ## Domain-pack governance
 
@@ -98,8 +102,103 @@ visible process accounting, not complete world knowledge or audience attention.
 
 ## Information-integrity module
 
-When `ethics.harms.001` identifies harm from created, imported, transformed, ranked, recommended, stored, or distributed content, load [`ethics/information-integrity-questions.yaml`](ethics/information-integrity-questions.yaml) and the [content-governance method](../docs/20-information-integrity-and-content-governance.md). Its eight records separate content and context risk, provenance, policy, coordinated manipulation, review and appeal, assurance and reviewer safety, transparency, and downstream correction. Provenance is never treated as proof of truth.
+When `ethics.harms.001` identifies harm from created, imported, transformed, ranked,
+recommended, stored, or distributed content, load
+[`ethics/information-integrity-questions.yaml`](ethics/information-integrity-questions.yaml)
+and the
+[content-governance method](../docs/20-information-integrity-and-content-governance.md).
+Its eight records separate content and context risk, provenance, policy, coordinated
+manipulation, review and appeal, assurance and reviewer safety, transparency, and
+downstream correction. Provenance is never treated as proof of truth.
 
 ## Geopolitical continuity module
 
-When `business.continuity.001` identifies regional, cross-border, currency, network, supplier, staff, customer, asset, or legal-entity concentration, load [`operations/geopolitical-continuity-questions.yaml`](operations/geopolitical-continuity-questions.yaml) and the [regional continuity method](../docs/21-geopolitical-and-regional-continuity.md). The eight records separate exposure, changing obligations, disruption, lawful relocation, people protection, asset access, early triggers, and fallback-created harm. Generic records do not replace qualified sanctions, trade, privacy, labor, safety, or local legal review.
+When `business.continuity.001` identifies regional, cross-border, currency, network,
+supplier, staff, customer, asset, or legal-entity concentration, load
+[`operations/geopolitical-continuity-questions.yaml`](operations/geopolitical-continuity-questions.yaml)
+and the
+[regional continuity method](../docs/21-geopolitical-and-regional-continuity.md). The
+eight records separate exposure, changing obligations, disruption, lawful relocation,
+people protection, asset access, early triggers, and fallback-created harm. Generic
+records do not replace qualified sanctions, trade, privacy, labor, safety, or local
+legal review.
+
+## Internationalization and localization operations module
+
+When `core.boundary.001` reveals more than one language, script, locale, culture,
+time zone, or market, load
+[`operations/internationalization-localization-questions.yaml`](operations/internationalization-localization-questions.yaml)
+and the
+[international operations method](../docs/22-internationalization-and-localization-operations.md).
+Its eight records cover market scope, right-to-left and locale mechanics, translation
+governance, local prices, taxes, payments, identity and contracts, multilingual
+support and incident communication, local validation, parity, and market exit.
+
+## Enterprise implementation and customer-success module
+
+When `business.organizational-buying.001` leads to customer-side configuration,
+migration, integration, approval, or organizational change, load
+[`business/enterprise-implementation-questions.yaml`](business/enterprise-implementation-questions.yaml)
+and the
+[enterprise implementation method](../docs/23-enterprise-implementation-and-customer-success.md).
+Its eight records cover cross-party dependencies and ownership, time to value,
+recurring rollout blockers, customer-success roles, value realization, renewal risk,
+and recovery or exit.
+
+## Marketplace and network module
+
+When `business.channels.001` includes a multi-sided marketplace, network, matching,
+ranking, reputation, or transaction system, load
+[`business/marketplace-network-questions.yaml`](business/marketplace-network-questions.yaml).
+Its six records cover participant sides and liquidity, ethical cold start, rules and
+appeals, strategic abuse, network concentration and exclusion, and participant
+portability.
+
+## Intellectual-property module
+
+When `legal.obligations.001` identifies material inventions, code, data, content,
+models, prompts, designs, proprietary knowledge, or third-party rights, load
+[`legal/intellectual-property-questions.yaml`](legal/intellectual-property-questions.yaml).
+Its six records cover ownership, rights chain, freedom to operate, protection and
+disclosure strategy, trade-secret controls, and evidence-backed defensibility.
+
+## Financial-crime module
+
+When `security.threats.001` identifies money, credit, refunds, promotions, financial
+identity, marketplace value, safeguarding, or valuable access, load
+[`security/financial-crime-questions.yaml`](security/financial-crime-questions.yaml).
+Its six records cover abuse and maximum loss, qualified obligations, prevention and
+investigation, proportionate friction, false positives and appeals, and loss
+allocation and reserves.
+
+## Hardware manufacturing and recall module
+
+When `architecture.context.001` includes manufactured, assembled, shipped, installed,
+maintained, or recalled hardware, load
+[`operations/hardware-manufacturing-recall-questions.yaml`](operations/hardware-manufacturing-recall-questions.yaml).
+Its six records cover production dependencies, quality and traceability, release
+evidence, field service, affected-unit discovery, and stop, quarantine, recall, and
+remediation authority.
+
+## Crisis-communication module
+
+When `operations.incident.001` can require stakeholder, regulatory, media, or public
+communication, load
+[`operations/crisis-communication-questions.yaml`](operations/crisis-communication-questions.yaml).
+Its six records cover audiences and thresholds, spokesperson and correction
+authority, resilient channels, actionable uncertainty, misinformation and
+impersonation, and evidence of trust and relationship recovery.
+
+## Liability and insurance module
+
+When `legal.obligations.001` identifies material loss, third-party claims, indemnity,
+insurance, or survivability exposure, load
+[`legal/liability-insurance-questions.yaml`](legal/liability-insurance-questions.yaml).
+Its six records cover liability mapping, contract alignment, policy scope and
+conditions, correlated coverage failure, claim evidence, and residual loss acceptance.
+
+The six conditional modules above share the
+[conditional operating method](../docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md)
+and [conditional risk register](../templates/conditional-risk-register.md). Their
+priority is determined by applicability and consequence in each run, not by the global
+backlog label.

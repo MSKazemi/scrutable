@@ -1,9 +1,9 @@
 # Coverage gaps and expansion backlog
 
 **Audit snapshot:** 2026-08-12, Product Questionbook 0.7 on `main`  
-**Status:** evidence-based backlog; entries are not yet published catalog questions  
+**Status:** evidence-based backlog and promotion ledger; published modules remain partial until representative evidence exists  
 **Scope:** important omissions in reusable software-product coverage and in the
-repository's ability to execute that coverage
+repository's ability to execute and validate that coverage
 
 ## Direct finding
 
@@ -13,12 +13,25 @@ bottlenecks, naming, attraction and distribution, adversarial review, and govern
 self-improvement. It does not—and should not claim to—contain every question required
 for every product, jurisdiction, industry, or risk class.
 
-The first structural inventory is now explicit. The [prose-to-catalog manifest](../coverage/prose-to-catalog.yaml) accounts for all 396 numbered questions in the seven main human-readable banks: 388 are conservatively mapped through 43 section-level many-to-many compression groups and eight naming-brainstorm prompts are guidance-only. It claims zero exact mappings until independent semantic review. This removes hidden inventory but does not prove exact parity: compressed questions must remain visible during runs, and unnumbered gate bullets plus backlog candidates remain outside the current manifest scope.
+The first structural inventory is explicit. The
+[prose-to-catalog manifest](../coverage/prose-to-catalog.yaml) accounts for all 396
+numbered questions in the seven main human-readable banks: 388 are conservatively
+mapped through 43 section-level many-to-many compression groups and eight
+naming-brainstorm prompts are guidance-only. It claims zero exact mappings until
+independent semantic review. Backlog candidates and unnumbered gates remain outside
+that manifest's seven-bank source scope.
 
-The second largest omission is operational: the repository defines deterministic
+The second largest omission remains operational: the repository defines deterministic
 validation and assurance behavior but does not contain a callable conformance and
 semantic validator or an automated assurance workflow. A CLI, API, database, or
 service is optional and is not required for normal framework use.
+
+This promotion adds eight conditional structured modules containing 52 questions for
+international operations, enterprise implementation, marketplace and network
+governance, intellectual property, financial crime, hardware manufacturing and
+recall, crisis communication, and liability and insurance. It closes the stable-record
+gap for those candidates. It does not supply project evidence, qualified legal or
+professional opinions, or empirical calibration.
 
 ## Meaning of coverage
 
@@ -26,103 +39,117 @@ Use these labels consistently:
 
 | Label | Meaning |
 |---|---|
-| Covered | Explicit questions, applicability, evidence, outputs, ownership, and review rules exist in the human and structured layers |
-| Partially covered | A generic or prose question exists, but the concern lacks sufficient depth, stable graph records, or decision rules |
+| Covered | Explicit questions, applicability, evidence, outputs, ownership, review rules, representative runs, and calibration exist in the human and structured layers |
+| Partially covered | A generic, prose, or structured method exists, but evidence, depth, qualified interpretation, representative runs, or decision calibration remains incomplete |
 | Missing | No dedicated question or reusable method exists |
 | Domain pack required | The universal framework can detect the concern, but qualified domain-specific rules are necessary |
 | Capability gap | The method is documented but cannot yet run or verify itself automatically |
 
 A word appearing in a document is not proof that a concern is supported. A question
-is not fully supported by the machine-readable framework until it has a stable ID,
-applicability, lifecycle stages, criticality, dependencies and activations, evidence
-requirements, expected outputs, accountable roles, revisit triggers, and validation.
+is not structurally supported by the machine-readable framework until it has a stable
+ID, applicability, lifecycle stages, criticality, dependencies and activations,
+evidence requirements, expected outputs, accountable roles, revisit triggers, and
+validation. Structural support is still not proof of real-world correctness.
 
 ## Priority register
 
 | Priority | Gap | Current status | Why it matters |
 |---|---|---|---|
-| P0 | Prose-to-catalog parity | Partial — manifested, exact review pending | All numbered questions are accounted, but compressed section mappings are not yet independently reviewed as exact and drift checks are manual |
+| P0 | Prose-to-catalog parity | Partial — manifested, exact review pending | All numbered questions are accounted, but compressed section mappings are not independently reviewed as exact and drift checks are manual |
 | P0 | Deterministic conformance and semantic validator | Capability gap | Documented guarantees cannot be tested automatically and agent behavior remains dependent on manual discipline |
 | P0 | Regulated and safety-critical domain packs | Domain pack required — governance ready | The interface and eight governance nodes are published, but generic questions remain insufficient and no qualified specialized pack exists |
-| P1 | Organizational adoption and change management | Partial — structured module published | Eight stable questions now cover the change system; representative run and calibration evidence remain absent |
-| P1 | Workforce and knowledge continuity | Partial — structured module published | Eight stable questions now cover workforce continuity; representative absence, departure, and understaffing evidence remain absent |
-| P1 | External sensing and horizon monitoring | Partial — structured module published | Eight stable questions and a source-to-decision method now cover sensing; representative monitoring and missed-signal evidence remain absent |
-| P1 | Information integrity and content governance | Partial — structured method published | Eight stable questions, a contextual operating method, and a register now cover integrity decisions; representative multilingual, manipulation, appeal, reviewer-safety, and propagation evidence remain absent |
-| P1 | Geopolitical and regional continuity | Partial — structured method published | Eight stable questions, a people-first operating method, and a register now cover exposure and fallback decisions; live qualified legal review and disruption exercises remain absent |
-| P1 | Internationalization and localization operations | Partial | Locale formatting is covered, but translation governance, right-to-left behavior, local operations, and market-specific support are shallow |
-| P1 | Enterprise implementation and customer success | Partial | Procurement is covered, but implementation ownership, time-to-value, rollout, value realization, and renewal risk need deeper treatment |
-| P2 | Ecosystem, marketplace, and network governance | Partial | Multi-sided products can fail through cold-start, liquidity, rule, trust, dispute, or disintermediation failures |
-| P2 | Intellectual-property ownership and defensibility | Partial | Licensing and naming rights exist, but invention ownership, patents, trade secrets, and freedom to operate are not explicit |
-| P2 | Fraud, payments, and financial crime | Partial | Tax and fraud are mentioned, but payment abuse, chargebacks, identity fraud, AML/KYC, sanctions screening, and loss reserves require conditional depth |
-| P2 | Hardware manufacturing, field service, and recall | Partial | Robot/device operation is strong, but production yield, component sourcing, repair, spares, field failure, and recall are shallow |
-| P2 | Crisis, reputation, and public communication | Partial | Incident communication exists, but public correction, stakeholder trust, media response, and recovery are not a complete method |
-| P2 | Liability allocation and insurance | Partial | Insurance appears as a possible cost, but indemnity, coverage, exclusions, limits, and residual liability are not explicitly evaluated |
+| P1 | Organizational adoption and change management | Partial — structured module published | Eight stable questions cover the change system; representative run and calibration evidence remain absent |
+| P1 | Workforce and knowledge continuity | Partial — structured module published | Eight stable questions cover workforce continuity; representative absence, departure, and understaffing evidence remain absent |
+| P1 | External sensing and horizon monitoring | Partial — structured method published | Eight stable questions and a source-to-decision method cover sensing; representative monitoring and missed-signal evidence remain absent |
+| P1 | Information integrity and content governance | Partial — structured method published | Eight stable questions, a contextual operating method, and a register cover integrity decisions; representative multilingual, manipulation, appeal, reviewer-safety, and propagation evidence remain absent |
+| P1 | Geopolitical and regional continuity | Partial — structured method published | Eight stable questions, a people-first operating method, and a register cover exposure and fallback decisions; live qualified legal review and disruption exercises remain absent |
+| P1 | Internationalization and localization operations | Partial — structured method published | Eight stable questions, an operating method, and a register now cover locale scope, RTL mechanics, translation governance, local commercial operation, multilingual support, validation, parity, and market exit; qualified local review and representative runs remain absent |
+| P1 | Enterprise implementation and customer success | Partial — structured method published | Eight stable questions, an operating method, and a register now cover migration, ownership, time to value, blockers, customer-success roles, value realization, renewal risk, and recovery; representative implementation and renewal evidence remain absent |
+| P2 | Ecosystem, marketplace, and network governance | Partial — conditional structured module published | Six stable questions now cover sides, liquidity, cold start, governance, abuse, network effects, and portability; representative marketplace evidence remains absent |
+| P2 | Intellectual-property ownership and defensibility | Partial — conditional structured module published | Six stable questions now cover ownership, rights chain, freedom to operate, protection strategy, trade secrets, and defensibility; qualified IP review and observed evidence remain absent |
+| P2 | Fraud, payments, and financial crime | Partial — conditional structured module published | Six stable questions now cover abuse, obligations, controls, friction, assurance, and loss allocation; regulated interpretation and representative control evidence remain absent |
+| P2 | Hardware manufacturing, field service, and recall | Partial — conditional structured module published | Six stable questions now cover dependencies, quality, production release, field service, recall traceability, and authority; manufacturing and recall exercises remain absent |
+| P2 | Crisis, reputation, and public communication | Partial — conditional structured module published | Six stable questions now cover audience scope, authority, channels, changing facts, information integrity, and recovery; representative crisis exercises remain absent |
+| P2 | Liability allocation and insurance | Partial — conditional structured module published | Six stable questions now cover liability mapping, contract alignment, insurance scope, correlated loss, claim evidence, and residual liability; actual policy and claim review remain absent |
 
 P2 does not mean unimportant. It means highly consequential when applicable but not
-universal. A payment platform, marketplace, medical device, or public-facing safety
-system should promote several of these concerns to P0 for that run.
+universal. A payment platform, marketplace, medical device, manufactured product, or
+public-facing safety system should promote the relevant concerns to P0 for that run.
 
 ## Quantified status excluding the validator capability gap
 
-This snapshot deliberately excludes item 2, the deterministic validator. It
-measures the other backlog items against the live 0.7 catalog rather than treating a
-mention in prose as structured support.
+This snapshot excludes item 2, the deterministic validator. It measures the other
+backlog items against the expansion branch rather than treating a prose mention as
+structured support.
 
 | Metric | Current value |
 |---|---:|
 | Gap areas excluding item 2 | 15 |
 | Candidate questions in those areas | 108 |
-| Candidate questions promoted as dedicated published catalog records | 48 |
+| Candidate questions promoted as dedicated published catalog records | 100 |
 | Partially covered gap areas | 14 |
 | Missing or domain-pack-required gap areas | 1 |
 | P0 areas / candidate questions | 2 / 16 |
 | P1 areas / candidate questions | 7 / 56 |
 | P2 areas / candidate questions | 6 / 36 |
-| Existing reusable catalog | 147 questions / 528 `depends_on` and `activates` references |
+| Reusable catalog after promotion | 199 questions / 794 `depends_on` and `activates` references |
+| All declared relationship references after promotion | 1,009 |
 | Expert-reviewed regulated or safety-critical packs | 0 |
 | Prose-to-catalog coverage manifest | present: 396 numbered questions, 43 groups, 388 compressed, 8 guidance-only, 0 exact |
 
-Forty-eight of the 108 candidates are now dedicated stable records: the domain-pack
-governance, organizational-change, workforce-continuity, external-sensing,
-information-integrity, and geopolitical-continuity sets. The first still needs
-qualified pack content, and the five operational sets still need representative run
-and calibration evidence. The other 60 candidates remain compressed, partial, or
-conditional.
+One hundred of the 108 candidates now have dedicated stable records: domain-pack
+governance, organizational change, workforce continuity, external sensing,
+information integrity, geopolitical continuity, internationalization and
+localization, enterprise implementation, and all six conditional P2 modules. The
+domain-pack governance records do not constitute a qualified pack, and every
+operational module still needs representative run and calibration evidence. The eight
+prose-to-catalog parity candidates remain unpromoted as dedicated question records
+because their purpose is manifest and validator governance rather than another
+compressed catalog layer.
 
-| Item | Gap | Priority | Candidate questions | Current status | Nearest published structured coverage | What is still absent |
+| Item | Gap | Priority | Candidate questions | Current status | Published structured coverage | What is still absent |
 |---:|---|---|---:|---|---|---|
-| 1 | Prose-to-catalog parity | P0 | 8 | Partial — manifested | The coverage manifest accounts for 396 numbered questions and preserves full source wording against 95 referenced stable IDs | All mappings are conservatively section-level and compressed; exact question-level semantic review, unnumbered gate coverage, candidate promotion, and deterministic drift validation remain |
-| 3 | Regulated and safety-critical domain packs | P0 | 8 | Domain pack required — governance ready | `core.domain-pack.001` through `.008` now define activation, authority, expert review, domain deltas, provenance, blockers, scenario assurance, and affected-run reopening | No qualified healthcare, fintech, children, government, aviation, automotive, industrial-control, or comparable pack has completed this contract |
-| 4 | Organizational adoption and change management | P1 | 8 | Partial — structured module published | `team.change-impact.001` through `.change-ownership.001`, activated by `business.adoption.001` | Content and graph fields are coherent; a representative end-to-end adoption run, negative rollback case, false-blocker review, and outcome calibration remain absent |
-| 5 | Workforce and knowledge continuity | P1 | 8 | Partial — structured module published | `team.continuity-dependencies.001` through `.continuity-signals.001`, activated by `team.capability.001` | Content and graph fields are coherent; absence, departure, understaffing, supplier-exit, false-blocker, and recovery exercises remain unobserved |
-| 6 | External sensing and horizon monitoring | P1 | 8 | Partial — structured module published | `operations.sensing-change.001` through `.sensing-blind-spots.001`, activated by `core.assumptions.001` | Content, method, register, and graph fields are coherent; representative monitoring, access-failure, false-alert, missed-signal, latency, and outcome evidence remain absent |
-| 7 | Information integrity and content governance | P1 | 8 | Partial — structured method published | `ethics.integrity-content.001` through `.integrity-propagation.001`, activated by `ethics.harms.001`, plus the [content-governance method](20-information-integrity-and-content-governance.md) and register | Content and graph fields are coherent; representative multilingual policy, deepfake and coordination, privacy-proportionality, appeal, reviewer-safety, transparency, and downstream correction cases remain unobserved |
-| 8 | Geopolitical and regional continuity | P1 | 8 | Partial — structured method published | `operations.regional-exposure.001` through `.regional-fallback-risks.001`, activated by `business.continuity.001`, plus the [regional continuity method](21-geopolitical-and-regional-continuity.md) and register | Content and graph fields are coherent; current qualified legal interpretations, people-protection exercises, correlated disruption cases, relocation tests, false-alert review, and fallback impact evidence remain absent |
-| 9 | Internationalization and localization operations | P1 | 8 | Partial | `ux.accessibility.001`, `ux.comprehension.001`, `legal.obligations.001`, `product.naming-validation.001` | Translation governance, right-to-left behavior, locale mechanics, local payments/taxes/contracts, multilingual support and incident response, parity metrics, and market exit are shallow or absent |
-| 10 | Enterprise implementation and customer success | P1 | 8 | Partial | `business.organizational-buying.001`, `business.adoption.001`, `business.retention.001`, `operations.support.001` | Provider/customer dependency ownership, implementation milestones, time-to-value, stalled-rollout signals, value realization, shelfware, customer-success recovery, and renewal control need deeper records |
-| 11 | Ecosystem, marketplace, and network governance | P2 | 6 | Partial | `business.channels.001`, `business.machine-discovery.001`, `business.incentives.001` | Multi-sided cold start, liquidity, ranking/access rules, participant disputes and appeals, collusion, adverse selection, disintermediation, network power, and reputation portability are not modeled together |
-| 12 | Intellectual-property ownership and defensibility | P2 | 6 | Partial | `legal.licenses.001`, `legal.naming-rights.001`, `core.ownership.001` | Invention assignment, patents, trade secrets, freedom to operate, agent-generated assets, disclosure timing, defensibility, enforcement cost, and IP exit dependencies are not explicit |
-| 13 | Fraud, payments, and financial crime | P2 | 6 | Partial | `security.threats.001`, `security.identity.001`, `business.incentives.001`, `legal.obligations.001` | Payment abuse, chargebacks, account takeover, identity fraud, AML/KYC, sanctions screening, reserves, reconciliation, processor dependency, and loss allocation need conditional depth |
-| 14 | Hardware manufacturing, field service, and recall | P2 | 6 | Partial | `architecture.context.001`, `reliability.failure-modes.001`, `operations.supply-chain.001` | Yield, component authenticity and substitution, production tests, traceability, repair, spares, field service, physical safe state, recall, disposal, and field-failure learning are shallow |
-| 15 | Crisis, reputation, and public communication | P2 | 6 | Partial | `operations.incident.001`, `security.incident.001`, `business.distribution-risk.001`, `business.earned-media.001` | Crisis authority, stakeholder-specific disclosure, correction, rumor response, legal/evidentiary preservation, trust measurement, spokesperson readiness, and recovery thresholds are not a complete method |
-| 16 | Liability allocation and insurance | P2 | 6 | Partial | `legal.obligations.001`, `core.failure.001`, `business.economics.001` | Contractual indemnity, liability caps, insurance scope, exclusions, limits, notification duties, insurer requirements, uncovered loss, and residual-risk authority are not explicitly evaluated |
+| 1 | Prose-to-catalog parity | P0 | 8 | Partial — manifested | The coverage manifest accounts for 396 numbered questions and preserves source wording against referenced stable IDs | Exact question-level semantic review, unnumbered gate coverage, deterministic drift validation, and callable enforcement remain |
+| 3 | Regulated and safety-critical domain packs | P0 | 8 | Domain pack required — governance ready | `core.domain-pack.001` through `.008` define activation, authority, expert review, domain deltas, provenance, blockers, scenario assurance, and affected-run reopening | No qualified healthcare, fintech, children, government, aviation, automotive, industrial-control, or comparable pack has completed this contract |
+| 4 | Organizational adoption and change management | P1 | 8 | Partial — structured module published | `team.change-impact.001` through `team.change-ownership.001`, activated by `business.adoption.001` | Representative adoption, rollback, missed-concern, false-blocker, evidence-cost, and outcome-calibration cases remain absent |
+| 5 | Workforce and knowledge continuity | P1 | 8 | Partial — structured module published | `team.continuity-dependencies.001` through `team.continuity-signals.001`, activated by `team.capability.001` | Absence, departure, understaffing, supplier-exit, false-blocker, and recovery exercises remain unobserved |
+| 6 | External sensing and horizon monitoring | P1 | 8 | Partial — structured method published | `operations.sensing-change.001` through `operations.sensing-blind-spots.001`, activated by `core.assumptions.001` | Representative monitoring, access-failure, false-alert, missed-signal, latency, and outcome evidence remain absent |
+| 7 | Information integrity and content governance | P1 | 8 | Partial — structured method published | `ethics.integrity-content.001` through `ethics.integrity-propagation.001`, activated by `ethics.harms.001` | Representative multilingual policy, deepfake and coordination, privacy-proportionality, appeal, reviewer-safety, transparency, and downstream correction cases remain unobserved |
+| 8 | Geopolitical and regional continuity | P1 | 8 | Partial — structured method published | `operations.regional-exposure.001` through `operations.regional-fallback-risks.001`, activated by `business.continuity.001` | Current qualified legal interpretations, people-protection exercises, correlated disruption, relocation, false-alert, and fallback-impact evidence remain absent |
+| 9 | Internationalization and localization operations | P1 | 8 | Partial — structured method published | `operations.localization-scope.001` through `operations.market-exit.001`, activated by `core.boundary.001`, plus the international operations method and register | Representative RTL, locale mechanics, translation release, local commercial, multilingual support, incident, parity, and exit cases plus qualified local review remain absent |
+| 10 | Enterprise implementation and customer success | P1 | 8 | Partial — structured method published | `business.implementation-dependencies.001` through `business.implementation-recovery.001`, activated by `business.organizational-buying.001`, plus the enterprise method and register | Successful and failed migration, rollout, time-to-value, adoption, recovery, renewal, false-signal, and outcome-calibration evidence remain absent |
+| 11 | Ecosystem, marketplace, and network governance | P2 | 6 | Partial — conditional structured module published | `business.marketplace-sides.001` through `business.marketplace-portability.001`, activated by `business.channels.001` | Representative liquidity, cold-start, governance, appeal, collusion, exclusion, concentration, and portability cases remain absent |
+| 12 | Intellectual-property ownership and defensibility | P2 | 6 | Partial — conditional structured module published | `legal.ip-ownership.001` through `legal.ip-defensibility.001`, activated by `legal.obligations.001` | Qualified chain-of-title, freedom-to-operate, strategy, trade-secret, enforcement-cost, and observed-defensibility evidence remain absent |
+| 13 | Fraud, payments, and financial crime | P2 | 6 | Partial — conditional structured module published | `security.financial-abuse.001` through `security.financial-loss-allocation.001`, activated by `security.threats.001` and relevant market or marketplace findings | Qualified regulated interpretation, adversarial controls, investigation, appeals, reviewer safety, loss, reserves, and processor evidence remain absent |
+| 14 | Hardware manufacturing, field service, and recall | P2 | 6 | Partial — conditional structured module published | `operations.manufacturing-dependencies.001` through `operations.recall-authority.001`, activated by `architecture.context.001` | Production, supplier, yield, certification, field-service, traceability, mock-recall, stop-authority, and remediation evidence remain absent |
+| 15 | Crisis, reputation, and public communication | P2 | 6 | Partial — conditional structured module published | `operations.crisis-scope.001` through `operations.crisis-recovery.001`, activated by `operations.incident.001` and relevant locale or recall findings | Time-pressured authority, fallback channel, changing-fact, misinformation, correction, multilingual, and trust-recovery exercises remain absent |
+| 16 | Liability allocation and insurance | P2 | 6 | Partial — conditional structured module published | `legal.liability-map.001` through `legal.residual-liability.001`, activated by `legal.obligations.001` and relevant commercial, IP, financial, or recall findings | Qualified contract and policy interpretation, correlated-loss stress, claim evidence, insurer response, reserve, and survivability evidence remain absent |
 
 ### Interpretation
 
-- **Highest structural assurance priority:** item 2. The manifest now exposes the
-  inventory, but schema, semantic, link, and drift rules are not continuously
-  enforced by a deterministic validator.
+- **Highest structural assurance priority:** item 2. The manifest and new modules
+  expose more inventory, but schema, semantic, link, and drift rules are not
+  continuously enforced by a deterministic validator.
 - **Highest safety priority:** item 3. Generic questions should activate a qualified
   pack or block a domain-qualified claim; the universal framework must not impersonate
-  clinical, legal, financial, aviation, automotive, or industrial-control expertise.
-- **Highest newly structured continuity validation priority:** item 8. The regional method now covers concentration and fallback decisions, but it still needs qualified current legal review and representative disruption, people-protection, relocation, and exit exercises.
-- **Promotion order after those P0/P1 concerns:** promote a conditional P2 pack only
-  when the subject activates it. A payment product should not wait behind a generic
-  global P2 label; fraud and financial-crime coverage becomes P0 for that run.
+  clinical, legal, financial, aviation, automotive, manufacturing, insurance, or
+  industrial-control expertise.
+- **Highest new operational validation priorities:** items 9 and 10. Their P1 methods
+  now exist, but international market readiness and enterprise value claims still
+  require representative end-to-end evidence.
+- **Conditional promotion rule:** items 11 through 16 are now structurally published,
+  but should load only when applicable. A global P2 label never delays a P0 concern in
+  a specific run.
+- **Unresolved side effect:** 40 of the 52 promoted records are `critical`, so 196 of
+  199 catalog questions are now high or critical. This does not relieve the
+  criticality-inflation finding recorded as QA-05 in the
+  [quality assurance audit](13-quality-assurance-audit-and-roadmap.md). The
+  `applies_when` boundary limits how often the new records load, but severity still
+  needs calibration against observed decision impact.
 
 The backlog status changes only after the promotion checklist in this document passes.
-Adding another paragraph, prompt, or agent instruction does not change a gap from
-partial to covered.
+Adding another paragraph, prompt, or question does not change a gap from partial to
+covered.
 
 ## P0 questions
 
@@ -151,9 +178,9 @@ partial to covered.
    thin command wrapper?
 2. Does it parse and validate every catalog, instance, answer, relationship, and run
    record against its schema?
-3. Does it deterministically evaluate applicability, dependencies,
-   activations, contradictions, stale evidence, reverse-dependency invalidation, and
-   strongly connected components?
+3. Does it deterministically evaluate applicability, dependencies, activations,
+   contradictions, stale evidence, reverse-dependency invalidation, and strongly
+   connected components?
 4. Can the same frozen input produce the same graph, gate result, and output package?
 5. Are blocker and approval rules enforced outside the language model?
 6. Which scenario, property, migration, security, and regression tests prove the
@@ -180,17 +207,17 @@ partial to covered.
 8. How are existing runs reopened when a pack or its authority changes?
 
 **Current status:** the [governance contract](17-domain-pack-governance.md), manifest
-schema, draft template, and `core.domain-pack.001` through `.008` now implement these
-eight universal questions. Expert-reviewed published packs remain at zero; any run
-needing one must pause or stop until a qualified pack exists.
+schema, draft template, and `core.domain-pack.001` through `.008` implement these
+eight universal governance questions. Expert-reviewed published packs remain at zero;
+any run needing one must pause or stop until a qualified pack exists.
 
 ## P1 questions
 
 ### 4. Organizational adoption and change management
 
-**Current status:** `team.change-impact.001` through `team.change-ownership.001` now
+**Current status:** `team.change-impact.001` through `team.change-ownership.001`
 implement these eight questions and `business.adoption.001` activates the module. It
-remains `partial` until representative runs test rollback, missed concerns, evidence
+remains partial until representative runs test rollback, missed concerns, evidence
 cost, false blockers, and outcome calibration.
 
 1. Whose workflow, authority, incentives, workload, status, or professional identity
@@ -211,8 +238,8 @@ cost, false blockers, and outcome calibration.
 ### 5. Workforce and knowledge continuity
 
 **Current status:** `team.continuity-dependencies.001` through
-`team.continuity-signals.001` now implement these eight questions and
-`team.capability.001` activates the module. It remains `partial` until exercises
+`team.continuity-signals.001` implement these eight questions and
+`team.capability.001` activates the module. It remains partial until exercises
 demonstrate transfer, secure departure, minimum operation, separation of duties,
 supplier exit, and useful leading indicators.
 
@@ -233,10 +260,10 @@ supplier exit, and useful leading indicators.
 ### 6. External sensing and horizon monitoring
 
 **Current status:** `operations.sensing-change.001` through
-`operations.sensing-blind-spots.001` now implement these eight questions,
+`operations.sensing-blind-spots.001` implement these eight questions,
 `core.assumptions.001` activates the module, and
 [the sensing contract](18-external-sensing-and-attention.md) defines the operating
-loop. It remains `partial` until representative runs exercise source loss,
+loop. It remains partial until representative runs exercise source loss,
 corroboration, thresholds, latency, missed signals, and blind spots.
 
 1. Which external changes could invalidate value, legality, safety, security,
@@ -253,7 +280,14 @@ corroboration, thresholds, latency, missed signals, and blind spots.
 
 ### 7. Information integrity and content governance
 
-**Current status:** `ethics.integrity-content.001` through `ethics.integrity-propagation.001` now implement these eight questions, `ethics.harms.001` activates the module, and the [content-governance method](20-information-integrity-and-content-governance.md) plus integrity register define the operating loop. It remains `partial` until representative runs exercise multilingual and contextual rules, manipulation and evasion, proportionality, appeal and correction, reviewer safety, transparency, and downstream agents.
+**Current status:** `ethics.integrity-content.001` through
+`ethics.integrity-propagation.001` implement these eight questions,
+`ethics.harms.001` activates the module, and the
+[content-governance method](20-information-integrity-and-content-governance.md) plus
+integrity register define the operating loop. It remains partial until representative
+runs exercise multilingual and contextual rules, manipulation and evasion,
+proportionality, appeal and correction, reviewer safety, transparency, and downstream
+agents.
 
 1. Which user, generated, imported, or synthetic content can mislead, impersonate,
    defame, manipulate, or cause material harm?
@@ -273,7 +307,13 @@ corroboration, thresholds, latency, missed signals, and blind spots.
 
 ### 8. Geopolitical and regional continuity
 
-**Current status:** `operations.regional-exposure.001` through `operations.regional-fallback-risks.001` now implement these eight questions, `business.continuity.001` activates the module, and the [regional continuity method](21-geopolitical-and-regional-continuity.md) plus register define the operating loop. It remains `partial` until current qualified legal reviews and representative conflict, shutdown, banking, currency, people-protection, asset-access, relocation, false-alert, and fallback-risk cases provide evidence.
+**Current status:** `operations.regional-exposure.001` through
+`operations.regional-fallback-risks.001` implement these eight questions,
+`business.continuity.001` activates the module, and the
+[regional continuity method](21-geopolitical-and-regional-continuity.md) plus register
+define the operating loop. It remains partial until current qualified legal reviews
+and representative conflict, shutdown, banking, currency, people-protection,
+asset-access, relocation, false-alert, and fallback-risk cases provide evidence.
 
 1. Which countries, regions, currencies, networks, cloud regions, suppliers, staff,
    and customers create concentrated exposure?
@@ -292,6 +332,14 @@ corroboration, thresholds, latency, missed signals, and blind spots.
 
 ### 9. Internationalization and localization operations
 
+**Current status:** `operations.localization-scope.001` through
+`operations.market-exit.001` implement these eight questions,
+`core.boundary.001` activates the module, and the
+[international operations method](22-internationalization-and-localization-operations.md)
+plus localization readiness register define the operating loop. It remains partial
+until representative locale, market, translation, commercial, support, incident,
+parity, and exit evidence plus current qualified local review are available.
+
 1. Which markets require translation, localization, transcreation, or a redesigned
    workflow rather than translated strings?
 2. Do right-to-left scripts, input methods, fonts, sorting, search, names, addresses,
@@ -308,6 +356,14 @@ corroboration, thresholds, latency, missed signals, and blind spots.
 8. Can a market be paused or exited without abandoning users or obligations?
 
 ### 10. Enterprise implementation and customer success
+
+**Current status:** `business.implementation-dependencies.001` through
+`business.implementation-recovery.001` implement these eight questions,
+`business.organizational-buying.001` activates the module, and the
+[enterprise implementation method](23-enterprise-implementation-and-customer-success.md)
+plus implementation register define the operating loop. It remains partial until
+representative successful and failed implementations, recoveries, value outcomes,
+false signals, and renewals calibrate the method.
 
 1. What must the customer configure, migrate, integrate, clean, approve, and change
    before first value?
@@ -327,7 +383,19 @@ corroboration, thresholds, latency, missed signals, and blind spots.
 
 ## P2 conditional questions
 
+The six sections below share the
+[conditional operating method](24-conditional-marketplace-ip-financial-hardware-crisis-liability.md)
+and [conditional risk register](../templates/conditional-risk-register.md). Their
+catalog publication does not make them universal; record applicability and promote
+them to the run's required criticality.
+
 ### 11. Ecosystem, marketplace, and network governance
+
+**Current status:** `business.marketplace-sides.001` through
+`business.marketplace-portability.001` implement these six questions and
+`business.channels.001` activates the module. It remains partial until representative
+liquidity, cold-start, rule, appeal, abuse, concentration, exclusion, and portability
+cases provide evidence.
 
 1. Which sides must participate, and what minimum liquidity or matching quality makes
    the system useful?
@@ -341,6 +409,12 @@ corroboration, thresholds, latency, missed signals, and blind spots.
    leave?
 
 ### 12. Intellectual-property ownership and defensibility
+
+**Current status:** `legal.ip-ownership.001` through
+`legal.ip-defensibility.001` implement these six questions and
+`legal.obligations.001` activates the module. It remains partial until qualified
+ownership, rights-chain, freedom-to-operate, strategy, trade-secret, and observed
+defensibility evidence exists.
 
 1. Who owns inventions, code, data, content, models, prompts, designs, and improvements
    created by employees, contractors, partners, users, and agents?
@@ -356,6 +430,13 @@ corroboration, thresholds, latency, missed signals, and blind spots.
 
 ### 13. Fraud, payments, and financial crime
 
+**Current status:** `security.financial-abuse.001` through
+`security.financial-loss-allocation.001` implement these six questions and
+`security.threats.001`, local commercial findings, or marketplace abuse can activate
+the module. It remains partial until qualified regulated interpretation and
+representative prevention, investigation, appeal, workload, loss, and reserve evidence
+exists.
+
 1. Which money, credit, refund, promotion, identity, account, or marketplace flows can
    be abused, and what is the maximum credible loss?
 2. Which KYC, AML, sanctions-screening, reporting, tax, licensing, safeguarding, and
@@ -369,6 +450,12 @@ corroboration, thresholds, latency, missed signals, and blind spots.
 6. Who bears each loss contractually and economically, and is capital reserved for it?
 
 ### 14. Hardware manufacturing, field service, and recall
+
+**Current status:** `operations.manufacturing-dependencies.001` through
+`operations.recall-authority.001` implement these six questions and
+`architecture.context.001` activates the module. It remains partial until qualified
+production, certification, field-service, mock-recall, stop-authority, and remediation
+exercises provide evidence.
 
 1. Which bill-of-materials items, factories, tools, firmware signers, logistics
    providers, and sub-tier suppliers are single points of failure?
@@ -384,6 +471,13 @@ corroboration, thresholds, latency, missed signals, and blind spots.
 
 ### 15. Crisis, reputation, and public communication
 
+**Current status:** `operations.crisis-scope.001` through
+`operations.crisis-recovery.001` implement these six questions and
+`operations.incident.001`, multilingual support, or recall findings can activate the
+module. It remains partial until time-pressured authority, fallback-channel,
+changing-fact, misinformation, correction, multilingual, and recovery exercises
+provide evidence.
+
 1. Which incidents require communication to users, staff, customers, partners,
    regulators, media, or the public?
 2. Who is authorized to speak, approve facts, correct errors, and protect
@@ -398,6 +492,13 @@ corroboration, thresholds, latency, missed signals, and blind spots.
    recovering?
 
 ### 16. Liability allocation and insurance
+
+**Current status:** `legal.liability-map.001` through
+`legal.residual-liability.001` implement these six questions and
+`legal.obligations.001` plus relevant local commercial, IP, financial-loss, or recall
+findings can activate the module. It remains partial until qualified contract and
+policy review, correlated-loss stress, claim evidence, insurer response, reserve, and
+survivability evidence exists.
 
 1. Which party is liable for each foreseeable loss across customers, users, suppliers,
    agents, operators, and affected non-users?
@@ -426,7 +527,7 @@ Do not duplicate these as “missing” without identifying a narrower failure m
 
 ## Promotion rules
 
-A backlog area becomes supported only when:
+A backlog area becomes structurally supported only when:
 
 1. its applicability boundary prevents irrelevant universal questioning;
 2. stable YAML questions are added without repurposing published IDs;
@@ -438,20 +539,30 @@ A backlog area becomes supported only when:
    and negative scenarios;
 7. a maintainer reviews the change and the changelog records it.
 
+An area becomes **covered** only after the structural promotion is also tested against
+representative real cases, missed concerns, false blockers, evidence cost, decision
+change, calibration, and outcomes, with qualified review where required.
+
 ## Recommended sequence
 
-1. Build the prose-to-catalog coverage manifest and make parity drift testable.
-2. Implement and test the read-only conformance validator, state-policy checks, and
-   gate-policy checks without making a CLI or service mandatory.
-3. Validate the organizational-adoption, workforce-continuity, and external-sensing
-   modules on representative runs.
-4. Validate the information-integrity and geopolitical-continuity modules on representative runs; next add localization and enterprise-implementation questions as conditional structured modules.
-5. Pilot one high-value pack through the now-defined domain-pack interface with
-   qualified expert review; do not mark the gap covered until that exact pack and
-   scope are published.
-6. Promote P2 modules only when target runs show applicability or a severe omission.
+1. Implement and test the read-only conformance validator, state-policy checks, gate
+   policy, relationship resolution, link checks, and backlog-promotion drift checks
+   without making a CLI or service mandatory.
+2. Independently review compressed prose mappings and account for unnumbered gate
+   concerns.
+3. Validate the organizational-change, workforce-continuity, external-sensing,
+   information-integrity, geopolitical-continuity, internationalization, and
+   enterprise-implementation methods on representative positive and negative runs.
+4. Validate each applicable conditional marketplace, IP, financial-crime, hardware,
+   crisis, and liability module against qualified real scenarios; promote it to the
+   run's P0 set when consequences require it.
+5. Pilot at least one high-value specialized pack through the domain-pack interface
+   with qualified expert review; do not mark that gap covered until the exact pack and
+   scope are published and tested.
+6. Use observed prediction error, missed concerns, false blockers, evidence cost, and
+   decision outcomes to revise the framework through governed change.
 
-This sequence closes the framework's most important blind spot first: the difference
-between having a useful question written somewhere and being able to prove that the
-right project was asked it, answered it with evidence, propagated the result, and
-blocked unsafe progress when necessary.
+This sequence preserves the framework's central distinction: a useful question written
+somewhere is not the same as proving that the right project was asked it, answered it
+with qualified evidence, propagated the result, and blocked unsafe progress when
+necessary.

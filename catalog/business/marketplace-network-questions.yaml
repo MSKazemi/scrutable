@@ -1,0 +1,109 @@
+schema_version: 1
+domain: business
+questions:
+- id: business.marketplace-sides.001
+  version: 1
+  status: published
+  question: Which sides must participate, and what minimum liquidity or matching quality makes the system useful?
+  purpose: Define the multi-sided value threshold and dependency structure before assuming that aggregate signups create a functioning market or network.
+  domain: business
+  lifecycle_stages: [discover, define, design, verify, release, operate, evolve]
+  applies_when: ['the subject connects, matches, ranks, transacts among, or depends on two or more participant groups']
+  answer_type: structured
+  criticality: critical
+  depends_on: [users.actors.001, business.channels.001, product.value-proposition.001, core.success.001]
+  activates: [business.marketplace-cold-start.001, business.marketplace-governance.001, business.network-effects.001]
+  related_to: [business.funnel.001, business.retention.001]
+  evidence_required: [participant-side definitions and needs, liquidity matching and service-level thresholds, segmented supply demand and outcome data]
+  expected_outputs: [marketplace side and dependency map, liquidity and matching scorecard, minimum viable network criteria]
+  answered_by_roles: [marketplace owner, product owner, analytics owner, participant representatives]
+  revisit_when: ['a participant side, matching rule, geography, category, liquidity threshold, or value proposition changes']
+  tags: [marketplace, liquidity, multi-sided]
+- id: business.marketplace-cold-start.001
+  version: 1
+  status: published
+  question: How will the cold-start problem be tested without fabricating demand or supply?
+  purpose: Require an ethical and falsifiable launch experiment instead of masking missing liquidity with fake participants, misleading listings, or unsustainable subsidy.
+  domain: business
+  lifecycle_stages: [discover, define, design, verify, release, evolve]
+  applies_when: ['a new market, geography, category, or participant side lacks sufficient initial liquidity']
+  answer_type: structured
+  criticality: high
+  depends_on: [business.marketplace-sides.001, quality.validation.001, business.economics.001]
+  related_to: [product.experiment.001, business.funnel.001, ethics.harms.001]
+  evidence_required: [bounded launch hypothesis and comparison, participant disclosure and integrity review, liquidity matching retention and subsidy results]
+  expected_outputs: [cold-start experiment, launch and subsidy limits, continue change pause or stop decision]
+  answered_by_roles: [marketplace owner, growth owner, finance owner, ethics owner]
+  revisit_when: ['a market launches, liquidity remains below threshold, subsidy changes, or participant trust is questioned']
+  tags: [marketplace, cold-start, experiments]
+- id: business.marketplace-governance.001
+  version: 1
+  status: published
+  question: Which rules govern ranking, access, fees, quality, disputes, suspension, and appeal?
+  purpose: Make platform power and participant recourse explicit so commercially important rules are not opaque, arbitrary, or impossible to challenge.
+  domain: business
+  lifecycle_stages: [define, design, build, verify, release, operate, evolve, retire]
+  applies_when: ['the subject sets or enforces rules that affect participant access, visibility, money, reputation, or continued participation']
+  answer_type: structured
+  criticality: critical
+  depends_on: [business.marketplace-sides.001, team.authority.001, legal.obligations.001]
+  activates: [business.marketplace-abuse.001, business.marketplace-portability.001]
+  related_to: [ethics.contestability.001, ethics.distribution.001]
+  evidence_required: [published and internal rule inventory, ranking fee suspension dispute and appeal tests, participant and affected-party review]
+  expected_outputs: [marketplace governance policy, decision rights and appeal process, rule change and notification plan]
+  answered_by_roles: [marketplace governance owner, legal owner, trust and safety owner, participant representative]
+  revisit_when: ['ranking, access, fee, quality, enforcement, appeal, or participant terms change']
+  tags: [marketplace-governance, ranking, appeals]
+- id: business.marketplace-abuse.001
+  version: 1
+  status: published
+  question: How are fraud, collusion, adverse selection, disintermediation, and power imbalance controlled?
+  purpose: Model strategic abuse and asymmetric harm that emerge from interactions among participants rather than only from isolated account threats.
+  domain: business
+  lifecycle_stages: [define, design, build, verify, release, operate, evolve]
+  applies_when: ['participants can manipulate matching, ranking, transactions, quality, prices, identity, reputation, or one another']
+  answer_type: structured
+  criticality: critical
+  depends_on: [business.marketplace-governance.001, business.incentives.001, security.threats.001]
+  activates: [security.financial-abuse.001, ethics.harms.001]
+  related_to: [security.identity.001, operations.observability.001]
+  evidence_required: [marketplace abuse and incentive model, collusion and adverse-selection scenarios, control tests loss data and participant harm review]
+  expected_outputs: [marketplace abuse controls, trust and safety monitoring plan, loss and harm thresholds]
+  answered_by_roles: [trust and safety owner, security owner, marketplace owner, ethics owner]
+  revisit_when: ['incentives, ranking, transaction flows, participant mix, abuse patterns, or losses change']
+  tags: [marketplace-abuse, collusion, adverse-selection]
+- id: business.network-effects.001
+  version: 1
+  status: published
+  question: Do network effects create durable value, lock-in, concentration, or unacceptable exclusion?
+  purpose: Separate beneficial scale effects from fragile concentration, extractive switching costs, winner-take-all claims, and exclusion of affected groups.
+  domain: business
+  lifecycle_stages: [discover, define, verify, operate, evolve, retire]
+  applies_when: ['the subject claims or may create value that changes with participant count, density, data, integrations, or accumulated reputation']
+  answer_type: structured
+  criticality: high
+  depends_on: [business.marketplace-sides.001, business.retention.001, ethics.distribution.001]
+  activates: [business.marketplace-portability.001]
+  related_to: [business.distribution-risk.001, business.economics.001]
+  evidence_required: [network effect mechanism and counterfactual, density retention and cross-side outcome analysis, concentration exclusion and switching-cost assessment]
+  expected_outputs: [network effects assessment, concentration and exclusion controls, durability and dependency decision]
+  answered_by_roles: [marketplace owner, analytics owner, economics owner, ethics owner]
+  revisit_when: ['participant density, concentration, switching cost, interoperability, or distribution of outcomes changes']
+  tags: [network-effects, concentration, lock-in]
+- id: business.marketplace-portability.001
+  version: 1
+  status: published
+  question: Can participants export reputation, history, assets, and relationships when they leave?
+  purpose: Preserve participant agency and continuity where accumulated platform state otherwise creates coercive lock-in or irrecoverable business loss.
+  domain: business
+  lifecycle_stages: [design, build, verify, release, operate, evolve, retire]
+  applies_when: ['participants accumulate reputation, transaction history, content, assets, integrations, or relationships with continuing value']
+  answer_type: structured
+  criticality: high
+  depends_on: [business.marketplace-governance.001, business.network-effects.001, ux.control.001, retirement.user-exit.001]
+  related_to: [data.deletion.001, architecture.evolution.001]
+  evidence_required: [participant asset and relationship inventory, export migration and deletion tests, rights contract and interoperability review]
+  expected_outputs: [participant portability requirements, export and transition procedure, lock-in risk assessment]
+  answered_by_roles: [marketplace owner, data owner, legal owner, participant representative]
+  revisit_when: ['stored state, participant rights, interoperability, export format, contract, or exit path changes']
+  tags: [marketplace, portability, participant-exit]

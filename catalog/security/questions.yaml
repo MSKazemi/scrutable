@@ -12,7 +12,7 @@ questions:
     answer_type: structured
     criticality: critical
     depends_on: [architecture.context.001, core.failure.001]
-    activates: [security.identity.001, security.authorization.001, security.incident.001]
+    activates: [security.identity.001, security.authorization.001, security.incident.001, security.financial-abuse.001]
     evidence_required: [reviewed threat model, abuse cases]
     expected_outputs: [threat model, security requirements]
     answered_by_roles: [security owner, architect, domain expert]
@@ -83,4 +83,3 @@ questions:
     expected_outputs: [security incident plan, detection requirements]
     answered_by_roles: [security owner, operations owner, communications owner]
     revisit_when: [an incident or exercise reveals a gap]
-

@@ -1,0 +1,146 @@
+schema_version: 1
+domain: business
+questions:
+- id: business.implementation-dependencies.001
+  version: 1
+  status: published
+  question: What must the customer configure, migrate, integrate, clean, approve, and change before first value?
+  purpose: Expose the complete implementation workload and customer-side prerequisites hidden by a software delivery or contract signature.
+  domain: business
+  lifecycle_stages: [discover, define, design, verify, release, operate, evolve]
+  applies_when: ['an organization must configure, migrate, integrate, approve, or change operations before receiving value']
+  answer_type: structured
+  criticality: critical
+  depends_on: [business.organizational-buying.001, architecture.context.001, data.inventory.001, business.adoption.001]
+  activates: [business.implementation-ownership.001, business.time-to-value.001, business.rollout-blockers.001]
+  related_to: [team.change-transition.001, architecture.evolution.001]
+  evidence_required: [current and target workflow maps, configuration migration integration and data-readiness inventory, customer prerequisite validation]
+  expected_outputs: [implementation dependency map, customer readiness assessment, implementation work breakdown]
+  answered_by_roles: [implementation owner, customer project owner, solution architect, data migration owner]
+  revisit_when: ['scope, customer environment, data, integration, approval, or workflow changes']
+  tags: [enterprise, implementation, migration]
+- id: business.implementation-ownership.001
+  version: 1
+  status: published
+  question: Who owns each implementation dependency on the provider and customer sides?
+  purpose: Assign authority, due dates, escalation, and evidence to every cross-organizational dependency so stalled work cannot hide between parties.
+  domain: business
+  lifecycle_stages: [define, design, verify, release, operate, evolve]
+  applies_when: ['implementation work is divided across a provider, customer, partner, integrator, or supplier']
+  answer_type: structured
+  criticality: critical
+  depends_on: [business.implementation-dependencies.001, team.accountability.001]
+  activates: [business.customer-success-roles.001, business.implementation-recovery.001]
+  related_to: [team.authority.001, operations.support.001]
+  evidence_required: [accepted cross-party responsibility matrix, dependency due dates and escalation paths, authority and capacity confirmation]
+  expected_outputs: [implementation responsibility matrix, dependency escalation plan, cross-party governance cadence]
+  answered_by_roles: [provider implementation owner, customer project owner, executive sponsors, partner owner]
+  revisit_when: ['an owner, partner, scope, dependency, authority, schedule, or staffing level changes']
+  tags: [enterprise, ownership, dependencies]
+- id: business.time-to-value.001
+  version: 1
+  status: published
+  question: What time-to-first-value target, implementation milestones, acceptance evidence, and escalation rules apply?
+  purpose: Convert implementation progress into dated, evidence-backed value milestones instead of activity, deployment, or license activation alone.
+  domain: business
+  lifecycle_stages: [define, design, verify, release, operate, evolve]
+  applies_when: [the customer expects measurable value after a multi-step implementation or rollout]
+  answer_type: structured
+  criticality: critical
+  depends_on: [business.implementation-dependencies.001, core.success.001, quality.acceptance.001]
+  activates: [business.value-realization.001, business.renewal-risk.001]
+  related_to: [core.kill-criteria.001, team.change-measurement.001]
+  evidence_required: [baseline and target value measures, dated milestone and critical-path plan, acceptance criteria and escalation exercise]
+  expected_outputs: [time-to-value plan, implementation milestone scorecard, acceptance and escalation gates]
+  answered_by_roles: [implementation owner, customer outcome owner, product owner, executive sponsors]
+  revisit_when: ['milestones slip, dependencies change, acceptance evidence fails, or the promised outcome changes']
+  tags: [enterprise, time-to-value, milestones]
+- id: business.rollout-blockers.001
+  version: 1
+  status: published
+  question: Which identity, provisioning, audit, security-review, data-processing, accessibility, and procurement requirements repeatedly block rollout?
+  purpose: Model recurring enterprise gates as product and implementation constraints rather than rediscovering them after each sale.
+  domain: business
+  lifecycle_stages: [discover, define, design, verify, release, operate, evolve]
+  applies_when: [organizational gatekeepers or technical controls can delay or prevent implementation]
+  answer_type: structured
+  criticality: critical
+  depends_on: [business.implementation-dependencies.001, business.organizational-buying.001, security.identity.001, legal.obligations.001]
+  activates: [business.implementation-recovery.001]
+  related_to: [ux.accessibility.001, security.authorization.001, data.lifecycle.001]
+  evidence_required: [implementation loss and delay analysis, repeatable gate and requirement inventory, completed evaluator and provisioning tests]
+  expected_outputs: [enterprise rollout blocker register, reusable readiness package, blocker resolution backlog]
+  answered_by_roles: [implementation owner, security owner, legal owner, accessibility owner, procurement owner]
+  revisit_when: ['a customer segment, identity model, policy, audit, contract, accessibility need, or procurement process changes']
+  tags: [enterprise, rollout-blockers, procurement]
+- id: business.customer-success-roles.001
+  version: 1
+  status: published
+  question: Are an operational champion, executive sponsor, administrator, support path, and renewal owner present?
+  purpose: Require the human ownership needed to operate, escalate, realize value, and make renewal decisions after implementation handoff.
+  domain: business
+  lifecycle_stages: [define, release, operate, evolve]
+  applies_when: [sustained organizational value depends on multiple customer and provider roles after launch]
+  answer_type: structured
+  criticality: high
+  depends_on: [business.implementation-ownership.001, operations.support.001, team.change-ownership.001]
+  activates: [business.value-realization.001, business.renewal-risk.001]
+  related_to: [team.continuity-dependencies.001, team.communication.001]
+  evidence_required: [named and accepted role map, role authority capacity and succession confirmation, support and governance contact test]
+  expected_outputs: [customer success ownership map, post-launch governance plan, role gap and succession actions]
+  answered_by_roles: [customer success owner, customer executive sponsor, operational champion, administrator, renewal owner]
+  revisit_when: ['a sponsor, champion, administrator, support path, renewal owner, or organizational structure changes']
+  tags: [customer-success, sponsorship, renewal-ownership]
+- id: business.value-realization.001
+  version: 1
+  status: published
+  question: How will actual workflow adoption and value realization be distinguished from license activation?
+  purpose: Measure beneficial operational outcomes and sustained behavior rather than counting provisioned seats, logins, or deployment as success.
+  domain: business
+  lifecycle_stages: [verify, release, operate, evolve]
+  applies_when: [commercial or organizational success depends on users changing work and receiving measurable value]
+  answer_type: structured
+  criticality: critical
+  depends_on: [business.customer-success-roles.001, business.time-to-value.001, business.retention.001, team.change-measurement.001]
+  activates: [business.renewal-risk.001]
+  related_to: [core.success.001, operations.observability.001]
+  evidence_required: [workflow adoption and outcome measures with denominators, baseline and cohort comparison, qualitative value and workaround evidence]
+  expected_outputs: [value realization scorecard, adoption and outcome review, corrective action plan]
+  answered_by_roles: [customer outcome owner, customer success owner, analytics owner, operational champion]
+  revisit_when: ['usage diverges from outcomes, workarounds rise, value claims change, or measurement is gamed']
+  tags: [customer-success, value-realization, adoption]
+- id: business.renewal-risk.001
+  version: 1
+  status: published
+  question: Which signals predict stalled implementation, shelfware, churn, downsell, or failed renewal?
+  purpose: Detect implementation and value failure early enough for corrective action rather than learning only at a late commercial deadline.
+  domain: business
+  lifecycle_stages: [verify, release, operate, evolve]
+  applies_when: ['continued use, expansion, or renewal is necessary for the intended customer and business outcome']
+  answer_type: structured
+  criticality: high
+  depends_on: [business.value-realization.001, business.retention.001, operations.observability.001]
+  activates: [business.implementation-recovery.001]
+  related_to: [operations.sensing-thresholds.001, business.economics.001]
+  evidence_required: [segmented implementation and renewal cohorts, leading signal and threshold validation, loss downsell and churn reason analysis]
+  expected_outputs: [renewal risk model, account-level intervention triggers, portfolio renewal risk report]
+  answered_by_roles: [customer success owner, renewal owner, analytics owner, account owner]
+  revisit_when: ['customer behavior, milestones, usage, outcomes, commercial terms, or prediction performance changes']
+  tags: [renewal-risk, shelfware, churn]
+- id: business.implementation-recovery.001
+  version: 1
+  status: published
+  question: What recovery or exit plan applies when implementation cannot meet the promised outcome?
+  purpose: Define bounded remediation, rescoping, rollback, data return, contractual action, and exit before sunk cost and customer harm escalate.
+  domain: business
+  lifecycle_stages: [define, verify, release, operate, evolve, retire]
+  applies_when: ['implementation can stall, fail acceptance, miss value thresholds, or become infeasible']
+  answer_type: structured
+  criticality: critical
+  depends_on: [business.implementation-ownership.001, business.time-to-value.001, business.rollout-blockers.001, business.customer-success-roles.001]
+  related_to: [core.kill-criteria.001, retirement.transition.001, retirement.user-exit.001]
+  evidence_required: [approved intervention and stop thresholds, rollback rescope and exit exercise, contract data support and customer-impact review]
+  expected_outputs: [implementation recovery playbook, rescope pause and exit criteria, customer transition plan]
+  answered_by_roles: [implementation owner, customer outcome owner, executive sponsors, legal owner, support owner]
+  revisit_when: ['a threshold is crossed, recovery capacity changes, contractual options change, or the promised outcome becomes infeasible']
+  tags: [implementation-recovery, customer-exit, stop-criteria]

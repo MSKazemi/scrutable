@@ -1,0 +1,146 @@
+schema_version: 1
+domain: operations
+questions:
+- id: operations.localization-scope.001
+  version: 1
+  status: published
+  question: Which markets require translation, localization, transcreation, or a redesigned workflow rather than translated strings?
+  purpose: Define the market and locale boundary before assuming that one language, workflow, or operating model can be copied unchanged.
+  domain: operations
+  lifecycle_stages: [discover, define, design, release, operate, evolve, retire]
+  applies_when: ['the subject serves or plans to serve people, organizations, or authorities across languages, locales, cultures, or markets']
+  answer_type: structured
+  criticality: critical
+  depends_on: [core.boundary.001, users.actors.001, users.needs.001]
+  activates: [operations.locale-experience.001, operations.translation-governance.001, operations.local-commercial.001, operations.multilingual-support.001]
+  related_to: [product.naming-validation.001, operations.regional-exposure.001]
+  evidence_required: [market and locale inventory, observed user workflows by locale, qualified local operating constraints]
+  expected_outputs: [localization scope, market-by-market capability and obligation map]
+  answered_by_roles: [international operations owner, product owner, local market owner, user researcher]
+  revisit_when: ['a language, market, user group, workflow, channel, or jurisdiction is added or removed']
+  tags: [internationalization, localization, market-scope]
+- id: operations.locale-experience.001
+  version: 1
+  status: published
+  question: Do right-to-left scripts, input methods, fonts, sorting, search, names, addresses, calendars, units, and text expansion work end to end?
+  purpose: Verify locale mechanics across complete journeys so partial string translation does not conceal unusable, inaccessible, or corrupt behavior.
+  domain: operations
+  lifecycle_stages: [define, design, build, verify, release, operate, evolve]
+  applies_when: ['the subject presents, accepts, transforms, searches, sorts, stores, prints, or transmits locale-sensitive content']
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.localization-scope.001, ux.journeys.001, ux.accessibility.001]
+  activates: [operations.local-validation.001, operations.locale-parity.001]
+  related_to: [ux.comprehension.001, data.quality.001, quality.strategy.001]
+  evidence_required: [end-to-end locale test matrix, right-to-left and bidirectional-text tests, input search sort rendering and export tests]
+  expected_outputs: [locale behavior requirements, internationalization test suite, locale defect register]
+  answered_by_roles: [internationalization engineering owner, designer, accessibility owner, quality owner]
+  revisit_when: ['a locale, script, input method, font, data format, search implementation, or user journey changes']
+  tags: [internationalization, right-to-left, locale-mechanics]
+- id: operations.translation-governance.001
+  version: 1
+  status: published
+  question: Who owns terminology, translation memory, review, release synchronization, and correction quality?
+  purpose: Give multilingual content a controlled lifecycle with accountable terminology, approvals, synchronized releases, and correction propagation.
+  domain: operations
+  lifecycle_stages: [define, design, build, verify, release, operate, evolve]
+  applies_when: ['the subject contains user-facing, contractual, safety, support, policy, or operational content in more than one language']
+  answer_type: structured
+  criticality: high
+  depends_on: [operations.localization-scope.001, team.accountability.001, team.communication.001]
+  activates: [operations.multilingual-support.001, operations.local-validation.001, operations.locale-parity.001]
+  related_to: [ethics.integrity-policy.001, operations.release.001]
+  evidence_required: [approved terminology and style guides, translation memory and source ownership, review qualifications and release synchronization test]
+  expected_outputs: [translation governance model, terminology and translation asset register, multilingual release workflow]
+  answered_by_roles: [localization owner, content owner, qualified language reviewer, release owner]
+  revisit_when: ['terminology, source content, reviewer qualifications, vendor, release process, or correction policy changes']
+  tags: [translation, terminology, release-governance]
+- id: operations.local-commercial.001
+  version: 1
+  status: published
+  question: Which local laws, prices, taxes, payment methods, identity methods, and contractual terms change the product?
+  purpose: Expose market-specific commercial and legal behavior before a launch creates invalid pricing, failed payments, unenforceable terms, or unmet duties.
+  domain: operations
+  lifecycle_stages: [discover, define, design, verify, release, operate, evolve, retire]
+  applies_when: ['a market changes pricing, taxation, payments, invoicing, identity, contracting, consumer rights, or recordkeeping']
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.localization-scope.001, legal.obligations.001, business.economics.001]
+  activates: [security.financial-abuse.001, legal.liability-map.001]
+  related_to: [business.organizational-buying.001, operations.regional-obligations.001]
+  evidence_required: [qualified jurisdiction-specific legal and tax review, local pricing payment and identity tests, localized contract and notice inventory]
+  expected_outputs: [local commercial requirements, market obligation register, payment tax identity and contract controls]
+  answered_by_roles: [local market owner, qualified legal owner, tax owner, payments owner, finance owner]
+  revisit_when: ['law, tax treatment, price, currency, payment rail, identity method, contract, or market model changes']
+  tags: [local-payments, tax, contracts]
+- id: operations.multilingual-support.001
+  version: 1
+  status: published
+  question: Can support, incident response, safety communication, and escalation operate in the required language and time zone?
+  purpose: Ensure that users can obtain accurate and timely help during normal operation and high-consequence events rather than only during sales or onboarding.
+  domain: operations
+  lifecycle_stages: [define, design, verify, release, operate, evolve, retire]
+  applies_when: ['users, operators, customers, or affected parties may need assistance or urgent communication in a supported market']
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.localization-scope.001, operations.translation-governance.001, operations.support.001, operations.incident.001]
+  activates: [operations.crisis-scope.001, operations.locale-parity.001]
+  related_to: [team.communication.001, operations.regional-people.001]
+  evidence_required: [language and time-zone coverage model, multilingual support and escalation exercise, translated incident and safety-message review]
+  expected_outputs: [multilingual support plan, localized escalation matrix, incident and safety communication playbook]
+  answered_by_roles: [support owner, incident commander, communications owner, qualified language reviewer, local market owner]
+  revisit_when: ['support demand, staffing, service hours, incident class, channel availability, or market coverage changes']
+  tags: [multilingual-support, incident-communication, time-zones]
+- id: operations.local-validation.001
+  version: 1
+  status: published
+  question: Have local users tested comprehension, trust, accessibility, and cultural fit in realistic conditions?
+  purpose: Require evidence from affected locales rather than treating internal review or linguistic fluency as proof of usable and trustworthy experience.
+  domain: operations
+  lifecycle_stages: [discover, design, verify, release, operate, evolve]
+  applies_when: ['localized journeys, content, policies, or commercial behavior can affect comprehension, trust, access, or harm']
+  answer_type: structured
+  criticality: high
+  depends_on: [operations.locale-experience.001, operations.translation-governance.001, users.needs.001]
+  activates: [operations.locale-parity.001]
+  related_to: [quality.validation.001, ethics.distribution.001, ux.comprehension.001]
+  evidence_required: [representative local-user research, locale-specific usability and accessibility tests, cultural and harm review with dissent preserved]
+  expected_outputs: [local validation report, locale-specific requirements and risks, correction backlog]
+  answered_by_roles: [local user researcher, accessibility owner, local market owner, ethics owner]
+  revisit_when: ['journeys, language, target population, cultural context, policy, or observed trust changes']
+  tags: [local-research, cultural-fit, accessibility]
+- id: operations.locale-parity.001
+  version: 1
+  status: published
+  question: How are locale-specific defects and missing parity measured and prioritized?
+  purpose: Make unequal quality, delayed features, stale content, and unsupported operations visible with explicit severity and release decisions.
+  domain: operations
+  lifecycle_stages: [design, verify, release, operate, evolve]
+  applies_when: [more than one locale or market is supported or promised]
+  answer_type: structured
+  criticality: high
+  depends_on: [operations.locale-experience.001, operations.translation-governance.001, operations.local-validation.001, operations.observability.001]
+  activates: [quality.release-gate.001]
+  related_to: [core.success.001, users.feedback.001]
+  evidence_required: [locale coverage inventory, defect and feature parity metrics with denominators, support incident and user-feedback analysis by locale]
+  expected_outputs: [locale parity scorecard, prioritized locale remediation plan, market-specific release conditions]
+  answered_by_roles: [localization owner, product owner, quality owner, support owner]
+  revisit_when: ['a locale falls behind, a critical defect appears, parity promises change, or measurement gaps are found']
+  tags: [locale-parity, quality, measurement]
+- id: operations.market-exit.001
+  version: 1
+  status: published
+  question: Can a market be paused or exited without abandoning users or obligations?
+  purpose: Treat regional suspension and exit as an owned lifecycle transition with notice, access, support, data, contract, and surviving-duty controls.
+  domain: operations
+  lifecycle_stages: [define, design, release, operate, evolve, retire]
+  applies_when: ['a market can become unsafe, unlawful, uneconomic, unsupported, or strategically discontinued']
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.localization-scope.001, operations.local-commercial.001, operations.multilingual-support.001, retirement.user-exit.001, business.continuity.001]
+  related_to: [operations.regional-triggers.001, retirement.transition.001, retirement.data-disposition.001]
+  evidence_required: [market exit scenario and authority review, localized notice export migration and support exercise, surviving obligation and affected-party assessment]
+  expected_outputs: [market suspension and exit plan, localized user transition plan, surviving obligation register]
+  answered_by_roles: [market exit authority, local market owner, legal owner, support owner, data owner]
+  revisit_when: ['market legality, safety, economics, support capability, alternatives, or user dependence changes']
+  tags: [market-exit, user-transition, surviving-obligations]

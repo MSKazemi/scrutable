@@ -1,0 +1,110 @@
+schema_version: 1
+domain: operations
+questions:
+- id: operations.crisis-scope.001
+  version: 1
+  status: published
+  question: Which incidents require communication to users, staff, customers, partners, regulators, media, or the public?
+  purpose: Map incident classes to affected audiences, duties, harm, urgency, and communication thresholds before pressure distorts the decision.
+  domain: operations
+  lifecycle_stages: [define, design, verify, release, operate, evolve, retire]
+  applies_when: [an incident can create material safety security privacy service legal financial or public-interest impact]
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.incident.001, core.failure.001, users.actors.001]
+  activates: [operations.crisis-authority.001, operations.crisis-channels.001, operations.crisis-message.001]
+  related_to: [security.incident.001, business.earned-media.001]
+  evidence_required: [incident-to-audience and obligation mapping, affected-party and urgency analysis, notification threshold and timing review]
+  expected_outputs: [crisis communication scope matrix, stakeholder notification thresholds, communication duty register]
+  answered_by_roles: [incident commander, communications owner, legal owner, affected-party representative]
+  revisit_when: ['incident types, audiences, duties, harm profile, channels, or public-interest exposure changes']
+  tags: [crisis-communication, stakeholders, notification]
+- id: operations.crisis-authority.001
+  version: 1
+  status: published
+  question: Who is authorized to speak, approve facts, correct errors, and protect investigation integrity?
+  purpose: Give crisis communication clear decision rights, deputies, evidence boundaries, and correction authority without silencing urgent protective action.
+  domain: operations
+  lifecycle_stages: [define, design, verify, release, operate, evolve]
+  applies_when: [crisis statements require coordination among incident legal security safety leadership or communications roles]
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.crisis-scope.001, team.authority.001, legal.obligations.001]
+  activates: [operations.crisis-message.001, operations.crisis-integrity.001]
+  related_to: [security.incident.001, team.communication.001]
+  evidence_required: [accepted spokesperson approval and deputy matrix, fact verification correction and evidence-preservation workflow, time-pressured authority exercise]
+  expected_outputs: [crisis communication authority matrix, fact approval and correction workflow, investigation communication boundary]
+  answered_by_roles: [incident commander, communications owner, legal owner, security or safety investigation owner, executive authority]
+  revisit_when: ['roles, deputies, incident class, legal duty, investigation process, or response-time needs change']
+  tags: [crisis-authority, spokesperson, fact-approval]
+- id: operations.crisis-channels.001
+  version: 1
+  status: published
+  question: Which channels and prepared fallbacks work when normal systems or accounts are unavailable?
+  purpose: Preserve authenticated, accessible, multilingual, and audience-appropriate communication when primary infrastructure, credentials, vendors, or accounts fail.
+  domain: operations
+  lifecycle_stages: [design, build, verify, release, operate, evolve]
+  applies_when: [crisis communication depends on channels accounts systems vendors credentials or people that can fail or be compromised]
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.crisis-scope.001, business.distribution-risk.001, operations.support.001]
+  activates: [operations.crisis-message.001, operations.crisis-integrity.001]
+  related_to: [security.secrets.001, operations.multilingual-support.001]
+  evidence_required: [stakeholder channel and accessibility inventory, authenticated fallback account and credential test, channel outage compromise and multilingual exercise]
+  expected_outputs: [crisis channel plan, fallback publishing and contact procedure, channel authentication and accessibility controls]
+  answered_by_roles: [communications owner, operations owner, security owner, support owner, local communications owners]
+  revisit_when: ['channel, account, credential, audience, accessibility, vendor, or outage risk changes']
+  tags: [crisis-channels, fallbacks, authenticated-communication]
+- id: operations.crisis-message.001
+  version: 1
+  status: published
+  question: How will uncertainty, changing facts, affected scope, user action, and next update time be communicated?
+  purpose: Provide actionable, updateable, and honest messages without presenting incomplete investigation as certainty or withholding necessary protection.
+  domain: operations
+  lifecycle_stages: [design, verify, release, operate, evolve]
+  applies_when: [an incident requires stakeholder action or repeated updates while facts remain incomplete or changing]
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.crisis-authority.001, operations.crisis-channels.001, operations.observability.001]
+  activates: [operations.crisis-integrity.001, operations.crisis-recovery.001]
+  related_to: [ethics.integrity-provenance.001, operations.multilingual-support.001]
+  evidence_required: [message templates and uncertainty rules, affected-scope and user-action validation, timed exercise with changing facts and corrections]
+  expected_outputs: [crisis message protocol, stakeholder-specific message templates, update cadence and correction log]
+  answered_by_roles: [communications owner, incident commander, subject matter owner, qualified language reviewers]
+  revisit_when: ['facts, scope, user action, channel, audience comprehension, or update cadence changes']
+  tags: [crisis-message, uncertainty, next-update]
+- id: operations.crisis-integrity.001
+  version: 1
+  status: published
+  question: How will misinformation, impersonation, leaks, and stakeholder distrust during the crisis be handled?
+  purpose: Protect communication authenticity and trust while avoiding disproportionate monitoring, retaliation, speculation, or suppression of legitimate criticism.
+  domain: operations
+  lifecycle_stages: [design, verify, release, operate, evolve]
+  applies_when: ['a crisis can attract false claims, forged messages, unauthorized disclosure, manipulation, or distrust']
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.crisis-authority.001, operations.crisis-channels.001, operations.crisis-message.001, security.threats.001]
+  activates: [operations.crisis-recovery.001]
+  related_to: [ethics.integrity-manipulation.001, ethics.integrity-remediation.001]
+  evidence_required: [impersonation misinformation and leak scenarios, channel authentication correction and monitoring tests, privacy proportionality and legitimate-speech review]
+  expected_outputs: [crisis information integrity plan, impersonation and rumor response procedure, trusted-source and correction map]
+  answered_by_roles: [communications owner, security owner, information integrity owner, legal owner, affected-party representative]
+  revisit_when: ['threat actors, channels, false narratives, leaks, distrust, monitoring method, or correction effectiveness changes']
+  tags: [misinformation, impersonation, crisis-integrity]
+- id: operations.crisis-recovery.001
+  version: 1
+  status: published
+  question: What evidence shows that trust, obligations, and harmed relationships are actually recovering?
+  purpose: Define recovery through fulfilled duties, corrected records, affected-party outcomes, credible behavior change, and sustained trust rather than message volume.
+  domain: operations
+  lifecycle_stages: [operate, evolve, retire]
+  applies_when: ['a crisis harmed people, obligations, reputation, relationships, participation, or continued use']
+  answer_type: structured
+  criticality: high
+  depends_on: [operations.crisis-message.001, operations.crisis-integrity.001, business.retention.001, core.success.001]
+  related_to: [core.learning-loop.001, users.feedback.001, ethics.integrity-propagation.001]
+  evidence_required: [obligation and remediation completion evidence, affected-party research and complaint appeal correction outcomes, segmented trust relationship participation and retention measures]
+  expected_outputs: [crisis recovery scorecard, relationship repair and remediation plan, outcome review and reopened graph nodes]
+  answered_by_roles: [recovery owner, communications owner, affected-party representative, legal owner, evidence auditor]
+  revisit_when: ['recovery measures stall, delayed harm appears, obligations change, new evidence emerges, or trust claims diverge from behavior']
+  tags: [crisis-recovery, trust, relationship-repair]

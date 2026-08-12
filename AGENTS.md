@@ -54,6 +54,23 @@ truth.
   `docs/21-geopolitical-and-regional-continuity.md`. Require current qualified legal
   interpretation, put people's safety and agency before uptime, and never move people,
   data, hardware, credentials, funds, or operations without separate authorization.
+- When languages, scripts, locales, local payments, taxes, identity methods,
+  contracts, support, incident communication, or market exit differ, use
+  `docs/22-internationalization-and-localization-operations.md`, the localization
+  catalog module, and the localization readiness register. Require representative
+  local evidence and current qualified review; translation alone is not readiness.
+- When an organizational customer must configure, migrate, integrate, approve, or
+  change work before value, use
+  `docs/23-enterprise-implementation-and-customer-success.md`, the enterprise
+  implementation catalog module, and its register. Do not equate deployment, seat
+  activation, or login volume with adoption or value realization.
+- When marketplace or network behavior, intellectual property, financially valuable
+  flows, manufactured hardware, public crisis communication, or material liability
+  applies, load only the relevant modules described in
+  `docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md`.
+  Promote a conditional module to critical or P0 for the run when consequences
+  require it, and invoke domain-pack governance when qualified specialized coverage
+  is necessary.
 - Keep candidate brainstorming separate from accepted answers.
 - Expose critical blockers and the controlling bottleneck before recommending work.
 - Propagate accepted changes into affected requirements, decisions, risks,

@@ -48,7 +48,7 @@ questions:
     answer_type: structured
     criticality: critical
     depends_on: [business.attention-audience.001, business.positioning.001, business.adoption.001]
-    activates: [business.funnel.001, business.machine-discovery.001, business.distribution-risk.001]
+    activates: [business.funnel.001, business.machine-discovery.001, business.distribution-risk.001, business.marketplace-sides.001]
     evidence_required: [channel map, audience-channel fit research, cost and control assumptions]
     expected_outputs: [distribution strategy, channel experiment backlog]
     answered_by_roles: [growth owner, sales owner, partnerships owner, product owner]
@@ -207,7 +207,7 @@ questions:
     answer_type: structured
     criticality: critical
     depends_on: [business.attention-audience.001, business.channels.001, business.adoption.001]
-    activates: [legal.obligations.001, security.threats.001]
+    activates: [legal.obligations.001, security.threats.001, business.implementation-dependencies.001]
     evidence_required: [buying-committee map, procurement and approval criteria, evaluator journey test, sales-cycle and loss evidence]
     expected_outputs: [organizational-discovery map, procurement readiness plan, approval bottleneck experiment]
     answered_by_roles: [sales owner, product owner, security owner, legal owner, customer champion]

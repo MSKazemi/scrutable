@@ -46,6 +46,7 @@ questions:
     answer_type: structured
     criticality: critical
     depends_on: [operations.observability.001, core.ownership.001]
+    activates: [operations.crisis-scope.001]
     evidence_required: [incident exercise, on-call and escalation test, review examples]
     expected_outputs: [incident response plan, escalation matrix]
     answered_by_roles: [operations owner, system owner, communications owner]
@@ -82,4 +83,3 @@ questions:
     expected_outputs: [supply-chain policy, dependency inventory]
     answered_by_roles: [security owner, engineering lead, operations owner]
     revisit_when: [build chain, dependency, or distribution channel changes]
-

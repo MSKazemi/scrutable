@@ -20,6 +20,9 @@ The goal is not to create a product with the most features. The goal is to make 
 | Monitor external change, web, and news | [`docs/18-external-sensing-and-attention.md`](docs/18-external-sensing-and-attention.md) |
 | Govern information and content integrity | [`docs/20-information-integrity-and-content-governance.md`](docs/20-information-integrity-and-content-governance.md) |
 | Plan geopolitical and regional continuity | [`docs/21-geopolitical-and-regional-continuity.md`](docs/21-geopolitical-and-regional-continuity.md) |
+| Run internationalization and localization operations | [`docs/22-internationalization-and-localization-operations.md`](docs/22-internationalization-and-localization-operations.md) |
+| Govern enterprise implementation and customer value | [`docs/23-enterprise-implementation-and-customer-success.md`](docs/23-enterprise-implementation-and-customer-success.md) |
+| Activate marketplace, IP, financial-crime, hardware, crisis, or liability modules | [`docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md`](docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md) |
 | Verify coverage and current limits | [`docs/15-request-coverage-and-operational-readiness-audit.md`](docs/15-request-coverage-and-operational-readiness-audit.md) |
 
 ## What this repository is
@@ -46,17 +49,21 @@ The framework can improve decision quality and expose failure risks; it cannot g
 7. Use the [structured graph foundation](docs/structured-foundation.md) for stable IDs, typed relationships, state history, schemas, and the governed domain-pack interface.
 8. Use the [governed self-improvement and adversarial review method](docs/10-self-improvement-and-adversarial-governance.md) when challenging an idea, finding the controlling bottleneck, evaluating a pivot, or improving the framework. Its governance decision is recorded in [ADR-0002](decisions/ADR-0002-governed-adversarial-self-improvement.md).
 9. Follow the [usage, project placement, visibility, and agent-integration protocol](docs/11-usage-deployment-and-agent-integration.md) to apply the framework to another repository or run it with Codex, ChatGPT, Claude Code, or another agent system.
-10. Record results using the [run manifest](templates/run-manifest.md), [agent run request](templates/agent-run-request.md), [project charter](templates/project-charter.md), [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [assurance decision record](templates/assurance-decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), [risk register](templates/risk-register.md), [review scorecard](templates/review-scorecard.md), [readiness report](templates/readiness-report.md), [improvement cycle](templates/improvement-cycle.md), [adversarial review](templates/adversarial-review.md), [external signal register](templates/external-signal-register.md), [content integrity register](templates/content-integrity-register.md), and [regional continuity register](templates/regional-continuity-register.md).
+10. Record results using the [run manifest](templates/run-manifest.md), [agent run request](templates/agent-run-request.md), [project charter](templates/project-charter.md), [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [assurance decision record](templates/assurance-decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), [risk register](templates/risk-register.md), [review scorecard](templates/review-scorecard.md), [readiness report](templates/readiness-report.md), [improvement cycle](templates/improvement-cycle.md), [adversarial review](templates/adversarial-review.md), [external signal register](templates/external-signal-register.md), [content integrity register](templates/content-integrity-register.md), [regional continuity register](templates/regional-continuity-register.md), [localization readiness register](templates/localization-readiness-register.md), [enterprise implementation register](templates/enterprise-implementation-register.md), and [conditional risk register](templates/conditional-risk-register.md).
 11. Inspect the [prose-to-catalog coverage contract](docs/16-prose-to-catalog-coverage.md) to see how every numbered human-readable question is preserved and connected to the stable graph without claiming false one-to-one equivalence.
 12. Use the [domain-pack governance contract](docs/17-domain-pack-governance.md) when regulation, safety criticality, or material sector-specific harm may require qualified coverage.
 13. Use the [external sensing and attention contract](docs/18-external-sensing-and-attention.md) to collect decision-changing signals from authorities, people, companies, agents, the web, and news while keeping blind spots explicit.
 14. Use the [information-integrity and content-governance method](docs/20-information-integrity-and-content-governance.md) when the subject creates, transforms, ranks, recommends, stores, or distributes consequential content or claims.
 15. Use the [geopolitical and regional continuity method](docs/21-geopolitical-and-regional-continuity.md) when countries, regions, currencies, networks, suppliers, staff, customers, assets, or legal entities create concentrated exposure.
-16. Review the [coverage gaps and expansion backlog](docs/12-coverage-gaps-and-expansion-backlog.md) before claiming comprehensive support or promoting new question domains.
-17. Read the [framework quality assurance audit](docs/13-quality-assurance-audit-and-roadmap.md) for the controlling bottleneck, measurable assurance levels, release gates, and validation roadmap.
-18. Read the [human and AI usability contract](docs/14-human-and-ai-usability.md) for progressive disclosure, task-based entrypoints, context loading, failure behavior, and the prioritized usability roadmap.
-19. Read the [request coverage and operational-readiness audit](docs/15-request-coverage-and-operational-readiness-audit.md) for a direct status of branch integration, self-improvement, usage, inputs, outputs, visibility, algorithms, agent compatibility, and remaining implementation gaps.
-20. Read the [whole-repository integration audit](docs/19-whole-repository-integration-audit.md) for the pinned file-by-file review, deterministic cross-file checks, corrections, and remaining integration risks.
+16. Use the [internationalization and localization operations method](docs/22-internationalization-and-localization-operations.md) when languages, scripts, right-to-left behavior, local payments, taxes, identity, contracts, support, incident communication, parity, or market exit differ.
+17. Use the [enterprise implementation and customer-success method](docs/23-enterprise-implementation-and-customer-success.md) when customer configuration, migration, integration, approvals, rollout, time to value, adoption, renewal, recovery, or exit determines the outcome.
+18. Use the [conditional marketplace, IP, financial-crime, hardware, crisis, and liability method](docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md) when one or more of those high-consequence concerns applies.
+19. Review the [coverage gaps and expansion backlog](docs/12-coverage-gaps-and-expansion-backlog.md) before claiming comprehensive support or promoting new question domains.
+20. Read the [framework quality assurance audit](docs/13-quality-assurance-audit-and-roadmap.md) for the controlling bottleneck, measurable assurance levels, release gates, and validation roadmap.
+21. Read the [human and AI usability contract](docs/14-human-and-ai-usability.md) for progressive disclosure, task-based entrypoints, context loading, failure behavior, and the prioritized usability roadmap.
+22. Read the [request coverage and operational-readiness audit](docs/15-request-coverage-and-operational-readiness-audit.md) for a direct status of branch integration, self-improvement, usage, inputs, outputs, visibility, algorithms, agent compatibility, and remaining implementation gaps.
+23. Read the [whole-repository integration audit](docs/19-whole-repository-integration-audit.md) for the pinned file-by-file review, deterministic cross-file checks, corrections, and remaining integration risks.
+24. Read the [expansion module integration audit](docs/25-expansion-module-integration-audit.md) for the 52 promoted backlog questions, activation graph, exact expected counts, validation contract, and remaining evidence.
 
 The accepted framework name and its limitations are recorded in [the naming decision](decisions/0001-product-questionbook-name.md). The primary-interface boundary is recorded in [ADR-0003: text-first, agent-native architecture](decisions/ADR-0003-text-first-agent-native-architecture.md).
 
@@ -108,8 +115,9 @@ The initial foundation includes:
   governed improvement cycles, prose coverage, and domain-pack manifests in
   [`schemas/`](schemas/);
 - a [prose-to-catalog coverage manifest](coverage/prose-to-catalog.yaml) with 396 stable source identities and a [coverage schema](schemas/prose-coverage.schema.json);
-- 147 starter templates with 528 declared dependencies and activations across 16
-  universal concern domains in [`catalog/`](catalog/);
+- 199 starter templates with 794 declared dependencies and activations and 1,009
+  total relationship references across 16 universal concern domains in
+  [`catalog/`](catalog/);
 - a [domain-pack governance contract](docs/17-domain-pack-governance.md), schema,
   draft manifest, and eight stable governance questions; no expert-reviewed pack is
   yet published;
@@ -134,6 +142,18 @@ The initial foundation includes:
   [geopolitical continuity module](catalog/operations/geopolitical-continuity-questions.yaml),
   a people-first [regional continuity method](docs/21-geopolitical-and-regional-continuity.md),
   and a reusable exposure and fallback register;
+- an eight-question
+  [internationalization and localization operations module](catalog/operations/internationalization-localization-questions.yaml),
+  an operating [method](docs/22-internationalization-and-localization-operations.md),
+  and a localization readiness register;
+- an eight-question
+  [enterprise implementation and customer-success module](catalog/business/enterprise-implementation-questions.yaml),
+  an operating [method](docs/23-enterprise-implementation-and-customer-success.md),
+  and an implementation register;
+- six-question marketplace, intellectual-property, financial-crime, hardware and
+  recall, crisis-communication, and liability and insurance modules governed by a
+  shared [conditional method](docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md)
+  and conditional risk register;
 - reusable assurance and improvement templates plus a worked project-specific example.
 
 The versioned Markdown and YAML records are the source of truth. The graph is their
@@ -189,8 +209,11 @@ optional and require evidence of a real need. This boundary is defined in
 This is version `0.7`: the graph-ready documentation includes governed adversarial
 self-improvement, pivot lineage, attraction and distribution questions, reconciled
 human/agent/robot integration and financial-continuity controls, stable question IDs,
-machine-validatable schemas, a governed domain-pack interface, assurance and improvement
-templates, a vendor-neutral coding-agent protocol, explicit news and organizational
-buying questions, and a worked example. The full reference-engine stack is deferred;
-the next justified automation is an optional conformance validator that preserves the
-text files as canonical state. See the [changelog](CHANGELOG.md).
+machine-validatable schemas, a governed domain-pack interface, international and
+enterprise operating methods, six conditional high-consequence modules, assurance
+and improvement templates, a vendor-neutral coding-agent protocol, explicit news and
+organizational buying questions, and a worked example. The full reference-engine
+stack is deferred; the next justified automation is an optional conformance validator
+that preserves the text files as canonical state. The newly published expansion
+modules remain partial until representative runs and qualified evidence calibrate
+them. See the [changelog](CHANGELOG.md).

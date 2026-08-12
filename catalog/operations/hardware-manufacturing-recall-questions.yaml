@@ -1,0 +1,111 @@
+schema_version: 1
+domain: operations
+questions:
+- id: operations.manufacturing-dependencies.001
+  version: 1
+  status: published
+  question: Which bill-of-materials items, factories, tools, firmware signers, logistics providers, and sub-tier suppliers are single points of failure?
+  purpose: Map physical production and distribution dependencies including hidden sub-tier, tooling, signing, and logistics concentration.
+  domain: operations
+  lifecycle_stages: [discover, define, design, build, verify, release, operate, evolve, retire]
+  applies_when: ['the subject includes manufactured, assembled, installed, shipped, repaired, or safety-relevant physical hardware']
+  answer_type: structured
+  criticality: critical
+  depends_on: [architecture.context.001, architecture.dependencies.001, operations.supply-chain.001]
+  activates: [operations.manufacturing-quality.001, operations.production-release.001]
+  related_to: [operations.regional-exposure.001, team.continuity-sourcing.001]
+  evidence_required: [multi-tier bill of materials and supplier map, tooling firmware-signing factory and logistics dependency review, substitution lead-time and correlated-failure scenarios]
+  expected_outputs: [hardware supply-chain map, manufacturing concentration register, approved substitution and continuity plan]
+  answered_by_roles: [manufacturing owner, supply-chain owner, hardware engineering owner, security owner]
+  revisit_when: ['a component, factory, tool, signer, supplier, logistics route, region, or substitution option changes']
+  tags: [hardware, manufacturing, supply-chain]
+- id: operations.manufacturing-quality.001
+  version: 1
+  status: published
+  question: What yield, tolerance, traceability, counterfeit, calibration, and incoming-quality thresholds apply?
+  purpose: Define measurable production controls that detect unsafe or nonconforming physical variation before units reach users or field service.
+  domain: operations
+  lifecycle_stages: [define, design, build, verify, release, operate, evolve]
+  applies_when: ['physical parts materials assemblies tools or measurements can vary, degrade, be substituted, or be counterfeit']
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.manufacturing-dependencies.001, reliability.failure-modes.001, data.quality.001]
+  activates: [operations.production-release.001, operations.recall-traceability.001]
+  related_to: [quality.strategy.001, operations.observability.001]
+  evidence_required: [critical characteristic and tolerance definition, yield incoming inspection calibration and counterfeit test results, lot serial supplier and nonconformance trace records]
+  expected_outputs: [manufacturing quality plan, acceptance and quarantine thresholds, traceability and nonconformance controls]
+  answered_by_roles: [manufacturing quality owner, hardware engineering owner, supplier quality owner, metrology owner]
+  revisit_when: ['design, process, supplier, material, tool, yield, defect, calibration, or counterfeit risk changes']
+  tags: [manufacturing-quality, traceability, counterfeit]
+- id: operations.production-release.001
+  version: 1
+  status: published
+  question: Which certifications, environmental tests, pre-production validations, and production-release evidence are required?
+  purpose: Prevent production or shipment before safety, compliance, design-transfer, process-capability, and reproducibility evidence is accepted.
+  domain: operations
+  lifecycle_stages: [define, design, build, verify, release, evolve]
+  applies_when: ['hardware must pass certification, environmental, pilot, process, or production readiness gates before distribution']
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.manufacturing-quality.001, quality.release-gate.001, operations.release.001]
+  activates: [operations.field-service.001, operations.recall-traceability.001]
+  related_to: [core.domain-pack.001, legal.obligations.001]
+  evidence_required: [certification and regulatory evidence inventory, environmental reliability and pre-production validation results, process capability design-transfer and production audit]
+  expected_outputs: [production release checklist, certification and validation dossier, approved production and shipment decision]
+  answered_by_roles: [production release authority, quality owner, hardware engineering owner, qualified compliance owner]
+  revisit_when: ['design, factory, process, component, firmware, certification, environment, intended use, or failure evidence changes']
+  tags: [production-release, certification, validation]
+- id: operations.field-service.001
+  version: 1
+  status: published
+  question: How are installation, inspection, maintenance, repairability, spare parts, and field-service competence managed?
+  purpose: Preserve safe and supportable physical operation after shipment through qualified people, parts, procedures, records, and escalation.
+  domain: operations
+  lifecycle_stages: [design, build, verify, release, operate, evolve, retire]
+  applies_when: [hardware requires installation inspection maintenance repair calibration replacement or field intervention]
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.production-release.001, operations.support.001, reliability.recovery.001]
+  activates: [operations.recall-traceability.001, operations.recall-authority.001]
+  related_to: [team.capability.001, retirement.data-disposition.001]
+  evidence_required: [serviceability and safe-state design review, technician training qualification and procedure tests, spares tooling maintenance and service-record capacity]
+  expected_outputs: [field service plan, maintenance and repair procedures, technician qualification and spare-parts plan]
+  answered_by_roles: [field service owner, hardware engineering owner, safety owner, support owner, training owner]
+  revisit_when: ['installed base, service interval, defect pattern, part availability, procedure, tool, qualification, or safe-state requirement changes']
+  tags: [field-service, repairability, spare-parts]
+- id: operations.recall-traceability.001
+  version: 1
+  status: published
+  question: Can affected serial numbers, firmware versions, customers, and locations be found quickly during a safety action or recall?
+  purpose: Make field containment and notification executable by linking product genealogy, configuration, custody, customer, and location records.
+  domain: operations
+  lifecycle_stages: [design, build, verify, release, operate, evolve, retire]
+  applies_when: [a defect or hazard may affect a subset of manufactured or deployed units]
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.manufacturing-quality.001, operations.production-release.001, data.inventory.001]
+  activates: [operations.recall-authority.001, operations.crisis-scope.001]
+  related_to: [operations.observability.001, legal.claim-evidence.001]
+  evidence_required: [end-to-end unit genealogy and configuration trace test, customer location custody and channel reconciliation, time-bounded mock recall and notification exercise]
+  expected_outputs: [recall traceability system, affected-unit query and reconciliation procedure, mock recall results]
+  answered_by_roles: [recall coordinator, manufacturing quality owner, data owner, customer operations owner]
+  revisit_when: ['identifier, firmware, configuration, distribution, data retention, channel, ownership, or installed-base changes']
+  tags: [recall, serial-traceability, product-genealogy]
+- id: operations.recall-authority.001
+  version: 1
+  status: published
+  question: Who can stop production, quarantine inventory, issue a recall, and fund remediation?
+  purpose: Pre-authorize protective decisions and resources so commercial pressure, fragmented ownership, or uncertainty cannot delay containment.
+  domain: operations
+  lifecycle_stages: [define, design, verify, release, operate, evolve, retire]
+  applies_when: ['a quality, safety, security, compliance, or field failure can require containment, correction, withdrawal, or recall']
+  answer_type: structured
+  criticality: critical
+  depends_on: [operations.recall-traceability.001, team.authority.001, business.economics.001, legal.obligations.001]
+  activates: [operations.crisis-scope.001, legal.liability-map.001]
+  related_to: [core.kill-criteria.001, operations.incident.001]
+  evidence_required: [accepted stop quarantine correction and recall decision rights, funding capacity and supplier customer coordination plan, tabletop exercise including adverse commercial pressure]
+  expected_outputs: [recall authority matrix, containment correction and recall runbook, remediation funding and escalation plan]
+  answered_by_roles: [recall authority, safety owner, quality owner, legal owner, finance owner, communications owner]
+  revisit_when: ['authority, funding, supplier, jurisdiction, installed base, defect severity, or remediation options change']
+  tags: [recall-authority, stop-production, remediation]
