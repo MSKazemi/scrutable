@@ -26,6 +26,7 @@ entrypoints:
   machine_contract: docs/08-machine-operation-and-outputs.md
   convergence_contract: docs/09-output-convergence-and-implementation.md
   usage_protocol: docs/11-usage-deployment-and-agent-integration.md
+  request_coverage_audit: docs/15-request-coverage-and-operational-readiness-audit.md
   contribution_guide: CONTRIBUTING.md
   worked_example: examples/sample-application/README.md
 

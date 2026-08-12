@@ -15,6 +15,7 @@ The goal is not to create a product with the most features. The goal is to make 
 | See a worked structure | [`examples/sample-application/`](examples/sample-application/) |
 | Understand the complete framework | [Full documentation path](#start-here) |
 | Change the framework | [`CONTRIBUTING.md`](CONTRIBUTING.md) |
+| Verify coverage and current limits | [`docs/15-request-coverage-and-operational-readiness-audit.md`](docs/15-request-coverage-and-operational-readiness-audit.md) |
 
 ## What this repository is
 
@@ -44,6 +45,7 @@ The framework can improve decision quality and expose failure risks; it cannot g
 11. Review the [coverage gaps and expansion backlog](docs/12-coverage-gaps-and-expansion-backlog.md) before claiming comprehensive support or promoting new question domains.
 12. Read the [framework quality assurance audit](docs/13-quality-assurance-audit-and-roadmap.md) for the controlling bottleneck, measurable assurance levels, release gates, and validation roadmap.
 13. Read the [human and AI usability contract](docs/14-human-and-ai-usability.md) for progressive disclosure, task-based entrypoints, context loading, failure behavior, and the prioritized usability roadmap.
+14. Read the [request coverage and operational-readiness audit](docs/15-request-coverage-and-operational-readiness-audit.md) for a direct status of branch integration, self-improvement, usage, inputs, outputs, visibility, algorithms, agent compatibility, and remaining implementation gaps.
 
 The accepted framework name and its limitations are recorded in [the naming decision](decisions/0001-product-questionbook-name.md).
 

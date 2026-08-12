@@ -4,6 +4,10 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
+- Added a request-coverage and operational-readiness audit that maps branch integration, self-improvement, usage, placement, inputs, outputs, visibility, algorithms, and coding-agent compatibility to their canonical sources and honest limitations.
+- Independently rechecked the live `main` structure: 99 unique question IDs, 322 resolved declared relationships, six syntactically valid JSON files, 108 resolving internal Markdown file links, all required human and agent entrypoints present, both historical pull requests merged, and no open pull request.
+- Reaffirmed that the current framework is A0 overall with manually observed parts of A1; executable semantic enforcement, required CI, end-to-end agent evaluation, and real-project efficacy evidence remain future work.
+
 - Added a root quick start that gives humans and AI agents a minimum useful path
   from an unclear idea to a pinned decision and assurance package.
 - Added `ai-context.yaml` as a compact machine-readable discovery manifest for
