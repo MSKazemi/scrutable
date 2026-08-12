@@ -4,6 +4,8 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
+- Added a quantified status snapshot for all 15 coverage gaps outside the executable-engine item: 108 candidate questions, 13 partially covered areas, two missing or domain-pack-required areas, zero dedicated promotions, and the nearest existing stable catalog IDs for every gap.
+
 - Added a request-coverage and operational-readiness audit that maps branch integration, self-improvement, usage, placement, inputs, outputs, visibility, algorithms, and coding-agent compatibility to their canonical sources and honest limitations.
 - Independently rechecked the live `main` structure: 99 unique question IDs, 322 resolved declared relationships, six syntactically valid JSON files, 108 resolving internal Markdown file links, all required human and agent entrypoints present, both historical pull requests merged, and no open pull request.
 - Reaffirmed that the current framework is A0 overall with manually observed parts of A1; executable semantic enforcement, required CI, end-to-end agent evaluation, and real-project efficacy evidence remain future work.

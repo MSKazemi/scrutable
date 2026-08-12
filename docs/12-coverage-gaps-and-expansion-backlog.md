@@ -67,6 +67,69 @@ P2 does not mean unimportant. It means highly consequential when applicable but 
 universal. A payment platform, marketplace, medical device, or public-facing safety
 system should promote several of these concerns to P0 for that run.
 
+## Quantified status excluding the executable-engine gap
+
+This snapshot deliberately excludes item 2, the executable deterministic engine. It
+measures the other backlog items against the live 0.7 catalog rather than treating a
+mention in prose as structured support.
+
+| Metric | Current value |
+|---|---:|
+| Gap areas excluding item 2 | 15 |
+| Candidate questions in those areas | 108 |
+| Candidate questions promoted as dedicated published catalog records | 0 |
+| Partially covered gap areas | 13 |
+| Missing or domain-pack-required gap areas | 2 |
+| P0 areas / candidate questions | 2 / 16 |
+| P1 areas / candidate questions | 7 / 56 |
+| P2 areas / candidate questions | 6 / 36 |
+| Existing reusable catalog | 99 questions / 322 declared relationships |
+| Expert-reviewed regulated or safety-critical packs | 0 |
+| Prose-to-catalog coverage manifest | absent |
+
+“Zero promoted” does not mean that all 108 concerns are absent. It means none of these
+backlog candidates has completed the promotion contract as a dedicated stable record.
+Several are compressed into broader published questions. Such generic coverage
+justifies `partial`, not `covered`, until the mapping, failure modes, evidence,
+outputs, ownership, and activation rules are explicit.
+
+| Item | Gap | Priority | Candidate questions | Current status | Nearest published structured coverage | What is still absent |
+|---:|---|---|---:|---|---|---|
+| 1 | Prose-to-catalog parity | P0 | 8 | Partial | 99 catalog records across 16 domains | No manifest maps the hundreds of Markdown questions to stable IDs; at least integration `I1-I20`, finance `F1-F13`, bottleneck `B1-B10`, and most naming questions lack a declared complete mapping |
+| 3 | Regulated and safety-critical domain packs | P0 | 8 | Missing / domain pack required | `legal.obligations.001`, `data.classification.001`, `security.threats.001`, `ethics.harms.001` | No qualified healthcare, fintech, children, government, aviation, automotive, industrial-control, or comparable pack; no pack authority, jurisdiction, expiry, tests, or approver model |
+| 4 | Organizational adoption and change management | P1 | 8 | Partial | `business.adoption.001`, `business.organizational-buying.001` | Resistance, authority shifts, training, proficiency, parallel run, productivity trough, labor obligations, fatigue, and rollback ownership are not a coherent structured set |
+| 5 | Workforce and knowledge continuity | P1 | 8 | Partial | `team.accountability.001`, `team.capability.001`, `team.communication.001` | Key-person dependency, succession, turnover, burnout, cross-training, access transfer, separation of duties under shortage, and leading indicators need explicit records |
+| 6 | External sensing and horizon monitoring | P1 | 8 | Partial | `core.learning-loop.001`, `architecture.dependencies.001`, `business.distribution-risk.001`, record-level `revisit_when` triggers | No governed source inventory, monitoring cadence, signal reliability, detection-delay budget, threshold-to-reopen rule, or missed-signal review |
+| 7 | Information integrity and content governance | P1 | 8 | Partial | `data.quality.001`, `security.threats.001`, `ethics.harms.001`, `ethics.contestability.001` | Misinformation, deepfakes, provenance/authenticity, coordinated manipulation, moderation, reviewer safety, correction, appeal, and downstream propagation lack a coherent structured method |
+| 8 | Geopolitical and regional continuity | P1 | 8 | Missing | Generic `legal.obligations.001`, `architecture.dependencies.001`, and `business.continuity.001` can detect some exposure | No dedicated sanctions, export-control, conflict, internet-shutdown, currency-control, regional concentration, staff-protection, or legal fallback questions |
+| 9 | Internationalization and localization operations | P1 | 8 | Partial | `ux.accessibility.001`, `ux.comprehension.001`, `legal.obligations.001`, `product.naming-validation.001` | Translation governance, right-to-left behavior, locale mechanics, local payments/taxes/contracts, multilingual support and incident response, parity metrics, and market exit are shallow or absent |
+| 10 | Enterprise implementation and customer success | P1 | 8 | Partial | `business.organizational-buying.001`, `business.adoption.001`, `business.retention.001`, `operations.support.001` | Provider/customer dependency ownership, implementation milestones, time-to-value, stalled-rollout signals, value realization, shelfware, customer-success recovery, and renewal control need deeper records |
+| 11 | Ecosystem, marketplace, and network governance | P2 | 6 | Partial | `business.channels.001`, `business.machine-discovery.001`, `business.incentives.001` | Multi-sided cold start, liquidity, ranking/access rules, participant disputes and appeals, collusion, adverse selection, disintermediation, network power, and reputation portability are not modeled together |
+| 12 | Intellectual-property ownership and defensibility | P2 | 6 | Partial | `legal.licenses.001`, `legal.naming-rights.001`, `core.ownership.001` | Invention assignment, patents, trade secrets, freedom to operate, agent-generated assets, disclosure timing, defensibility, enforcement cost, and IP exit dependencies are not explicit |
+| 13 | Fraud, payments, and financial crime | P2 | 6 | Partial | `security.threats.001`, `security.identity.001`, `business.incentives.001`, `legal.obligations.001` | Payment abuse, chargebacks, account takeover, identity fraud, AML/KYC, sanctions screening, reserves, reconciliation, processor dependency, and loss allocation need conditional depth |
+| 14 | Hardware manufacturing, field service, and recall | P2 | 6 | Partial | `architecture.context.001`, `reliability.failure-modes.001`, `operations.supply-chain.001` | Yield, component authenticity and substitution, production tests, traceability, repair, spares, field service, physical safe state, recall, disposal, and field-failure learning are shallow |
+| 15 | Crisis, reputation, and public communication | P2 | 6 | Partial | `operations.incident.001`, `security.incident.001`, `business.distribution-risk.001`, `business.earned-media.001` | Crisis authority, stakeholder-specific disclosure, correction, rumor response, legal/evidentiary preservation, trust measurement, spokesperson readiness, and recovery thresholds are not a complete method |
+| 16 | Liability allocation and insurance | P2 | 6 | Partial | `legal.obligations.001`, `core.failure.001`, `business.economics.001` | Contractual indemnity, liability caps, insurance scope, exclusions, limits, notification duties, insurer requirements, uncovered loss, and residual-risk authority are not explicitly evaluated |
+
+### Interpretation
+
+- **Highest structural priority:** item 1. Until the parity manifest exists, the
+  framework cannot calculate how much of the human-readable question system is
+  represented by the graph.
+- **Highest safety priority:** item 3. Generic questions should activate a qualified
+  pack or block a domain-qualified claim; the universal framework must not impersonate
+  clinical, legal, financial, aviation, automotive, or industrial-control expertise.
+- **Highest unmodeled continuity priority:** item 8. Geopolitical failure can make
+  suppliers, staff, funds, data, networks, contracts, or markets inaccessible with
+  little warning.
+- **Promotion order after those P0/P1 concerns:** promote a conditional P2 pack only
+  when the subject activates it. A payment product should not wait behind a generic
+  global P2 label; fraud and financial-crime coverage becomes P0 for that run.
+
+The backlog status changes only after the promotion checklist in this document passes.
+Adding another paragraph, prompt, or agent instruction does not change a gap from
+partial to covered.
+
 ## P0 questions
 
 ### 1. Prose-to-catalog parity
