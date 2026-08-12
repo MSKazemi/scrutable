@@ -18,8 +18,8 @@ The precise status is:
   agent instructions exist;
 - the self-improvement, convergence, visibility, and agent-integration algorithms are
   specified;
-- no executable Questionbook engine, CLI, API, deterministic semantic validator, or
-  required CI gate exists yet;
+- no deterministic conformance validator or required CI gate exists yet; a CLI, API,
+  database, or service is optional and is not required for normal framework use;
 - no system can guarantee attention from people, companies, agents, search engines,
   or news organizations; the framework can enforce only a measurable experiment,
   evidence, decision, and review process;
@@ -200,8 +200,9 @@ own consequential recommendation.
 
 The current repository is documentation-friendly for Codex, ChatGPT, Claude Code, and
 similar systems through `ai-context.yaml`, `AGENTS.md`, `CLAUDE.md`, and the run-request
-template. It is not yet application-integrated: there is no installed CLI/API, adapter
-test suite, permission test suite, or benchmark showing reliable end-to-end behavior.
+template. No separate application is required for this text-protocol integration.
+However, there is not yet a deterministic validator, adapter test suite, permission
+test suite, or benchmark showing reliable end-to-end behavior.
 
 ## Independent structural check of the audited snapshot
 
@@ -220,20 +221,23 @@ domain completeness, or improved product outcomes.
 
 ## Remaining controlling bottleneck
 
-The controlling bottleneck is no longer missing prose. It is the absence of an
-executable, required, and empirically tested assurance path. The next work should be:
+The controlling bottleneck is no longer missing prose or a missing user application.
+It is the absence of a deterministic, required, and empirically tested conformance and
+assurance path. The next work should be:
 
 1. implement the repository validator and run it as a required CI check;
 2. create a prose-to-catalog coverage manifest;
 3. complete the schemas and cross-record semantic validation;
 4. add positive, negative, property, determinism, migration, and permission tests;
 5. provide a complete end-to-end run, including a failing gate and outcome review;
-6. implement the CLI/API and vendor-neutral agent adapters;
+6. test vendor-neutral agent use of the text protocol and add only the adapters that
+   measured failures justify; keep CLI/API optional;
 7. run independent real-project pilots and measure misses, false blockers, calibration,
    evidence cost, decision change, and later outcomes;
 8. delete obsolete merged branch references after verifying no dependency remains.
 
 Until those gates pass, the accurate claim is: Product Questionbook provides a
-documented, structured, evidence-oriented manual and agent-assisted framework. It does
-not yet provide an executable assurance system, guaranteed visibility, or guaranteed
-product success.
+documented, structured, evidence-oriented text protocol for manual and agent-assisted
+work. It does not yet provide automated conformance assurance, guaranteed visibility,
+or guaranteed product success; it does not require a standalone application to be
+useful.

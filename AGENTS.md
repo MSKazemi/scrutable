@@ -4,7 +4,11 @@
 
 Use this repository as a reusable decision and assurance framework. Do not present it
 as an implemented autonomous engine. The current catalog, schemas, policies, and
-templates may be applied manually or with agent assistance.
+templates may be applied manually or with agent assistance. Treat Markdown, YAML,
+JSON Schema, and Git history as the primary interface. Do not require a CLI, API,
+database, or service to perform a run. If an optional validator is available, use it
+for deterministic checks and preserve its report; do not treat it as the source of
+truth.
 
 ## Context loading
 

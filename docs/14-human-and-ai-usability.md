@@ -5,7 +5,9 @@
 Product Questionbook must be understandable by a first-time human and reliably
 navigable by an AI agent without requiring either reader to load the entire
 repository. Friendliness means reducing time-to-first-use and ambiguity while
-preserving evidence, safety, and traceability requirements.
+preserving evidence, safety, and traceability requirements. Versioned Markdown and
+YAML are the primary human and agent interface; usability must not depend on installing
+a separate application.
 
 This contract is an interface layer over the existing framework. It does not change
 question semantics, lower assurance requirements, or imply that an executable engine
@@ -34,7 +36,7 @@ authorization boundaries.
 | Product owner | [`templates/product-brief.md`](../templates/product-brief.md) | Core and activated domain questions |
 | AI agent applying the framework | [`ai-context.yaml`](../ai-context.yaml) | `AGENTS.md`, method, and core profile |
 | AI agent changing the framework | [`AGENTS.md`](../AGENTS.md) | Contribution guide, schemas, and normative docs |
-| Engine implementer | Machine and convergence contracts | Schemas, domain model, and ADR-0001 |
+| Validator or adapter implementer | Machine and convergence contracts | Schemas, domain model, ADR-0003, and deferred ADR-0001 |
 | Reviewer or auditor | Assurance rules and readiness report | Evidence ledger, blockers, and gate report |
 
 The README should route readers to these paths before presenting the full document
@@ -126,16 +128,17 @@ Until automated checks exist, review releases against these questions:
 | Priority | Improvement | Why it matters | Completion evidence |
 | --- | --- | --- | --- |
 | P0 | Quick start, README routing, AI manifest | Removes the entry and discovery bottleneck | A novice and agent can identify the correct path without reading all docs |
-| P1 | Executable schema and relationship validator in CI | Converts documented rules into repeatable checks | Pull requests fail on invalid records, duplicate IDs, or broken relationships |
+| P1 | Read-only conformance validator in CI | Converts documented rules into repeatable checks without replacing the text interface | Pull requests fail on invalid records, duplicate IDs, or broken relationships |
 | P1 | Complete end-to-end example output bundle | Shows what “done” looks like | Example includes manifest, ledger, ADR, risks, tests, and gate report |
 | P1 | Repository description, topics, license decision, and branch hygiene | Improves discovery and contribution clarity | Settings and legal status are explicit |
-| P2 | CLI for initializing and validating runs | Reduces copying errors | One command creates a pinned valid run skeleton |
+| P3 | Optional thin CLI wrapper | May reduce local invocation errors if users request it | The wrapper calls the same validator and framework use never depends on it |
 | P2 | Generated documentation index and link checker | Prevents navigation decay | CI verifies links and publishes the index |
 | P3 | Interactive navigator | Helps nontechnical users traverse activated questions | Usability testing shows lower completion time and fewer missed blockers |
 
-The P1 validator is the next controlling engineering improvement. More prose will not
-make the repository materially more AI-reliable until declared schemas,
-relationships, and links are automatically checked.
+The P1 validator is the next controlling engineering improvement. It is a conformance
+checker, not a replacement application: more prose will not make the repository
+materially more AI-reliable until declared schemas, relationships, and links are
+automatically checked, but a mandatory CLI or service would not improve those checks.
 
 ## Claims this interface may make
 
