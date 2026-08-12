@@ -19,6 +19,16 @@ truth:
   executable_runtime_available: false
   success_guarantee: false
 
+architecture:
+  primary_interface: versioned_text_files
+  canonical_human_format: markdown
+  canonical_structured_format: yaml
+  cli_required: false
+  api_required: false
+  database_required: false
+  optional_validator_role: deterministic_conformance_checks
+  architecture_decision: decisions/ADR-0003-text-first-agent-native-architecture.md
+
 entrypoints:
   human_quickstart: QUICKSTART.md
   agent_instructions: AGENTS.md
@@ -110,4 +120,6 @@ validation:
     - Check required evidence and ownership for consequential claims.
     - Apply blocker rules before returning a gate result.
   automated_validator_available: false
-  planned_reference_stack: decisions/ADR-0001-engine-implementation-stack.md
+  optional_validator_planned: true
+  validator_must_not_own_canonical_state: true
+  deferred_full_engine_stack: decisions/ADR-0001-engine-implementation-stack.md

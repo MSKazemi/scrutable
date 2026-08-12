@@ -4,6 +4,10 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
+- Accepted a text-first, agent-native architecture: versioned Markdown and YAML remain the normal human and agent interface, while a deterministic validator is optional support rather than the product.
+- Deferred the proposed full CLI/API/database engine stack until measured multi-user or integration needs justify it; a CLI may remain a thin convenience wrapper over validation logic.
+- Aligned the machine, convergence, usage, usability, quality, readiness, quick-start, and agent contracts with the text-first boundary.
+
 - Added a request-coverage and operational-readiness audit that maps branch integration, self-improvement, usage, placement, inputs, outputs, visibility, algorithms, and coding-agent compatibility to their canonical sources and honest limitations.
 - Independently rechecked the live `main` structure: 99 unique question IDs, 322 resolved declared relationships, six syntactically valid JSON files, 108 resolving internal Markdown file links, all required human and agent entrypoints present, both historical pull requests merged, and no open pull request.
 - Reaffirmed that the current framework is A0 overall with manually observed parts of A1; executable semantic enforcement, required CI, end-to-end agent evaluation, and real-project efficacy evidence remain future work.

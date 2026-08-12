@@ -76,8 +76,8 @@ The controlling bottleneck is **the specification-to-evidence gap**:
 
 Adding more questions before closing this gap increases maintenance cost and the
 appearance of completeness without proportionally increasing assurance. The first
-investment should therefore be an executable quality kernel and an empirical
-evaluation loop, not a larger universal checklist.
+investment should therefore be a small deterministic conformance validator and an
+empirical evaluation loop, not a larger universal checklist or full application stack.
 
 ## Prioritized findings
 
@@ -255,8 +255,8 @@ Use explicit levels rather than the word “guaranteed” by itself:
 | A5 — Outcome monitored | Predictions and decisions are compared with observed outcomes | Completed real-project outcome loops |
 
 Current maturity is A0 overall, with manually observed portions of A1. The repository
-should not claim A1 continuously until CI reproduces the checks, or A2 until the engine
-exists.
+should not claim A1 continuously until CI reproduces the checks, or A2 until semantic
+validation exists.
 
 No level guarantees market success or eliminates unknown unknowns. Each level states
 what was checked and what remains outside the claim.
@@ -269,8 +269,9 @@ The next implementation should produce these durable deliverables:
    policy, residual uncertainty, and expiry.
 2. **Coverage manifest** — every prose question mapped to stable catalog IDs or marked
    guidance-only.
-3. **Deterministic validator and CLI** — schema, link, ID, reference, state,
-   applicability, evidence, risk, gate, score, and reproducibility checks.
+3. **Deterministic conformance validator** — schema, link, ID, reference, state,
+   applicability, evidence, risk, gate, score, and reproducibility checks. It must be
+   callable by CI or agents; a CLI is an optional convenience adapter.
 4. **Complete assurance schemas** — evidence, decision, requirement, risk, action,
    metric, test, artifact, gate, policy, approval, exception, and audit event.
 5. **Machine-readable policy packs** — gate rules, critical blockers, evidence grades,
@@ -339,7 +340,7 @@ true:
 
 1. Freeze the assurance claim and version the policy vocabulary.
 2. Build the prose-to-catalog coverage manifest.
-3. Implement the repository validator and make it required in CI.
+3. Implement a read-only-by-default repository validator and make it required in CI; keep any CLI wrapper optional.
 4. Add missing assurance schemas and semantic state/gate validation.
 5. Add golden, negative, property, determinism, and migration tests.
 6. Recalibrate criticality and implement a versioned applicability language.
@@ -389,9 +390,9 @@ though enforcement and efficacy are still unverified.
 
 The correct next milestone is not “more comprehensive questions.” It is:
 
-> A small, deterministic, tested assurance kernel plus an independently evaluated
-> corpus showing where the framework helps, where it blocks incorrectly, and where it
-> still misses important concerns.
+> A small, deterministic, tested conformance validator plus an independently evaluated
+> corpus showing where the text-first framework helps, where it blocks incorrectly,
+> and where it still misses important concerns.
 
 Reaching that milestone would justify a precise structural-quality guarantee. It
 would still not justify promising a perfect product—and the framework should continue

@@ -2,7 +2,10 @@
 
 Use this guide to turn an unclear product or system idea into a first evidence-backed
 decision package. This repository is currently a framework, not an executable
-application, so the first run is performed manually or with an AI agent.
+application, so the first run is performed manually or with an AI agent. Working
+directly with Markdown and YAML is the intended interface, not a temporary workaround;
+no CLI or API is required. An optional validator may check deterministic rules when it
+becomes available, without taking ownership of the files.
 
 ## Choose where the run belongs
 

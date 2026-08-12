@@ -1,15 +1,15 @@
 # Machine operation and output contract
 
-**Status:** Architecture overview; structured schemas are present, engine implementation is not yet present  
+**Status:** Normative text protocol and optional automation contract; automated validation is not yet implemented  
 **Applies to:** software products, services, platforms, frameworks, AI systems, integrations, and robot-connected systems
 
 ## What this repository is
 
-Product Questionbook is the knowledge and decision layer for a question engine. It supplies questions, review rules, evidence expectations, and output templates.
+Product Questionbook is a text-first knowledge and decision protocol. It supplies questions, review rules, evidence expectations, schemas, and output templates that people and language-model agents can apply directly.
 
-The current repository is documentation-first. A person or language-model agent can follow it today, but the repository does not yet contain an executable parser, API, database, graph engine, or autonomous runtime. Calling the Markdown files an implemented machine would be inaccurate.
+The canonical interface is versioned Markdown and YAML with JSON Schema and Git history. A CLI, API, database, graph service, or autonomous runtime is not required for normal use. The current absence of those components is therefore not, by itself, an implementation failure.
 
-The intended machine turns incomplete project context into an evidence-linked graph of questions, answers, decisions, risks, requirements, actions, metrics, and gate results. It reduces important omissions; it cannot guarantee that a product or system will succeed.
+The logical model connects project context to questions, answers, decisions, risks, requirements, actions, metrics, and gate results. Optional deterministic automation may validate and project that model, but canonical state remains in inspectable text files. The framework reduces important omissions; it cannot guarantee that a product or system will succeed.
 
 ## System boundary
 
@@ -127,7 +127,7 @@ A run produces a bundle, not one answer.
 
 ## Output format
 
-Canonical outputs should be Markdown files with machine-readable YAML front matter. JSON or database projections may be generated for APIs and graph queries, but they should carry the same schema version and trace IDs.
+Canonical outputs should be Markdown files with machine-readable YAML front matter. JSON projections may be generated for validation or graph queries, but they must be reproducible from the text records and carry the same schema version and trace IDs. A database is optional and never silently becomes the source of truth.
 
 A minimal run artifact begins like this:
 
@@ -182,10 +182,10 @@ Every generated artifact should record the Questionbook Git commit used, schema 
 | Language-model agent | Question graph, context, policies, prior state | Proposed answers, follow-up questions, draft artifacts | Never invent evidence; label inference and confidence |
 | Workflow system | Actions, owners, deadlines, blockers | Issues, tasks, status updates | Idempotency and explicit authorization |
 | CI or policy gate | Required questions, evidence rules, gate policy | Pass, conditional pass, or fail report | Critical blockers cannot be averaged away |
-| API client | Versioned schemas and run endpoints | Structured events and artifact links | Authentication, authorization, validation, audit |
+| Optional API client | Versioned schemas and explicitly justified endpoints | Structured events and artifact links | Authentication, authorization, validation, audit, and no hidden canonical state |
 | Robot or device adapter | Approved bounded requirement or action | Command proposal or configuration | Separate safety controller and human approval where consequential |
 
-A future service could expose operations such as create run, submit answer, attach evidence, get next question, evaluate gate, export artifacts, and reopen affected nodes. These are target interfaces, not current repository capabilities.
+If measured multi-user or integration requirements justify it, a future service could expose operations such as create run, submit answer, attach evidence, get next question, evaluate gate, export artifacts, and reopen affected nodes. Such a service is an optional adapter, not the framework's required interface.
 
 ## Completion and success semantics
 
@@ -205,10 +205,12 @@ Structural completion does **not** guarantee commercial, technical, ethical, or 
 | --- | --- | --- |
 | 0 — complete | Human-readable question banks and templates | Existing Markdown documents |
 | 1 — current | Stable question IDs, schemas, structured metadata, and examples | Starter catalog and examples validate |
-| 2 | Parser, schema validator, and link checker | Repeatable tests in CI |
-| 3 | Dependency graph, state transitions, prioritizer, and gate evaluator | Deterministic scenario tests |
-| 4 | CLI/API plus human, agent, workflow, CI, and device adapters | Versioned contract tests |
+| 2 | Read-only conformance validator for schemas, IDs, references, and links | Repeatable tests and reports in CI |
+| 3 | Optional semantic validation for state transitions, blockers, policies, and reproducible projections | Deterministic scenario tests |
+| 4 | Evidence-justified adapters; CLI/API only when a consumer needs them | Versioned contract and usability tests |
 | 5 | Domain packs, evaluations, telemetry, and change-impact analysis | Quality and safety benchmarks |
 
-Until phases 2–3 exist, consumers should treat this repository as a rigorously structured decision framework with a validated starter catalog, not as an executable autonomous machine.
+Phases 2–3 strengthen assurance but do not replace the text interface. Consumers may
+use the framework manually or with an agent today; they must not describe it as an
+automatically enforced assurance system until the relevant validators exist.
 
