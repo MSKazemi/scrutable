@@ -47,7 +47,7 @@ requirements, expected outputs, accountable roles, revisit triggers, and validat
 | P1 | Organizational adoption and change management | Partial — structured module published | Eight stable questions now cover the change system; representative run and calibration evidence remain absent |
 | P1 | Workforce and knowledge continuity | Partial — structured module published | Eight stable questions now cover workforce continuity; representative absence, departure, and understaffing evidence remain absent |
 | P1 | External sensing and horizon monitoring | Partial — structured module published | Eight stable questions and a source-to-decision method now cover sensing; representative monitoring and missed-signal evidence remain absent |
-| P1 | Information integrity and content governance | Partial | Provenance is mentioned, but misinformation, coordinated manipulation, moderation, authenticity, and correction are not treated as a coherent concern |
+| P1 | Information integrity and content governance | Partial — structured method published | Eight stable questions, a contextual operating method, and a register now cover integrity decisions; representative multilingual, manipulation, appeal, reviewer-safety, and propagation evidence remain absent |
 | P1 | Geopolitical and regional continuity | Missing | Sanctions, export controls, conflict, internet restrictions, currency controls, and regional dependencies can stop an otherwise viable product |
 | P1 | Internationalization and localization operations | Partial | Locale formatting is covered, but translation governance, right-to-left behavior, local operations, and market-specific support are shallow |
 | P1 | Enterprise implementation and customer success | Partial | Procurement is covered, but implementation ownership, time-to-value, rollout, value realization, and renewal risk need deeper treatment |
@@ -72,21 +72,21 @@ mention in prose as structured support.
 |---|---:|
 | Gap areas excluding item 2 | 15 |
 | Candidate questions in those areas | 108 |
-| Candidate questions promoted as dedicated published catalog records | 32 |
+| Candidate questions promoted as dedicated published catalog records | 40 |
 | Partially covered gap areas | 13 |
 | Missing or domain-pack-required gap areas | 2 |
 | P0 areas / candidate questions | 2 / 16 |
 | P1 areas / candidate questions | 7 / 56 |
 | P2 areas / candidate questions | 6 / 36 |
-| Existing reusable catalog | 131 questions / 450 `depends_on` and `activates` references |
+| Existing reusable catalog | 139 questions / 489 `depends_on` and `activates` references |
 | Expert-reviewed regulated or safety-critical packs | 0 |
 | Prose-to-catalog coverage manifest | present: 396 numbered questions, 43 groups, 388 compressed, 8 guidance-only, 0 exact |
 
-Thirty-two of the 108 candidates are now dedicated stable records: the domain-pack
-governance, organizational-change, workforce-continuity, and external-sensing sets.
-The first still needs qualified pack content, and the three operational sets still
-need representative run and calibration evidence. The other 76 candidates remain
-compressed, partial, missing, or conditional.
+Forty of the 108 candidates are now dedicated stable records: the domain-pack
+governance, organizational-change, workforce-continuity, external-sensing, and
+information-integrity sets. The first still needs qualified pack content, and the four
+operational sets still need representative run and calibration evidence. The other 68
+candidates remain compressed, partial, missing, or conditional.
 
 | Item | Gap | Priority | Candidate questions | Current status | Nearest published structured coverage | What is still absent |
 |---:|---|---|---:|---|---|---|
@@ -95,7 +95,7 @@ compressed, partial, missing, or conditional.
 | 4 | Organizational adoption and change management | P1 | 8 | Partial — structured module published | `team.change-impact.001` through `.change-ownership.001`, activated by `business.adoption.001` | Content and graph fields are coherent; a representative end-to-end adoption run, negative rollback case, false-blocker review, and outcome calibration remain absent |
 | 5 | Workforce and knowledge continuity | P1 | 8 | Partial — structured module published | `team.continuity-dependencies.001` through `.continuity-signals.001`, activated by `team.capability.001` | Content and graph fields are coherent; absence, departure, understaffing, supplier-exit, false-blocker, and recovery exercises remain unobserved |
 | 6 | External sensing and horizon monitoring | P1 | 8 | Partial — structured module published | `operations.sensing-change.001` through `.sensing-blind-spots.001`, activated by `core.assumptions.001` | Content, method, register, and graph fields are coherent; representative monitoring, access-failure, false-alert, missed-signal, latency, and outcome evidence remain absent |
-| 7 | Information integrity and content governance | P1 | 8 | Partial | `data.quality.001`, `security.threats.001`, `ethics.harms.001`, `ethics.contestability.001` | Misinformation, deepfakes, provenance/authenticity, coordinated manipulation, moderation, reviewer safety, correction, appeal, and downstream propagation lack a coherent structured method |
+| 7 | Information integrity and content governance | P1 | 8 | Partial — structured method published | `ethics.integrity-content.001` through `.integrity-propagation.001`, activated by `ethics.harms.001`, plus the [content-governance method](20-information-integrity-and-content-governance.md) and register | Content and graph fields are coherent; representative multilingual policy, deepfake and coordination, privacy-proportionality, appeal, reviewer-safety, transparency, and downstream correction cases remain unobserved |
 | 8 | Geopolitical and regional continuity | P1 | 8 | Missing | Generic `legal.obligations.001`, `architecture.dependencies.001`, and `business.continuity.001` can detect some exposure | No dedicated sanctions, export-control, conflict, internet-shutdown, currency-control, regional concentration, staff-protection, or legal fallback questions |
 | 9 | Internationalization and localization operations | P1 | 8 | Partial | `ux.accessibility.001`, `ux.comprehension.001`, `legal.obligations.001`, `product.naming-validation.001` | Translation governance, right-to-left behavior, locale mechanics, local payments/taxes/contracts, multilingual support and incident response, parity metrics, and market exit are shallow or absent |
 | 10 | Enterprise implementation and customer success | P1 | 8 | Partial | `business.organizational-buying.001`, `business.adoption.001`, `business.retention.001`, `operations.support.001` | Provider/customer dependency ownership, implementation milestones, time-to-value, stalled-rollout signals, value realization, shelfware, customer-success recovery, and renewal control need deeper records |
@@ -253,6 +253,8 @@ corroboration, thresholds, latency, missed signals, and blind spots.
 8. Which dependencies have no observable early-warning signal?
 
 ### 7. Information integrity and content governance
+
+**Current status:** `ethics.integrity-content.001` through `ethics.integrity-propagation.001` now implement these eight questions, `ethics.harms.001` activates the module, and the [content-governance method](20-information-integrity-and-content-governance.md) plus integrity register define the operating loop. It remains `partial` until representative runs exercise multilingual and contextual rules, manipulation and evasion, proportionality, appeal and correction, reviewer safety, transparency, and downstream agents.
 
 1. Which user, generated, imported, or synthetic content can mislead, impersonate,
    defame, manipulate, or cause material harm?
@@ -442,8 +444,7 @@ A backlog area becomes supported only when:
    gate-policy checks without making a CLI or service mandatory.
 3. Validate the organizational-adoption, workforce-continuity, and external-sensing
    modules on representative runs.
-4. Add information-integrity, geopolitical, localization, and enterprise-implementation
-   questions as conditional structured modules.
+4. Validate the information-integrity module on representative runs; next add geopolitical, localization, and enterprise-implementation questions as conditional structured modules.
 5. Pilot one high-value pack through the now-defined domain-pack interface with
    qualified expert review; do not mark the gap covered until that exact pack and
    scope are published.

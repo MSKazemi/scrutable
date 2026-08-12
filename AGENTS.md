@@ -46,6 +46,10 @@ truth.
   `docs/18-external-sensing-and-attention.md` and preserve source, query, time-window,
   retrieval, reliability, latency, and blind-spot records. Do not claim guaranteed or
   continuous visibility unless a separately authorized recurring process proves it.
+- When the subject creates, transforms, ranks, recommends, stores, or distributes
+  consequential content, use `docs/20-information-integrity-and-content-governance.md`.
+  Do not equate provenance with truth or automate irreversible content decisions
+  without the required context, review, appeal, correction, and propagation path.
 - Keep candidate brainstorming separate from accepted answers.
 - Expose critical blockers and the controlling bottleneck before recommending work.
 - Propagate accepted changes into affected requirements, decisions, risks,

@@ -4,6 +4,10 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
+- Added eight stable information-integrity and content-governance questions covering contextual content harm, provenance without truth conflation, multilingual policy, coordinated manipulation and proportionality, review and appeal, reviewer safety and assurance, transparency, and downstream correction to systems and agents.
+- Added the contextual content-governance method and content-integrity register, and connected `ethics.harms.001` to the module; the universal catalog now contains 139 unique published questions, 301 `depends_on`, 188 `activates`, 77 `related_to`, and two `refines` references. All 568 targets resolve and the dependency graph remains acyclic.
+- Kept the gap status honestly partial until representative multilingual, deepfake and coordination, privacy-proportionality, appeal, reviewer-safety, transparency, and downstream propagation cases provide evidence.
+
 - Completed a line-by-line semantic and deterministic integration audit of all 92
   files in baseline commit `b2c5bd2`; recorded the method, per-file disposition,
   corrections, validation results, branch state, and residual risks in

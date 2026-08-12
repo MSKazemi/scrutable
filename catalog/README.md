@@ -95,3 +95,7 @@ and the
 records connect change classes, source portfolios, monitoring ownership, correlation,
 thresholds, response latency, missed-signal learning, and blind spots. They guarantee
 visible process accounting, not complete world knowledge or audience attention.
+
+## Information-integrity module
+
+When `ethics.harms.001` identifies harm from created, imported, transformed, ranked, recommended, stored, or distributed content, load [`ethics/information-integrity-questions.yaml`](ethics/information-integrity-questions.yaml) and the [content-governance method](../docs/20-information-integrity-and-content-governance.md). Its eight records separate content and context risk, provenance, policy, coordinated manipulation, review and appeal, assurance and reviewer safety, transparency, and downstream correction. Provenance is never treated as proof of truth.

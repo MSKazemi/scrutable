@@ -18,6 +18,7 @@ The goal is not to create a product with the most features. The goal is to make 
 | Trace prose questions to the graph | [`docs/16-prose-to-catalog-coverage.md`](docs/16-prose-to-catalog-coverage.md) |
 | Govern a specialized domain pack | [`docs/17-domain-pack-governance.md`](docs/17-domain-pack-governance.md) |
 | Monitor external change, web, and news | [`docs/18-external-sensing-and-attention.md`](docs/18-external-sensing-and-attention.md) |
+| Govern information and content integrity | [`docs/20-information-integrity-and-content-governance.md`](docs/20-information-integrity-and-content-governance.md) |
 | Verify coverage and current limits | [`docs/15-request-coverage-and-operational-readiness-audit.md`](docs/15-request-coverage-and-operational-readiness-audit.md) |
 
 ## What this repository is
@@ -44,15 +45,16 @@ The framework can improve decision quality and expose failure risks; it cannot g
 7. Use the [structured graph foundation](docs/structured-foundation.md) for stable IDs, typed relationships, state history, schemas, and the governed domain-pack interface.
 8. Use the [governed self-improvement and adversarial review method](docs/10-self-improvement-and-adversarial-governance.md) when challenging an idea, finding the controlling bottleneck, evaluating a pivot, or improving the framework. Its governance decision is recorded in [ADR-0002](decisions/ADR-0002-governed-adversarial-self-improvement.md).
 9. Follow the [usage, project placement, visibility, and agent-integration protocol](docs/11-usage-deployment-and-agent-integration.md) to apply the framework to another repository or run it with Codex, ChatGPT, Claude Code, or another agent system.
-10. Record results using the [run manifest](templates/run-manifest.md), [agent run request](templates/agent-run-request.md), [project charter](templates/project-charter.md), [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [assurance decision record](templates/assurance-decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), [risk register](templates/risk-register.md), [review scorecard](templates/review-scorecard.md), [readiness report](templates/readiness-report.md), [improvement cycle](templates/improvement-cycle.md), [adversarial review](templates/adversarial-review.md), and [external signal register](templates/external-signal-register.md).
+10. Record results using the [run manifest](templates/run-manifest.md), [agent run request](templates/agent-run-request.md), [project charter](templates/project-charter.md), [product brief](templates/product-brief.md), [decision record](templates/decision-record.md), [assurance decision record](templates/assurance-decision-record.md), [naming brief](templates/naming-brief.md), [bottleneck register](templates/bottleneck-register.md), [risk register](templates/risk-register.md), [review scorecard](templates/review-scorecard.md), [readiness report](templates/readiness-report.md), [improvement cycle](templates/improvement-cycle.md), [adversarial review](templates/adversarial-review.md), [external signal register](templates/external-signal-register.md), and [content integrity register](templates/content-integrity-register.md).
 11. Inspect the [prose-to-catalog coverage contract](docs/16-prose-to-catalog-coverage.md) to see how every numbered human-readable question is preserved and connected to the stable graph without claiming false one-to-one equivalence.
 12. Use the [domain-pack governance contract](docs/17-domain-pack-governance.md) when regulation, safety criticality, or material sector-specific harm may require qualified coverage.
 13. Use the [external sensing and attention contract](docs/18-external-sensing-and-attention.md) to collect decision-changing signals from authorities, people, companies, agents, the web, and news while keeping blind spots explicit.
-14. Review the [coverage gaps and expansion backlog](docs/12-coverage-gaps-and-expansion-backlog.md) before claiming comprehensive support or promoting new question domains.
-15. Read the [framework quality assurance audit](docs/13-quality-assurance-audit-and-roadmap.md) for the controlling bottleneck, measurable assurance levels, release gates, and validation roadmap.
-16. Read the [human and AI usability contract](docs/14-human-and-ai-usability.md) for progressive disclosure, task-based entrypoints, context loading, failure behavior, and the prioritized usability roadmap.
-17. Read the [request coverage and operational-readiness audit](docs/15-request-coverage-and-operational-readiness-audit.md) for a direct status of branch integration, self-improvement, usage, inputs, outputs, visibility, algorithms, agent compatibility, and remaining implementation gaps.
-18. Read the [whole-repository integration audit](docs/19-whole-repository-integration-audit.md) for the pinned file-by-file review, deterministic cross-file checks, corrections, and remaining integration risks.
+14. Use the [information-integrity and content-governance method](docs/20-information-integrity-and-content-governance.md) when the subject creates, transforms, ranks, recommends, stores, or distributes consequential content or claims.
+15. Review the [coverage gaps and expansion backlog](docs/12-coverage-gaps-and-expansion-backlog.md) before claiming comprehensive support or promoting new question domains.
+16. Read the [framework quality assurance audit](docs/13-quality-assurance-audit-and-roadmap.md) for the controlling bottleneck, measurable assurance levels, release gates, and validation roadmap.
+17. Read the [human and AI usability contract](docs/14-human-and-ai-usability.md) for progressive disclosure, task-based entrypoints, context loading, failure behavior, and the prioritized usability roadmap.
+18. Read the [request coverage and operational-readiness audit](docs/15-request-coverage-and-operational-readiness-audit.md) for a direct status of branch integration, self-improvement, usage, inputs, outputs, visibility, algorithms, agent compatibility, and remaining implementation gaps.
+19. Read the [whole-repository integration audit](docs/19-whole-repository-integration-audit.md) for the pinned file-by-file review, deterministic cross-file checks, corrections, and remaining integration risks.
 
 The accepted framework name and its limitations are recorded in [the naming decision](decisions/0001-product-questionbook-name.md). The primary-interface boundary is recorded in [ADR-0003: text-first, agent-native architecture](decisions/ADR-0003-text-first-agent-native-architecture.md).
 
@@ -104,7 +106,7 @@ The initial foundation includes:
   governed improvement cycles, prose coverage, and domain-pack manifests in
   [`schemas/`](schemas/);
 - a [prose-to-catalog coverage manifest](coverage/prose-to-catalog.yaml) with 396 stable source identities and a [coverage schema](schemas/prose-coverage.schema.json);
-- 131 starter templates with 450 declared dependencies and activations across 16
+- 139 starter templates with 489 declared dependencies and activations across 16
   universal concern domains in [`catalog/`](catalog/);
 - a [domain-pack governance contract](docs/17-domain-pack-governance.md), schema,
   draft manifest, and eight stable governance questions; no expert-reviewed pack is
@@ -122,6 +124,10 @@ The initial foundation includes:
   source-to-decision
   [operating method](docs/18-external-sensing-and-attention.md), and a reusable signal
   register;
+- an eight-question
+  [information-integrity module](catalog/ethics/information-integrity-questions.yaml),
+  a contextual [content-governance method](docs/20-information-integrity-and-content-governance.md),
+  and a reusable integrity register;
 - reusable assurance and improvement templates plus a worked project-specific example.
 
 The versioned Markdown and YAML records are the source of truth. The graph is their

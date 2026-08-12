@@ -44,6 +44,7 @@ entrypoints:
   domain_pack_governance: docs/17-domain-pack-governance.md
   external_sensing: docs/18-external-sensing-and-attention.md
   repository_integration_audit: docs/19-whole-repository-integration-audit.md
+  information_integrity: docs/20-information-integrity-and-content-governance.md
   contribution_guide: CONTRIBUTING.md
   worked_example: examples/sample-application/README.md
 
@@ -69,6 +70,11 @@ agent_load_order:
     - docs/18-external-sensing-and-attention.md
     - catalog/operations/external-sensing-questions.yaml
     - templates/external-signal-register.md
+  information_integrity:
+    - docs/20-information-integrity-and-content-governance.md
+    - catalog/ethics/questions.yaml
+    - catalog/ethics/information-integrity-questions.yaml
+    - templates/content-integrity-register.md
   regulated_or_safety_critical:
     - docs/17-domain-pack-governance.md
     - catalog/core/domain-pack-governance-questions.yaml
@@ -124,6 +130,7 @@ rules:
   - Preserve published stable question IDs; deprecate rather than repurpose them.
   - Critical blockers cannot be averaged away by unrelated positive scores.
   - Do not claim that this framework guarantees real-world or market success.
+  - Provenance or authenticity does not prove truth; preserve context, uncertainty, appeal, correction, and downstream propagation.
 
 permission_boundaries:
   require_separate_explicit_authorization:

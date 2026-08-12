@@ -1,0 +1,153 @@
+schema_version: 1
+domain: ethics
+questions:
+  - id: ethics.integrity-content.001
+    version: 1
+    status: published
+    question: Which user, generated, imported, or synthetic content can mislead, impersonate, defame, manipulate, or cause material harm in its actual context?
+    purpose: Identify consequential content and context before applying generic authenticity or moderation controls.
+    domain: ethics
+    lifecycle_stages: [discover, define, design, verify, release, operate, evolve, retire]
+    applies_when: [the subject creates, transforms, ranks, recommends, stores, or distributes content or claims]
+    answer_type: structured
+    criticality: critical
+    depends_on: [ethics.harms.001, data.inventory.001, users.actors.001]
+    activates: [ethics.integrity-provenance.001, ethics.integrity-policy.001, ethics.integrity-manipulation.001]
+    related_to: [data.classification.001, security.threats.001]
+    evidence_required: [content and actor inventory, context-specific harm analysis, affected-party and domain review]
+    expected_outputs: [content integrity risk map, high-consequence content classes]
+    answered_by_roles: [content policy owner, ethics owner, product owner, domain expert]
+    revisit_when: [content type, generation method, audience, distribution, context, or harm evidence changes]
+    tags: [information-integrity, content-harm, synthetic-content]
+
+  - id: ethics.integrity-provenance.001
+    version: 1
+    status: published
+    question: What provenance, authenticity, labeling, source citation, watermarking, or chain of custody is required for each consequential content class?
+    purpose: Make origin and transformation inspectable without confusing provenance or identity with truth.
+    domain: ethics
+    lifecycle_stages: [define, design, build, verify, release, operate, evolve, retire]
+    applies_when: [content origin, authorship, generation, editing, or custody affects trust or harm]
+    answer_type: structured
+    criticality: critical
+    depends_on: [ethics.integrity-content.001, data.quality.001]
+    activates: [ethics.integrity-manipulation.001, ethics.integrity-propagation.001]
+    related_to: [security.identity.001, legal.licenses.001]
+    evidence_required: [provenance model, transformation log, label comprehension test, authenticity and tamper tests]
+    expected_outputs: [content provenance policy, authenticity metadata, labeling requirements]
+    answered_by_roles: [content integrity owner, data owner, security owner, legal owner]
+    revisit_when: [content source, transformation, standard, threat, distribution channel, or label comprehension changes]
+    tags: [information-integrity, provenance, authenticity]
+
+  - id: ethics.integrity-policy.001
+    version: 1
+    status: published
+    question: Which content rules and enforcement thresholds apply across languages, cultures, jurisdictions, contexts, private spaces, and public distribution?
+    purpose: Bound content governance by harm, context, rights, and authority instead of applying one opaque universal rule.
+    domain: ethics
+    lifecycle_stages: [discover, define, design, verify, release, operate, evolve]
+    applies_when: [the subject governs, ranks, recommends, labels, limits, or removes content]
+    answer_type: structured
+    criticality: critical
+    depends_on: [ethics.integrity-content.001, legal.obligations.001, ethics.distribution.001]
+    activates: [ethics.integrity-remediation.001, ethics.integrity-assurance.001, ethics.integrity-transparency.001]
+    related_to: [ux.comprehension.001, ethics.contestability.001]
+    evidence_required: [versioned policy taxonomy, jurisdiction and rights review, multilingual and cultural review, boundary scenarios]
+    expected_outputs: [content policy, enforcement matrix, contextual exception rules]
+    answered_by_roles: [content policy owner, legal owner, affected-party representative, localization owner]
+    revisit_when: [law, language, culture, context, policy, product surface, or observed harm changes]
+    tags: [information-integrity, content-policy, context]
+
+  - id: ethics.integrity-manipulation.001
+    version: 1
+    status: published
+    question: How will coordinated manipulation, spam, impersonation, deepfakes, brigading, and evasion be detected and constrained without disproportionate surveillance?
+    purpose: Address adversarial content behavior while minimizing privacy, expression, and power-abuse risks created by detection itself.
+    domain: ethics
+    lifecycle_stages: [design, build, verify, release, operate, evolve]
+    applies_when: [actors can create, amplify, coordinate, or disguise content or engagement]
+    answer_type: structured
+    criticality: critical
+    depends_on: [ethics.integrity-content.001, ethics.integrity-provenance.001, security.threats.001]
+    activates: [ethics.integrity-assurance.001, security.incident.001]
+    related_to: [legal.privacy-basis.001, business.incentives.001]
+    evidence_required: [abuse and evasion scenarios, privacy and proportionality review, adversarial detection tests, monitoring minimization evidence]
+    expected_outputs: [manipulation threat model, proportionate detection controls, evasion test suite]
+    answered_by_roles: [content integrity owner, security owner, privacy owner, abuse operations owner]
+    revisit_when: [attack behavior, detection capability, false-positive harm, privacy impact, or adversary incentives change]
+    tags: [information-integrity, manipulation, deepfakes]
+
+  - id: ethics.integrity-remediation.001
+    version: 1
+    status: published
+    question: What human review, escalation, notice, appeal, correction, restoration, and urgent-harm process applies to each content action?
+    purpose: Make content decisions reviewable and reversible while preserving evidence and responding quickly to material harm.
+    domain: ethics
+    lifecycle_stages: [design, build, verify, release, operate, evolve]
+    applies_when: [content can be labeled, limited, ranked, removed, corrected, disputed, or restored]
+    answer_type: structured
+    criticality: critical
+    depends_on: [ethics.integrity-policy.001, ethics.contestability.001, users.feedback.001]
+    activates: [ethics.integrity-assurance.001, ethics.integrity-propagation.001]
+    related_to: [operations.support.001, operations.incident.001]
+    evidence_required: [decision and notice examples, escalation and appeal tests, evidence-preservation review, correction and restoration exercise]
+    expected_outputs: [content adjudication workflow, appeal and correction process, urgent-harm runbook]
+    answered_by_roles: [content operations owner, appeals owner, legal owner, incident owner]
+    revisit_when: [appeal outcomes, correction delay, policy, harm severity, or restoration failures change]
+    tags: [information-integrity, appeal, correction]
+
+  - id: ethics.integrity-assurance.001
+    version: 1
+    status: published
+    question: How are false positives, false negatives, decision consistency, bias, reviewer safety, workload, and correction time measured across relevant groups and contexts?
+    purpose: Evaluate the harms and operational limits of content governance instead of optimizing only removal or detection volume.
+    domain: ethics
+    lifecycle_stages: [design, verify, release, operate, evolve]
+    applies_when: [people or automated systems classify, rank, label, limit, remove, or restore content]
+    answer_type: structured
+    criticality: critical
+    depends_on: [ethics.integrity-policy.001, ethics.integrity-manipulation.001, ethics.integrity-remediation.001]
+    activates: [ethics.integrity-transparency.001]
+    related_to: [operations.observability.001, team.continuity-capacity.001, ethics.distribution.001]
+    evidence_required: [representative labeled samples, disaggregated error and appeal outcomes, inter-reviewer analysis, reviewer health and workload evidence]
+    expected_outputs: [content integrity scorecard, reviewer safety plan, calibration and remediation backlog]
+    answered_by_roles: [quality owner, content integrity owner, reviewer safety owner, affected-party representative]
+    revisit_when: [error, bias, appeal, workload, reviewer harm, language, or content distribution changes]
+    tags: [information-integrity, assurance, reviewer-safety]
+
+  - id: ethics.integrity-transparency.001
+    version: 1
+    status: published
+    question: What transparency, aggregate reporting, explanation, auditability, and qualified researcher or regulator access is appropriate and safe?
+    purpose: Enable legitimate scrutiny without exposing personal data, security controls, reviewers, or abuse-enabling operational detail.
+    domain: ethics
+    lifecycle_stages: [define, design, verify, release, operate, evolve]
+    applies_when: [content governance materially affects people, public discourse, rights, safety, or regulatory duties]
+    answer_type: structured
+    criticality: high
+    depends_on: [ethics.integrity-policy.001, ethics.integrity-assurance.001, legal.obligations.001]
+    related_to: [security.authorization.001, legal.privacy-basis.001, core.evidence.001]
+    evidence_required: [stakeholder transparency needs, disclosure-risk review, access-control test, report comprehension and audit review]
+    expected_outputs: [transparency report specification, researcher and regulator access policy, disclosure safeguards]
+    answered_by_roles: [transparency owner, legal owner, privacy owner, security owner, affected-party representative]
+    revisit_when: [law, public risk, audit need, privacy threat, security threat, or disclosure usefulness changes]
+    tags: [information-integrity, transparency, researcher-access]
+
+  - id: ethics.integrity-propagation.001
+    version: 1
+    status: published
+    question: How will removed, corrected, disputed, expired, or restored information propagate to caches, indexes, models, agents, partners, exports, and downstream decisions?
+    purpose: Prevent an integrity decision from stopping at one interface while stale or harmful copies continue to influence people and machines.
+    domain: ethics
+    lifecycle_stages: [design, build, verify, release, operate, evolve, retire]
+    applies_when: [content or derived claims are copied, indexed, embedded, learned from, exported, or consumed downstream]
+    answer_type: structured
+    criticality: critical
+    depends_on: [ethics.integrity-provenance.001, ethics.integrity-remediation.001, data.lifecycle.001]
+    activates: [core.learning-loop.001, operations.incident.001]
+    related_to: [data.deletion.001, architecture.dependencies.001, operations.sensing-thresholds.001]
+    evidence_required: [downstream dependency inventory, correction and tombstone propagation test, recipient acknowledgement, stale-copy and model-use analysis]
+    expected_outputs: [integrity propagation protocol, downstream correction register, stale-content containment plan]
+    answered_by_roles: [data owner, content integrity owner, integration owner, operations owner]
+    revisit_when: [downstream consumer, cache, model, export, correction mechanism, or propagation result changes]
+    tags: [information-integrity, propagation, downstream-agents]

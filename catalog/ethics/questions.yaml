@@ -29,7 +29,7 @@ questions:
     answer_type: structured
     criticality: critical
     depends_on: [ethics.affected-parties.001, core.failure.001]
-    activates: [ethics.distribution.001, ethics.contestability.001]
+    activates: [ethics.distribution.001, ethics.contestability.001, ethics.integrity-content.001]
     evidence_required: [harm and abuse analysis, affected-party review, mitigation tests]
     expected_outputs: [impact assessment, harm mitigations]
     answered_by_roles: [ethics owner, product owner, domain expert]
