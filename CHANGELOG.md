@@ -4,6 +4,10 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
+- Added eight stable workforce-continuity questions covering concentrated human dependencies, succession and demonstrated transfer, sustainable capacity, unsafe incentives, secure departure, separation of duties under shortage, capability sourcing, and leading indicators.
+- Connected `team.capability.001` to the new module and expanded the universal catalog to 123 unique published questions, 262 `depends_on`, 159 `activates`, 41 `related_to`, and two `refines` references; all targets resolve and dependencies remain acyclic.
+- Changed the workforce-continuity gap to “structured module published” while retaining an honest `partial` status until absence, departure, understaffing, supplier-exit, and recovery exercises produce evidence.
+
 - Added eight stable organizational-change questions covering affected workflows and authority, uneven benefit and resistance, training and proficiency, migration and fallback, workforce obligations, adoption and fatigue measurement, pause or restoration thresholds, and post-launch ownership.
 - Connected `business.adoption.001` to the new module and expanded the universal catalog to 115 unique published questions, 242 `depends_on`, 145 `activates`, 27 `related_to`, and two `refines` references; all targets resolve and dependencies remain acyclic.
 - Changed the adoption gap to “structured module published” while retaining an honest `partial` status until representative runs test rollback, missed concerns, evidence cost, and false blockers.

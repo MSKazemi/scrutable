@@ -45,6 +45,7 @@ questions:
     answer_type: structured
     criticality: high
     depends_on: [core.stage.001, architecture.constraints.001]
+    activates: [team.continuity-dependencies.001]
     evidence_required: [capability assessment, staffing and succession plan]
     expected_outputs: [capability matrix, staffing or training plan]
     answered_by_roles: [project lead, engineering lead, operations owner]

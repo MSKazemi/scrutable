@@ -56,3 +56,7 @@ The repository currently has zero expert-reviewed published packs. Generic catal
 ## Organizational change module
 
 When `business.adoption.001` identifies a material workflow or organizational transition, load [`team/organizational-change-questions.yaml`](team/organizational-change-questions.yaml). Its eight records distinguish change impact, stakeholder power, enablement, transition, workforce obligations, adoption evidence, pause or restoration safeguards, and post-launch ownership. Technical release alone cannot satisfy these questions.
+
+## Workforce continuity module
+
+When `team.capability.001` reveals material human dependencies, load [`team/workforce-continuity-questions.yaml`](team/workforce-continuity-questions.yaml). Its eight records separate key-person concentration, transfer and rehearsal, sustainable capacity, unsafe incentives, secure departure, emergency separation of duties, supplier dependence, and leading indicators. A named backup or a document alone is not continuity evidence; transfer and recovery must be demonstrated.

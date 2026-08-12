@@ -60,6 +60,9 @@ agent_load_order:
   organizational_change:
     - catalog/business/questions.yaml
     - catalog/team/organizational-change-questions.yaml
+  workforce_continuity:
+    - catalog/team/questions.yaml
+    - catalog/team/workforce-continuity-questions.yaml
   regulated_or_safety_critical:
     - docs/17-domain-pack-governance.md
     - catalog/core/domain-pack-governance-questions.yaml

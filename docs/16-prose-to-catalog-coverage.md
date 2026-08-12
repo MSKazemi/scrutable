@@ -8,7 +8,7 @@ That is useful only when the relationship is explicit. The
 question in the seven main question-bank documents and connects it to published
 catalog records or marks it as guidance.
 
-The manifest solves the previous accounting gap. It does not claim that 115 reusable
+The manifest solves the previous accounting gap. It does not claim that 123 reusable
 templates are semantically identical to hundreds of detailed questions.
 
 ## Current snapshot
@@ -22,7 +22,7 @@ templates are semantically identical to hundreds of detailed questions.
 | Compressed mappings | 388 |
 | Unmodeled questions inside the declared source scope | 0 |
 | Guidance-only prompts | 8 |
-| Published catalog questions referenced | 95 distinct IDs out of 115 available |
+| Published catalog questions referenced | 95 distinct IDs out of 123 available |
 
 The conservative `exact: 0` result is deliberate. This first manifest records
 section-level many-to-many compression and preserves the full source wording. An

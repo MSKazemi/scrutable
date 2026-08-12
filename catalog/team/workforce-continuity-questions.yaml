@@ -1,0 +1,154 @@
+schema_version: 1
+domain: team
+questions:
+  - id: team.continuity-dependencies.001
+    version: 1
+    status: published
+    question: Which outcomes, systems, approvals, access paths, and external relationships depend on one person or a fragile group?
+    purpose: Identify concentrated human dependencies before absence or departure interrupts delivery, control, or operation.
+    domain: team
+    lifecycle_stages: [define, design, build, release, operate, evolve, retire]
+    applies_when: [people hold essential knowledge, access, approval, operational, or relationship responsibilities]
+    answer_type: structured
+    criticality: critical
+    depends_on: [team.capability.001, team.accountability.001]
+    activates: [team.continuity-transfer.001, team.continuity-capacity.001, team.continuity-sourcing.001]
+    related_to: [business.continuity.001, architecture.dependencies.001]
+    evidence_required: [responsibility and access inventory, dependency interviews, absence and departure scenarios]
+    expected_outputs: [key-person dependency register, continuity risk map]
+    answered_by_roles: [team owner, operations owner, people owner]
+    revisit_when: [role, ownership, access, supplier, staffing, or critical relationship changes]
+    tags: [workforce-continuity, key-person, dependency]
+
+  - id: team.continuity-transfer.001
+    version: 1
+    status: published
+    question: What succession, cross-training, documentation, shadowing, rehearsal, and access-transfer plan reduces each material key-person dependency?
+    purpose: Convert fragile knowledge and authority into demonstrated, transferable operating capability.
+    domain: team
+    lifecycle_stages: [define, design, build, verify, operate, evolve, retire]
+    applies_when: [a material person or group dependency is identified]
+    answer_type: structured
+    criticality: high
+    depends_on: [team.continuity-dependencies.001, team.communication.001]
+    activates: [team.continuity-departure.001, team.continuity-signals.001]
+    related_to: [quality.testability.001]
+    evidence_required: [named successor or backup, observed shadowing and rehearsal, current runbook, access-transfer test]
+    expected_outputs: [succession and cross-training plan, continuity runbook, rehearsal record]
+    answered_by_roles: [team owner, knowledge owner, people owner, operations owner]
+    revisit_when: [backup availability, documentation, access, process, or critical knowledge changes]
+    tags: [workforce-continuity, succession, knowledge-transfer]
+
+  - id: team.continuity-capacity.001
+    version: 1
+    status: published
+    question: How do hiring lead time, turnover, contractor dependence, leave, burnout, and on-call load affect the critical path and minimum viable operation?
+    purpose: Model workforce availability as a changing capacity constraint rather than an assumed constant.
+    domain: team
+    lifecycle_stages: [define, design, build, release, operate, evolve]
+    applies_when: [delivery or operation depends on sustained human capacity]
+    answer_type: structured
+    criticality: critical
+    depends_on: [team.continuity-dependencies.001, business.continuity.001]
+    activates: [team.continuity-duties.001, team.continuity-signals.001]
+    related_to: [core.bottleneck.001, operations.support.001]
+    evidence_required: [capacity and demand model, hiring and turnover data, leave coverage, on-call and fatigue assessment]
+    expected_outputs: [minimum staffing model, capacity risk register, contingency staffing plan]
+    answered_by_roles: [team owner, people owner, project lead, operations owner]
+    revisit_when: [demand, staffing, lead time, attrition, leave, or on-call burden changes]
+    tags: [workforce-continuity, capacity, burnout]
+
+  - id: team.continuity-incentives.001
+    version: 1
+    status: published
+    question: Are incentives and performance measures encouraging hidden risk, metric gaming, silence, knowledge hoarding, or unsafe speed?
+    purpose: Detect workforce incentives that conceal continuity and safety degradation until failure occurs.
+    domain: team
+    lifecycle_stages: [define, design, verify, release, operate, evolve]
+    applies_when: [people receive goals, rankings, rewards, penalties, or workload signals]
+    answer_type: structured
+    criticality: high
+    depends_on: [business.incentives.001, team.continuity-dependencies.001]
+    activates: [team.continuity-duties.001, team.continuity-signals.001]
+    related_to: [ethics.harms.001, team.change-measurement.001]
+    evidence_required: [metric and incentive review, confidential workforce research, near-miss and escalation analysis]
+    expected_outputs: [workforce incentive risk assessment, metric and control corrections]
+    answered_by_roles: [team owner, people owner, risk owner, worker representative]
+    revisit_when: [goals, rewards, workload, reporting climate, or incident patterns change]
+    tags: [workforce-continuity, incentives, speak-up]
+
+  - id: team.continuity-departure.001
+    version: 1
+    status: published
+    question: Can a departure or extended absence revoke access promptly without losing essential knowledge, approvals, relationships, or operational authority?
+    purpose: Join security offboarding with continuity transfer so one control does not silently break the other.
+    domain: team
+    lifecycle_stages: [design, verify, operate, evolve, retire]
+    applies_when: [people hold privileged access, essential knowledge, approvals, or critical relationships]
+    answer_type: structured
+    criticality: critical
+    depends_on: [team.continuity-transfer.001, security.authorization.001]
+    activates: [team.continuity-duties.001]
+    related_to: [security.secrets.001, retirement.ownership.001]
+    evidence_required: [offboarding and absence exercise, access inventory, delegated approval test, relationship handover record]
+    expected_outputs: [secure continuity handover plan, offboarding checklist, emergency authority map]
+    answered_by_roles: [team owner, security owner, people owner, operations owner]
+    revisit_when: [access, authority, key person, employment status, or relationship ownership changes]
+    tags: [workforce-continuity, offboarding, access-transfer]
+
+  - id: team.continuity-duties.001
+    version: 1
+    status: published
+    question: How will separation of duties, independent review, and safe approval limits be preserved during understaffing and emergencies?
+    purpose: Prevent continuity measures from concentrating incompatible authority or bypassing critical review.
+    domain: team
+    lifecycle_stages: [design, verify, release, operate, evolve]
+    applies_when: [staffing shortage could combine sensitive duties, approvals, or control and execution]
+    answer_type: structured
+    criticality: critical
+    depends_on: [team.continuity-capacity.001, team.continuity-incentives.001, team.continuity-departure.001, team.authority.001]
+    activates: [operations.incident.001]
+    related_to: [security.authorization.001, quality.release-gate.001]
+    evidence_required: [duty-conflict matrix, emergency authority limits, independent-review coverage, understaffing exercise]
+    expected_outputs: [continuity control matrix, emergency approval policy, exception log]
+    answered_by_roles: [risk owner, security owner, governance owner, operations owner]
+    revisit_when: [staffing falls below threshold, emergency authority is used, or duty conflicts change]
+    tags: [workforce-continuity, separation-of-duties, emergency]
+
+  - id: team.continuity-sourcing.001
+    version: 1
+    status: published
+    question: Which skills, knowledge, relationships, and authorities must remain internal, and which may safely depend on suppliers or contractors?
+    purpose: Make workforce sourcing choices explicit where external dependence can weaken control, learning, or recovery.
+    domain: team
+    lifecycle_stages: [define, design, build, operate, evolve, retire]
+    applies_when: [suppliers, contractors, or partners provide material capability]
+    answer_type: structured
+    criticality: high
+    depends_on: [team.continuity-dependencies.001, architecture.dependencies.001]
+    activates: [team.continuity-transfer.001]
+    related_to: [operations.supply-chain.001, business.continuity.001]
+    evidence_required: [make-or-buy rationale, supplier capability and exit review, internal minimum-capability definition]
+    expected_outputs: [capability sourcing policy, internal capability floor, supplier exit and knowledge-transfer plan]
+    answered_by_roles: [team owner, procurement owner, architecture owner, sponsor]
+    revisit_when: [supplier, contract, capability criticality, concentration, or exit feasibility changes]
+    tags: [workforce-continuity, sourcing, supplier-dependence]
+
+  - id: team.continuity-signals.001
+    version: 1
+    status: published
+    question: Which leading indicators show that team capacity, knowledge continuity, decision safety, or backup readiness is deteriorating?
+    purpose: Detect workforce continuity failure early enough to transfer knowledge, reduce load, or change scope.
+    domain: team
+    lifecycle_stages: [design, verify, release, operate, evolve]
+    applies_when: [a project or operation has material workforce dependencies]
+    answer_type: structured
+    criticality: high
+    depends_on: [team.continuity-transfer.001, team.continuity-capacity.001, team.continuity-incentives.001, operations.observability.001]
+    activates: [operations.incident.001]
+    related_to: [team.continuity-duties.001]
+    evidence_required: [indicator definitions and baselines, threshold review, backup and knowledge-rehearsal results, leading-to-outcome analysis]
+    expected_outputs: [workforce continuity dashboard, intervention thresholds, continuity review cadence]
+    answered_by_roles: [team owner, people owner, operations owner, risk owner]
+    revisit_when: [indicator reliability, threshold, team topology, demand, or failure pattern changes]
+    tags: [workforce-continuity, leading-indicators, resilience]
