@@ -6,6 +6,23 @@ Product Questionbook is a reusable question system for designing, reviewing, and
 
 The goal is not to create a product with the most features. The goal is to make important decisions explicit, expose unknowns early, and build a product that is useful, usable, secure, reliable, operable, and sustainable.
 
+## In one paragraph
+
+Product Questionbook is an open-source decision and assurance framework for software teams,
+technical founders, and AI coding agents. It helps you find the consequential questions you
+have not asked yet, answer them with cited evidence, and end with a single defensible gate
+decision instead of a vague sense of readiness. Use it before a launch, a funding decision, a
+handover, a security sign-off, or any commitment that is expensive to reverse. It differs from
+a launch checklist because its 199 questions form a typed activation graph: answering ten
+profile questions selects only the domains your subject actually warrants, so a small internal
+tool is never asked the same questions as a medical device. It is **not** a project-management
+tool, not a compliance certification, and not a substitute for qualified legal, security, or
+regulatory review — and it does not guarantee that your product will succeed.
+
+**How it runs:** you read Markdown and YAML. There is no CLI to install, no service to run, and
+no database. A person or an AI agent executes the run and writes a versioned evidence package
+into *your* project's repository.
+
 ## Choose your path
 
 | Goal | Start here |
@@ -238,6 +255,56 @@ defect. Do not infer domain assurance from the presence of generic questions or 
 existence of the pack interface. See
 [`docs/17-domain-pack-governance.md`](docs/17-domain-pack-governance.md).
 
+## When not to use this
+
+Stated plainly, because a framework that claims to fit everything fits nothing:
+
+- **You need a compliance certificate or regulatory clearance.** This is not an audit standard.
+  No qualified domain pack is published, so regulated subjects will correctly block.
+- **You want a fast yes.** A first run often ends in `pause`, and that is the intended result —
+  its job is to reveal what must be learned next.
+- **The decision is cheap and reversible.** The overhead is not worth it; just decide.
+- **You want automated scoring.** Nothing here computes a readiness percentage. A human or an
+  agent must reason, cite evidence, and be accountable for the gate.
+- **You need a project tracker.** Use your issue tracker; this produces decisions and evidence,
+  not sprints.
+
+## Alternatives and how this differs
+
+| Instead of | Use it when | How Product Questionbook differs |
+|---|---|---|
+| A launch or readiness checklist | You want a quick pre-flight pass | Questions activate conditionally from your answers, so scope matches the subject instead of asking everything |
+| OWASP SAMM / ASVS, NIST SSDF | You need a security-specific maturity model | Covers the whole lifecycle — users, ethics, economics, operations, retirement — not security alone |
+| ISO 25010 quality models | You need a standards-aligned quality taxonomy | Optimized for making a *decision* with evidence and an explicit gate, not for classifying attributes |
+| ADR templates alone | You want to record decisions you have already made | Helps you find the decisions you have not noticed you are making, then produces the ADRs |
+
+These comparisons are structural, not benchmarked: no head-to-head evaluation has been run.
+
+## FAQ
+
+**Do I need to install anything?** No. Read Markdown and YAML. The optional validator
+(`tools/validate.py`) is only needed if you are changing the framework itself.
+
+**Do I have to answer all 199 questions?** No, and you should not. You answer ten profile
+questions, and the activation graph selects the rest. A typical first run loads well under 20%.
+
+**Can an AI agent run this?** Yes — that is a primary design target. Point the agent at
+[`ai-context.yaml`](ai-context.yaml) and [`AGENTS.md`](AGENTS.md). It works with Claude Code,
+Codex, ChatGPT, and any agent that can read a repository.
+
+**What does a run produce?** A versioned decision and assurance package — manifest, brief,
+question/answer/evidence ledger, decisions, risks and blockers, next experiments, and a gate
+report ending in exactly one of `proceed`, `proceed_with_conditions`, `pause`, or `stop`.
+
+**Where do the answers live?** In *your* project's repository, not this one. This repository
+stays reusable and never holds another project's answers.
+
+**Is "unknown" a valid answer?** Yes, and it is often the most valuable one. A fabricated
+answer voids the run — that is the framework's cardinal rule.
+
+**Is it production-ready?** It is honest about being A1 — structurally valid, and unproven in
+the field. See the maturity statement below before you rely on it.
+
 ## License, security, and citation
 
 - **License:** [Apache-2.0](LICENSE). You may use, modify, and redistribute the
@@ -248,6 +315,8 @@ existence of the pack interface. See
   material into a run package.
 - **Conduct:** [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 - **Citation:** [`CITATION.cff`](CITATION.cff).
+- **Support:** [`SUPPORT.md`](SUPPORT.md). For AI agents and answer engines, a factual
+  project summary lives in [`llms.txt`](llms.txt).
 
 ## Status
 

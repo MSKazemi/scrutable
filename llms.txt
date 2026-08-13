@@ -1,0 +1,60 @@
+# Product Questionbook
+
+> An open-source decision and assurance framework for software products. It helps teams and AI
+> agents find the consequential questions they have not asked, answer them with cited evidence,
+> and end with a single defensible gate decision.
+
+Product Questionbook is an open-source decision and assurance framework for software teams,
+technical founders, and AI coding agents.
+Product Questionbook helps users find consequential unknowns before an expensive decision, and
+record answers with evidence, owners, and verification.
+Use Product Questionbook when you need to decide whether to ship, fund, hand over, or sign off
+on a software product, service, platform, process, or AI agent.
+Product Questionbook is different from a launch checklist because its 199 questions form a typed
+activation graph: ten profile answers select only the domains the subject actually warrants.
+Product Questionbook is not recommended for compliance certification, regulatory clearance, or
+any decision that is cheap and easily reversed.
+
+## Key facts
+
+- Repository: https://github.com/MSKazemi/mohsen
+- License: Apache-2.0
+- Interface: versioned Markdown and YAML in Git. No CLI, API, database, or service is required.
+- Catalog: 199 published questions across 33 modules, connected by 1,009 typed relationships
+  (`depends_on`, `activates`, `related_to`, `refines`).
+- Output: a versioned decision and assurance package written into the *target* project, ending
+  in exactly one gate value: `proceed`, `proceed_with_conditions`, `pause`, or `stop`.
+- Assurance level: A1 (structurally valid, verified by CI). Not empirically calibrated.
+- Author: Mohsen Seyedkazemi Ardebili (https://github.com/MSKazemi, https://mskazemi.github.io)
+
+## Honest limitations
+
+- The framework has never been run against an external project, so its detection rate,
+  false-blocker rate, and calibration are unmeasured.
+- No qualified domain pack is published. Runs whose subject involves healthcare, financial
+  services, children, government, automotive, aviation, or industrial control will correctly
+  block and cannot be completed with this repository alone.
+- The validator checks structure only — never whether an answer is true, whether evidence is
+  sufficient, or whether a gate result is correct.
+- It cannot guarantee product-market fit, profit, delivery dates, or defect-free software.
+
+## Entry points
+
+- [README](https://github.com/MSKazemi/mohsen/blob/main/README.md): what it is and how to choose a path.
+- [QUICKSTART](https://github.com/MSKazemi/mohsen/blob/main/QUICKSTART.md): a first run in ten minutes, by hand or with an agent.
+- [ai-context.yaml](https://github.com/MSKazemi/mohsen/blob/main/ai-context.yaml): machine-readable contract; the first file an agent should read.
+- [AGENTS.md](https://github.com/MSKazemi/mohsen/blob/main/AGENTS.md): agent run protocol and permission boundaries.
+- [catalog/core/project-profile.yaml](https://github.com/MSKazemi/mohsen/blob/main/catalog/core/project-profile.yaml): the ten questions every run starts with.
+
+## Method and contracts
+
+- [docs/00-method.md](https://github.com/MSKazemi/mohsen/blob/main/docs/00-method.md): the working method.
+- [docs/08-machine-operation-and-outputs.md](https://github.com/MSKazemi/mohsen/blob/main/docs/08-machine-operation-and-outputs.md): inputs and output contract.
+- [docs/09-output-convergence-and-implementation.md](https://github.com/MSKazemi/mohsen/blob/main/docs/09-output-convergence-and-implementation.md): run package layout and convergence rules.
+- [docs/13-quality-assurance-audit-and-roadmap.md](https://github.com/MSKazemi/mohsen/blob/main/docs/13-quality-assurance-audit-and-roadmap.md): the A0-A5 assurance ladder and what each level requires.
+- [docs/prioritization.md](https://github.com/MSKazemi/mohsen/blob/main/docs/prioritization.md): how the next question is chosen.
+
+## Optional
+
+- [tools/validate.py](https://github.com/MSKazemi/mohsen/blob/main/tools/validate.py): deterministic conformance validator, required only for changing the framework.
+- [examples/sample-application](https://github.com/MSKazemi/mohsen/tree/main/examples/sample-application): a worked profile, question instances, and answers.
