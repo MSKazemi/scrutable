@@ -6,9 +6,12 @@ Use this repository as a reusable decision and assurance framework. Do not prese
 as an implemented autonomous engine. The current catalog, schemas, policies, and
 templates may be applied manually or with agent assistance. Treat Markdown, YAML,
 JSON Schema, and Git history as the primary interface. Do not require a CLI, API,
-database, or service to perform a run. If an optional validator is available, use it
-for deterministic checks and preserve its report; do not treat it as the source of
-truth.
+database, or service to perform a run. A deterministic validator now exists at
+`tools/validate.py` and runs in CI; use it for structural checks and preserve its
+report, but do not treat it as the source of truth. It checks structure only — it
+cannot tell you whether an answer is true, whether evidence is sufficient, or whether
+a gate result is correct. Run it after any change to the framework itself; a run
+against a target project does not require it.
 
 ## Context loading
 

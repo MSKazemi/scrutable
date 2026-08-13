@@ -3,6 +3,36 @@
 Product Questionbook is useful only when its questions are clear, reusable, traceable, and
 capable of changing a decision.
 
+Contributions are accepted under [Apache-2.0](LICENSE), the license of this repository.
+Please read [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) before participating, and report
+security concerns privately via [`SECURITY.md`](SECURITY.md) rather than in a public
+issue.
+
+## Run the validator before you open a pull request
+
+```bash
+pip install -r tools/requirements.txt
+make validate          # or: python3 tools/validate.py
+```
+
+CI runs the same command and a failure blocks the merge. The validator checks structure
+only — schemas, stable-ID uniqueness, relationship targets, acyclicity,
+coverage-manifest fidelity, Markdown links and anchors, and gate-vocabulary consistency.
+It cannot judge whether a question is *good*; that is what the checklist below is for.
+
+## The catalog is frozen at 199 questions
+
+New question content is paused until the empirical gap is addressed — the framework has
+never been run against an external subject, so its detection and false-blocker behaviour
+is unmeasured. Adding questions in that state increases maintenance cost and the
+appearance of completeness without increasing assurance; see
+[`docs/13`](docs/13-quality-assurance-audit-and-roadmap.md) and
+[ADR-0005](decisions/ADR-0005-deterministic-conformance-validator.md).
+
+Still welcome during the freeze: fixes to existing questions, relationship corrections,
+evidence and worked examples, validator checks, documentation, and — most valuable of
+all — **a record of running the framework on a real project**.
+
 ## Before adding a question
 
 Check whether an existing question can be refined, related, or given a better
@@ -36,6 +66,10 @@ question instead of reusing its ID for a different meaning.
 - Can the required evidence actually be produced or inspected?
 - Does the question avoid promising that a single answer guarantees success?
 - Is `criticality` proportionate to the consequence of getting the answer wrong?
+  Note that `criticality` is an advisory authoring hint and is **not** the run-time
+  ranking input — 196 of 199 published questions are already `high` or `critical`, so
+  reaching for `critical` by default adds no information. See
+  [ADR-0006](decisions/ADR-0006-criticality-is-advisory.md).
 
 Template publication follows `draft -> reviewed -> published -> deprecated`.
 

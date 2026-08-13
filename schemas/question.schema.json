@@ -60,6 +60,7 @@
     },
     "criticality": {
       "type": "string",
+      "description": "Advisory authoring hint only. This is NOT the run-time priority input: ready questions are ranked by impact, uncertainty, unlock value, urgency, and cost of answering, scored for the specific subject (see docs/prioritization.md). The published distribution is heavily skewed toward 'high' and 'critical', so this field cannot by itself order a ready frontier.",
       "enum": ["low", "medium", "high", "critical"]
     },
     "depends_on": {

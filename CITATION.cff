@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+title: "Product Questionbook"
+message: "If you use this framework, please cite it as below."
+type: software
+abstract: >-
+  A reusable, evidence-bound question framework for designing, reviewing, and
+  improving software products across the whole lifecycle. Questions form a typed
+  activation graph with stable identifiers; a run produces a versioned decision and
+  assurance package ending in a single gate result.
+authors:
+  - family-names: "Seyedkazemi Ardebili"
+    given-names: "Mohsen"
+    website: "https://mskazemi.github.io"
+repository-code: "https://github.com/MSKazemi/mohsen"
+url: "https://mskazemi.github.io"
+license: Apache-2.0
+version: "0.8.0"
+date-released: "2026-08-13"
+keywords:
+  - product-management
+  - software-quality
+  - assurance
+  - decision-records
+  - requirements-engineering
+  - agent-native

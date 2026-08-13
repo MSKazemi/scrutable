@@ -196,7 +196,7 @@ structured catalog. People and capable agents can use it directly by reading and
 writing versioned Markdown and YAML; the absence of a CLI, API, database, or service
 does not prevent normal use.
 
-Automation should begin with a small, deterministic conformance validator for checks
+Automation begins with a small, deterministic conformance validator for checks
 that language models should not judge by themselves: schemas, stable IDs, references,
 links, legal state transitions, blocker policy, and reproducible reports. A CLI may
 wrap that validator for convenience, but it is not the product or a required
@@ -204,16 +204,68 @@ interface. APIs, databases, interactive navigators, and a larger graph engine re
 optional and require evidence of a real need. This boundary is defined in
 [ADR-0003](decisions/ADR-0003-text-first-agent-native-architecture.md).
 
+## Validate the repository
+
+The validator is optional for reading the framework and required for changing it. It
+checks structure only — never whether an answer is true.
+
+```bash
+pip install -r tools/requirements.txt
+make validate          # or: python3 tools/validate.py
+```
+
+It verifies that catalog files parse, stable IDs are unique, every question validates
+against its schema, all declared relationship targets resolve, the `depends_on` graph is
+acyclic, every prose-to-catalog coverage entry still matches the prose it cites, the
+worked example validates, relative Markdown links and anchors resolve, and the gate
+vocabulary is consistent across the contract files. CI runs the same command on every
+push and pull request, and publishes a machine-readable report. A green run supports an
+**A1 (structurally valid)** claim for that revision and nothing above it — see the
+assurance ladder in
+[`docs/13-quality-assurance-audit-and-roadmap.md`](docs/13-quality-assurance-audit-and-roadmap.md).
+
+## Scope boundary: no qualified domain packs are published
+
+This framework provides **universal** questions. It does **not** provide qualified
+coverage for regulated or safety-critical domains, and
+[`packs/`](packs/) contains no published pack.
+
+Because `AGENTS.md` treats a required-but-unavailable pack as a blocker, a run whose
+subject involves healthcare, financial services, children, government, automotive,
+aviation, or industrial control **will correctly block** at `core.domain-pack.001` and
+cannot be completed with this repository alone. That is the intended behavior, not a
+defect. Do not infer domain assurance from the presence of generic questions or from the
+existence of the pack interface. See
+[`docs/17-domain-pack-governance.md`](docs/17-domain-pack-governance.md).
+
+## License, security, and citation
+
+- **License:** [Apache-2.0](LICENSE). You may use, modify, and redistribute the
+  questions, schemas, templates, and documentation, including commercially, provided you
+  retain the license and attribution notices. See [`NOTICE`](NOTICE) and
+  [ADR-0004](decisions/ADR-0004-apache-2-0-licensing.md).
+- **Security:** report privately — see [`SECURITY.md`](SECURITY.md). Never write secret
+  material into a run package.
+- **Conduct:** [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
+- **Citation:** [`CITATION.cff`](CITATION.cff).
+
 ## Status
 
-This is version `0.7`: the graph-ready documentation includes governed adversarial
+This is version `0.8.0`: the graph-ready documentation includes governed adversarial
 self-improvement, pivot lineage, attraction and distribution questions, reconciled
 human/agent/robot integration and financial-continuity controls, stable question IDs,
 machine-validatable schemas, a governed domain-pack interface, international and
 enterprise operating methods, six conditional high-consequence modules, assurance
 and improvement templates, a vendor-neutral coding-agent protocol, explicit news and
-organizational buying questions, and a worked example. The full reference-engine
-stack is deferred; the next justified automation is an optional conformance validator
-that preserves the text files as canonical state. The newly published expansion
-modules remain partial until representative runs and qualified evidence calibrate
-them. See the [changelog](CHANGELOG.md).
+organizational buying questions, and a worked example. The full reference-engine stack
+remains deferred; the conformance validator now exists and runs in CI while preserving
+the text files as canonical state. See the [changelog](CHANGELOG.md).
+
+**Honest maturity statement.** Assurance level **A1 — structurally valid** for any
+revision with a green CI run, and nothing above it. The framework has **never been run
+against an external project**, so its detection rate, false-blocker rate, and
+calibration are unmeasured; the published expansion modules remain partial until
+representative runs and qualified evidence calibrate them; and no domain pack is
+published. The catalog is deliberately frozen at 199 questions until that empirical gap
+is addressed. See [`docs/13`](docs/13-quality-assurance-audit-and-roadmap.md) for the
+full ladder and what each level requires.

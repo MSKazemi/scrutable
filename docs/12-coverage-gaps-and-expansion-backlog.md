@@ -26,6 +26,14 @@ validation and assurance behavior but does not contain a callable conformance an
 semantic validator or an automated assurance workflow. A CLI, API, database, or
 service is optional and is not required for normal framework use.
 
+**Update, 2026-08-13 (v0.8.0):** the *conformance* validator now exists
+(`tools/validate.py`) and runs as a required CI check
+([ADR-0005](../decisions/ADR-0005-deterministic-conformance-validator.md)). The
+*semantic* validator — state transitions, applicability, evidence sufficiency, blocker
+policy, and gate correctness — and the automated assurance workflow remain open. The
+largest omission is now empirical rather than operational: the framework has never been
+run against an external subject.
+
 This promotion adds eight conditional structured modules containing 52 questions for
 international operations, enterprise implementation, marketplace and network
 governance, intellectual property, financial crime, hardware manufacturing and
@@ -56,7 +64,9 @@ validation. Structural support is still not proof of real-world correctness.
 | Priority | Gap | Current status | Why it matters |
 |---|---|---|---|
 | P0 | Prose-to-catalog parity | Partial — manifested, exact review pending | All numbered questions are accounted, but compressed section mappings are not independently reviewed as exact and drift checks are manual |
-| P0 | Deterministic conformance and semantic validator | Capability gap | Documented guarantees cannot be tested automatically and agent behavior remains dependent on manual discipline |
+| P0 | Deterministic conformance validator | **Closed 2026-08-13** | `tools/validate.py` enforces schemas, stable IDs, relationship resolution, acyclicity, coverage fidelity, and links as a required CI check |
+| P0 | Semantic validator (state, applicability, evidence, blocker, gate) | Capability gap | Documented guarantees cannot be tested automatically and agent behavior remains dependent on manual discipline |
+| P0 | Empirical evidence from a real external run | Capability gap | The framework has never been applied to a project other than itself, so detection rate, false-blocker rate, and calibration are unmeasured |
 | P0 | Regulated and safety-critical domain packs | Domain pack required — governance ready | The interface and eight governance nodes are published, but generic questions remain insufficient and no qualified specialized pack exists |
 | P1 | Organizational adoption and change management | Partial — structured module published | Eight stable questions cover the change system; representative run and calibration evidence remain absent |
 | P1 | Workforce and knowledge continuity | Partial — structured module published | Eight stable questions cover workforce continuity; representative absence, departure, and understaffing evidence remain absent |

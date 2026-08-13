@@ -18,7 +18,8 @@ The precise status is:
   agent instructions exist;
 - the self-improvement, convergence, visibility, and agent-integration algorithms are
   specified;
-- no deterministic conformance validator or required CI gate exists yet; a CLI, API,
+- a deterministic conformance validator and required CI gate now exist as of 2026-08-13
+  (`tools/validate.py`, ADR-0005); semantic validation does not, and a CLI, API,
   database, or service is optional and is not required for normal framework use;
 - no system can guarantee attention from people, companies, agents, search engines,
   or news organizations; the framework can enforce only a measurable experiment,
@@ -202,8 +203,10 @@ own consequential recommendation.
 The current repository is documentation-friendly for Codex, ChatGPT, Claude Code, and
 similar systems through `ai-context.yaml`, `AGENTS.md`, `CLAUDE.md`, and the run-request
 template. No separate application is required for this text-protocol integration.
-However, there is not yet a deterministic validator, adapter test suite, permission
-test suite, or benchmark showing reliable end-to-end behavior.
+However, there is not yet an adapter test suite, permission test suite, or benchmark
+showing reliable end-to-end behavior. (A deterministic conformance validator was added
+on 2026-08-13 — see ADR-0005 — but it checks repository structure, not agent behavior,
+so it does not close this item.)
 
 ## Independent structural check of the audited snapshot
 
@@ -228,7 +231,8 @@ The controlling bottleneck is no longer missing prose or a missing user applicat
 It is the absence of a deterministic, required, and empirically tested conformance and
 assurance path. The next work should be:
 
-1. implement the repository validator and run it as a required CI check;
+1. ~~implement the repository validator and run it as a required CI check~~ —
+   **done 2026-08-13**, see ADR-0005; the remaining validator work is semantic;
 2. refine the conservative prose-to-catalog manifest to independently reviewed question-level mappings and enforce drift checks;
 3. complete the schemas and cross-record semantic validation;
 4. add positive, negative, property, determinism, migration, and permission tests;

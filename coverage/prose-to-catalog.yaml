@@ -1,6 +1,10 @@
 schema_version: 1
 manifest_version: 1
-source_revision: "c0cd702dbb9a1a7ba4901bf4fee2544d3e21f86e"
+source_revision: "a80c96537f568ee9b1dc2043cee8e8a4c83ece67"
+# Provenance only: the revision at which this manifest was last reconciled by hand.
+# Correctness does not depend on it staying current -- tools/validate.py check V1
+# re-derives every entry from the prose files at the working revision, so drift fails
+# CI rather than hiding behind a stale SHA.
 mapping_method: "section_many_to_many_with_preserved_source_text"
 scope:
   inclusion_rule: "Every question-form ordered-list item in the seven human question-bank files, including prefixed labels such as N1, I1, F1, and B1."

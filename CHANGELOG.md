@@ -4,6 +4,81 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
+_Nothing yet._
+
+## 0.8.0 — 2026-08-13
+
+Closes the conformance half of the controlling bottleneck identified in
+`docs/13-quality-assurance-audit-and-roadmap.md`, and adds the licensing and governance
+files that public reuse requires. Triggered by the framework's first self-assessment
+run, which returned `pause` on three blockers.
+
+### Added
+
+- **`LICENSE` (Apache-2.0)** and `NOTICE`. The repository previously had no license, so
+  publishing it would have granted no reuse rights at all — a fatal gap for a framework
+  whose purpose is reuse. Rationale and alternatives in
+  [ADR-0004](decisions/ADR-0004-apache-2-0-licensing.md).
+- **`tools/validate.py`** — a deterministic, offline conformance validator, plus
+  `tools/requirements.txt` and a `Makefile` (`make validate`, `make report`,
+  `make check`). It checks catalog parsing and stable-ID uniqueness, JSON Schema
+  well-formedness, question-schema conformance, relationship-target resolution,
+  `depends_on` acyclicity, status hygiene, prose-to-catalog coverage fidelity, worked-
+  example validity, Markdown link and anchor resolution, gate-vocabulary consistency,
+  and a criticality-calibration report. Verified red-green: four injected defects
+  produced six failures; reverting them returned zero.
+- **`.github/workflows/validate.yml`** — required CI on push, pull request, and manual
+  dispatch, publishing a machine-readable conformance report artifact. This is the
+  "required CI report for the pinned commit" that assurance level **A1** demands, so an
+  A1 claim is now supportable for any revision with a green run.
+  [ADR-0005](decisions/ADR-0005-deterministic-conformance-validator.md).
+- **`SECURITY.md`** with a private reporting path, an explicit in-scope/out-of-scope
+  boundary, honest single-maintainer response targets, and a rule against writing secret
+  material into a run package.
+- **`CODE_OF_CONDUCT.md`** and **`CITATION.cff`**.
+- A **scope-boundary statement in `README.md`**: no qualified domain pack is published,
+  so a run whose subject involves healthcare, financial services, children, government,
+  automotive, aviation, or industrial control will correctly block at
+  `core.domain-pack.001`. The behaviour already existed; it was undeclared.
+- A `README.md` section covering how to run the validator and what its green result does
+  and does not claim.
+
+### Changed
+
+- **`criticality` is now documented as advisory**, not the run-time ranking input. 196 of
+  199 published questions are `high` or `critical` and none is `low`, so the field cannot
+  order a ready frontier; `docs/prioritization.md` already ranked by run-time impact,
+  uncertainty, unlock value, urgency, and cost, but nothing said so. Documented in
+  `schemas/question.schema.json` and `docs/prioritization.md`, and reported by validator
+  check `Q1`. No catalog content or stable ID changed.
+  [ADR-0006](decisions/ADR-0006-criticality-is-advisory.md).
+- `coverage/prose-to-catalog.yaml` `source_revision` refreshed to `a80c9653` and
+  documented as provenance only — correctness is now enforced by re-deriving all 396
+  entries from the prose at the working revision, so drift fails CI instead of hiding
+  behind a stale SHA.
+- `ai-context.yaml` now declares `automated_validator_available: true` with the command,
+  its structure-only scope, and an explicit list of what it cannot check;
+  `semantic_validator_available` remains `false`.
+- `AGENTS.md`, `docs/11`, `docs/14`, and `docs/25` updated to reflect that the
+  conformance validator exists. `docs/14`'s P1 validator item is marked done; the next
+  controlling improvement is recorded as empirical, not structural.
+- `CONTRIBUTING.md` now requires a validator run before a pull request, states the
+  contribution license, and records the catalog freeze.
+
+### Known limitations
+
+- **The catalog is frozen at 199 questions** until the framework has been run against an
+  external subject. It has never been.
+- The validator checks **structure only**. A2 (semantic enforcement), A3 (empirical
+  calibration), A4 (domain qualification), and A5 (outcome monitoring) remain unclaimed
+  and unmet.
+- `packs/` still contains no published domain pack, and qualified expert review remains
+  unfunded.
+- `docs/13` and `docs/19` remain pinned point-in-time audits at baseline `b2c5bd2` and
+  were deliberately not amended.
+
+## 0.7.1 — 2026-08-12
+
 - Promoted 52 backlog candidates into eight conditional published catalog modules for internationalization and localization operations, enterprise implementation and customer success, marketplace and network governance, intellectual property, fraud and financial crime, hardware manufacturing and recall, crisis communication, and liability and insurance.
 - Added three operating methods, three evidence registers, and an expansion integration audit; connected the modules to existing boundary, organizational-buying, channel, obligation, threat, architecture-context, and incident anchors while preserving conditional applicability and qualified-review boundaries.
 - Expanded the universal catalog to 199 unique published questions with 496 `depends_on`, 298 `activates`, 213 `related_to`, and two `refines` references. All 1,009 declared targets are required to resolve and the dependency graph remains acyclic.

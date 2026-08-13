@@ -28,6 +28,14 @@ workaround. The repository does not provide a working `questionbook` CLI, API,
 database, graph evaluator, or autonomous application, and none is required for normal
 human or agent use. Future commands are optional adapters, not promised prerequisites.
 
+One piece of automation does exist: `tools/validate.py`, a read-only deterministic
+conformance validator that runs in CI on every push and pull request
+([ADR-0005](../decisions/ADR-0005-deterministic-conformance-validator.md)). It checks
+the repository's own structural integrity — schemas, stable IDs, relationship targets,
+acyclicity, coverage-manifest fidelity, and Markdown links. It is required for changes
+to the framework and irrelevant to running an assessment against a target project. It
+owns no canonical state and rewrites nothing.
+
 ## Recommended workspace
 
 Keep the framework and target project beside one another. The target project remains

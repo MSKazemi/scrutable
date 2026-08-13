@@ -129,6 +129,12 @@ Additional requirements include:
 - actual policy, correlated-loss, evidence-preservation, claim, coverage, and
   survivability review.
 
-The deterministic conformance and semantic validator remains a separate P0 capability
-gap. This promotion supplies structured inputs for that validator but does not create
-it.
+The deterministic conformance and semantic validator remained a separate P0 capability
+gap at the time of this audit. This promotion supplied structured inputs for that
+validator but did not create it.
+
+**Update, 2026-08-13:** the *conformance* half of that gap is now closed —
+`tools/validate.py` runs in CI and enforces the structural claims this audit made by
+hand ([ADR-0005](../decisions/ADR-0005-deterministic-conformance-validator.md)). The
+*semantic* half — state transitions, applicability, evidence sufficiency, blocker
+policy, and gate correctness — remains open, and A2 must not be claimed.

@@ -128,17 +128,22 @@ Until automated checks exist, review releases against these questions:
 | Priority | Status | Improvement | Why it matters | Completion evidence |
 | --- | --- | --- | --- | --- |
 | P0 | Complete | Quick start, README routing, AI manifest | Removes the entry and discovery bottleneck | A novice and agent can identify the correct path without reading all docs |
-| P1 | Planned | Read-only conformance validator in CI | Converts documented rules into repeatable checks without replacing the text interface | Pull requests fail on invalid records, duplicate IDs, or broken relationships |
+| P1 | **Done** | Read-only conformance validator in CI (`tools/validate.py`, ADR-0005) | Converts documented rules into repeatable checks without replacing the text interface | Pull requests fail on invalid records, duplicate IDs, or broken relationships |
 | P1 | Planned | Complete end-to-end example output bundle | Shows what “done” looks like | Example includes manifest, ledger, ADR, risks, tests, and gate report |
-| P1 | Planned | Repository description, topics, license decision, and branch hygiene | Improves discovery and contribution clarity | Settings and legal status are explicit |
+| P1 | **Partial** | Repository description, topics, license decision (Apache-2.0, ADR-0004), and branch hygiene | Improves discovery and contribution clarity | Settings and legal status are explicit |
 | P3 | Optional | Optional thin CLI wrapper | May reduce local invocation errors if users request it | The wrapper calls the same validator and framework use never depends on it |
-| P2 | Planned | Generated documentation index and link checker | Prevents navigation decay | CI verifies links and publishes the index |
+| P2 | **Partial** | Generated documentation index and link checker (link+anchor checking is live in CI; the index is not) | Prevents navigation decay | CI verifies links and publishes the index |
 | P3 | Optional | Interactive navigator | Helps nontechnical users traverse activated questions | Usability testing shows lower completion time and fewer missed blockers |
 
-The P1 validator is the next controlling engineering improvement. It is a conformance
-checker, not a replacement application: more prose will not make the repository
-materially more AI-reliable until declared schemas, relationships, and links are
-automatically checked, but a mandatory CLI or service would not improve those checks.
+The P1 validator was the controlling engineering improvement and is now implemented
+(`tools/validate.py`, required in CI — see
+[ADR-0005](../decisions/ADR-0005-deterministic-conformance-validator.md)). It is a
+conformance checker, not a replacement application: more prose will not make the
+repository materially more AI-reliable until declared schemas, relationships, and links
+are automatically checked, but a mandatory CLI or service would not improve those
+checks. The next controlling improvement is no longer structural — it is empirical:
+the framework has never been run against an external subject, so its detection and
+false-blocker behavior is unmeasured.
 
 ## Claims this interface may make
 

@@ -1,0 +1,42 @@
+name: conformance
+
+# Gate 1 in docs/13-quality-assurance-audit-and-roadmap.md requires that repository
+# integrity is reproduced by CI at a pinned commit, not observed manually once.
+# A green run here is the evidence that supports an A1 structural claim, and
+# nothing above it.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install validator dependencies
+        run: pip install -r tools/requirements.txt
+
+      - name: Run conformance validator
+        run: python tools/validate.py
+
+      - name: Write machine-readable report
+        if: always()
+        run: python tools/validate.py --json > conformance-report.json || true
+
+      - name: Upload conformance report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conformance-report-${{ github.sha }}
+          path: conformance-report.json

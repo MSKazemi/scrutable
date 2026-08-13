@@ -3,9 +3,10 @@ project:
   name: Product Questionbook
   repository: MSKazemi/mohsen
   default_branch: main
-  framework_version: "0.7"
+  framework_version: "0.8.0"
   purpose: Evidence-backed product and system decision assurance
   status: documentation_first
+  license: Apache-2.0
 
 truth:
   canonical_sources:
@@ -30,7 +31,11 @@ architecture:
   api_required: false
   database_required: false
   optional_validator_role: deterministic_conformance_checks
+  validator_path: tools/validate.py
+  validator_scope: structure_only
   architecture_decision: decisions/ADR-0003-text-first-agent-native-architecture.md
+  validator_decision: decisions/ADR-0005-deterministic-conformance-validator.md
+  licensing_decision: decisions/ADR-0004-apache-2-0-licensing.md
 
 entrypoints:
   human_quickstart: QUICKSTART.md
@@ -51,6 +56,9 @@ entrypoints:
   conditional_expansion: docs/24-conditional-marketplace-ip-financial-hardware-crisis-liability.md
   expansion_integration_audit: docs/25-expansion-module-integration-audit.md
   contribution_guide: CONTRIBUTING.md
+  security_policy: SECURITY.md
+  code_of_conduct: CODE_OF_CONDUCT.md
+  conformance_validator: tools/validate.py
   worked_example: examples/sample-application/README.md
 
 agent_load_order:
@@ -123,6 +131,7 @@ agent_load_order:
     - schemas/domain-pack.schema.json
   framework_change:
     - CONTRIBUTING.md
+    - tools/validate.py
     - docs/structured-foundation.md
     - schemas/question.schema.json
     - schemas/prose-coverage.schema.json
@@ -199,7 +208,16 @@ validation:
     - Never claim complete or continuous external visibility; record source boundaries, access failures, detection delay, and blind spots.
     - Check required evidence and ownership for consequential claims.
     - Apply blocker rules before returning a gate result.
-  automated_validator_available: false
-  optional_validator_planned: true
+  automated_validator_available: true
+  validator_command: "python3 tools/validate.py"
+  validator_machine_report: "python3 tools/validate.py --json"
+  validator_required_in_ci: true
+  validator_scope: structure_only
+  validator_cannot_check:
+    - answer truth
+    - evidence sufficiency
+    - gate correctness
+    - domain qualification
+  semantic_validator_available: false
   validator_must_not_own_canonical_state: true
   deferred_full_engine_stack: decisions/ADR-0001-engine-implementation-stack.md
