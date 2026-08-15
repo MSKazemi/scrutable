@@ -1,22 +1,22 @@
 # Usage, project placement, visibility, and agent integration
 
 **Status:** Normative manual protocol and target automation contract; the executable engine is not yet implemented  
-**Applies to:** people, coding agents, workflow agents, and future Product Questionbook services
+**Applies to:** people, coding agents, workflow agents, and future Scrutable services
 
 ## Direct answer
 
-Product Questionbook is a reusable framework repository, not the default home of every
+Scrutable is a reusable framework repository, not the default home of every
 product reviewed with it. In the recommended arrangement:
 
 - this repository owns reusable questions, schemas, algorithms, policies, templates,
   examples, and framework decisions;
 - the target project's repository owns its project profile, answers, evidence links,
   decisions, generated specifications, and run history;
-- every target run pins the exact Product Questionbook Git commit it used.
+- every target run pins the exact Scrutable Git commit it used.
 
 Do not copy a target application's source code into this repository merely to review
 it. Do not put confidential project answers into the public framework history. A real
-project may use the same repository only when Product Questionbook itself is the
+project may use the same repository only when Scrutable itself is the
 subject, or when an accountable owner deliberately chooses a combined repository.
 
 ## Current capability
@@ -24,7 +24,7 @@ subject, or when an accountable owner deliberately chooses a combined repository
 This repository can be used manually or agent-assisted today. A person or coding
 agent can read the catalog, apply the state and evidence rules, and write the output
 package. This direct file workflow is the intended primary interface, not a temporary
-workaround. The repository does not provide a working `questionbook` CLI, API,
+workaround. The repository does not provide a working `scrutable` CLI, API,
 database, graph evaluator, or autonomous application, and none is required for normal
 human or agent use. Future commands are optional adapters, not promised prerequisites.
 
@@ -43,7 +43,7 @@ the source of truth for its own run artifacts.
 
 ~~~text
 workspace/
-  product-questionbook/          # clone of MSKazemi/mohsen; read-only during a run
+  scrutable/          # clone of MSKazemi/scrutable; read-only during a run
   target-product/                # the application, service, framework, or idea being reviewed
     runs/
       RUN-2026-0001/
@@ -65,14 +65,14 @@ workspace/
 Clone only `main` when a single local framework branch is desired:
 
 ~~~bash
-git clone --branch main --single-branch git@github.com:MSKazemi/mohsen.git product-questionbook
+git clone --branch main --single-branch git@github.com:MSKazemi/scrutable.git scrutable
 ~~~
 
-For reproducibility, record the resulting commit SHA in `questionbook_ref`. A Git
+For reproducibility, record the resulting commit SHA in `scrutable_ref`. A Git
 submodule or vendored snapshot is optional; an adjacent clone plus a pinned SHA is
 simpler while the framework is documentation-first. Use a separate private assurance
 repository only when permissions, confidentiality, regulation, or cross-repository
-governance require it. In that case, record both target and Questionbook revisions.
+governance require it. In that case, record both target and Scrutable revisions.
 
 ## Inputs
 
@@ -118,7 +118,7 @@ flowchart TD
     E -->|new evidence or change| G
 ```
 
-1. Create a run manifest and freeze the target and Questionbook revisions.
+1. Create a run manifest and freeze the target and Scrutable revisions.
 2. Instantiate the ten core project-profile questions.
 3. Evaluate activation and applicability rules; never ask the entire catalog blindly.
 4. Rank the ready frontier by critical blockers, harm, uncertainty, irreversibility,

@@ -1,6 +1,6 @@
 # Adaptive interview and prioritization
 
-Product Questionbook does not ask every question in catalog order. It first builds a subject
+Scrutable does not ask every question in catalog order. It first builds a subject
 profile, evaluates applicability and dependencies, then ranks ready questions.
 
 ## Selection sequence

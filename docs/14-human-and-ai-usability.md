@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Product Questionbook must be understandable by a first-time human and reliably
+Scrutable must be understandable by a first-time human and reliably
 navigable by an AI agent without requiring either reader to load the entire
 repository. Friendliness means reducing time-to-first-use and ambiguity while
 preserving evidence, safety, and traceability requirements. Versioned Markdown and

@@ -1,8 +1,8 @@
 blank_issues_enabled: true
 contact_links:
   - name: Security vulnerability (do not open a public issue)
-    url: https://github.com/MSKazemi/mohsen/security/advisories/new
+    url: https://github.com/MSKazemi/scrutable/security/advisories/new
     about: Report privately via GitHub Security Advisories. See SECURITY.md.
   - name: How do I run this?
-    url: https://github.com/MSKazemi/mohsen/blob/main/QUICKSTART.md
+    url: https://github.com/MSKazemi/scrutable/blob/main/QUICKSTART.md
     about: The ten-minute quick start, by hand or with an AI agent.

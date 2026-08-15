@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "Product Questionbook"
+title: "Scrutable"
 message: "If you use this framework, please cite it as below."
 type: software
 abstract: >-
@@ -11,7 +11,7 @@ authors:
   - family-names: "Seyedkazemi Ardebili"
     given-names: "Mohsen"
     website: "https://mskazemi.github.io"
-repository-code: "https://github.com/MSKazemi/mohsen"
+repository-code: "https://github.com/MSKazemi/scrutable"
 url: "https://mskazemi.github.io"
 license: Apache-2.0
 version: "0.8.0"

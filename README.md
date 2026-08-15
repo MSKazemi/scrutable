@@ -1,14 +1,14 @@
-# Product Questionbook
+# Scrutable
 
 > Questions for the whole software lifecycle.
 
-Product Questionbook is a reusable question system for designing, reviewing, and improving software products.
+Scrutable is a reusable question system for designing, reviewing, and improving software products.
 
 The goal is not to create a product with the most features. The goal is to make important decisions explicit, expose unknowns early, and build a product that is useful, usable, secure, reliable, operable, and sustainable.
 
 ## In one paragraph
 
-Product Questionbook is an open-source decision and assurance framework for software teams,
+Scrutable is an open-source decision and assurance framework for software teams,
 technical founders, and AI coding agents. It helps you find the consequential questions you
 have not asked yet, answer them with cited evidence, and end with a single defensible gate
 decision instead of a vague sense of readiness. Use it before a launch, a funding decision, a
@@ -44,7 +44,7 @@ into *your* project's repository.
 
 ## What this repository is
 
-- **Project:** this repository and all work used to develop Product Questionbook.
+- **Project:** this repository and all work used to develop Scrutable.
 - **Framework:** the question banks, methods, evidence rules, structured catalog, schemas, and templates in this repository.
 - **Optional application:** a future convenience interface that may navigate the question graph, track answer state, and generate project artifacts. It is not required to use the framework; the canonical interface remains versioned Markdown, YAML, JSON Schema, and Git.
 
@@ -271,7 +271,7 @@ Stated plainly, because a framework that claims to fit everything fits nothing:
 
 ## Alternatives and how this differs
 
-| Instead of | Use it when | How Product Questionbook differs |
+| Instead of | Use it when | How Scrutable differs |
 |---|---|---|
 | A launch or readiness checklist | You want a quick pre-flight pass | Questions activate conditionally from your answers, so scope matches the subject instead of asking everything |
 | OWASP SAMM / ASVS, NIST SSDF | You need a security-specific maturity model | Covers the whole lifecycle — users, ethics, economics, operations, retirement — not security alone |

@@ -2,8 +2,8 @@
 
 | Term | Meaning |
 |---|---|
-| Project | The bounded effort using Product Questionbook to examine and improve a subject |
-| Framework | Product Questionbook's concepts, rules, catalog, schemas, and workflows |
+| Project | The bounded effort using Scrutable to examine and improve a subject |
+| Framework | Scrutable's concepts, rules, catalog, schemas, and workflows |
 | Application | A future user interface or service implementing the framework |
 | Subject | The application, service, feature, process, or organization being examined |
 | Domain | A concern area such as security, product, reliability, or business |
@@ -26,7 +26,7 @@
 
 ### Framework, project, and application
 
-The repository contains the **Product Questionbook framework**. A team uses it in an
+The repository contains the **Scrutable framework**. A team uses it in an
 **assessment project**. Software that executes the model is an **application**.
 
 ### Template and instance

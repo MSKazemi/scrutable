@@ -3,7 +3,7 @@
 - **Status:** Accepted
 - **Date:** 2026-08-11
 - **Decision owners:** Repository maintainers
-- **Scope:** Product Questionbook framework and future engine
+- **Scope:** Scrutable framework and future engine
 
 ## Context
 

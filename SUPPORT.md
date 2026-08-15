@@ -10,7 +10,7 @@ offered — please read before opening an issue.
 | Understand how to run the framework | [`QUICKSTART.md`](QUICKSTART.md) |
 | Point an AI agent at it | [`ai-context.yaml`](ai-context.yaml), then [`AGENTS.md`](AGENTS.md) |
 | See a worked run | [`examples/sample-application/`](examples/sample-application/) |
-| Ask a question or propose an idea | [GitHub Issues](https://github.com/MSKazemi/mohsen/issues) |
+| Ask a question or propose an idea | [GitHub Issues](https://github.com/MSKazemi/scrutable/issues) |
 | Report a security concern | **Privately** — see [`SECURITY.md`](SECURITY.md), not an issue |
 | Propose a change | [`CONTRIBUTING.md`](CONTRIBUTING.md) |
 

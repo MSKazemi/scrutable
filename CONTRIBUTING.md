@@ -1,6 +1,6 @@
 # Contributing questions
 
-Product Questionbook is useful only when its questions are clear, reusable, traceable, and
+Scrutable is useful only when its questions are clear, reusable, traceable, and
 capable of changing a decision.
 
 Contributions are accepted under [Apache-2.0](LICENSE), the license of this repository.

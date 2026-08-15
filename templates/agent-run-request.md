@@ -1,6 +1,6 @@
-# Product Questionbook agent run request
+# Scrutable agent run request
 
-Use the pinned Product Questionbook revision to review the subject below. Follow
+Use the pinned Scrutable revision to review the subject below. Follow
 `AGENTS.md` and `docs/11-usage-deployment-and-agent-integration.md`.
 
 ## Run inputs
@@ -21,7 +21,7 @@ Use the pinned Product Questionbook revision to review the subject below. Follow
 
 1. Create or update only `runs/<run-id>/` unless framework changes are separately
    authorized.
-2. Pin `questionbook_ref` and the target revision in `00-manifest.md`.
+2. Pin `scrutable_ref` and the target revision in `00-manifest.md`.
 3. Instantiate the core project-profile questions, then select conditional questions.
 4. Label facts, observations, inferences, assumptions, predictions, preferences, and
    decisions separately. Never invent evidence.

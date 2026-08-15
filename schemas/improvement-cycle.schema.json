@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/MSKazemi/mohsen/blob/main/schemas/improvement-cycle.schema.json",
-  "title": "Product Questionbook improvement cycle",
+  "$id": "https://github.com/MSKazemi/scrutable/blob/main/schemas/improvement-cycle.schema.json",
+  "title": "Scrutable improvement cycle",
   "type": "object",
   "additionalProperties": false,
   "required": [

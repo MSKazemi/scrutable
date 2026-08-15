@@ -5,6 +5,12 @@
 **Scope:** branch integration, self-improvement, usage and placement, inputs and
 outputs, visibility and attention, algorithms, and coding-agent compatibility
 
+> **Note added 2026-08-15:** this is a dated snapshot. At the audit date the framework was
+> named *Product Questionbook* and the repository was `MSKazemi/mohsen`; both were renamed to
+> *Scrutable* / `MSKazemi/scrutable` on 2026-08-15 ([ADR-0007](../decisions/ADR-0007-rename-to-scrutable.md)).
+> Framework names in the text below have been updated for readability; the findings, dates, and
+> baseline commit are unchanged.
+
 ## Verdict
 
 All concerns in the request are represented on `main` at the **design and manual
@@ -33,9 +39,9 @@ uncertainty; it does not create the evidence.
 
 ## Branch-integration result
 
-[Pull request 1](https://github.com/MSKazemi/mohsen/pull/1),
-[pull request 2](https://github.com/MSKazemi/mohsen/pull/2), and
-[pull request 3](https://github.com/MSKazemi/mohsen/pull/3) are closed as merged, and
+[Pull request 1](https://github.com/MSKazemi/scrutable/pull/1),
+[pull request 2](https://github.com/MSKazemi/scrutable/pull/2), and
+[pull request 3](https://github.com/MSKazemi/scrutable/pull/3) are closed as merged, and
 there are no open pull requests. Their content has already been reconciled into the
 current framework. Reapplying any old branch tree would be unsafe because it would
 restore older versions of files that have since evolved on `main`.
@@ -59,7 +65,7 @@ open pull request or automation depends on them.
 | Keep output consistent across different projects | Specified | Stable envelope with conditional domain content | Project-specific sections, evidence depth, and approvals vary |
 | Cover people, companies, agents, web/search, advertising, and news visibility | Structured questions and loop exist | Usage protocol and `catalog/business/attraction-and-distribution-questions.yaml` | Visibility itself cannot be guaranteed |
 | Explain background algorithms and the loop | Specified | Convergence, prioritization, state, and self-improvement documents | Policies are not yet one executable versioned implementation |
-| Work with Codex, ChatGPT, Claude Code, and other agents | Protocol and adapters specified | `ai-context.yaml`, `AGENTS.md`, `CLAUDE.md`, and [agent run request](../templates/agent-run-request.md) | No end-to-end agent benchmark or Questionbook service exists |
+| Work with Codex, ChatGPT, Claude Code, and other agents | Protocol and adapters specified | `ai-context.yaml`, `AGENTS.md`, `CLAUDE.md`, and [agent run request](../templates/agent-run-request.md) | No end-to-end agent benchmark or Scrutable service exists |
 | Check the claims rather than merely document them | Partially checked | [Quality audit](13-quality-assurance-audit-and-roadmap.md) and [usability contract](14-human-and-ai-usability.md) | Efficacy and real-project outcomes are not yet demonstrated |
 
 ## Recommended deployment model
@@ -68,7 +74,7 @@ Keep the framework and the target project adjacent:
 
 ```text
 workspace/
-  product-questionbook/       # clone of this repository, pinned to a main SHA
+  scrutable/       # clone of this repository, pinned to a main SHA
   target-project/
     runs/<run-id>/             # project-specific answers and assurance package
 ```
@@ -76,15 +82,15 @@ workspace/
 Clone only `main` when one local branch is desired:
 
 ```bash
-git clone --branch main --single-branch git@github.com:MSKazemi/mohsen.git product-questionbook
+git clone --branch main --single-branch git@github.com:MSKazemi/scrutable.git scrutable
 ```
 
 The framework repository owns reusable questions, schemas, policies, algorithms,
 templates, examples, and framework decisions. The target repository normally owns
 its profile, answers, evidence links, decisions, specifications, risks, tests, gate
 reports, and audit history. Every run pins both the target-project revision and the
-Questionbook revision. Use the framework repository itself as the output location only
-when Product Questionbook is the subject or an owner deliberately chooses a combined
+Scrutable revision. Use the framework repository itself as the output location only
+when Scrutable is the subject or an owner deliberately chooses a combined
 repository.
 
 ## Input and output contracts
@@ -108,7 +114,7 @@ policy. A justified `not_applicable` record is different from an omitted concern
 
 ## End-to-end operating loop
 
-1. Freeze the target and Questionbook revisions and create the run manifest.
+1. Freeze the target and Scrutable revisions and create the run manifest.
 2. Answer the ten project-profile questions; record `unknown` where evidence is
    missing.
 3. Activate only applicable domains and construct the ready question frontier.
@@ -245,7 +251,7 @@ assurance path. The next work should be:
    `agent/inquirygraph-foundation`, and
    `agent/text-first-agent-native-architecture` after verifying no dependency remains.
 
-Until those gates pass, the accurate claim is: Product Questionbook provides a
+Until those gates pass, the accurate claim is: Scrutable provides a
 documented, structured, evidence-oriented text protocol for manual and agent-assisted
 work. It does not yet provide automated conformance assurance, guaranteed visibility,
 or guaranteed product success; it does not require a standalone application to be

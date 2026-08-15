@@ -1,10 +1,16 @@
 # Framework quality assurance audit and roadmap
 
 **Audit snapshot:** 2026-08-12, `main` baseline commit `b2c5bd2`  
-**Scope:** the Product Questionbook repository as a reusable question and assurance
+**Scope:** the Scrutable repository as a reusable question and assurance
 framework; this is not an assessment of a product reviewed with the framework  
 **Verdict:** promising and unusually explicit specification; not yet a proven or
 continuously enforced quality-assurance system
+
+> **Note added 2026-08-15:** this is a dated snapshot. At the audit date the framework was
+> named *Product Questionbook* and the repository was `MSKazemi/mohsen`; both were renamed to
+> *Scrutable* / `MSKazemi/scrutable` on 2026-08-15 ([ADR-0007](../decisions/ADR-0007-rename-to-scrutable.md)).
+> Framework names in the text below have been updated for readability; the findings, dates, and
+> baseline commit are unchanged.
 
 ## Direct conclusion
 
@@ -128,7 +134,7 @@ one.
 
 Required correction:
 
-- compare Questionbook-assisted reviews with a defined baseline;
+- compare Scrutable-assisted reviews with a defined baseline;
 - seed known hazards and measure severe-omission detection;
 - measure false blockers, duplicate questions, time and evidence cost;
 - track decision-change rate, downstream rework, and missed concerns found later;
@@ -155,7 +161,7 @@ Important semantic gaps include:
 - an answer can have an empty evidence list, and `review_status` is optional;
 - computed priority is not checked against the declared formula;
 - critical risk acceptance authority and gate policy are prose, not executable data;
-- cross-record subject, run, graph, and questionbook revision coherence is not
+- cross-record subject, run, graph, and scrutable revision coherence is not
   enforced by JSON Schema alone.
 
 Required correction: add missing entity schemas and implement cross-record semantic
@@ -384,7 +390,7 @@ Pause expansion or release when:
 
 ## Final assessment
 
-Product Questionbook already has a thoughtful architecture and a stronger assurance
+Scrutable already has a thoughtful architecture and a stronger assurance
 philosophy than a normal checklist. Its main risk is **false maturity**: detailed
 documents, schemas, and 147 published universal questions can look like operational proof even
 though enforcement and efficacy are still unverified.

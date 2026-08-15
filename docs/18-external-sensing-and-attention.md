@@ -2,7 +2,7 @@
 
 ## What this mechanism can and cannot guarantee
 
-Product Questionbook can require a visible, owned, evidence-backed process for
+Scrutable can require a visible, owned, evidence-backed process for
 collecting external signals and for acting when they change a decision. It cannot
 guarantee that every person, company, agent, website, news outlet, regulator, or
 community will reveal a change, see a product, pay attention, or respond.

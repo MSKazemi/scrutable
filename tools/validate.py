@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic conformance validator for Product Questionbook.
+"""Deterministic conformance validator for Scrutable.
 
 This is the P0 capability named in `docs/13-quality-assurance-audit-and-roadmap.md`:
 it turns the structural claims in `CHANGELOG.md` and the audit documents from
@@ -328,7 +328,7 @@ def check_markdown_links(report: Report) -> None:
     failures = []
     anchors: dict[pathlib.Path, set[str]] = {}
     md_files = [p for p in ROOT.rglob("*.md")
-                if ".git" not in p.parts and ".questionbook" not in p.parts
+                if ".git" not in p.parts and ".scrutable" not in p.parts
                 and ".claude" not in p.parts]
 
     def anchors_for(path: pathlib.Path) -> set[str]:
@@ -451,7 +451,7 @@ def main() -> int:
         }, indent=2))
         return 1 if failed else 0
 
-    print("Product Questionbook conformance validator\n")
+    print("Scrutable conformance validator\n")
     for check in report.checks:
         mark = "FAIL" if check["status"] == "fail" else "ok  "
         detail = ", ".join(f"{k}={v}" for k, v in check["detail"].items())

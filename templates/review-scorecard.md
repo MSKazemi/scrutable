@@ -4,7 +4,7 @@ run_id: "<run-id>"
 project_id: "<project-id>"
 subject_id: "<subject-id>"
 review_id: "<review-id>"
-questionbook_ref: "<git-commit-sha>"
+scrutable_ref: "<git-commit-sha>"
 graph_revision: 0
 generated_at: "<ISO-8601 timestamp>"
 ---

@@ -6,7 +6,7 @@ project_id: "<project-id>"
 cycle_id: "<cycle-id>"
 level: "<application/idea/project_graph/repository>"
 subject_id: "<subject-id>"
-questionbook_ref: "<git-commit-sha>"
+scrutable_ref: "<git-commit-sha>"
 baseline_revision: 0
 graph_revision: 0
 owner: "<accountable owner>"

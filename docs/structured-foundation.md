@@ -1,6 +1,6 @@
 # Structured graph foundation
 
-This foundation turns Product Questionbook into a structured question graph. It asks
+This foundation turns Scrutable into a structured question graph. It asks
 what a team does not yet know it needs to ask, connects the answer to evidence
 and decisions, and generates the material required to design, build, operate, and
 evaluate a system.
@@ -8,7 +8,7 @@ evaluate a system.
 ## Assurance promise
 
 No question system can guarantee market, technical, or organizational success.
-Product Questionbook makes a narrower promise that can be tested:
+Scrutable makes a narrower promise that can be tested:
 
 > Every applicable critical concern is either supported by accepted evidence or
 > explicitly recorded as an accepted risk with an owner and review date.

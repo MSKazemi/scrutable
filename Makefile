@@ -1,4 +1,4 @@
-# Product Questionbook — convenience targets.
+# Scrutable — convenience targets.
 # Nothing here is required to use the framework. The canonical interface is the
 # versioned Markdown and YAML in this repository (see decisions/ADR-0003).
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/MSKazemi/mohsen/blob/main/schemas/answer.schema.json",
-  "title": "Product Questionbook answer revision",
+  "$id": "https://github.com/MSKazemi/scrutable/blob/main/schemas/answer.schema.json",
+  "title": "Scrutable answer revision",
   "type": "object",
   "additionalProperties": false,
   "required": [

@@ -122,7 +122,7 @@ An answer record must separate what is known from what is proposed.
 
 ~~~yaml
 id: answer-validator-packaging-v3
-project_id: questionbook-validator
+project_id: scrutable-validator
 subject_id: conformance-validator
 question_instance_id: qi-validator-packaging
 revision: 3
@@ -255,7 +255,7 @@ Markdown is canonical for human review. YAML front matter carries schema and ide
 
 ## Implementation boundary
 
-Product Questionbook is **text-first, not text-only**. Markdown and YAML remain the
+Scrutable is **text-first, not text-only**. Markdown and YAML remain the
 normal interface for people and agents. Deterministic code is justified only where it
 prevents silent structural or policy errors that a language model should not be trusted
 to judge consistently.

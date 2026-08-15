@@ -1,4 +1,4 @@
-# Product Questionbook agent instructions
+# Scrutable agent instructions
 
 ## Purpose
 
@@ -38,7 +38,7 @@ against a target project does not require it.
 
 - Put a target project's run artifacts in that target project's `runs/<run-id>/`
   directory unless an owner explicitly selects a separate assurance repository.
-- Pin the target revision and `questionbook_ref` before analysis.
+- Pin the target revision and `scrutable_ref` before analysis.
 - Start with the ten questions in `catalog/core/project-profile.yaml` and activate
   conditional domains from recorded answers.
 - Separate facts, observations, inferences, assumptions, predictions, preferences,

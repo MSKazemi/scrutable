@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/MSKazemi/mohsen/blob/main/schemas/relationship.schema.json",
-  "title": "Product Questionbook typed relationship",
+  "$id": "https://github.com/MSKazemi/scrutable/blob/main/schemas/relationship.schema.json",
+  "title": "Scrutable typed relationship",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "source_id", "type", "target_id"],

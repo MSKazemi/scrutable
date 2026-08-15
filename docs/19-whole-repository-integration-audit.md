@@ -1,10 +1,16 @@
 # Whole-repository integration audit
 
 **Audit date:** 2026-08-12  
-**Repository:** `MSKazemi/mohsen`  
+**Repository:** `MSKazemi/scrutable`  
 **Branch:** `main`  
 **Baseline:** `b2c5bd2fcfc0bc0c7826e18cbbb6ccdcfc42bb41`  
 **Scope:** every file in the baseline tree, all internal joins, current branch and pull-request state, and the coordinated corrections recorded with this audit
+
+> **Note added 2026-08-15:** this is a dated snapshot. At the audit date the framework was
+> named *Product Questionbook* and the repository was `MSKazemi/mohsen`; both were renamed to
+> *Scrutable* / `MSKazemi/scrutable` on 2026-08-15 ([ADR-0007](../decisions/ADR-0007-rename-to-scrutable.md)).
+> Framework names in the text below have been updated for readability; the findings, dates, and
+> baseline commit are unchanged.
 
 ## Verdict
 

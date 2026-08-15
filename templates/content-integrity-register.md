@@ -4,7 +4,7 @@
 
 - Run ID:
 - Target revision:
-- Product Questionbook revision:
+- Scrutable revision:
 - Policy version:
 - Accountable content integrity owner:
 - Review period:

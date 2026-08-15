@@ -5,7 +5,7 @@
 - Run ID:
 - Customer / implementation scope:
 - Target revision and environment:
-- Product Questionbook revision:
+- Scrutable revision:
 - Provider implementation owner:
 - Customer implementation and outcome owners:
 - Review date and next gate:

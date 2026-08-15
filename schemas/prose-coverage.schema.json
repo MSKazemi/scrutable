@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/MSKazemi/mohsen/blob/main/schemas/prose-coverage.schema.json",
-  "title": "Product Questionbook prose-to-catalog coverage manifest",
+  "$id": "https://github.com/MSKazemi/scrutable/blob/main/schemas/prose-coverage.schema.json",
+  "title": "Scrutable prose-to-catalog coverage manifest",
   "type": "object",
   "additionalProperties": false,
   "required": [

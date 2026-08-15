@@ -1,5 +1,5 @@
 ---
-schema_version: questionbook-run/v0.1
+schema_version: scrutable-run/v0.1
 run_id: RUN-YYYY-NNNN
 subject_id: SUBJECT-NNN
 subject_type: application
@@ -9,8 +9,8 @@ owner: owner-id
 decision_to_enable: ""
 target_repository: ""
 target_revision: git-commit-sha
-questionbook_repository: MSKazemi/mohsen
-questionbook_ref: git-commit-sha
+scrutable_repository: MSKazemi/scrutable
+scrutable_ref: git-commit-sha
 policy_ref: policy-id-or-path
 gate_result: null
 blockers: []
@@ -55,7 +55,7 @@ updated_at: YYYY-MM-DDTHH:MM:SSZ
 
 ## Integrity checks
 
-- [ ] Target and Questionbook revisions are immutable and resolvable.
+- [ ] Target and Scrutable revisions are immutable and resolvable.
 - [ ] Unknowns, contradictions, stale records, and accepted risks are visible.
 - [ ] Critical blockers are not averaged away.
 - [ ] Every accepted consequential decision has evidence, owner, approval where

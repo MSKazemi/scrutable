@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/MSKazemi/mohsen/blob/main/schemas/domain-pack.schema.json",
-  "title": "Product Questionbook domain-pack manifest",
+  "$id": "https://github.com/MSKazemi/scrutable/blob/main/schemas/domain-pack.schema.json",
+  "title": "Scrutable domain-pack manifest",
   "type": "object",
   "additionalProperties": false,
   "required": [

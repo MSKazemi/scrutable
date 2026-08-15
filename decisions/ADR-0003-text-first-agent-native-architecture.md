@@ -7,7 +7,7 @@
 
 ## Context
 
-Product Questionbook is intended to help people and agents turn unclear ideas into
+Scrutable is intended to help people and agents turn unclear ideas into
 evidence-backed decisions and project documentation. Its artifacts must remain easy to
 inspect, edit, review, version, migrate, and use across different agent platforms.
 

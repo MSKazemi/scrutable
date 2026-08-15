@@ -9,7 +9,7 @@ them is scattered across meetings, tickets, and individual memory.
 
 ## Vision
 
-Product Questionbook helps a team discover what it needs to ask before the omission becomes
+Scrutable helps a team discover what it needs to ask before the omission becomes
 expensive. It maintains a connected, evolving model of questions, answers, evidence,
 decisions, risks, owners, and outputs for any software-producing effort.
 
@@ -38,7 +38,7 @@ boundary so that answers are neither accidentally global nor misleadingly narrow
 
 ## Success criteria for the framework
 
-Product Questionbook is succeeding when teams detect consequential omissions earlier,
+Scrutable is succeeding when teams detect consequential omissions earlier,
 produce stronger evidence for high-impact decisions, reduce contradictory documents,
 and can explain why a system was considered ready at a particular moment.
 

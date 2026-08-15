@@ -1,13 +1,13 @@
 # Coverage gaps and expansion backlog
 
-**Audit snapshot:** 2026-08-12, Product Questionbook 0.7 on `main`  
+**Audit snapshot:** 2026-08-12, Scrutable 0.7 on `main`  
 **Status:** evidence-based backlog and promotion ledger; published modules remain partial until representative evidence exists  
 **Scope:** important omissions in reusable software-product coverage and in the
 repository's ability to execute and validate that coverage
 
 ## Direct finding
 
-Product Questionbook has broad human-readable coverage: 21 aspects, core and detailed
+Scrutable has broad human-readable coverage: 21 aspects, core and detailed
 question banks, human-agent-robot-world integration, financial continuity,
 bottlenecks, naming, attraction and distribution, adversarial review, and governed
 self-improvement. It does not—and should not claim to—contain every question required
@@ -184,7 +184,7 @@ covered.
 ### 2. Deterministic conformance and semantic validator
 
 1. What callable validator accepts a repository or run snapshot pinned to a
-   Questionbook revision, whether invoked by CI, an agent, a library, or an optional
+   Scrutable revision, whether invoked by CI, an agent, a library, or an optional
    thin command wrapper?
 2. Does it parse and validate every catalog, instance, answer, relationship, and run
    record against its schema?

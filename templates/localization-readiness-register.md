@@ -4,7 +4,7 @@
 
 - Run ID:
 - Target revision:
-- Product Questionbook revision:
+- Scrutable revision:
 - International operations owner:
 - Qualified local legal, tax, payments, accessibility, and language reviewers:
 - Review date and next trigger:

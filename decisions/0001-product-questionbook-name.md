@@ -1,6 +1,11 @@
 # Decision: Use Product Questionbook as the framework name
 
-**Status:** Accepted as a working name
+> **Superseded on 2026-08-15 by [ADR-0007](ADR-0007-rename-to-scrutable.md).** The framework
+> is now named **Scrutable** and the repository is `MSKazemi/scrutable`. This record is kept
+> unaltered: it states what was decided on 2026-08-11 and what evidence supported it at that
+> time. Do not read it as current.
+
+**Status:** Superseded by ADR-0007 (was: accepted as a working name)
 **Date:** 2026-08-11
 **Owner:** Repository owner
 **Review trigger:** Public launch, commercial use, a material collision, or failed legal/search validation

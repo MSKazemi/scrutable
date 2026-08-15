@@ -1,8 +1,8 @@
 # Output contract
 
-Product Questionbook produces an **assurance package**, not only a questionnaire or a set of
+Scrutable produces an **assurance package**, not only a questionnaire or a set of
 documents. Outputs must be reproducible from canonical run records pinned to a target
-and Questionbook revision; a graph snapshot is a derived logical projection of those
+and Scrutable revision; a graph snapshot is a derived logical projection of those
 records.
 
 ## Machine-readable outputs

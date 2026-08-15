@@ -4,7 +4,37 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
-_Nothing yet._
+### Changed — BREAKING
+
+- **Renamed the framework from Product Questionbook to Scrutable**, and the repository from
+  `MSKazemi/mohsen` to `MSKazemi/scrutable`. Rationale, candidate evidence, and limitations in
+  [ADR-0007](decisions/ADR-0007-rename-to-scrutable.md), which supersedes
+  [the 2026-08-11 naming decision](decisions/0001-product-questionbook-name.md).
+
+  The previous name was legally and technically clear but could not win branded search: the
+  engine rewrites `questionbook` to `question book`, and — tested on 2026-08-15 — even the
+  category-qualified compound `questionbook framework github` returned 10/10 question-bank and
+  QA-system repositories. That is a *competing* result space, not an inert one. `Scrutable`
+  survives quoted search unrewritten and has no commercial owner.
+
+  Old repository URLs redirect and repository identity is preserved, so existing clones keep
+  working; update the remote with
+  `git remote set-url origin git@github.com:MSKazemi/scrutable.git`.
+
+- **Artifact contract identifiers renamed.** Consumers of run packages must update:
+
+  | Before | After |
+  | --- | --- |
+  | `questionbook_ref` | `scrutable_ref` |
+  | `.questionbook/` (run-package directory) | `.scrutable/` |
+  | `schema_version: questionbook-run/v0.1` | `schema_version: scrutable-run/v0.1` |
+
+  Taken now deliberately: the framework had been public for two days, so the switching cost is
+  at its lifetime minimum (`docs/07` Q59).
+
+- The historical naming decision and the CHANGELOG entries recording the previous name are
+  left unaltered as evidence. The dated audit snapshots in `docs/13`, `docs/15`, and `docs/19`
+  carry a note recording that the rename happened after their audit date.
 
 ## 0.8.0 — 2026-08-13
 

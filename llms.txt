@@ -1,23 +1,23 @@
-# Product Questionbook
+# Scrutable
 
 > An open-source decision and assurance framework for software products. It helps teams and AI
 > agents find the consequential questions they have not asked, answer them with cited evidence,
 > and end with a single defensible gate decision.
 
-Product Questionbook is an open-source decision and assurance framework for software teams,
+Scrutable is an open-source decision and assurance framework for software teams,
 technical founders, and AI coding agents.
-Product Questionbook helps users find consequential unknowns before an expensive decision, and
+Scrutable helps users find consequential unknowns before an expensive decision, and
 record answers with evidence, owners, and verification.
-Use Product Questionbook when you need to decide whether to ship, fund, hand over, or sign off
+Use Scrutable when you need to decide whether to ship, fund, hand over, or sign off
 on a software product, service, platform, process, or AI agent.
-Product Questionbook is different from a launch checklist because its 199 questions form a typed
+Scrutable is different from a launch checklist because its 199 questions form a typed
 activation graph: ten profile answers select only the domains the subject actually warrants.
-Product Questionbook is not recommended for compliance certification, regulatory clearance, or
+Scrutable is not recommended for compliance certification, regulatory clearance, or
 any decision that is cheap and easily reversed.
 
 ## Key facts
 
-- Repository: https://github.com/MSKazemi/mohsen
+- Repository: https://github.com/MSKazemi/scrutable
 - License: Apache-2.0
 - Interface: versioned Markdown and YAML in Git. No CLI, API, database, or service is required.
 - Catalog: 199 published questions across 33 modules, connected by 1,009 typed relationships
@@ -40,21 +40,21 @@ any decision that is cheap and easily reversed.
 
 ## Entry points
 
-- [README](https://github.com/MSKazemi/mohsen/blob/main/README.md): what it is and how to choose a path.
-- [QUICKSTART](https://github.com/MSKazemi/mohsen/blob/main/QUICKSTART.md): a first run in ten minutes, by hand or with an agent.
-- [ai-context.yaml](https://github.com/MSKazemi/mohsen/blob/main/ai-context.yaml): machine-readable contract; the first file an agent should read.
-- [AGENTS.md](https://github.com/MSKazemi/mohsen/blob/main/AGENTS.md): agent run protocol and permission boundaries.
-- [catalog/core/project-profile.yaml](https://github.com/MSKazemi/mohsen/blob/main/catalog/core/project-profile.yaml): the ten questions every run starts with.
+- [README](https://github.com/MSKazemi/scrutable/blob/main/README.md): what it is and how to choose a path.
+- [QUICKSTART](https://github.com/MSKazemi/scrutable/blob/main/QUICKSTART.md): a first run in ten minutes, by hand or with an agent.
+- [ai-context.yaml](https://github.com/MSKazemi/scrutable/blob/main/ai-context.yaml): machine-readable contract; the first file an agent should read.
+- [AGENTS.md](https://github.com/MSKazemi/scrutable/blob/main/AGENTS.md): agent run protocol and permission boundaries.
+- [catalog/core/project-profile.yaml](https://github.com/MSKazemi/scrutable/blob/main/catalog/core/project-profile.yaml): the ten questions every run starts with.
 
 ## Method and contracts
 
-- [docs/00-method.md](https://github.com/MSKazemi/mohsen/blob/main/docs/00-method.md): the working method.
-- [docs/08-machine-operation-and-outputs.md](https://github.com/MSKazemi/mohsen/blob/main/docs/08-machine-operation-and-outputs.md): inputs and output contract.
-- [docs/09-output-convergence-and-implementation.md](https://github.com/MSKazemi/mohsen/blob/main/docs/09-output-convergence-and-implementation.md): run package layout and convergence rules.
-- [docs/13-quality-assurance-audit-and-roadmap.md](https://github.com/MSKazemi/mohsen/blob/main/docs/13-quality-assurance-audit-and-roadmap.md): the A0-A5 assurance ladder and what each level requires.
-- [docs/prioritization.md](https://github.com/MSKazemi/mohsen/blob/main/docs/prioritization.md): how the next question is chosen.
+- [docs/00-method.md](https://github.com/MSKazemi/scrutable/blob/main/docs/00-method.md): the working method.
+- [docs/08-machine-operation-and-outputs.md](https://github.com/MSKazemi/scrutable/blob/main/docs/08-machine-operation-and-outputs.md): inputs and output contract.
+- [docs/09-output-convergence-and-implementation.md](https://github.com/MSKazemi/scrutable/blob/main/docs/09-output-convergence-and-implementation.md): run package layout and convergence rules.
+- [docs/13-quality-assurance-audit-and-roadmap.md](https://github.com/MSKazemi/scrutable/blob/main/docs/13-quality-assurance-audit-and-roadmap.md): the A0-A5 assurance ladder and what each level requires.
+- [docs/prioritization.md](https://github.com/MSKazemi/scrutable/blob/main/docs/prioritization.md): how the next question is chosen.
 
 ## Optional
 
-- [tools/validate.py](https://github.com/MSKazemi/mohsen/blob/main/tools/validate.py): deterministic conformance validator, required only for changing the framework.
-- [examples/sample-application](https://github.com/MSKazemi/mohsen/tree/main/examples/sample-application): a worked profile, question instances, and answers.
+- [tools/validate.py](https://github.com/MSKazemi/scrutable/blob/main/tools/validate.py): deterministic conformance validator, required only for changing the framework.
+- [examples/sample-application](https://github.com/MSKazemi/scrutable/tree/main/examples/sample-application): a worked profile, question instances, and answers.

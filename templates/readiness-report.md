@@ -3,7 +3,7 @@ artifact: readiness-report
 run_id: "<run-id>"
 project_id: "<project-id>"
 subject_id: "<subject-id>"
-questionbook_ref: "<git-commit-sha>"
+scrutable_ref: "<git-commit-sha>"
 gate: "<gate name>"
 graph_revision: 0
 generated_at: "<ISO-8601 timestamp>"

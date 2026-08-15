@@ -5,7 +5,7 @@
 
 ## What this repository is
 
-Product Questionbook is a text-first knowledge and decision protocol. It supplies questions, review rules, evidence expectations, schemas, and output templates that people and language-model agents can apply directly.
+Scrutable is a text-first knowledge and decision protocol. It supplies questions, review rules, evidence expectations, schemas, and output templates that people and language-model agents can apply directly.
 
 The canonical interface is versioned Markdown and YAML with JSON Schema and Git history. A CLI, API, database, graph service, or autonomous runtime is not required for normal use. The current absence of those components is therefore not, by itself, an implementation failure.
 
@@ -13,9 +13,9 @@ The logical model connects project context to questions, answers, decisions, ris
 
 ## System boundary
 
-The Questionbook machine may recommend, classify, validate, and generate artifacts. It must not silently claim evidence, approve its own high-impact decisions, deploy software, send commands to hardware, spend money, or contact people unless a separate, authorized adapter and approval policy explicitly permit that action.
+The Scrutable machine may recommend, classify, validate, and generate artifacts. It must not silently claim evidence, approve its own high-impact decisions, deploy software, send commands to hardware, spend money, or contact people unless a separate, authorized adapter and approval policy explicitly permit that action.
 
-For robot-connected or safety-critical systems, the repository is a planning and assurance input. A separately tested control system must translate approved decisions into bounded commands. Questionbook output is never a real-time control signal.
+For robot-connected or safety-critical systems, the repository is a planning and assurance input. A separately tested control system must translate approved decisions into bounded commands. Scrutable output is never a real-time control signal.
 
 ## Inputs
 
@@ -141,14 +141,14 @@ A minimal run artifact begins like this:
 
 ~~~yaml
 ---
-schema_version: questionbook-run/v0.1
+schema_version: scrutable-run/v0.1
 run_id: RUN-2026-0001
 subject_id: SUBJECT-001
 subject_type: application
 stage: design
 status: in_review
 owner: owner-id
-questionbook_ref: git-commit-sha
+scrutable_ref: git-commit-sha
 gate_result: pause
 blockers:
   - RISK-004
@@ -182,7 +182,7 @@ runs/<run-id>/
   graph.json
 ~~~
 
-Every generated artifact should record the Questionbook Git commit used, schema version, run ID, subject ID, timestamps, owner, and linked source node IDs.
+Every generated artifact should record the Scrutable Git commit used, schema version, run ID, subject ID, timestamps, owner, and linked source node IDs.
 
 ## Integration surfaces
 

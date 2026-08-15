@@ -13,7 +13,7 @@ labels: field-report
 - Subject type (service, library, platform, process, agent, other):
 - Roughly how large / how many people:
 - Which decision the run had to enable (ship, fund, hand over, sign off, "what am I missing"):
-- Questionbook revision or tag used:
+- Scrutable revision or tag used:
 
 ## What happened
 

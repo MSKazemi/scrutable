@@ -4,7 +4,7 @@
 
 - Run ID:
 - Target revision:
-- Product Questionbook revision:
+- Scrutable revision:
 - Accountable continuity owner:
 - Qualified legal and trade-review owner:
 - Review date and monitoring window:

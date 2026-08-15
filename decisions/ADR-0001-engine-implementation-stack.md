@@ -12,7 +12,7 @@ This ADR originally proposed a Python application containing parsing, graph algo
 a CLI, an HTTP API, persistence, rendering, and evaluation. That proposal treated a
 full reference engine as the next milestone.
 
-Product Questionbook is now explicitly text-first and agent-native. People and agents
+Scrutable is now explicitly text-first and agent-native. People and agents
 can apply it directly through versioned Markdown, YAML, JSON Schema, and Git. A
 database, service, API, or mandatory CLI would add deployment and maintenance cost
 without currently removing the controlling bottleneck.

@@ -2,7 +2,7 @@
 
 ## Scope
 
-Product Questionbook is a documentation-first framework: Markdown, YAML, JSON Schema,
+Scrutable is a documentation-first framework: Markdown, YAML, JSON Schema,
 and one offline validator script. It runs no service, stores no user data, and has no
 network surface. The realistic security concerns are therefore narrower than for an
 application, and they are stated here rather than left implied.
@@ -33,7 +33,7 @@ application, and they are stated here rather than left implied.
 Report privately. Do **not** open a public issue for a suspected vulnerability.
 
 - Preferred: GitHub private vulnerability reporting on
-  [`MSKazemi/mohsen`](https://github.com/MSKazemi/mohsen/security/advisories/new).
+  [`MSKazemi/scrutable`](https://github.com/MSKazemi/scrutable/security/advisories/new).
 - Alternative: email **mohsen.seyedkazemi@gmail.com** with `SECURITY` in the subject.
 
 Please include the affected file and revision, what an attacker or a misled agent could

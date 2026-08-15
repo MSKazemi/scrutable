@@ -1,4 +1,4 @@
-# Product Questionbook quick start
+# Scrutable quick start
 
 Use this guide to turn an unclear product or system idea into a first evidence-backed
 decision package. This repository is currently a framework, not an executable
@@ -25,7 +25,7 @@ independent review requires it. Record the chosen location in the run manifest.
    [`docs/09-output-convergence-and-implementation.md`](docs/09-output-convergence-and-implementation.md#output-package-layout)
    rather than inventing a second layout.
 2. Copy [`templates/run-manifest.md`](templates/run-manifest.md) to
-   `00-manifest.md` and record the target revision plus the Product Questionbook
+   `00-manifest.md` and record the target revision plus the Scrutable
    revision used for the run.
 3. Copy [`templates/project-charter.md`](templates/project-charter.md) to
    `01-context-and-success.md`. Use
@@ -61,9 +61,9 @@ completeness.
 Give the agent access to this repository and the target project, then use this prompt:
 
 ```text
-Apply Product Questionbook to this project.
+Apply Scrutable to this project.
 
-Read ai-context.yaml and AGENTS.md first. Pin the target revision and questionbook
+Read ai-context.yaml and AGENTS.md first. Pin the target revision and scrutable
 revision. Create a new runs/<run-id>/ directory in the target project. Start with the
 ten project-profile questions, separate facts from assumptions, cite evidence, expose
 critical blockers, and do not invent answers. Produce the minimum useful decision and

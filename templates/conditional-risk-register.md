@@ -4,7 +4,7 @@
 
 - Run ID:
 - Subject and revision:
-- Product Questionbook revision:
+- Scrutable revision:
 - Accountable risk owner:
 - Qualified domain reviewers:
 - Review date and next trigger:

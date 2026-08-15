@@ -1,6 +1,6 @@
 # Assurance rules
 
-Product Questionbook distinguishes catalog coverage, answered questions, verified claims, and
+Scrutable distinguishes catalog coverage, answered questions, verified claims, and
 accepted risk. A high answer count alone is not assurance.
 
 ## Question-complete criteria

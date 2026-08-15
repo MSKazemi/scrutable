@@ -1,6 +1,6 @@
 # Self-improvement and adversarial governance
 
-Product Questionbook improves by running a governed learning loop over evidence. It
+Scrutable improves by running a governed learning loop over evidence. It
 does not improve merely because an LLM rewrites text, produces more questions, or
 agrees with its previous output.
 
