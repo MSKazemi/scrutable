@@ -320,7 +320,7 @@ the field. See the maturity statement below before you rely on it.
 
 ## Status
 
-This is version `0.8.0`: the graph-ready documentation includes governed adversarial
+This is version `0.9.0`: the graph-ready documentation includes governed adversarial
 self-improvement, pivot lineage, attraction and distribution questions, reconciled
 human/agent/robot integration and financial-continuity controls, stable question IDs,
 machine-validatable schemas, a governed domain-pack interface, international and

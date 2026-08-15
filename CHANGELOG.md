@@ -4,6 +4,13 @@ Material framework changes are recorded here. Dates use `YYYY-MM-DD`.
 
 ## Unreleased
 
+_Nothing yet._
+
+## 0.9.0 — 2026-08-15
+
+Renames the framework. The only behavioural change is to the artifact contract identifiers;
+the catalog, graph, schemas, and gate vocabulary are untouched.
+
 ### Changed — BREAKING
 
 - **Renamed the framework from Product Questionbook to Scrutable**, and the repository from
