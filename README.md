@@ -338,3 +338,9 @@ representative runs and qualified evidence calibrate them; and no domain pack is
 published. The catalog is deliberately frozen at 199 questions until that empirical gap
 is addressed. See [`docs/13`](docs/13-quality-assurance-audit-and-roadmap.md) for the
 full ladder and what each level requires.
+
+<!-- legal-notice: start -->
+### Legal notice and responsible use
+
+The materials in this repository are made available without warranties to the extent permitted by applicable law. **Please read the [Disclaimer and Responsible-Use Notice](DISCLAIMER.md)** before relying on or deploying them. This notice does not change any existing software license or limit rights that cannot legally be waived.
+<!-- legal-notice: end -->
